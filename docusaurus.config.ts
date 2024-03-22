@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Fictionlab Documentation',
   tagline: 'Documentation and Tutorials for Fictionlab robots',
-  favicon: undefined,
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://docs.fictionlab.pl',
