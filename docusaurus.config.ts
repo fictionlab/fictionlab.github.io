@@ -89,6 +89,71 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
+      links: [
+        {
+          title: 'Company',
+          items: [
+            {
+              label: 'About us',
+              href: 'https://www.leorover.tech/about-us',
+            },
+            {
+              label: 'Blog',
+              href: 'https://www.leorover.tech/blog',
+            },
+            {
+              label: 'Tutorials',
+              href: 'https://www.leorover.tech/developers',
+            },
+            {
+              label: 'Online store',
+              href: 'https://www.leorover.tech/shop',
+            },
+            {
+              label: 'Terms and conditions',
+              href: 'https://www.leorover.tech/terms-and-conditions',
+            },
+          ],
+        },
+        {
+          title: 'Find us on:',
+          items: [
+            {
+              label: 'Youtube',
+              href: 'https://www.youtube.com/@leorover6230',
+            },
+            {
+              label: 'Linkedin',
+              href: 'https://www.linkedin.com/company/leorover/',
+            },
+            {
+              label: 'Online forum',
+              href: 'https://forum.fictionlab.pl/',
+            },
+            {
+              label: 'Facebook Community Group',
+              href: 'https://www.facebook.com/groups/leorover',
+            },
+          ],
+        },
+        {
+          items: [
+            {
+              html: `
+              <a href="https://fictionlab.pl" target="_blank" rel="noreferrer noopener">
+                <img src=img/fictionlab_logo_white.svg alt="Fictionlab" width="200" />
+              </a>
+            `,
+            },
+            {
+              html: `
+              Software is shared under MIT license. <br>
+              CAD and mechanics design files are shared under Creative Commons BY-NC-SA.
+              `,
+            },
+          ],
+        },
+      ],
       copyright: `Copyright © ${new Date().getFullYear()} Fictionlab sp. z o.o.`,
     },
     prism: {
