@@ -141,7 +141,7 @@ const config: Config = {
             {
               html: `
               <a href="https://fictionlab.pl" target="_blank" rel="noreferrer noopener">
-                <img src=img/fictionlab_logo_white.svg alt="Fictionlab" width="200" />
+                <img src= /img/fictionlab_logo_white.svg alt="Fictionlab" width="200" />
               </a>
             `,
             },
