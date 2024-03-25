@@ -23,8 +23,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Fictionlab documentation`}
+      description="Fictionlab documentation, tutorials & manuals for Leo, Rapha and Turtle Rovers. "
     >
       <HomepageHeader />
       <main></main>
