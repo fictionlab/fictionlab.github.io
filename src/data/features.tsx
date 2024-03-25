@@ -16,7 +16,7 @@ const FEATURES: FeatureItem[] = [
         src: '/img/website_images/leo-rover.webp',
         width: 300,
         height: 300,
-        hyperlink: '/docs/robots/leo-rover',
+        hyperlink: '/docs/leo-rover/specification',
       },
       text: (
         <p> Ready to go open-source 4x4 mobile robot. <br></br>
@@ -29,7 +29,7 @@ const FEATURES: FeatureItem[] = [
         src: '/img/website_images/rapha-rover.webp',
         width: 300,
         height: 300,
-        hyperlink: '/docs/robots/rapha-rover',
+        hyperlink: '/docs/rapha-rover/specification',
       },
       text: (
         <p> Research-ready platform designed to streamline development of various robotic projects, including inspection, agriculture, construction, and more. </p>

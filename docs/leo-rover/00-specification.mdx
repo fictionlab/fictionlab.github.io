@@ -1,0 +1,109 @@
+---
+title: Leo Rover 1.8 Developer Kit specification
+sidebar_label: Specification
+---
+
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Leo Rover 1.8 Developer Kit specification
+
+## Dimensions
+
+<ThemedImage 
+  alt="Leo Rover Dimensions"
+  sources={{
+    light: useBaseUrl('/img/docs_images/leo-rover_dimensions-black.webp'),
+    dark: useBaseUrl('/img/docs_images/leo-rover_dimensions-white.webp'),
+  }}
+  width='600px'
+/>
+
+## Size
+
+Weight: 6,5 kg \
+Dimensions: 425x448x305 mm \
+Payload capacity: 5 kg 
+
+## Upper platform mounting dimensions
+
+Dimensions: 299 x 183 mm \
+Hole grid: 18 x 15 mm \
+Holes: 40 x Φ7mm + 22 x Φ5,5mm
+
+## Electronics
+
+Raspberry Pi 4B as an on-board computer \
+LeoCore as a real-time microcontroller
+
+## Performance
+
+Estimated maximum obstacle size: 70mm \
+Protection rating: IP55 compliant \
+Connection range: Up to 100m (with live video stream)
+
+## Wheels
+
+Motors: 4 x in-hub DC motor with 73.2:1 planetary gearbox and 12 PPR encoder \
+Wheel diameter: 130 mm \
+Tire material: rubber with foam insert (non-pneumatic) 
+
+## Battery
+
+Voltage: 11.1 V DC \
+Capacity: 5000 mAh \
+Type: 3S Li-Ion with internal BMS \
+Safety features: 
+- Short-circuit
+- overcurrent
+- overdrain 
+
+Max. current: 8A (total for whole Rover) \
+Estimated 4 hrs battery life (nominal driving)
+
+## Camera
+
+Camera resolution: 5 MPx \
+Lens: Fisheye with 160 degree diagonal field of view (IR non-filtered; night-vision allowed)
+
+## Network 
+
+WiFi 2.4 or 5 GHz access point with external antenna \
+WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
+
+## Software
+
+<ThemedImage 
+  alt="Leo Rover Dimensions"
+  sources={{
+    light: useBaseUrl('/img/docs_images/leo-rover_software-diagram-black.webp'),
+    dark: useBaseUrl('/img/docs_images/leo-rover_software-diagram-white.webp'),
+  }}
+  width='800px'
+/>
+
+### Operating system
+
+Ubuntu 20.04 + ROS Noetic
+
+Alternatively: \
+Ubuntu 22.04 + ROS2 Humble
+
+Ready-to-go UI located under '10.0.0.1' when using standard Leo Software Image.
+
+## Connection interfaces
+
+### Externally avaliable
+
+- mini USB socket 
+- WiFi access point
+
+### Internal open interfaces 
+
+Raspberry Pi:
+- USB x2
+- GPIO x20
+- RJ45 Ethernet
+- RPi display port
+- Bluetooth 5.0 with BLE
+

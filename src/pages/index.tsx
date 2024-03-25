@@ -32,14 +32,16 @@ function Feature({
 
   return (
     <div className={clsx('col', className)}>
-      <img
-        className={styles.featureImage}
-        alt={feature.title}
-        width={Math.floor(feature.image.width)}
-        height={Math.floor(feature.image.height)}
-        src={withBaseUrl(feature.image.src)}
-        loading="lazy"
-      />
+      <a href={feature.image.hyperlink}>
+        <img
+          className={styles.featureImage}
+          alt={feature.title}
+          width={Math.floor(feature.image.width)}
+          height={Math.floor(feature.image.height)}
+          src={withBaseUrl(feature.image.src)}
+          loading="lazy"
+        />
+      </a>
       <Heading as="h3" className={clsx(styles.featureHeading)}>
         {feature.name}
       </Heading>
