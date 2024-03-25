@@ -70,8 +70,19 @@ const config: Config = {
           ],
         },
         {
+          href: 'https://www.leorover.tech/shop',
+          label: 'Online Store',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/fictionlab/docs',
-          label: 'GitHub',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+        },
+        {
+          href: 'https://fictionlab.pl',
+          label: 'Home',
           position: 'right',
         },
       ],
