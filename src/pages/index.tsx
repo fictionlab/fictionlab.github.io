@@ -35,7 +35,7 @@ function Feature({
       <a href={feature.image.hyperlink}>
         <img
           className={styles.featureImage}
-          alt={feature.title}
+          alt={feature.name}
           width={Math.floor(feature.image.width)}
           height={Math.floor(feature.image.height)}
           src={withBaseUrl(feature.image.src)}
