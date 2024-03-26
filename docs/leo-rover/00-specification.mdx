@@ -1,57 +1,81 @@
 ---
-title: Leo Rover 1.8 Developer Kit specification
+title: Leo Rover specification
 sidebar_label: Specification
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
 
-# Leo Rover 1.8 Developer Kit specification
+# Leo Rover specification
+<center>
+  <img 
+    src='/img/website_images/leo-rover.webp'
+    alt="Leo Rover 1.8"
+    style={{
+      width:'500px',
+      height:'350px',
+      'object-fit':'cover',
+      'object-position':'50% 70%',
+    }}
+  />
+</center>
 
-## Dimensions
+## Size and Performance
 
-<ThemedImage 
-  alt="Leo Rover Dimensions"
-  sources={{
-    light: useBaseUrl('/img/docs_images/leo-rover_dimensions-black.webp'),
-    dark: useBaseUrl('/img/docs_images/leo-rover_dimensions-white.webp'),
-  }}
-  width='600px'
-/>
+**Weight:** 6,5 kg \
+**Dimensions:** 425x448x305 mm 
 
-## Size
+**Maximum linear speed:** ~0.4m/s \
+**Maximum angular speed:** ~60 deg/s
 
-Weight: 6,5 kg \
-Dimensions: 425x448x305 mm \
-Payload capacity: 5 kg 
+**Estimated maximum obstacle size:** 70mm \
+**Protection rating:** IP55 compliant \
+**Run time:** Estimated 4 hours of nominal driving \
+**Connection range:** Up to 100m (with live video stream)
 
-## Upper platform mounting dimensions
+### Dimensions
 
-Dimensions: 299 x 183 mm \
-Hole grid: 18 x 15 mm \
-Holes: 40 x Φ7mm + 22 x Φ5,5mm
+<center>
+  <ThemedImage 
+    alt="Leo Rover Dimensions"
+    sources={{
+      light: useBaseUrl('/img/docs_images/leo-rover_dimensions-black.webp'),
+      dark: useBaseUrl('/img/docs_images/leo-rover_dimensions-white.webp'),
+    }}
+    width='600px'
+    height='1008px'
+  />
+</center>
 
-## Electronics
+### Payload
 
-Raspberry Pi 4B as an on-board computer \
-LeoCore as a real-time microcontroller
+**Payload capacity:** ~5 kg \
+**Upper mounting platform dimensions:** 299 x 183 mm \
+**Hole grid:** 18 x 15 mm \
+**Holes:** 40 x Φ7mm + 22 x Φ5,5mm
 
-## Performance
+#### Connection interfaces
 
-Estimated maximum obstacle size: 70mm \
-Protection rating: IP55 compliant \
-Connection range: Up to 100m (with live video stream)
+- miniUSB waterproof socket 
+- WiFi access point
 
-## Wheels
+## Components
 
-Motors: 4 x in-hub DC motor with 73.2:1 planetary gearbox and 12 PPR encoder \
-Wheel diameter: 130 mm \
-Tire material: rubber with foam insert (non-pneumatic) 
+### Wheels
 
-## Battery
+**Motors:** 4 x in-hub DC motor with 73.2:1 planetary gearbox and 12 PPR encoder \
+**Tire material:** rubber with foam insert (non-pneumatic) \
+**Inner rim diameter:** 71 mm \
+**Outer tire diameter:** ~130 mm \
+**Tire width:** ~70 mm 
+
+### Battery
 
 Voltage: 11.1 V DC \
-Capacity: 5000 mAh \
+Capacity: 5800 mAh \
 Type: 3S Li-Ion with internal BMS \
 Safety features: 
 - Short-circuit
@@ -61,49 +85,151 @@ Safety features:
 Max. current: 8A (total for whole Rover) \
 Estimated 4 hrs battery life (nominal driving)
 
-## Camera
+### Camera
 
 Camera resolution: 5 MPx \
 Lens: Fisheye with 160 degree diagonal field of view (IR non-filtered; night-vision allowed)
 
-## Network 
+### Network 
 
 WiFi 2.4 or 5 GHz access point with external antenna \
 WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
 
-## Software
+### Electronics
 
-<ThemedImage 
-  alt="Leo Rover Dimensions"
-  sources={{
-    light: useBaseUrl('/img/docs_images/leo-rover_software-diagram-black.webp'),
-    dark: useBaseUrl('/img/docs_images/leo-rover_software-diagram-white.webp'),
-  }}
-  width='800px'
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value='leo-1.8' label='Leo Rover v1.8'>
+    Raspberry Pi 4B as an on-board computer \
+    LeoCore as a real-time microcontroller
+
+    #### Internal open interfaces 
+
+    Raspberry Pi:
+    - USB x2
+    - GPIO x20
+    - RJ45 Ethernet
+    - RPi display port
+    - Bluetooth 5.0 with BLE
+
+  </TabItem>
+  <TabItem value='leo-pre1.8' label='Leo Rover < v1.8'>
+    Raspberry Pi 3B+ as an on-board computer \
+    Core2-ROS as real-time microcontroller: STM32F4 (@168MHz, 192KB RAM, 1MB Flash)
+
+    #### Internal open interfaces 
+
+    TODO
+  </TabItem>
+</Tabs>
+
+## Hardware structure
+
+<Tabs groupId="leo-rover-version">
+  <TabItem value='leo-1.8' label='Leo Rover v1.8'>
+    <center>
+      <ThemedImage 
+        alt="Leo Rover 1.8 hardware diagram"
+        sources={{
+        light: useBaseUrl('/img/docs_images/leo-rover-v1.8_hardware-diagram_black.webp'),
+        dark: useBaseUrl('/img/docs_images/leo-rover-v1.8_hardware-diagram_white.webp'),
+      }}
+      width='800px'
+      height='484px'
+      />
+    </center>
+
+    ### LeoCore controller
+
+    Leo Rover since version 1.8 is based on the LeoCore electronics board which,
+    together with the Raspberry Pi computer, controls all the Rover's functionalities.
+
+    (LeoCore photo) TODO
+
+    To make it easier, we listed all the interfaces used by Leo Rover as default.
+    Just to make sure you don't interfere with them when developing.
+
+    (LeoCore interfaces table) TODO
+
+    <Admonition type="warning" >
+      Take into concideration  during the Rover assembly and development.
+
+      The board corner where there's power connector and power-related components tends to interfere
+      with sensitive electronics such as wheel encoders. Make sure the encoder cables don't run on top of
+      the corner.
+    </Admonition>
+  </TabItem>
+  <TabItem value='leo-pre1.8' label='Leo Rover < v1.8'>
+    <center>
+      <ThemedImage 
+        alt="Leo Rover pre1.8 hardware diagram"
+        sources={{
+        light: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_black.webp'),
+        dark: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_white.webp'),
+      }}
+      width='800px'
+      height='575px'
+      />
+    </center>
+  </TabItem>
+</Tabs>
+
+## Software structure
+
+<Tabs groupId="leo-rover-version">
+  <TabItem value='leo-1.8' label='Leo Rover v1.8'>
+    <center>
+      <ThemedImage 
+        alt="Leo Rover 1.8 software diagram"
+        sources={{
+        light: useBaseUrl('/img/docs_images/leo-rover-v1.8_software-diagram_black.webp'),
+        dark: useBaseUrl('/img/docs_images/leo-rover-v1.8_software-diagram_white.webp'),
+      }}
+      width='800px'
+      height='366px'
+      />
+    </center>
+  </TabItem>
+  <TabItem value='leo-pre1.8' label='Leo Rover < v1.8'>
+    <center>
+      <ThemedImage 
+        alt="Leo Rover pre1.8 software diagram"
+        sources={{
+        light: useBaseUrl('/img/docs_images/leo-rover-pre1.8_software-diagram_black.webp'),
+        dark: useBaseUrl('/img/docs_images/leo-rover-pre1.8_software-diagram_white.webp'),
+      }}
+      width='800px'
+      height='353px'
+      />
+    </center>
+  </TabItem>
+</Tabs>
 
 ### Operating system
 
-Ubuntu 20.04 + ROS Noetic
+<Tabs groupId="leo-rover-version">
+  <TabItem value='leo-1.8' label='Leo Rover v1.8'>
+    Ubuntu 20.04 + ROS Noetic
 
-Alternatively: \
-Ubuntu 22.04 + ROS2 Humble
+    Alternatively: \
+    Ubuntu 22.04 + ROS2 Humble
+  </TabItem>
+  <TabItem value='leo-pre1.8' label='Leo Rover < v1.8'>
+    Ubuntu 16.04 + Robot Operating System (ROS)
+  </TabItem>
+</Tabs>
 
+:::info
 Ready-to-go UI located under '10.0.0.1' when using standard Leo Software Image.
+:::
 
-## Connection interfaces
+### Firmware
 
-### Externally avaliable
+TODO
 
-- mini USB socket 
-- WiFi access point
+### ROS nodes
 
-### Internal open interfaces 
+TODO
 
-Raspberry Pi:
-- USB x2
-- GPIO x20
-- RJ45 Ethernet
-- RPi display port
-- Bluetooth 5.0 with BLE
+### Web user interface (UI)
 
+TODO
