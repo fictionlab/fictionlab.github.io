@@ -157,7 +157,7 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
 
     To make it easier, we listed all the interfaces used by Leo Rover as default.
     Just to make sure you don't interfere with them when developing.
-
+    
     | Port | Functionality |
     | - | - |
     | Power input | to power the board |
@@ -254,17 +254,44 @@ Alternatively: \
 Ubuntu 22.04 + ROS2 Humble
 
 :::info
-Ready-to-go UI located under '10.0.0.1' when using standard Leo Software Image.
+Ready-to-go UI located under `10.0.0.1` when using standard Leo Software Image.
 :::
 
 ### Firmware
 
-TODO
+This is the program that runs directly on the processor of the LeoCore board.
+It provides different functionalities to the Raspberry Pi through serial bus.
+The main features of the default [leocore_firmware](https://github.com/LeoRover/leocore_firmware) are:
+
+- differential drive controller ([cmd_vel](https://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html) interface)
+- wheel states monitoring ([joint_states](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/JointState.html) interface)
+- battery voltage monitoring
+- wheel odometry calculation
+- IMU suport
 
 ### ROS nodes
 
-TODO
+When the Raspberry Pi boots, a set of ROS nodes is started. These nodes allow different features to
+be accessed via ROS topics and services. They are defined in [leo_bringup](https://github.com/fictionlab-archive/leo_bringup) package and mainly consist
+of:
+
+- [rosserial](https://wiki.ros.org/rosserial) node - communicates with the firmware via serial interface and makes its features
+available via ROS topics and services
+- [Rosbridge server](https://wiki.ros.org/rosbridge_suite) - creates WebSocket that provides a JSON API to ROS functionality for
+non-ROS programs.
+- [Raspicam](https://github.com/UbiquityRobotics/raspicam_node) node - publishes images from Raspberry Pi camera module to ROS image transport
+topic
+- [Web video server](https://wiki.ros.org/web_video_server) - provides a video stream of a ROS image transport topic that can be
+accessed via HTTP
+- Leo system node - provides system shutdown and reboot via ROS topics.
 
 ### Web user interface (UI)
 
-TODO
+This is the user interface that can be accessed via a web browser. It communicates with Rosbridge
+server using [roslibjs](https://wiki.ros.org/roslibjs) to access functionalities that are available in ROS topics. The
+default [leo_ui](https://github.com/LeoRover/leo_ui) brings features such as:
+
+- control of the Rover via a keyboard or a virtual joystick
+- display of a camera stream from Web video server
+- output of current battery voltage measurement
+- reboot and shutdown buttons
