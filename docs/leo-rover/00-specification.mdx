@@ -144,12 +144,29 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
     Leo Rover since version 1.8 is based on the LeoCore electronics board which,
     together with the Raspberry Pi computer, controls all the Rover's functionalities.
 
-    (LeoCore photo) TODO
+    <center>
+      <img 
+        src='/img/docs_images/LeoCore.webp'
+        alt="LeoCore controller"
+        style={{
+          width:'600px',
+          height:'420px',
+        }}
+      />
+    </center>
 
     To make it easier, we listed all the interfaces used by Leo Rover as default.
     Just to make sure you don't interfere with them when developing.
 
-    (LeoCore interfaces table) TODO
+    | Port | Functionality |
+    | - | - |
+    | Power input | to power the board |
+    | RPi port | to power and RPi serial communication |
+    | LED output | to control the batery LED (to show system readiness) | 
+    | Motor outpub A, B, C & D (PWM H-bridge) | to power the rover motors and encodes |
+    | ST-link/V2 6-pin port | used to flash firmware to the boad using ST-link/V2 (optionally) |
+
+
 
     <Admonition type="warning" >
       Take into concideration  during the Rover assembly and development.
