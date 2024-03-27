@@ -191,6 +191,30 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
   </TabItem>
 </Tabs>
 
+### 3-pin power connector pinout
+
+By default Leo Rover uses standard [WEIPU](https://www.weipuconnector.com/) SP13-3 connectors
+    for connecting battery, Main Electronics Box and other possible addons.
+
+
+<center>
+  <ThemedImage 
+    alt="Weipu SP13-3 pinout"
+    sources={{
+      light: useBaseUrl('/img/docs_images/weipu_SP13-3_pinout_black.webp'),
+      dark: useBaseUrl('/img/docs_images/weipu_SP13-3_pinout_white.webp'),
+    }}
+    width='400px'
+    height='244px'    
+  />
+</center>
+
+| Pin name | Cable color |
+| - | - |
+| DC- | black |
+| DC+ | red / black with white stripe |
+| LED | green |
+
 ## Software structure
 
 <Tabs groupId="leo-rover-version">
