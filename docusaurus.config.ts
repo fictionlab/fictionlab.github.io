@@ -51,6 +51,8 @@ const config: Config = {
         alt: 'fictionlab logo',
         src: 'img/fictionlab_logo_gray.svg',
         srcDark: 'img/fictionlab_logo_white.svg',
+        width: '98px',
+        height: '32px',
       },
       items: [
         {
@@ -141,7 +143,7 @@ const config: Config = {
             {
               html: `
               <a href="https://fictionlab.pl" target="_blank" rel="noreferrer noopener">
-                <img src= /img/fictionlab_logo_white.svg alt="Fictionlab" width="200" />
+                <img src= /img/fictionlab_logo_white.svg alt="Fictionlab" width="200" height='65' />
               </a>
             `,
             },
