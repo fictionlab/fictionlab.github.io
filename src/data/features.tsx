@@ -3,8 +3,9 @@ export type FeatureItem = {
   image: {
     src: string;
     width: number;
-    height: number;
+    height: number | string;
     hyperlink: string;
+    style: object;
   };
   text: JSX.Element;
 };
@@ -15,8 +16,9 @@ const FEATURES: FeatureItem[] = [
     image: {
       src: '/img/website_images/leo-rover.webp',
       width: 300,
-      height: 300,
+      height: 'auto',
       hyperlink: '/docs/leo-rover/specification',
+      style: { aspectRatio: '300/300' },
     },
     text: (
       <span>
@@ -30,8 +32,9 @@ const FEATURES: FeatureItem[] = [
     image: {
       src: '/img/website_images/rapha-rover.webp',
       width: 300,
-      height: 300,
+      height: 'auto',
       hyperlink: '/docs/rapha-rover/specification',
+      style: { aspectRatio: '300/300' },
     },
     text: (
       <span>

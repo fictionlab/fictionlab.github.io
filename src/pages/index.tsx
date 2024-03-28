@@ -42,9 +42,9 @@ function HomepageHeader() {
               dark: useBaseUrl('/img/fictionlab_logo_gray.svg'),
             }}
             width="300px"
-            height="98px"
+            height="auto"
             loading="eager"
-            style={{ float: 'right' }}
+            style={{ float: 'right', aspectRatio: '300/98' }}
           />
         </div>
       </div>
@@ -68,9 +68,10 @@ function Feature({
           className={styles.featureImage}
           alt={feature.name}
           width={Math.floor(feature.image.width)}
-          height={Math.floor(feature.image.height)}
+          height={feature.image.height}
           src={withBaseUrl(feature.image.src)}
           loading="lazy"
+          style={feature.image.style}
         />
       </a>
       <Heading as="h3" className={clsx(styles.featureHeading)}>
