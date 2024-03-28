@@ -2,11 +2,10 @@ import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import useBaseUrl, {useBaseUrlUtils} from '@docusaurus/useBaseUrl';
-import Features, {type FeatureItem} from '@site/src/data/features';
+import useBaseUrl, { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
+import Features, { type FeatureItem } from '@site/src/data/features';
 import Link from '@docusaurus/Link';
 import ThemedImage from '@theme/ThemedImage';
-
 
 import styles from './index.module.css';
 
@@ -14,41 +13,43 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <div className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className={clsx('container', styles.bannerContainer)} >
+      <div className={clsx('container', styles.bannerContainer)}>
         <div className={styles.bannerColumn}>
-          <Heading as="h1">
-            {siteConfig.title}
-          </Heading>
-          <Heading as='h3'>
-            {siteConfig.tagline}
-          </Heading>
+          <Heading as="h1">{siteConfig.title}</Heading>
+          <Heading as="h3">{siteConfig.tagline}</Heading>
           <div className={styles.indexCtas}>
-            <Link className='button button--primary' to="/docs/leo-rover/specification">
+            <Link
+              className="button button--primary"
+              to="/docs/leo-rover/specification"
+            >
               Get Started
             </Link>
-            </div>
-            <div className={styles.indexCtas}>
-            <Link className='button button--primary' to="https://www.leorover.tech/shop">
+          </div>
+          <div className={styles.indexCtas}>
+            <Link
+              className="button button--primary"
+              to="https://www.leorover.tech/shop"
+            >
               Online shop
             </Link>
           </div>
         </div>
-        <div className= {clsx( styles.bannerLogo , styles.bannerColumn)  }>
-        <ThemedImage
-          alt="Fictionlab logo"
-          sources={{
-            light: useBaseUrl( '/img/fictionlab_logo_white.svg' ),
-            dark: useBaseUrl( '/img/fictionlab_logo_gray.svg' ),
-          }}
-          width='300px'
-          height='98px'
-          loading='eager'
-          style={{ float: 'right' }}
-        />
+        <div className={clsx(styles.bannerLogo, styles.bannerColumn)}>
+          <ThemedImage
+            alt="Fictionlab logo"
+            sources={{
+              light: useBaseUrl('/img/fictionlab_logo_white.svg'),
+              dark: useBaseUrl('/img/fictionlab_logo_gray.svg'),
+            }}
+            width="300px"
+            height="98px"
+            loading="eager"
+            style={{ float: 'right' }}
+          />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function Feature({
@@ -58,7 +59,7 @@ function Feature({
   feature: FeatureItem;
   className?: string;
 }) {
-  const {withBaseUrl} = useBaseUrlUtils();
+  const { withBaseUrl } = useBaseUrlUtils();
 
   return (
     <div className={clsx('col', className)}>
