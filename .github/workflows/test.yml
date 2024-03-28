@@ -24,3 +24,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Test build website
         run: yarn build
+      - name: Check Types
+        run: yarn typecheck
+      - name: Check Formatting
+        run: yarn formatcheck
