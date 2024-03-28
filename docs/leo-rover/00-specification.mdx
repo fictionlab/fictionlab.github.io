@@ -14,6 +14,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
+import FlexTable from '@site/src/components/FlexTable';
+import FlexTableItem from '@site/src/components/FlexTableItem';
 
 # Leo Rover specification
 
@@ -133,33 +135,32 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
 
     #### Internal open interfaces
 
-  <div style={{ display:'flex' }}>
-    <div style={{ width: '50%' }}>
+    <FlexTable width='100%'>
+      <FlexTableItem width='50%'>
+        
+        Raspberry Pi:
 
-      Raspberry Pi:
+        - USB x2
+        - GPIO x20
+        - RJ45 Ethernet
+        - RPi display port
+        - Bluetooth 5.0 with BLE
 
-      - USB x2
-      - GPIO x20
-      - RJ45 Ethernet
-      - RPi display port
-      - Bluetooth 5.0 with BLE
+      </FlexTableItem>
+      <FlexTableItem width='50%'>
+        
+        Core2:
 
-    </div>
-    <div style={{ width: '50%' }}>
+        - 6 x servomotor interface with built-in DC/DC converter (selectable multiple voltage level)
+        - 4 x UART
+        - 3 x I2C
+        - 1 x SPI
+        - 1 x CAN
+        - 13 x ADC
+        - 8 x interrupt input
 
-      Core2:
-
-      - 6 x servomotor interface with built-in DC/DC converter (selectable multiple voltage level)
-      - 4 x UART
-      - 3 x I2C
-      - 1 x SPI
-      - 1 x CAN
-      - 13 x ADC
-      - 8 x interrupt input
-
-    </div>
-
-  </div>
+      </FlexTableItem>
+    </FlexTable>
   </TabItem>
 </Tabs>
 
@@ -365,4 +366,4 @@ default [leo_ui](https://github.com/LeoRover/leo_ui) brings features such as:
 - control of the Rover via a keyboard or a virtual joystick
 - display of a camera stream from Web video server
 - output of current battery voltage measurement
-- reboot and shutdown buttons
+- reboot and shutdown buttons@site/src/components/FlexTable@site/src/components/FlexTable@site/src/components/FlexTable/FlexTable@site/src/components/FlexTable/FlexTable

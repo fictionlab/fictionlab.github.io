@@ -1,0 +1,9 @@
+.flexTableItem {
+    width: '50%';
+}
+
+@media screen and (max-width: 996px) {
+    .flexTableItem {
+        width: '100%';
+    }
+}
