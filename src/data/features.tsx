@@ -19,10 +19,10 @@ const FEATURES: FeatureItem[] = [
       hyperlink: '/docs/leo-rover/specification',
     },
     text: (
-      <p>
-        Ready to go open-source 4x4 mobile robot. <br></br>
-        Weatherproof | ROS based | Built-in UI and video streaming
-      </p>
+      <span>
+        `Ready to go open-source 4x4 mobile robot. <br /> Weatherproof | ROS
+        based | Built-in UI and video streaming`
+      </span>
     ),
   },
   {
@@ -34,11 +34,11 @@ const FEATURES: FeatureItem[] = [
       hyperlink: '/docs/rapha-rover/specification',
     },
     text: (
-      <p>
-        Research-ready platform designed to streamline development of various
+      <span>
+        `Research-ready platform designed to streamline development of various
         robotic projects, including inspection, agriculture, construction, and
-        more.
-      </p>
+        more.`
+      </span>
     ),
   },
 ];
