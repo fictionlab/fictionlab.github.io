@@ -21,9 +21,10 @@ import Admonition from '@theme/Admonition';
     loading='eager'
     src='/img/website_images/leo-rover.webp'
     alt="Leo Rover 1.8"
+    width='500'
+    height='auto'
     style={{
-      width:'500px',
-      height:'350px',
+      'aspect-ratio':'500/350',
       'object-fit':'cover',
       'object-position':'50% 70%',
     }}
@@ -52,8 +53,12 @@ import Admonition from '@theme/Admonition';
       light: useBaseUrl('/img/docs_images/leo-rover_dimensions-black.webp'),
       dark: useBaseUrl('/img/docs_images/leo-rover_dimensions-white.webp'),
     }}
-    width='600px'
-    height='1008px'
+    width='600'
+    height='auto'
+    style={{
+      'aspect-ratio':'600/1008',
+      'object-fit': 'contain',
+    }}
   />
 </center>
 
@@ -167,7 +172,11 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
         dark: useBaseUrl('/img/docs_images/leo-rover-v1.8_hardware-diagram_white.webp'),
       }}
       width='800px'
-      height='484px'
+      height='auto'
+      style={{
+        'aspect-ratio':'800/484',
+        'object-fit': 'contain',
+      }}
       />
     </center>
 
@@ -180,10 +189,13 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
       <img 
         src='/img/docs_images/LeoCore.webp'
         alt="LeoCore controller"
+        width='600'
+        height='auto'
         style={{
-          width:'600px',
-          height:'420px',
+          'aspect-ratio':'600/420',
+          'object-fit': 'contain',
         }}
+        
       />
     </center>
 
@@ -216,8 +228,12 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
         light: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_black.webp'),
         dark: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_white.webp'),
       }}
-      width='800px'
-      height='575px'
+        width='800px'
+        height='auto'
+        style={{
+          'aspect-ratio':'800/575',
+          'object-fit': 'contain',
+        }}
       />
     </center>
   </TabItem>
@@ -237,7 +253,11 @@ By default Leo Rover uses standard [WEIPU](https://www.weipuconnector.com/) SP13
       dark: useBaseUrl('/img/docs_images/weipu_SP13-3_pinout_white.webp'),
     }}
     width='400px'
-    height='244px'    
+    height='auto'
+    style={{
+      'aspect-ratio':'400/244',
+      'object-fit': 'contain',
+    }}
   />
 </center>
 
@@ -258,8 +278,12 @@ By default Leo Rover uses standard [WEIPU](https://www.weipuconnector.com/) SP13
         light: useBaseUrl('/img/docs_images/leo-rover-v1.8_software-diagram_black.webp'),
         dark: useBaseUrl('/img/docs_images/leo-rover-v1.8_software-diagram_white.webp'),
       }}
-      width='800px'
-      height='366px'
+      width='800'
+      height='auto'
+      style={{
+        'aspect-ratio':'800/366',
+        'object-fit': 'contain',
+      }}
       />
     </center>
   </TabItem>
@@ -271,8 +295,12 @@ By default Leo Rover uses standard [WEIPU](https://www.weipuconnector.com/) SP13
         light: useBaseUrl('/img/docs_images/leo-rover-pre1.8_software-diagram_black.webp'),
         dark: useBaseUrl('/img/docs_images/leo-rover-pre1.8_software-diagram_white.webp'),
       }}
-      width='800px'
-      height='353px'
+        width='800'
+        height='auto'
+        style={{
+          'aspect-ratio':'800/353',
+          'object-fit': 'contain',
+        }}
       />
     </center>
   </TabItem>
