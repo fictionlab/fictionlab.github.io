@@ -4,20 +4,66 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 2rem 0;
   position: relative;
   overflow: hidden;
+}
+
+.bannerContainer {
+  width: 70%;
+  display: flex;
+}
+
+.bannerContainer:after {
+  clear: both;
+}
+
+.bannerColumn {
+  float: left;
+  width: 50%;
+}
+
+.bannerLogo {
+  justify-content: right;
+  align-items: center;
+  display: flex;
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
   }
+  .bannerColumn {
+    width: 100%;
+  }
+  .bannerLogo {
+    display: none;
+  }
+  .bannerContainer {
+    width: 100%;
+  }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.indexCtas {
+  --ifm-button-size-multiplier: 1.4;
+  display: inline;
+}
+
+.indexCtas a {
+  color: white;
+  background-color: var(--ifm-color-primary-darkest);
+  margin: 20px 20px;
+}
+
+.indexCtas a:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+[data-theme='dark'] .indexCtas a {
+  color: black;
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .indexCtas a:hover {
+  background-color: var(--ifm-color-primary-light);
 }

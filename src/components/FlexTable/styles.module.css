@@ -1,0 +1,9 @@
+.flexTable {
+    display: 'flex';
+}
+
+@media screen and (max-width: 996px) {
+    .flexTable {
+        width: 100%;
+    }
+}

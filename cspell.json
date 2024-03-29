@@ -1,0 +1,34 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "bringup",
+        "GPIO",
+        "leocore",
+        "microcontroller",
+        "odometry",
+        "overcurrent",
+        "pinout",
+        "Rapha",
+        "Raspicam",
+        "Rosbridge",
+        "roslibjs",
+        "rosserial",
+        "UART",
+        "webp",
+        "WEIPU"
+    ],
+    "ignoreWords": [],
+    "import": [],
+    "enableFiletypes": [
+        "!css",
+        "!javascript",
+        "!json",
+        "!jsonc",
+        "!typescript",
+        "!typescriptreact",
+        "mdx"
+    ]
+}

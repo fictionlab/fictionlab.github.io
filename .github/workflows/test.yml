@@ -10,8 +10,8 @@ on:
       - development
 
 jobs:
-  build:
-    name: Build
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,3 +24,9 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Test build website
         run: yarn build
+      - name: Check Types
+        run: yarn typecheck
+      - name: Check Formatting
+        run: yarn formatcheck
+      - name: Check spelling
+        run: yarn spellcheck
