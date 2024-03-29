@@ -9,7 +9,9 @@
         "leocore",
         "microcontroller",
         "odometry",
+        "overcurrent",
         "pinout",
+        "Rapha",
         "Raspicam",
         "Rosbridge",
         "roslibjs",
@@ -26,6 +28,7 @@
         "!json",
         "!jsonc",
         "!typescript",
+        "!typescriptreact",
         "mdx"
     ]
 }
