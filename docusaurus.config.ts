@@ -66,6 +66,11 @@ const config: Config = {
               label: 'Leo Rover',
             },
             {
+              type: 'docSidebar',
+              sidebarId: 'raphaSidebar',
+              label: 'Rapha Rover',
+            },
+            {
               href: 'https://docs.turtlerover.com/',
               label: 'Turtle Rover (Legacy)',
             },
