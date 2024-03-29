@@ -28,3 +28,5 @@ jobs:
         run: yarn typecheck
       - name: Check Formatting
         run: yarn formatcheck
+      - name: Check spelling
+        run: yarn spellcheck
