@@ -4,9 +4,8 @@ import styles from './styles.module.css';
 export default function FlexTable({ children, width = '100%' }) {
   return (
     <div
-      className="flexTable"
+      className={styles.flexTable}
       style={{
-        display: 'flex',
         width: width,
       }}
     >

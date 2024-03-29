@@ -1,12 +1,12 @@
 import React from 'react';
+import clsx from 'clsx';
 import styles from './styles.module.css';
 
-export default function FlexTableItem({ children, width }) {
+export default function FlexTableItem({ children, width = '50%' }) {
   return (
     <div
-      className="flexTableItem"
+      className={styles.flexTableItem}
       style={{
-        float: 'left',
         width: width,
       }}
     >
