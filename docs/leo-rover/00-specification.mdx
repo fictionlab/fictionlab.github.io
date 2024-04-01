@@ -4,18 +4,19 @@ sidebar_label: Specification
 sidebar_position: 1
 ---
 
-import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 import FlexTable from '@site/src/components/FlexTable';
 import FlexTableItem from '@site/src/components/FlexTableItem';
+import ImageZoom from '@site/src/components/ImageZoom';
+import ThemedImageZoom from '@site/src/components/ThemedImageZoom'
 
 # Leo Rover specification
 
 <center>
-  <img
+  <ImageZoom
     loading="eager"
     src="/img/website_images/leo-rover.webp"
     alt="Leo Rover 1.8"
@@ -44,7 +45,7 @@ import FlexTableItem from '@site/src/components/FlexTableItem';
 ### Dimensions
 
 <center>
-  <ThemedImage
+  <ThemedImageZoom
     alt="Leo Rover Dimensions"
     sources={{
       light: useBaseUrl('/img/docs_images/leo-rover_dimensions-black.webp'),
@@ -164,18 +165,18 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
 <Tabs groupId="leo-rover-version">
   <TabItem value='leo-1.8' label='Leo Rover v1.8'>
     <center>
-      <ThemedImage 
+      <ThemedImageZoom 
         alt="Leo Rover 1.8 hardware diagram"
         sources={{
-        light: useBaseUrl('/img/docs_images/leo-rover-v1.8_hardware-diagram_black.webp'),
-        dark: useBaseUrl('/img/docs_images/leo-rover-v1.8_hardware-diagram_white.webp'),
-      }}
-      width='800px'
-      height='auto'
-      style={{
-        aspectRatio:'800/484',
-        objectFit: 'contain',
-      }}
+          light: useBaseUrl('/img/docs_images/leo-rover-v1.8_hardware-diagram_black.webp'),
+          dark: useBaseUrl('/img/docs_images/leo-rover-v1.8_hardware-diagram_white.webp'),
+        }}
+        width='800px'
+        height='auto'
+        style={{
+          aspectRatio:'800/484',
+          objectFit: 'contain',
+        }}
       />
     </center>
 
@@ -185,7 +186,7 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
     together with the Raspberry Pi computer, controls all the Rover's functionalities.
 
     <center>
-      <img
+      <ImageZoom
         src='/img/docs_images/LeoCore.webp'
         alt="LeoCore controller"
         width='600'
@@ -222,12 +223,12 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
   </TabItem>
   <TabItem value='leo-pre1.8' label='Leo Rover < v1.8'>
     <center>
-      <ThemedImage 
+      <ThemedImageZoom
         alt="Leo Rover pre1.8 hardware diagram"
         sources={{
-        light: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_black.webp'),
-        dark: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_white.webp'),
-      }}
+          light: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_black.webp'),
+          dark: useBaseUrl('/img/docs_images/leo-rover-pre1.8_hardware-diagram_white.webp'),
+        }}
         width='800px'
         height='auto'
         style={{
@@ -245,7 +246,7 @@ By default Leo Rover uses standard [WEIPU](https://www.weipuconnector.com/) SP13
 for connecting battery, Main Electronics Box and other possible addons.
 
 <center>
-  <ThemedImage
+  <ThemedImageZoom
     alt="Weipu SP13-3 pinout"
     sources={{
       light: useBaseUrl('/img/docs_images/weipu_SP13-3_pinout_black.webp'),
@@ -271,7 +272,7 @@ for connecting battery, Main Electronics Box and other possible addons.
 <Tabs groupId="leo-rover-version">
   <TabItem value="leo-1.8" label="Leo Rover v1.8">
     <center>
-      <ThemedImage
+      <ThemedImageZoom
         alt="Leo Rover 1.8 software diagram"
         sources={{
           light: useBaseUrl(
@@ -292,7 +293,7 @@ for connecting battery, Main Electronics Box and other possible addons.
   </TabItem>
   <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
     <center>
-      <ThemedImage
+      <ThemedImageZoom
         alt="Leo Rover pre1.8 software diagram"
         sources={{
           light: useBaseUrl(

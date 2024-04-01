@@ -4,6 +4,10 @@ sidebar_label: Getting started
 sidebar_position: 1
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ImageZoom from '@site/src/components/ImageZoom';
+import ThemedImageZoom from '@site/src/components/ThemedImageZoom'
+
 # Getting started
 
 ## Before you power on the Rover
@@ -12,7 +16,15 @@ sidebar_position: 1
 
 Connect the mating pair of the 3-pin connectors: the battery and the converter located on the opposite side of the Rover. Then, fit the battery cables inside the Rover's back-rib and slide the battery on back-left quarter of the Rover's body. Tighten the 3x M5 screws using the provided screwdriver.
 
-![leo-rover-allen](/img/leo-battery-allen.jpg)
+<center>
+  <ImageZoom
+    loading="eager"
+    src="/img/leo-battery-allen.jpg"
+    alt="Leo Battery allen"
+    width="400"
+    height="auto"
+  />
+</center>
 
 ## Operation & maintenance
 
@@ -42,7 +54,15 @@ To access the Web User Interface, open your web browser and type in the address 
 http://10.0.0.1/
 ```
 
-![leo-ui](/img/leo-ui.jpg)
+<center>
+  <ImageZoom
+    loading="eager"
+    src="/img/leo-ui.jpg"
+    alt="Leo UI"
+    width="400"
+    height="auto"
+  />
+</center>
 
 ## Turn off the Rover properly
 
