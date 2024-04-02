@@ -20,6 +20,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
+  --ifm-background-color:#333333 !important; 
   --ifm-color-primary: #d8954f;
   --ifm-color-primary-dark: #d58e43;
   --ifm-color-primary-darker: #d38637;
@@ -49,4 +50,8 @@
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 999;
+}
+
+.footer {
+  background-color: #242526 !important;
 }
