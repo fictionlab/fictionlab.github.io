@@ -53,16 +53,16 @@ const config: Config = {
         googleTagManager: {
           containerId: 'TODO',
         },
-        colorMode: {
-          defaultMode: 'dark',
-          disableSwitch: false,
-          respectPrefersColorScheme: true,
-        },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       logo: {
         alt: 'fictionlab logo',
