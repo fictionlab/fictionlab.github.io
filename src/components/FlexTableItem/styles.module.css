@@ -1,9 +1,9 @@
 .flexTableItem {
-    float: left;
+  float: left;
 }
 
 @media screen and (max-width: 996px) {
-    .flexTableItem {
-        width: 100% !important;
-    }
+  .flexTableItem {
+    width: 100% !important;
+  }
 }
