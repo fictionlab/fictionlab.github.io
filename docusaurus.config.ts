@@ -41,6 +41,7 @@ const config: Config = {
           editUrl: 'https://github.com/fictionlab/docs/edit/development/',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          showLastUpdateTime: true,
         },
         theme: {
           customCss: './src/css/custom.css',
