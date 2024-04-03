@@ -17,7 +17,7 @@ const FEATURES: FeatureItem[] = [
       src: '/img/website_images/leo-rover.webp',
       width: 300,
       height: 'auto',
-      hyperlink: '/docs/leo-rover/specification',
+      hyperlink: '/docs/leo-rover/getting-started',
       style: { aspectRatio: '300/300' },
     },
     text: (
