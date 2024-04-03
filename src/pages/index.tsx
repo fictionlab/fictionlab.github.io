@@ -20,7 +20,7 @@ function HomepageHeader() {
           <div className={styles.indexCtas}>
             <Link
               className="button button--primary"
-              to="/docs/leo-rover/specification"
+              to="/docs/leo-rover/getting-started"
             >
               Get Started
             </Link>
