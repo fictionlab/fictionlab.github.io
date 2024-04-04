@@ -6,4 +6,6 @@
 .figure {
   width: 100%;
   margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
