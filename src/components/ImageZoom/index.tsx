@@ -39,5 +39,6 @@ export default function ImageZoom(props: ImageZoomProps): JSX.Element {
         <figcaption className={styles.figCaption}>{figureCaption}</figcaption>
       </figure>
     );
-  } else return <img {...propsRest} ref={attachZoom} />;
+  } else
+    return <img className={styles.image} {...propsRest} ref={attachZoom} />;
 }
