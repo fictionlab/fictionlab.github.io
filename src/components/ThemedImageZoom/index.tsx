@@ -1,6 +1,6 @@
 import { Props as ThemedImageProps } from '@theme/ThemedImage';
 import { ThemedComponent } from '@docusaurus/theme-common';
-import ImageZoom, { ImageZoomProps } from './ImageZoom';
+import ImageZoom, { ImageZoomProps } from '@site/src/components/ImageZoom';
 
 export interface ThemedImageZoomProps
   extends ThemedImageProps,
