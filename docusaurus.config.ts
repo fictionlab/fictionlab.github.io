@@ -52,11 +52,11 @@ const config: Config = {
           priority: null,
         },
         gtag: {
-          trackingID: 'TODO',
+          trackingID: 'G-KLVJP3SWPW',
           anonymizeIP: true,
         },
         googleTagManager: {
-          containerId: 'TODO',
+          containerId: 'GTM-5ZBFQ5RC',
         },
       } satisfies Preset.Options,
     ],
