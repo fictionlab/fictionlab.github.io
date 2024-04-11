@@ -13,23 +13,27 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mdx}\"",
-    "formatcheck": "prettier --check \"**/*.{js,jsx,ts,tsx,mdx}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mdx,css}\"",
+    "formatcheck": "prettier --check \"**/*.{js,jsx,ts,tsx,mdx,css}\"",
     "spellcheck": "cspell \"**/*.mdx\""
   },
   "dependencies": {
-    "@docusaurus/core": "3.1.1",
-    "@docusaurus/preset-classic": "3.1.1",
+    "@docusaurus/core": "3.2.0",
+    "@docusaurus/preset-classic": "3.2.0",
     "@mdx-js/react": "^3.0.1",
     "clsx": "^2.1.0",
+    "medium-zoom": "^1.1.0",
     "prism-react-renderer": "^2.3.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-lite-youtube-embed": "^2.4.0",
+    "rehype-katex": "7",
+    "remark-math": "6"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.1.1",
-    "@docusaurus/tsconfig": "3.1.1",
-    "@docusaurus/types": "3.1.1",
+    "@docusaurus/module-type-aliases": "3.2.0",
+    "@docusaurus/tsconfig": "3.2.0",
+    "@docusaurus/types": "3.2.0",
     "cspell": "^8.6.1",
     "prettier": "^3.2.5",
     "typescript": "~5.4.3"

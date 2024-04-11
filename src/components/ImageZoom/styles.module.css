@@ -1,0 +1,16 @@
+.figCaption {
+  text-align: center;
+  font-style: italic;
+}
+
+.figure {
+  width: 100%;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.image {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

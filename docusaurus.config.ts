@@ -1,6 +1,8 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
   title: 'Fictionlab Documentation',
@@ -37,15 +39,41 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/fictionlab/docs/edit/development/',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+          showLastUpdateTime: true,
         },
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: null,
+          priority: null,
+        },
+        gtag: {
+          trackingID: 'G-KLVJP3SWPW',
+          anonymizeIP: true,
+        },
+        googleTagManager: {
+          containerId: 'GTM-5ZBFQ5RC',
+        },
       } satisfies Preset.Options,
     ],
   ],
+  stylesheets: [
+    {
+      href: '/assets/katex/katex.min.css',
+      type: 'text/css',
+    },
+  ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       logo: {
         alt: 'fictionlab logo',
@@ -64,6 +92,11 @@ const config: Config = {
               type: 'docSidebar',
               sidebarId: 'leoSidebar',
               label: 'Leo Rover',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'raphaSidebar',
+              label: 'Rapha Rover',
             },
             {
               href: 'https://docs.turtlerover.com/',
@@ -161,6 +194,14 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    announcementBar: {
+      id: 'announcementBar_work-in-progress',
+      content: `New docs are still work in progress! Expect dead links, missing tutorials etc. <br>
+          For documentation visit <a href="https://docs.leorover.tech">docs.leorover.tech</a>`,
+      backgroundColor: '#c57b2c',
+      textColor: '#ffffff',
+      isCloseable: false,
     },
   } satisfies Preset.ThemeConfig,
 };
