@@ -195,6 +195,15 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    announcementBar: {
+      id: 'announcementBar_work-in-progress',
+      content:
+        `New docs are still work in progress! Expect dead links, missing tutorials etc. <br>
+          For documentation visit <a href="https://docs.leorover.tech">docs.leorover.tech</a>`,
+      backgroundColor: '#c57b2c',
+      textColor: '#ffffff',
+      isCloseable: false,
+    },
   } satisfies Preset.ThemeConfig,
 };
 

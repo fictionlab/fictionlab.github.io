@@ -55,3 +55,11 @@ html[data-theme='dark'] {
 .footer {
   background-color: #242526;
 }
+
+div[class^='announcementBar_'] {
+  font-size: 20px;
+  font-weight: bold;
+  height: auto;
+}
+
+
