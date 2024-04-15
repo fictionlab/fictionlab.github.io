@@ -20,7 +20,7 @@ export default function ImageZoom(props: ImageZoomProps): JSX.Element {
     }
     return zoomRef.current;
   }
-  
+
   const imageRef: RefCallback<HTMLImageElement> = (node) => {
     const zoom = getZoom();
     if (node && allowZoom != false) {
