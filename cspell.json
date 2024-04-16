@@ -53,7 +53,9 @@
         "WEIPU",
         "widowx"
     ],
-    "ignoreWords": [],
+    "ignoreWords": [
+        "xmyz"
+    ],
     "import": [],
     "enableFiletypes": [
         "!css",
