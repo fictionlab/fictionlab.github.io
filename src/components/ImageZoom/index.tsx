@@ -33,9 +33,9 @@ export default function ImageZoom(props: ImageZoomProps): JSX.Element {
       node.setAttribute('loading', 'lazy');
   };
 
-  if( propsRest.width == undefined || propsRest.height == undefined )
-    throw new Error( 'No explicit image size set.\n' + propsRest.src );
-  
+  if (propsRest.width == undefined || propsRest.height == undefined)
+    throw new Error('No explicit image size set.\n' + propsRest.src);
+
   return (
     <figure className={styles.figure} style={figStyle}>
       <img className={styles.image} {...propsRest} ref={imageRef} />
