@@ -29,12 +29,7 @@ export default function ImageZoom(props: ImageZoomProps): JSX.Element {
       zoom.detach();
     }
 
-    if (node) {
-      if (!node.getAttribute('loading')) node.setAttribute('loading', 'lazy');
-      const { naturalWidth, naturalHeight } = node;
-      node.setAttribute('width', String(naturalWidth));
-      node.setAttribute('height', String(naturalHeight));
-    }
+    if (!node.getAttribute('loading')) node.setAttribute('loading', 'lazy');
   };
 
   return (
