@@ -4,6 +4,7 @@
 }
 
 .figure {
+  max-width: 100%;
   width: 700px;
   margin: auto;
   padding-top: 10px;
@@ -16,10 +17,4 @@
   object-fit: contain;
   display: block;
   margin: auto;
-}
-
-@media screen and (max-width: 996px) {
-  .figure {
-    width: 100% !important;
-  }
 }
