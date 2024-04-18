@@ -6,7 +6,7 @@ import isInternalUrl from '@docusaurus/isInternalUrl';
 
 export interface LinkButtonProps extends LinkProps {
   icon?: string;
-  text?: string;
+  description?: string;
 }
 
 
@@ -22,18 +22,18 @@ export default function LinkButton( props:LinkButtonProps ) {
   }
 
   function get_description( props:LinkButtonProps ) {
-    if( props.text )
-      return props.text;
+    if( props.description )
+      return props.description;
     else
       return props.to;
   }
 
   var text:string;
 
-  if( !props.text )
+  if( !props.description )
     text = props.to;
   else
-    text = props.text;
+    text = props.description;
 
   return (
     <Link to={props.to} className={styles.ButtonContainer}>
