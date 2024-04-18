@@ -10,6 +10,7 @@
     padding: 0.7rem;
     display: flex;
     align-items: center;
+    margin-bottom: 0.7rem;
   }
   
   .ButtonContainer:hover {
