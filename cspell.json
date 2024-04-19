@@ -45,6 +45,7 @@
         "Remmina",
         "Romi",
         "Rosbridge",
+        "roscore",
         "rosdep",
         "roslaunch",
         "roslibjs",
@@ -52,6 +53,7 @@
         "rosserial",
         "rostopic",
         "rplidar",
+        "rviz",
         "showinfo",
         "sshfs",
         "stereovision",
@@ -68,6 +70,7 @@
         "XRDP"
     ],
     "ignoreWords": [
+        "Xsrv",
         "mmcblk",
         "rootfs",
         "xmyz"
