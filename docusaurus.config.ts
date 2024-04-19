@@ -194,7 +194,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'powershell'],
+      additionalLanguages: ['bash', 'powershell', 'yaml'],
     },
     announcementBar: {
       id: 'announcementBar_work-in-progress',
