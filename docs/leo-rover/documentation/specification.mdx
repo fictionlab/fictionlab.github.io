@@ -74,7 +74,8 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
 
 ### Wheels
 
-**Motors:** 4 x in-hub DC motor with 73.2:1 planetary gearbox and 12 PPR encoder \
+**Motors:** 4 x in-hub DC motor with 73.2:1 planetary gearbox and 12 PPR encoder
+\
 **Tire material:** rubber with foam insert (non-pneumatic) \
 **Inner rim diameter:** 71 mm \
 **Outer tire diameter:** ~130 mm \
@@ -97,7 +98,8 @@ Estimated 4 hrs battery life (nominal driving)
 ### Camera
 
 Camera resolution: 5 MPx \
-Lens: Fisheye with 160 degree diagonal field of view (IR non-filtered; night-vision allowed)
+Lens: Fisheye with 160 degree diagonal field of view (IR non-filtered; night-vision
+allowed)
 
 ### Network
 
@@ -230,8 +232,9 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
 
 ### 3-pin power connector pinout
 
-By default Leo Rover uses standard [WEIPU](https://www.weipuconnector.com/) SP13-3 connectors
-for connecting battery, Main Electronics Box and other possible addons.
+By default Leo Rover uses standard [WEIPU](https://www.weipuconnector.com/)
+SP13-3 connectors for connecting battery, Main Electronics Box and other
+possible addons.
 
 <ThemedImageZoom
   alt="Weipu SP13-3 pinout"
@@ -305,42 +308,53 @@ Alternatively: \
 Ubuntu 22.04 + ROS2 Humble
 
 :::info
+
 Ready-to-go UI located under `10.0.0.1` when using standard Leo Software Image.
+
 :::
 
 ### Firmware
 
-This is the program that runs directly on the processor of the LeoCore board.
-It provides different functionalities to the Raspberry Pi through serial bus.
-The main features of the default [leocore_firmware](https://github.com/LeoRover/leocore_firmware) are:
+This is the program that runs directly on the processor of the LeoCore board. It
+provides different functionalities to the Raspberry Pi through serial bus. The
+main features of the default
+[leocore_firmware](https://github.com/LeoRover/leocore_firmware) are:
 
-- differential drive controller ([cmd_vel](https://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html) interface)
-- wheel states monitoring ([joint_states](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/JointState.html) interface)
+- differential drive controller
+  ([cmd_vel](https://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html)
+  interface)
+- wheel states monitoring
+  ([joint_states](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/JointState.html)
+  interface)
 - battery voltage monitoring
 - wheel odometry calculation
 - IMU support
 
 ### ROS nodes
 
-When the Raspberry Pi boots, a set of ROS nodes is started. These nodes allow different features to
-be accessed via ROS topics and services. They are defined in [leo_bringup](https://github.com/fictionlab-archive/leo_bringup) package and mainly consist
-of:
+When the Raspberry Pi boots, a set of ROS nodes is started. These nodes allow
+different features to be accessed via ROS topics and services. They are defined
+in [leo_bringup](https://github.com/fictionlab-archive/leo_bringup) package and
+mainly consist of:
 
-- [rosserial](https://wiki.ros.org/rosserial) node - communicates with the firmware via serial interface and makes its features
-  available via ROS topics and services
-- [Rosbridge server](https://wiki.ros.org/rosbridge_suite) - creates WebSocket that provides a JSON API to ROS functionality for
-  non-ROS programs.
-- [Raspicam](https://github.com/UbiquityRobotics/raspicam_node) node - publishes images from Raspberry Pi camera module to ROS image transport
-  topic
-- [Web video server](https://wiki.ros.org/web_video_server) - provides a video stream of a ROS image transport topic that can be
-  accessed via HTTP
+- [rosserial](https://wiki.ros.org/rosserial) node - communicates with the
+  firmware via serial interface and makes its features available via ROS topics
+  and services
+- [Rosbridge server](https://wiki.ros.org/rosbridge_suite) - creates WebSocket
+  that provides a JSON API to ROS functionality for non-ROS programs.
+- [Raspicam](https://github.com/UbiquityRobotics/raspicam_node) node - publishes
+  images from Raspberry Pi camera module to ROS image transport topic
+- [Web video server](https://wiki.ros.org/web_video_server) - provides a video
+  stream of a ROS image transport topic that can be accessed via HTTP
 - Leo system node - provides system shutdown and reboot via ROS topics.
 
 ### Web user interface (UI)
 
-This is the user interface that can be accessed via a web browser. It communicates with Rosbridge
-server using [roslibjs](https://wiki.ros.org/roslibjs) to access functionalities that are available in ROS topics. The
-default [leo_ui](https://github.com/LeoRover/leo_ui) brings features such as:
+This is the user interface that can be accessed via a web browser. It
+communicates with Rosbridge server using
+[roslibjs](https://wiki.ros.org/roslibjs) to access functionalities that are
+available in ROS topics. The default
+[leo_ui](https://github.com/LeoRover/leo_ui) brings features such as:
 
 - control of the Rover via a keyboard or a virtual joystick
 - display of a camera stream from Web video server

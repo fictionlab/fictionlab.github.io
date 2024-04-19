@@ -74,8 +74,10 @@ import Admonition from '@theme/Admonition';
 
 ## File Permissions
 
-By default, when logging as `pi` user, you have write permission only on files inside `/home/pi` directory.
-This should be sufficient in most cases but if you really need to upload files outside of the home directory you have a couple of options.
+By default, when logging as `pi` user, you have write permission only on files
+inside `/home/pi` directory. This should be sufficient in most cases but if you
+really need to upload files outside of the home directory you have a couple of
+options.
 
 Recommended: take ownership of the directory
 
@@ -95,7 +97,8 @@ Now, assign the ownership of that directory
 sudo chown -R pi:pi [upload_directory]
 ```
 
-This will change ownership of `[upload_directory]` and all files inside it to `pi` user
+This will change ownership of `[upload_directory]` and all files inside it to
+`pi` user
 
 ### (Not recommended) Upload files by logging into root account
 
@@ -105,5 +108,8 @@ Root logging is disabled by default. If you want to turn this on, you can follow
 You can then get access to all files by logging to `root` instead of `pi`
 
 :::danger
-Modifying the root filesystem can be a destructive operation so if you don't fully understand what you're doing, make sure to backup your files first.
+
+Modifying the root filesystem can be a destructive operation so if you don't
+fully understand what you're doing, make sure to backup your files first.
+
 :::
