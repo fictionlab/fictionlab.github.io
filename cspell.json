@@ -81,6 +81,7 @@
         "systray",
         "Szymon",
         "teleop",
+        "teleoperation",
         "tflite",
         "torx",
         "UART",
@@ -109,6 +110,7 @@
         "raytrace",
         "rootfs",
         "tigervnc",
+        "webrtc",
         "xacro",
         "xmyz"
     ],
