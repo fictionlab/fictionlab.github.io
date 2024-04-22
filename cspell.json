@@ -87,6 +87,7 @@
         "webp",
         "WEIPU",
         "widowx",
+        "wlan",
         "Xorg",
         "XRDP"
     ],
@@ -96,6 +97,7 @@
         "Xsrv",
         "actionlib",
         "isie",
+        "leox",
         "localnet",
         "mmcblk",
         "occdist",
