@@ -19,6 +19,7 @@
         "convolutional",
         "costmap",
         "costmaps",
+        "debayer",
         "devel",
         "Fiberlogy",
         "Fixposition",
@@ -84,6 +85,7 @@
         "UART",
         "UEFI",
         "URDF",
+        "uros",
         "webp",
         "WEIPU",
         "widowx",
@@ -93,6 +95,7 @@
     ],
     "ignoreWords": [
         "Izjiz",
+        "MMAL",
         "Urange",
         "Xsrv",
         "actionlib",
@@ -104,6 +107,7 @@
         "particlecloud",
         "raytrace",
         "rootfs",
+        "tigervnc",
         "xacro",
         "xmyz"
     ],
