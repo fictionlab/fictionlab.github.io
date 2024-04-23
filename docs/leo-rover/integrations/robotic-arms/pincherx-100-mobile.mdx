@@ -536,11 +536,11 @@ cd <path_to_your_ros_workspace>/src/interbotix_ros_manipulators/interbotix_ros_x
 The `bartender.py` demo performs some pick, pour and place operations. To run
 it, first, open the file in a text editor and search for this line:
 
-```bash
-bot = InterbotixManipulatorXS("wx250", "arm", "gripper")
+```python
+bot = InterbotixManipulatorXS("wx250s", "arm", "gripper")
 ```
 
-Change `wx250` to `mobile_px100` and then, type on the terminal:
+Change `wx250s` to `mobile_px100` and then, type on the terminal:
 
 ```bash
 python bartender.py
