@@ -1,0 +1,217 @@
+---
+title: 'Arduino'
+sidebar_label: 'Arduino'
+sidebar_position: 2
+---
+
+import LinkButton from '@site/src/components/LinkButton';
+import ImageZoom from '@site/src/components/ImageZoom';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+In this tutorial, we'll show you how to connect Arduino to Leo Rover.
+
+## What is Arduino?
+
+Before we get started, let's say a few words about what Arduino actually is.
+
+**Arduino** is an open-source electronic platform that allows users to easily
+access advanced technologies interacting with the physical world.
+
+### What do I need Arduino for?
+
+You might wonder what the point of having Arduino inside Leo Rover is. After
+all, isn't the robot already equipped with a Raspberry Pi micro-computer?
+
+Well, the simplicity of Arduino makes it more convenient for typical hardware
+projects. Arduino has analog capabilities that the Raspberry Pi lacks by
+default. Its flexibility allows you to work with almost any type of sensor.
+
+Arduino speeds up the creation of simple projects that don't require advanced
+software and a good Internet connection.
+
+Let's not forget that behind the name "Arduino" hide many boards, so if you want
+to learn how to choose the best one for your project, look
+[here](https://www.leorover.tech/post/how-to-choose-the-right-arduino-board).
+For our projects, we mostly use **Arduino DUE**.
+
+## What to expect?
+
+Having finished the tutorial you'll know how to connect Arduino to the Leo Rover
+and use its potential to further improve your projects and make the development
+process of future projects a little bit faster.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/arduino/arduino-on-leo.webp"
+  alt="Arduino on Leo Rover"
+  width="1785"
+  height="1659"
+  figStyle={{
+    width: 600,
+  }}
+/>
+
+## Prerequisites
+
+<LinkButton
+  to="/docs/leo-rover/guides/remote-desktop"
+  description="Connect via remote desktop"
+/>
+
+<LinkButton
+  to="/docs/leo-rover/guides/connect-to-network"
+  description="Connect to a local network and the Internet"
+/>
+
+## List of components
+
+- Any Arduino ( or any other compatible board)
+- Any way of connecting the board to the rover
+- USB cable
+
+## Mechanical integration
+
+We have created mechanical interfaces for Arduino DUE, which you can get here:
+
+<LinkButton
+  to="/docs/leo-rover/documentation/addon-adapters#arduino-due"
+  description="Addon adapters / Arduino Due"
+/>
+
+You'll need to press in ten M3, threaded heat-set inserts into the base part.
+This allows you to use M3x6 Allen screws to hold the Arduino securely. The cover
+is held by 4 screws of the same size.
+
+Since Arduino Due has the largest footprint out of all the Arduino boards it
+should be pretty easy to adapt the provided Arduino DUE adapter models to fit
+other boards inside. All you need to do is use 3D CAD program like **Autodesk
+Fusion** to change the way mounting holes for the board are positioned.
+
+## Wiring and electronics connection
+
+For most intents and purposes the only connection you need to provide is an USB
+connection between the board and the USB port at the top of the rover. However,
+you may want to provide the microcontroller, and the sensors that you are using,
+with external power source. For such cases powerbox addon might be a good
+choice.
+
+## Software integration
+
+There are several ways to integrate Arduino into the rover. From this tutorial,
+you'll learn about two of them so that you can decide which one works best for
+you.
+
+<Tabs groupId="software-integration">
+  <TabItem value="mechanical-eng" label="Mechanical engineer way">
+    <Admonition type="info">
+      This way saves you from having to dive into the rover's insides. It works;
+      however, it does not allow you to communicate between the rover's onboard
+      computer and Arduino - this, in turn, makes it harder to use the data
+      harvested by any sensors connected to the Arduino.
+    </Admonition>
+
+    First, install Arduino IDE using any of those provided tutorials:
+
+    - [Arduino IDE installation and setup (Windows)](https://www.arduino.cc/en/Guide/Windows)
+    - [Arduino IDE installation and setup (Linux)](https://www.arduino.cc/en/Guide/Linux)
+
+    Then, you need to set up Arduino IDE (we're using Arduino DUE which needs a special configuration in Arduino IDE).
+
+    To do so, do as follows: while in IDE, go to: **Tools** -> **Board** -> **Boards Manager**
+
+    <ImageZoom
+      src="/img/docs_images/leo-rover/integrations/arduino/arduino-board-manager.webp"
+      width="954"
+      height="515"
+    />
+
+    Type “DUE” in the search bar and install the latest version of `Arduino SAM Boards` (32-bits ARM Cortex-M3).
+
+    <ImageZoom
+      src="/img/docs_images/leo-rover/integrations/arduino/arduino-board-manager-due.webp"
+      width="976"
+      height="224"
+    />
+
+    The next step is to take care of the board specific setup:
+
+    - Connect the board to a USB port in your computer (use the port closer to the barrel jack socket)
+    - Go to: **Tools** -> **Board** -> **Arduino ARM (32-bits) Boards** and choose **Arduino Due (Programming Port)**
+
+    <ImageZoom
+      src="/img/docs_images/leo-rover/integrations/arduino/arduino-programming-port.webp"
+      width="955"
+      height="515"
+    />
+
+    - Go to: **Tools** -> **Port** and choose the port Arduino is connected to
+
+    <ImageZoom
+      src="/img/docs_images/leo-rover/integrations/arduino/arduino-programming-port-2.webp"
+      width="955"
+      height="515"
+    />
+
+  </TabItem>
+  <TabItem value="software-eng" label="Software engineer way"></TabItem>
+</Tabs>
+
+### Checking setup
+
+The easiest way to check if the board is working, is to use pre-created example
+codes. One of them is the blink sketch provided in the Arduino IDE examples.
+
+Go to: **File** -> **Examples** -> **01.Basics** and choose the **Blink** sketch
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/arduino/arduino-blink.webp"
+  width="956"
+  height="513"
+/>
+
+You should see something similar to this:
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/arduino/arduino-blink-code.webp"
+  width="956"
+  height="1035"
+/>
+
+Now, you'll have to verify the code and send it to the board. First, make sure
+the correct board and ports are chosen as shown below:
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/arduino/arduino-ports.webp"
+  width="638"
+  height="428"
+  figStyle={{
+    width: 500,
+  }}
+/>
+
+Now you can **verify(1)** and **upload(2)** the code.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/arduino/arduino-verify-upload.webp"
+  width="238"
+  height="157"
+  figStyle={{
+    width: 250,
+  }}
+/>
+
+After a few seconds, you should see two things:
+
+- the following statement:
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/arduino/arduino-upload-done.webp"
+  width="377"
+  height="163"
+  figStyle={{
+    width: 350,
+  }}
+/>
+
+- and Arduino's built-in LED blinking
