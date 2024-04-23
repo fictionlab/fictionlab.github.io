@@ -1,6 +1,5 @@
 .ButtonContainer {
   border-radius: var(--ifm-pagination-nav-border-radius);
-  background-color: var(--ifm-background-color);
   box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
   border: 1px solid var(--ifm-color-emphasis-200);
   transition: all var(--ifm-transition-fast) ease;
@@ -11,6 +10,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.7rem;
+  text-decoration: none;
 }
 
 .ButtonContainer:hover {
@@ -33,6 +33,7 @@
   align-content: center;
   width: 1.2rem;
   height: 1.2rem;
+  aspect-ratio: 1;
 }
 
 .Arrow {
