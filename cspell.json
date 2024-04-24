@@ -41,6 +41,7 @@
         "Kinect",
         "leocore",
         "leorover",
+        "linuxarm",
         "Loctite",
         "madgwick",
         "microcontroller",
@@ -109,6 +110,7 @@
     "ignoreWords": [
         "Izjiz",
         "MMAL",
+        "USBCON",
         "Urange",
         "Xsrv",
         "actionlib",
