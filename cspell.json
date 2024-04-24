@@ -123,6 +123,8 @@
     "ignoreWords": [
         "BESTGNSSPOS",
         "CORRIMU",
+        "Dawe",
+        "Frvm",
         "Izjiz",
         "MMAL",
         "Nodelets",
@@ -137,6 +139,7 @@
         "blox",
         "depthai",
         "dialout",
+        "distrobox",
         "imager",
         "isie",
         "leox",
