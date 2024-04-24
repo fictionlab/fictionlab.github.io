@@ -575,7 +575,7 @@ void plow_control_callback( const std_msgs::Bool& msg){
 
 //setup a publisher
 ros::Publisher pub_tension("tension", &tension_msg);
-//setup a subscriber, make Arduino react to a message with plow_cotnrol_callback function
+//setup a subscriber, make Arduino react to a message with plow_control_callback function
 ros::Subscriber<std_msgs::Bool> plow_control ("plow_control", &plow_control_callback );
 
 void setup()
