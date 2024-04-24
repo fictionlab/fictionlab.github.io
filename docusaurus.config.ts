@@ -200,7 +200,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'powershell', 'yaml' , 'arduino'],
+      additionalLanguages: ['bash', 'powershell', 'yaml', 'arduino'],
     },
     announcementBar: {
       id: 'announcementBar_work-in-progress',
