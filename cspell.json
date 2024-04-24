@@ -12,6 +12,7 @@
         "autohide",
         "autorepeat",
         "Balena",
+        "baudrate",
         "blxq",
         "bootable",
         "bossard",
