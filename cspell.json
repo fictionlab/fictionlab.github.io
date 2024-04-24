@@ -28,6 +28,7 @@
         "Freespace",
         "getent",
         "gmapping",
+        "GNSS",
         "GPIO",
         "Hokuyo",
         "hostapd",
@@ -109,10 +110,15 @@
         "XRDP"
     ],
     "ignoreWords": [
+        "BESTGNSSPOS",
+        "CORRIMU",
         "Izjiz",
         "MMAL",
+        "POIVRTK",
+        "RAWIMU",
         "USBCON",
         "Urange",
+        "VRTKCAM",
         "Xsrv",
         "actionlib",
         "imager",
