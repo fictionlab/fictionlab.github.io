@@ -5,8 +5,8 @@ sidebar_position: 1
 ---
 
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import ImageZoom from '@site/src/components/ImageZoom';
+import LinkButton from '@site/src/components/LinkButton';
 
 An ARTag follower example for a stock Leo Rover
 
@@ -30,8 +30,15 @@ ARTag.
 
 ## Prerequisites
 
-{/* TODO */}
-
+<LinkButton
+  to="/docs/leo-rover/guides/connect-to-rover-ap"
+  description="Connect to Leo Rover AP"
+/>
+<LinkButton to="/docs/leo-rover/guides/ssh" description="Connect via SSH" />
+<LinkButton
+  to="/docs/leo-rover/advanced-guides/ros-development"
+  description="ROS development"
+/>
 ## List of components
 
 1. Any computer which you can connect to the rover via `ssh`.
@@ -116,8 +123,7 @@ You can also get all needed software from our
 [leo_examples](https://github.com/LeoRover/leo_examples) github repository. You
 need to clone it on the rover in the ros workspace directory (if there's no such
 a directory, then, first go through the
-[ROS Development TODO](https://www.leorover.tech/guides/ros-development)
-tutorial):
+[ROS development](/docs/leo-rover/advanced-guides/ros-development) tutorial):
 
 ```bash
 cd ~/ros_ws/src
