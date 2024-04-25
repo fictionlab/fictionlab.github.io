@@ -163,24 +163,52 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
 ## Hardware structure
 
 <Tabs groupId="leo-rover-version">
-  <TabItem value='leo-1.8' label='Leo Rover v1.8'>
-    <ThemedImageZoom 
+  <TabItem value="leo-1.8" label="Leo Rover v1.8">
+    <ThemedImageZoom
       alt="Leo Rover 1.8 hardware diagram"
       sources={{
-        light: useBaseUrl('/img/docs_images/leo-rover/specification/leo-rover-v1.8_hardware-diagram_black.webp'),
-        dark: useBaseUrl('/img/docs_images/leo-rover/specification/leo-rover-v1.8_hardware-diagram_white.webp'),
+        light: useBaseUrl(
+          '/img/docs_images/leo-rover/specification/leo-rover-v1.8_hardware-diagram_black.webp',
+        ),
+        dark: useBaseUrl(
+          '/img/docs_images/leo-rover/specification/leo-rover-v1.8_hardware-diagram_white.webp',
+        ),
       }}
-      width='1900'
-      height='1150'
+      width="1900"
+      height="1150"
       figStyle={{
         width: 800,
       }}
     />
-    
-    ### LeoCore controller
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
+    <ThemedImageZoom
+      alt="Leo Rover pre1.8 hardware diagram"
+      sources={{
+        light: useBaseUrl(
+          '/img/docs_images/leo-rover/specification/leo-rover-pre1.8_hardware-diagram_black.webp',
+        ),
+        dark: useBaseUrl(
+          '/img/docs_images/leo-rover/specification/leo-rover-pre1.8_hardware-diagram_white.webp',
+        ),
+      }}
+      width="1600"
+      height="1150"
+      figStyle={{
+        width: 800,
+      }}
+    />
+  </TabItem>
+</Tabs>
+
+### Leo Rover controller
+
+<Tabs groupId="leo-rover-version">
+  <TabItem value='leo-1.8' label='Leo Rover v1.8'>
 
     Leo Rover since version 1.8 is based on the LeoCore electronics board which,
-    together with the Raspberry Pi computer, controls all the Rover's functionalities.
+    together with the Raspberry Pi computer, controls all the Rover's
+    functionalities.
 
     <ImageZoom
       src='/img/docs_images/leo-rover/specification/LeoCore.webp'
@@ -195,40 +223,81 @@ WiFi 2.4 or 5 GHz on internal RPi antennas for connectivity
     To make it easier, we listed all the interfaces used by Leo Rover as default.
     Just to make sure you don't interfere with them when developing.
 
-    | Port | Functionality |
-    | - | - |
-    | Power input | to power the board |
-    | RPi port | to power and RPi serial communication |
-    | LED output | to control the battery LED (to show system readiness) |
-    | Motor output A, B, C & D (PWM H-bridge) | to power the rover motors and encodes |
-    | ST-link/V2 6-pin port | used to flash firmware to the board using ST-link/V2 (optionally) |
-
-
-
-    <Admonition type="warning" >
-      Take into consideration during the Rover assembly and development.
-
-      The board corner where there's power connector and power-related components tends to interfere
-      with sensitive electronics such as wheel encoders. Make sure the encoder cables don't run on top of
-      the corner.
-    </Admonition>
+    | Port                                    | Functionality                                                     |
+    | --------------------------------------- | ----------------------------------------------------------------- |
+    | Power input                             | to power the board                                                |
+    | RPi port                                | to power and RPi serial communication                             |
+    | LED output                              | to control the battery LED (to show system readiness)             |
+    | Motor output A, B, C & D (PWM H-bridge) | to power the rover motors and encodes                             |
+    | ST-link/V2 6-pin port                   | used to flash firmware to the board using ST-link/V2 (optionally) |
 
   </TabItem>
   <TabItem value='leo-pre1.8' label='Leo Rover < v1.8'>
-    <ThemedImageZoom
-      alt="Leo Rover pre1.8 hardware diagram"
-      sources={{
-        light: useBaseUrl('/img/docs_images/leo-rover/specification/leo-rover-pre1.8_hardware-diagram_black.webp'),
-        dark: useBaseUrl('/img/docs_images/leo-rover/specification/leo-rover-pre1.8_hardware-diagram_white.webp'),
-      }}
-      width='1600'
-      height='1150'
+    Leo Rover is based on CORE2-ROS electronics board which, together with the Raspberry Pi
+    computer, controls all the Rover's functionalities.
+
+    We encourage you to check all the specs of the board itself as there's a great
+    number of interfaces to be used for further development.
+
+    <ImageZoom
+      src="/img/docs_images/leo-rover/specification/core2ros.webp"
+      alt="Core2-ROS board included in previous versions of Leo Rover's"
+      width="791"
+      height="791"
       figStyle={{
-        width: 800,
+        width:500,
       }}
     />
+
+    #### Electrical specification
+
+    | Interface           | Description                                    | Parameters                                                                                                 |
+    | ------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+    | Power input         | 6.8-16V                                        | 70...3000mA current consumption, depends on external modules standard 5.5/2.1 mm DC plug (centre-positive) |
+    | I/O ports           | 54 ports                                       | 3.3V/5V tolerant GPIOs series resistance is 330Ω                                                           |
+    | ADC                 | up to 13 channels                              | 12-bit resolution                                                                                          |
+    | PWM                 | up to 10 channels: 6x 3.3V, 4x H-bridge output | Period range for 3.3V outputs: 1...65535 μs Frequency range for H-bridge: 1Hz...21khz (in 16 steps)        |
+    | UART                | up to 4 channels                               | baudrate: 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, 256000, 1000000, 2000000, 4000000        |
+    | I2C                 | 3 channels                                     | up to 400kHz                                                                                               |
+    | SPI                 | 1                                              | up to 1 Mbps                                                                                               |
+    | CAN                 | 1                                              | 500 kbps                                                                                                   |
+    | External Interrupts | up to 8 channels                               | triggered by an edge or voltage level                                                                      |
+
+    <ImageZoom
+      src="/img/docs_images/leo-rover/specification/core2-cheatsheet.webp"
+      alt="Core2-ROS board cheat sheet"
+      width="1754"
+      height="1240"
+      caption='Source: Husarion Core2-ROS manual'
+    />
+
+    <Admonition type="tip">
+      To learn more about Core2-ROS visit [this site](https://husarion.com/manuals/core2/)
+    </Admonition>
+
+    #### Ports used by Leo Rover
+
+    To make it easier, we listed all the interfaces used by the Rover as default. Just to make sure you don't interfere with them when developing.
+
+    | Port                            | Functionality                                                                   |
+    | ------------------------------- | ------------------------------------------------------------------------------- |
+    | Power input                     | to power the board and Raspberry Pi                                             |
+    | hExt pin 1 (I/O)                | to control the battery LED (to show the system readiness)                       |
+    | hMot A, B, C & D (PWM H-bridge) | to power the rover motors and encodes                                           |
+    | USB hSerial                     | used to flash firmware to the board (doesn't need to be connected all the time) |
+
   </TabItem>
 </Tabs>
+
+:::warning
+
+Take into consideration during the Rover assembly and development.
+
+The board corner where there's power connector and power-related components
+tends to interfere with sensitive electronics such as wheel encoders. Make sure
+the encoder cables don't run on top of the corner.
+
+:::
 
 ### 3-pin power connector pinout
 
