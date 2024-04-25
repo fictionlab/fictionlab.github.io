@@ -22,6 +22,7 @@
         "convolutional",
         "costmap",
         "costmaps",
+        "CUDA",
         "debayer",
         "devel",
         "Dynamixel",
@@ -105,6 +106,7 @@
         "rviz",
         "showinfo",
         "sshfs",
+        "stereolabs",
         "stereovision",
         "submap",
         "systray",
@@ -176,7 +178,8 @@
         "xmyz",
         "xsarm",
         "xsarms",
-        "xyzrgb"
+        "xyzrgb",
+        "zedm"
     ],
     "import": [],
     "enableFiletypes": [
