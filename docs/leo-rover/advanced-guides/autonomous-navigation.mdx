@@ -42,7 +42,10 @@ configuration may need to be tweaked to work best in your environment.
 To complete this guide, you will need to, first of all, have the IMU and LiDAR
 sensors integrated with the system:
 
-{/* TODO link to IMU */}
+<LinkButton
+  to="/docs/leo-rover/integrations/legacy/imu"
+  description="Groove IMU"
+/>
 
 :::tip
 
@@ -51,13 +54,20 @@ integration tutorial.
 
 :::
 
-and
+and one of these LiDARs
 
-{/* TODO link to Hokuyo */}
-
-or
-
-{/* TODO link to Lidar */}
+<LinkButton
+  to="/docs/leo-rover/integrations/components/hokuyo-lidar"
+  description="Hokuyo LiDAR"
+/>
+<LinkButton
+  to="/docs/leo-rover/integrations/components/rplidar-a2"
+  description="RPLiDAR A2M8 / A2M12"
+/>
+<LinkButton
+  to="/docs/leo-rover/integrations/components/rplidar-s3"
+  description="RPLiDAR S3"
+/>
 
 Make sure you are operating on the newest image for the Raspberry Pi and you are
 up-to-date with the packages and have the newest firmware flashed.
