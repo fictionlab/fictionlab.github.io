@@ -204,11 +204,12 @@ const config: Config = {
     },
     announcementBar: {
       id: 'announcementBar_work-in-progress',
-      content: `New docs are still work in progress! Expect dead links, missing tutorials etc. <br>
-          For documentation visit <a href="https://docs.leorover.tech">docs.leorover.tech</a>`,
+      content: `Welcome to the new Fictionlab docs! If you encounter any problems, broken links etc.,
+        <br>please open an issue at <a href="https://github.com/fictionlab/docs">fictionlab/docs</a> 
+        or write an e-mail at <a href="mailto:contact@fictionlab.pl">contact@fictionlab.pl</a>`,
       backgroundColor: '#c57b2c',
       textColor: '#ffffff',
-      isCloseable: false,
+      isCloseable: true,
     },
   } satisfies Preset.ThemeConfig,
 };
