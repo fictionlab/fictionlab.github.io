@@ -206,7 +206,7 @@ const config: Config = {
       id: 'announcementBar_work-in-progress',
       content: `Welcome to the new Fictionlab docs! If you encounter any problems, broken links etc.,
         <br>please open an issue at <a href="https://github.com/fictionlab/docs">fictionlab/docs</a> 
-        or write an e-mail at <a href="mailto:contact@fictionlab.pl">contact@fictionlab.pl</a>`,
+        or write an e-mail to <a href="mailto:contact@fictionlab.pl">contact@fictionlab.pl</a>`,
       backgroundColor: '#c57b2c',
       textColor: '#ffffff',
       isCloseable: true,
