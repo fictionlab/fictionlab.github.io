@@ -5,6 +5,8 @@ sidebar_position: 3
 ---
 
 import ImageZoom from '@site/src/components/ImageZoom';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Preparation
 
@@ -33,11 +35,22 @@ import ImageZoom from '@site/src/components/ImageZoom';
   height="802"
 />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-3.webp"
-  width="1500"
-  height="1457"
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-3.webp"
+      width="1500"
+      height="1457"
+    />
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-3.webp"
+      width="1200"
+      height="802"
+    />
+  </TabItem>
+</Tabs>
 
 ## Step 1: Camera shield
 
@@ -329,11 +342,22 @@ Prepare:
 - 1x ALFA USB WiFi modem
 - 1x 90deg antenna adapter (from previous steps)
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-36.webp"
-  width="1500"
-  height="807"
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-36.webp"
+      width="1500"
+      height="807"
+    />
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-36.webp"
+      width="1200"
+      height="802"
+    />
+  </TabItem>
+</Tabs>
 
 <ImageZoom
   src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-37.webp"
@@ -457,19 +481,30 @@ Prepare:
     will be used later in the assembly task."
 />
 
-## Step 6: LeoCore assembly and cabling
+## Step 6: Controller assembly and cabling
 
 Prepare:
 
 - step 5 assembly
-- 1x LeoCore electronics board
+- 1x controller electronics board (LeoCore/Husarion Core2-ROS)
 - 4x m2.5x18 plastic distance
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-54.webp"
-  width="1274"
-  height="1500"
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8 - LeoCore">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-54.webp"
+      width="1274"
+      height="1500"
+    />
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8 - Husarion Core2-ROS">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-54.webp"
+      width="1200"
+      height="802"
+    />
+  </TabItem>
+</Tabs>
 
 <ImageZoom
   src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-55.webp"
@@ -477,46 +512,89 @@ Prepare:
   height="802"
 />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-56.webp"
-  width="1500"
-  height="1130"
-  caption="Insert the LeoCore board into the main electronics box
-    and connect the rear socket to the RaspberryPi GPIO pins.
-    Make sure the mounting holes of the controller are aligned with RaspberryPi's
-    (and plastic distances) holes."
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8 - LeoCore">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-56.webp"
+      width="1500"
+      height="1130"
+      caption="Insert the LeoCore board into the main electronics box
+        and connect the rear socket to the RaspberryPi GPIO pins.
+        Make sure the mounting holes of the controller are aligned with RaspberryPi's
+        (and plastic distances) holes."
+    />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-57.webp"
-  width="1500"
-  height="820"
-  caption="Secure the boards together using 4x plastic distances provided."
-/>
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-57.webp"
+      width="1500"
+      height="820"
+      caption="Secure the boards together using 4x plastic distances provided."
+    />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-58.webp"
-  width="1500"
-  height="1125"
-  caption="Connect the power cable barrel plug to the
-    power socket of the LeoCore board."
-/>
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-58.webp"
+      width="1500"
+      height="1125"
+      caption="Connect the power cable barrel plug to the
+        power socket of the LeoCore board."
+    />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-59.webp"
-  width="1500"
-  height="1224"
-  caption="Connect the power cable green wire to its socket as in the photo."
-/>
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-59.webp"
+      width="1500"
+      height="1224"
+      caption="Connect the power cable green wire to its socket as in the photo."
+    />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-60.webp"
-  width="1500"
-  height="1125"
-  caption="Connect the antenna cable to the 90deg antenna adapter that
-    was previously assembled to the Wifi modem. There's little space there
-    so you need to be gentle."
-/>
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-60.webp"
+      width="1500"
+      height="1125"
+      caption="Connect the antenna cable to the 90deg antenna adapter that
+        was previously assembled to the Wifi modem. There's little space there
+        so you need to be gentle."
+    />
+
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8 - Husarion Core2-ROS">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-56.webp"
+      width="1200"
+      height="802"
+      caption="Insert the Core2-ROS board into the main electronics box and connect
+        the rear socket to the RaspberryPi GPIO pins. Make sure the mounting holes of
+        the controller are aligned with RaspberryPi's (and plastic distances) holes."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-57.webp"
+      width="1200"
+      height="802"
+      caption="Secure the boards together using 4x plastic distances provided."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-58.webp"
+      width="1200"
+      height="802"
+      caption="Connect the power cable barrel plug to the power socket of the
+        Core2-ROS board."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-59.webp"
+      width="1200"
+      height="802"
+      caption="Connect the power cable green wire to the Core2-ROS GPIO socket
+        as in the photo (upper right pin)."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-60.webp"
+      width="1200"
+      height="802"
+      caption="Connect the antenna cable to the 90deg antenna adapter that was
+        previously assembled to the Wifi modem. There's little space there so
+        you need to be gentle."
+    />
+  </TabItem>
+</Tabs>
 
 ## Step 7: Electronics cover
 
@@ -528,33 +606,64 @@ Prepare:
 - 4x m2.5 plastic screws
 - cross-head Philips screwdriver
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-61.webp"
-  width="1500"
-  height="1228"
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-61.webp"
+      width="1500"
+      height="1228"
+    />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-62.webp"
-  width="1500"
-  height="1286"
-  caption="Attach the plastic cover to the electronics distances
-    using 4x plastic screws.Don't overtighten the screws."
-/>
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-62.webp"
+      width="1500"
+      height="1286"
+      caption="Attach the plastic cover to the electronics distances
+        using 4x plastic screws.Don't overtighten the screws."
+    />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-63.webp"
-  width="1500"
-  height="1204"
-  caption="Thread 2 zip-ties through the electronics cover holes."
-/>
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-63.webp"
+      width="1500"
+      height="1204"
+      caption="Thread 2 zip-ties through the electronics cover holes."
+    />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-64.webp"
-  width="1500"
-  height="1089"
-  caption="Grab the antenna cable with the zip-ties and cut the excess tie."
-/>
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-64.webp"
+      width="1500"
+      height="1089"
+      caption="Grab the antenna cable with the zip-ties and cut the excess tie."
+    />
+
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-61.webp"
+      width="1200"
+      height="802"
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-62.webp"
+      width="1200"
+      height="802"
+      caption="Attach the plastic cover to the electronics distances using 4x
+        plastic screws. Don't overtighten the screws."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-63.webp"
+      width="1200"
+      height="802"
+      caption="Thread 2 zip-ties through the electronics cover holes."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-64.webp"
+      width="1200"
+      height="802"
+      caption="Grab the antenna cable with the zip-ties and cut the excess tie."
+    />
+  </TabItem>
+</Tabs>
 
 ## Step 8: MEB distances
 
@@ -597,11 +706,22 @@ Prepare:
 - 4x m4x10 screws
 - 1x MEB cover (3D-printed)
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-68.webp"
-  width="1500"
-  height="903"
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-68.webp"
+      width="1500"
+      height="903"
+    />
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-68.webp"
+      width="1200"
+      height="802"
+    />
+  </TabItem>
+</Tabs>
 
 <ImageZoom
   src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-69.webp"
@@ -617,27 +737,50 @@ Prepare:
   caption="Store the cover. It will be used only in the Task 8."
 />
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-71.webp"
-  width="1500"
-  height="1125"
-  caption="Insert the sealing cord in a corresponding groove
-    in the main electronics box. Patience needed to go through all the groove."
-/>
-
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-72.webp"
-  width="1500"
-  height="1074"
-/>
-
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-73.webp"
-  width="1500"
-  height="1125"
-  caption="Cut the excess cord. Leave just enough to let the cord
-    overlap the other end."
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-71.webp"
+      width="1500"
+      height="1125"
+      caption="Insert the sealing cord in a corresponding groove
+        in the main electronics box. Patience needed to go through all the groove."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-72.webp"
+      width="1500"
+      height="1074"
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-73.webp"
+      width="1500"
+      height="1125"
+      caption="Cut the excess cord. Leave just enough to let the cord
+        overlap the other end."
+    />
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-71.webp"
+      width="1200"
+      height="802"
+      caption="Insert the sealing corn in a corresponding groove in the main
+        electronics box. Patience needed to go through all the groove."
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-72.webp"
+      width="1200"
+      height="802"
+    />
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-73.webp"
+      width="1200"
+      height="802"
+      caption="Cut the excess cord. Leave just enough to let the cord overlap
+        the other end."
+    />
+  </TabItem>
+</Tabs>
 
 <ImageZoom
   src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-74.webp"
@@ -647,11 +790,25 @@ Prepare:
 
 #### Done!
 
-<ImageZoom
-  src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-75.webp"
-  width="1500"
-  height="1353"
-  caption="After the step you'll end up with a couple of components
-    that were in the box, but weren't used in the step. Store them,
-    they will become useful in the next Tasks."
-/>
+<Tabs groupId="leo-rover-version">
+  <TabItem value="leo-1.8" label="Leo Rover v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/meb-assembly-75.webp"
+      width="1500"
+      height="1353"
+      caption="After the step you'll end up with a couple of components
+        that were in the box, but weren't used in the step. Store them,
+        they will become useful in the next Tasks."
+    />
+  </TabItem>
+  <TabItem value="leo-pre1.8" label="Leo Rover < v1.8">
+    <ImageZoom
+      src="/img/docs_images/leo-rover/manuals/meb/1.7/meb-assembly-75.webp"
+      width="1200"
+      height="802"
+      caption="After the step you'll end up with a couple of components that
+        were in the box, but weren't used in the step. Store them, they will
+        become useful in the next Tasks."
+    />
+  </TabItem>
+</Tabs>
