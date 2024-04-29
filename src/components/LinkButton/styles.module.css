@@ -1,0 +1,49 @@
+.ButtonContainer {
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all var(--ifm-transition-fast) ease;
+  transition-property: border, box-shadow;
+  width: 100%;
+  height: auto;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  text-decoration: none;
+}
+
+.ButtonContainer:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
+  text-decoration: none;
+}
+
+.ButtonContainer:hover .Arrow {
+  border-color: var(--ifm-color-primary);
+}
+
+.IconContainer {
+  font-size: 1.2rem;
+  padding-right: 0.7rem;
+}
+
+.ArrowContainer {
+  margin-left: auto;
+  align-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  aspect-ratio: 1;
+}
+
+.Arrow {
+  transform: rotate(135deg);
+  display: block;
+  width: 71%;
+  height: 71%;
+  border-top: 3px solid var(--ifm-color-emphasis-200);
+  border-left: 3px solid var(--ifm-color-emphasis-200);
+  border-radius: 2px;
+  transition: all var(--ifm-transition-fast) ease;
+  transition-property: border;
+}

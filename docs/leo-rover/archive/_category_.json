@@ -1,6 +1,9 @@
 {
     "label": "Archive",
-    "position": 4,
+    "position": 99,
     "collapsible": true,
-    "collapsed": true
+    "collapsed": true,
+    "link": {
+        "type": "generated-index"
+      }
 }

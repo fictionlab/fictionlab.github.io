@@ -2,9 +2,11 @@
 title: 'Task 10: Boot and firmware'
 sidebar_label: 'Task 10: Boot and firmware'
 sidebar_position: 11
+description: First boot of an assembled Leo Rover - firmware flash.
 ---
 
 import ImageZoom from '@site/src/components/ImageZoom';
+import LinkButton from '@site/src/components/LinkButton';
 
 ## Step 1: Turn on and connect to Leo Rover
 
@@ -14,26 +16,23 @@ Prepare:
 - external computer
 
 <ImageZoom
-  loading="lazy"
+  loading="eager"
   src="/img/docs_images/leo-rover/manuals/boot-and-firmware/boot-and-firmware-1.webp"
   width="1200"
   height="802"
-  style={{
-    width: 700,
-    height: 'auto',
-    objectFit: 'contain',
-    display: 'block',
-    margin: 'auto',
-  }}
 />
 
 To connect to Leo Rover, see:
 
-TODO
+<LinkButton
+  to="/docs/leo-rover/guides/connect-to-rover-ap"
+  description="Connect to Leo Rover AP"
+/>
 
 :::note
 
-This time you won't see the battery LED flashing. It will work only after successfully performed Step 2.
+This time you won't see the battery LED flashing. It will work only after
+successfully performed Step 2.
 
 :::
 
@@ -41,7 +40,10 @@ This time you won't see the battery LED flashing. It will work only after succes
 
 Refer to:
 
-TODO
+<LinkButton
+  to="/docs/leo-rover/guides/firmware-update"
+  description="Firmware update"
+/>
 
 ## Step 3: Access the Leo Rover UI
 
@@ -52,17 +54,9 @@ Open any web browser and type:
 ```
 
 <ImageZoom
-  loading="lazy"
-  src="/img/leo-ui.jpg"
+  src="/img/docs_images/leo-rover/getting-started/leo-ui.webp"
   width="1888"
   height="1080"
-  style={{
-    width: 700,
-    height: 'auto',
-    objectFit: 'contain',
-    display: 'block',
-    margin: 'auto',
-  }}
 />
 
 #### You're good to go!

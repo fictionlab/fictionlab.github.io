@@ -61,3 +61,10 @@ div[class^='announcementBar_'] {
   font-weight: bold;
   height: auto;
 }
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}

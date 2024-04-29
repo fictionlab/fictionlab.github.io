@@ -38,8 +38,8 @@ function HomepageHeader() {
           <ThemedImage
             alt="Fictionlab logo"
             sources={{
-              light: useBaseUrl('/img/fictionlab_logo_white.svg'),
-              dark: useBaseUrl('/img/fictionlab_logo_gray.svg'),
+              light: useBaseUrl('/img/branding/fictionlab_logo_white.svg'),
+              dark: useBaseUrl('/img/branding/fictionlab_logo_gray.svg'),
             }}
             width="300px"
             height="auto"
@@ -70,7 +70,7 @@ function Feature({
           width={Math.floor(feature.image.width)}
           height={feature.image.height}
           src={withBaseUrl(feature.image.src)}
-          loading="lazy"
+          loading="eager"
           style={feature.image.style}
         />
       </a>

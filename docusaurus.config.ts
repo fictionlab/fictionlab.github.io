@@ -69,6 +69,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
@@ -77,8 +83,8 @@ const config: Config = {
     navbar: {
       logo: {
         alt: 'fictionlab logo',
-        src: 'img/fictionlab_logo_gray.svg',
-        srcDark: 'img/fictionlab_logo_white.svg',
+        src: 'img/branding/fictionlab_logo_gray.svg',
+        srcDark: 'img/branding/fictionlab_logo_white.svg',
         width: '98px',
         height: '32px',
       },
@@ -176,7 +182,7 @@ const config: Config = {
             {
               html: `
               <a href="https://fictionlab.pl" target="_blank" rel="noreferrer noopener">
-                <img src= /img/fictionlab_logo_white.svg alt="Fictionlab" width="200" height='65' />
+                <img src= /img/branding/fictionlab_logo_white.svg alt="Fictionlab" width="200" height='65' />
               </a>
             `,
             },
@@ -194,14 +200,16 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'powershell', 'yaml', 'arduino'],
     },
     announcementBar: {
       id: 'announcementBar_work-in-progress',
-      content: `New docs are still work in progress! Expect dead links, missing tutorials etc. <br>
-          For documentation visit <a href="https://docs.leorover.tech">docs.leorover.tech</a>`,
+      content: `Welcome to the new Fictionlab docs! If you encounter any problems, broken links etc.,
+        <br>please open an issue at <a href="https://github.com/fictionlab/docs">fictionlab/docs</a> 
+        or write an e-mail to <a href="mailto:contact@fictionlab.pl">contact@fictionlab.pl</a>`,
       backgroundColor: '#c57b2c',
       textColor: '#ffffff',
-      isCloseable: false,
+      isCloseable: true,
     },
   } satisfies Preset.ThemeConfig,
 };
