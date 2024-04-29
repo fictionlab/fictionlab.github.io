@@ -1,7 +1,10 @@
 ---
-title: 'ROS 2 Support (experimental)'
-sidebar_label: 'ROS 2 Support (experimental)'
+title: ROS 2 Support (experimental)
+sidebar_label: ROS 2 Support (experimental)
 sidebar_position: 8
+description: >
+  Get started with ROS 2 on your Leo Rover by flashing the experimental LeoOS
+  image. Find out about the necessary firmware updates and configuration steps.
 ---
 
 import LinkButton from '@site/src/components/LinkButton';
@@ -112,8 +115,9 @@ camera images on ROS topics.
 
 ### image_proc nodes running by default
 
-As an experimental feature, we added [image_proc] debayer and rectify nodes that
-are running by default. They add the following topics:
+As an experimental feature, we added
+[image_proc](https://wiki.ros.org/image_proc) debayer and rectify nodes that are
+running by default. They add the following topics:
 
 ```bash
 /camera/image_mono
