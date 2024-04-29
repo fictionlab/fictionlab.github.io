@@ -70,7 +70,7 @@ function Feature({
           width={Math.floor(feature.image.width)}
           height={feature.image.height}
           src={withBaseUrl(feature.image.src)}
-          loading="lazy"
+          loading="eager"
           style={feature.image.style}
         />
       </a>
