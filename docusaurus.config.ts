@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 const config: Config = {
   title: 'Fictionlab Documentation',
   tagline: 'Documentation, tutorials & manuals for robots',
-  favicon: 'img/favicon.png',
+  favicon: '/img/branding/favicon.png',
 
   // Set the production url of your site here
   url: 'https://docs.fictionlab.pl',
