@@ -69,6 +69,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    algolia: {
+      appId: 'H6BESWXMON',
+      apiKey: '94b54b551433d306dade3f9cdb84b92b',
+      indexName: 'fictionlab',
+      contextualSearch: true,
+    },
     docs: {
       sidebar: {
         hideable: true,
