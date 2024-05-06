@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 const config: Config = {
   title: 'Fictionlab Documentation',
   tagline: 'Documentation, tutorials & manuals for robots',
-  favicon: 'img/favicon.png',
+  favicon: '/img/branding/favicon.png',
 
   // Set the production url of your site here
   url: 'https://docs.fictionlab.pl',
@@ -20,6 +20,7 @@ const config: Config = {
   organizationName: 'fictionlab', // Usually your GitHub org/user name.
   projectName: 'fictionlab.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -69,6 +70,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    algolia: {
+      appId: 'H6BESWXMON',
+      apiKey: '94b54b551433d306dade3f9cdb84b92b',
+      indexName: 'fictionlab',
+      contextualSearch: true,
+    },
     docs: {
       sidebar: {
         hideable: true,
