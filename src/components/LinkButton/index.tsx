@@ -24,14 +24,11 @@ function get_link(props: LinkButtonProps) {
 
 function get_icon(props: LinkButtonProps, item?: PropSidebarItemLink) {
   if (props.icon) return props.icon;
-  if (
-    isInternalUrl(props.url) ||
-    isInternalUrl(props.to) ||
-    item.type == 'link'
-  )
-    return '📄';
-  if (item.type == 'category') return '🗃️';
-  else return '🔗';
+  if (isInternalUrl(props.url) || isInternalUrl(props.to)) return '📄';
+  if (item) {
+    if (item.type == 'link') return '📄';
+    if (item.type == 'category') return '🗃️';
+  } else return '🔗';
 }
 
 function get_description(props: LinkButtonProps) {
