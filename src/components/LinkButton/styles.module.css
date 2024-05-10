@@ -23,17 +23,27 @@
   border-color: var(--ifm-color-primary);
 }
 
+.TitleContainer {
+  position: relative;
+  margin-right: auto;
+}
+
 .IconContainer {
   font-size: 1.2rem;
   padding-right: 0.7rem;
 }
 
+.Description {
+  font-size: small;
+  color: var(--docsearch-text-color);
+}
+
 .ArrowContainer {
-  margin-left: auto;
   align-content: center;
   width: 1.2rem;
   height: 1.2rem;
   aspect-ratio: 1;
+  margin-left: 0.7rem;
 }
 
 .Arrow {

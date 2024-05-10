@@ -1,38 +1,102 @@
 import React from 'react';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
-import type { Props as LinkProps } from '@docusaurus/Link';
 import isInternalUrl from '@docusaurus/isInternalUrl';
+import { useDocsSidebar, useDocById } from '@docusaurus/theme-common/internal';
+import type {
+  PropSidebar,
+  PropSidebarItemLink,
+  PropVersionDoc,
+} from '@docusaurus/plugin-content-docs';
 
-export interface LinkButtonProps extends LinkProps {
+export interface LinkButtonProps {
+  to?: string;
+  url?: string;
+  docId?: string;
   icon?: string;
+  title?: string;
   description?: string;
 }
 
+function get_link(props: LinkButtonProps) {
+  if (props.to) return props.to;
+  if (props.url) return props.url;
+}
+
+function get_icon(props: LinkButtonProps, item?: PropSidebarItemLink) {
+  if (props.icon) return props.icon;
+  if (
+    isInternalUrl(props.url) ||
+    isInternalUrl(props.to) ||
+    item.type == 'link'
+  )
+    return '📄';
+  if (item.type == 'category') return '🗃️';
+  else return '🔗';
+}
+
+function get_description(props: LinkButtonProps) {
+  if (props.title) return props.title;
+  else return get_link(props);
+}
+
+function findSidebarItemLink(
+  sidebar: PropSidebar,
+  docId: string,
+): PropSidebarItemLink | undefined {
+  for (const item of sidebar) {
+    if (item.type === 'category') {
+      const subItem = findSidebarItemLink(item.items, docId);
+      if (subItem) {
+        return subItem;
+      }
+    } else if (item.type === 'link' && item.docId === docId) {
+      return item;
+    }
+  }
+  return undefined;
+}
+
 export default function LinkButton(props: LinkButtonProps) {
-  function get_icon(props: LinkButtonProps) {
-    if (props.icon) return props.icon;
-    if (isInternalUrl(props.to)) return '📝';
-    else return '🔗';
+  if (!props.to && !props.docId && !props.url)
+    throw new Error('No ID or link specified!');
+
+  let icon: string, link: string, title: string, description: string;
+  if (props.docId) {
+    let doc: PropVersionDoc;
+    const sidebar = useDocsSidebar();
+    if (!sidebar)
+      throw new Error('Unexpected: cant find current sidebar in context');
+    const item = findSidebarItemLink(sidebar.items, props.docId);
+    if (!item)
+      throw new Error(
+        `Could not find link with with the following doc id: ${props.docId}`,
+      );
+    if (item.type == 'link') doc = useDocById(props.docId ?? undefined);
+    link = item.href;
+    icon = get_icon(props, item);
+    title = item.label;
+    description = item.description ?? doc.description;
+  } else {
+    link = get_link(props);
+    title = get_description(props);
+    icon = get_icon(props);
+    description = props.description;
   }
-
-  function get_description(props: LinkButtonProps) {
-    if (props.description) return props.description;
-    else return props.to;
-  }
-
-  var text: string;
-
-  if (!props.description) text = props.to;
-  else text = props.description;
 
   return (
-    <Link to={props.to} className={styles.ButtonContainer}>
-      <div className={styles.IconContainer}>{get_icon(props)}</div>
-      <div className={styles.TextContainer}>{get_description(props)}</div>
+    <a href={link} className={styles.ButtonContainer}>
+      <div className={styles.TitleContainer}>
+        <span className={styles.IconContainer}>{icon}</span>
+        <span>{title}</span>
+        {description ? (
+          <div className={styles.Description}>{description}</div>
+        ) : (
+          ''
+        )}
+      </div>
       <div className={styles.ArrowContainer}>
         <i className={styles.Arrow}> </i>
       </div>
-    </Link>
+    </a>
   );
 }
