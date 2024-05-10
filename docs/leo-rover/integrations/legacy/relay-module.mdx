@@ -7,9 +7,6 @@ description: >
   including wiring, firmware updates, and launching a new UI
 ---
 
-import LinkButton from '@site/src/components/LinkButton';
-import ImageZoom from '@site/src/components/ImageZoom';
-
 :::warning
 
 This integration is not compatible with Leo Rover v1.8. It is kept on site for
@@ -22,10 +19,10 @@ specific firmware, and launch the additional user's interface.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" description="Connect via SSH" />
+<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
 <LinkButton
   to="/docs/leo-rover/guides/connect-to-network"
-  description="Connect to a local network and the Internet"
+  title="Connect to a local network and the Internet"
 />
 
 ## Items needed
@@ -96,7 +93,7 @@ on how to do it, please follow the Firmware update tutorial:
 
 <LinkButton
   to="/docs/leo-rover/guides/firmware-update"
-  description="Firmware update"
+  title="Firmware update"
 />
 
 Restart the `leo` service to be sure that new topics are registered properly.
@@ -117,7 +114,7 @@ git clone https://github.com/LeoRover/leo_ui_sample_relay.git
 In case of launching the additional UI reconfiguration of the nginx service is
 needed. Follow the tutorial below:
 
-<LinkButton to="additional-ui" description="Include an additional UI" />
+<LinkButton to="additional-ui" title="Include an additional UI" />
 
 ## Launch the additional UI
 

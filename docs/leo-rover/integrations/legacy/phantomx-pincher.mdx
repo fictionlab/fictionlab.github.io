@@ -7,9 +7,6 @@ description: >
   Rover using ROS. Detailed setup guide included.
 ---
 
-import LinkButton from '@site/src/components/LinkButton';
-import ImageZoom from '@site/src/components/ImageZoom';
-
 :::warning
 
 PhantomX Pincher has been replaced with PincherX 100 Mobile Robotic Arm.
@@ -18,7 +15,7 @@ PincherX 100 mobile, check this tutorial:
 
 <LinkButton
   to="/docs/leo-rover/integrations/robotic-arms/pincherx-100-mobile"
-  description="PincherX 100 Mobile"
+  title="PincherX 100 Mobile"
 />
 
 This integration is not compatible with Leo Rover v1.8. It is kept on site for
@@ -31,14 +28,14 @@ Robotics' PhantomX Pincher Robot connected to Leo Rover.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" description="Connect via SSH" />
+<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
 <LinkButton
   to="/docs/leo-rover/guides/connect-to-network"
-  description="Connect to a local network and the Internet"
+  title="Connect to a local network and the Internet"
 />
 <LinkButton
   to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  description="Install ROS on your computer"
+  title="Install ROS on your computer"
 />
 
 <ImageZoom
@@ -121,7 +118,7 @@ servo IDs like in the picture below:
 
 To do this, you can follow our guide for the Arbotix controller here:
 
-<LinkButton to="arbotix" description="ArbotiX-M Robocontroller" />
+<LinkButton to="arbotix" title="ArbotiX-M Robocontroller" />
 
 In there, you will also find how to configure and use the
 [arbotix ROS driver](http://wiki.ros.org/arbotix).
@@ -147,7 +144,7 @@ Make sure you have ROS installed:
 
 <LinkButton
   to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  description="Install ROS on your computer"
+  title="Install ROS on your computer"
 />
 
 then type in the terminal:
@@ -163,7 +160,7 @@ Make sure your rover is connected to the Internet:
 
 <LinkButton
   to="/docs/leo-rover/guides/connect-to-network"
-  description="Connect to a local network and the Internet"
+  title="Connect to a local network and the Internet"
 />
 
 You will only need packages that are required to start the arm driver:
@@ -295,7 +292,7 @@ tutorial:
 
 <LinkButton
   to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  description="ROS development / Connecting another computer to ROS network"
+  title="ROS development / Connecting another computer to ROS network"
 />
 
 To visualize the position of the arm in RViz, just type:
