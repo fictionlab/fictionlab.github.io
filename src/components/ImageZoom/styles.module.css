@@ -17,4 +17,5 @@
   object-fit: contain;
   display: block;
   margin: auto;
+  border-radius: var(--image-border-radius);
 }
