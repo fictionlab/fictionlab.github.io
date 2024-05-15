@@ -1,6 +1,10 @@
 {
-    "label": "Addons",
-    "position": 5,
-    "collapsible": true,
-    "collapsed": true
+  "label": "Addons",
+  "position": 5,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Addon overview",
+    "type": "generated-index"
+  }
 }
