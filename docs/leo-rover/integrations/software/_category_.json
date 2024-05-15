@@ -1,6 +1,10 @@
 {
-    "label": "Software",
-    "position": 6,
-    "collapsible": true,
-    "collapsed": true
+  "label": "Software",
+  "position": 6,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Software integrations",
+    "type": "generated-index"
+  }
 }

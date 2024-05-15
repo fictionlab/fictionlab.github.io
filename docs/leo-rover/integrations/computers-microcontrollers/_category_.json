@@ -1,6 +1,10 @@
 {
-    "label": "Additional Computers & Microcontrollers",
-    "position": 1,
-    "collapsible": true,
-    "collapsed": true
+  "label": "Additional Computers & Microcontrollers",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Computers & Microcontrollers integrations",
+    "type": "generated-index"
+  }
 }

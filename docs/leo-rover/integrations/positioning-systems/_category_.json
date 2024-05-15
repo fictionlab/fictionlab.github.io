@@ -1,6 +1,10 @@
 {
-    "label": "Positioning systems",
-    "position": 4,
-    "collapsible": true,
-    "collapsed": true
+  "label": "Positioning systems",
+  "position": 4,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Positioning systems integrations",
+    "type": "generated-index"
+  }
 }

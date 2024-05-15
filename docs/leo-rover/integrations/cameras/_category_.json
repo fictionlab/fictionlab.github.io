@@ -1,6 +1,10 @@
 {
-    "label": "Cameras",
-    "position": 2,
-    "collapsible": true,
-    "collapsed": true
+  "label": "Cameras",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Camera integrations",
+    "type": "generated-index"
+  }
 }
