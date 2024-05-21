@@ -46,7 +46,7 @@ MoveIt.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/widowx-250/leo-with-widowx250.webp"
+  src="/img/robots/leo/integrations/widowx-250/leo-with-widowx250.webp"
   alt="WidowX 250 mounted on Leo Rover"
   width="1200"
   height="900"
@@ -101,7 +101,7 @@ supply ([Powerbox addon](https://www.leorover.tech/shop/powerbox) might be
 useful here) and plug into the other end into power distribution board.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/widowx-250/leo-u2d2-graph.webp"
+  src="/img/robots/leo/integrations/widowx-250/leo-u2d2-graph.webp"
   alt="Graph showing connections between Leo Rover and U2D2 board"
   width="2000"
   height="532"
@@ -388,7 +388,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 - Choose `base_link` as the **Fixed Frame**
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/rviz/rviz-base-link.webp"
+  src="/img/robots/leo/guides/rviz/rviz-base-link.webp"
   alt="Set fixed frame to base_link in Rviz"
   width="1365"
   height="728"
@@ -397,7 +397,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 - On the **Displays** panel, click on **Add** and choose **RobotModel**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/rviz/rviz-add-robot-model.webp"
+  src="/img/robots/leo/guides/rviz/rviz-add-robot-model.webp"
   alt="Add RobotModel to Display"
   width="1364"
   height="728"
@@ -406,7 +406,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 - For the **Robot Description** parameter, choose `robot_description`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/rviz-robot-description.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/rviz-robot-description.webp"
   alt="Changing robot description in Rviz"
   width="1362"
   height="729"
@@ -416,7 +416,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
   parameter choose `wx250/robot_description`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/widowx-250/rviz-robot-description-wx250.webp"
+  src="/img/robots/leo/integrations/widowx-250/rviz-robot-description-wx250.webp"
   alt="Adding WidowX 250 to Leo Rover model in Rviz"
   width="1300"
   height="696"
@@ -425,7 +425,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 The effect should look similar to this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/widowx-250/rviz-leo-with-wx250.webp"
+  src="/img/robots/leo/integrations/widowx-250/rviz-leo-with-wx250.webp"
   alt="Leo Rover with WidowX 250 arm in Rviz"
   width="976"
   height="628"
@@ -451,7 +451,7 @@ roslaunch interbotix_moveit interbotix_moveit.launch robot_name:=wx250 rviz_fram
 The MoveIt GUI should appear:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-ui.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-ui.webp"
   alt="User interface of MoveIt"
   width="1300"
   height="791"
@@ -463,7 +463,7 @@ State** (to operate with the gripper, change the **Planning Group** to
 `interbotix_gripper`)
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-motion-planning.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-motion-planning.webp"
   alt="Motion Planning tab of MoveIt"
   width="1300"
   height="696"
@@ -473,7 +473,7 @@ There are some predefined poses which you can choose for the **Goal State**,
 such as `home`, `sleep` or `upright`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-goal-state.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-goal-state.webp"
   alt="Setting Goal States in MoveIt"
   width="1300"
   height="696"
@@ -484,7 +484,7 @@ To set the pose manually, navigate to the **Displays panel** ->
 should now be able to manually set the end-effector pose for the goal state.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-displays.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-displays.webp"
   alt="Setting custom goal states in MoveIt"
   width="1300"
   height="696"
@@ -495,7 +495,7 @@ When the goal state is set, click on the **Plan** button to plan the trajectory
 the trajectory to the driver.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-plan.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-plan.webp"
   alt="Planning and executing goal states in MoveIt"
   width="1300"
   height="696"

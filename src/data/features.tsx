@@ -14,7 +14,7 @@ const FEATURES: FeatureItem[] = [
   {
     name: 'Leo Rover',
     image: {
-      src: '/img/website_images/leo-rover.webp',
+      src: '/img/robots/leo/leo-rover.webp',
       width: 1000,
       height: 1000,
       hyperlink: '/docs/leo-rover/getting-started',
@@ -30,7 +30,7 @@ const FEATURES: FeatureItem[] = [
   {
     name: 'Rapha Rover',
     image: {
-      src: '/img/website_images/rapha-rover.webp',
+      src: '/img/robots/rapha/rapha-rover.webp',
       width: 1000,
       height: 1000,
       hyperlink: '/docs/rapha-rover/specification',

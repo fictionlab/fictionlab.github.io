@@ -74,7 +74,7 @@ To launch it, just enter this
 When the page loads, you should see something like this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-1.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-1.webp"
   width="1365"
   height="729"
 />
@@ -87,7 +87,7 @@ Click the **Add Extension** button in the bottom left corner. You will see all
 the extensions.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-2.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-2.webp"
   width="1365"
   height="729"
 />
@@ -95,7 +95,7 @@ the extensions.
 Find and click **Robot Operating System**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-3.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-3.webp"
   width="1365"
   height="729"
 />
@@ -104,7 +104,7 @@ Then, in the `Master URI` field, type the rover's `IP` address (default
 `10.0.0.1`) and press OK.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-4.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-4.webp"
   width="1365"
   height="729"
 />
@@ -113,7 +113,7 @@ If everything is ok, you should see something like this. Just click **Go to
 Editor** and you are good to go.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-5.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-5.webp"
   width="1365"
   height="729"
 />
@@ -152,7 +152,7 @@ Start by defining new block. To do so, select from the left side of the screen
 **My Block** panel and press **Make a Block**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-6.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-6.webp"
   width="1365"
   height="729"
 />
@@ -163,7 +163,7 @@ function. Then add two input fields of type `number or text`. Name the first one
 look like this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-7.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-7.webp"
   width="695"
   height="543"
   figStyle={{
@@ -177,7 +177,7 @@ select from the panel on the left **Variables** and then **Make a Variable**.
 Name it `cmd_vel` or any other way, and press **OK**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-8.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-8.webp"
   width="1365"
   height="729"
 />
@@ -187,7 +187,7 @@ from **Variables** panel, to our `Publish cmd_vel` block. From the list choose
 your variable (in our case `cmd_vel`) and for the value type `0`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-9.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-9.webp"
   width="1365"
   height="729"
 />
@@ -195,7 +195,7 @@ your variable (in our case `cmd_vel`) and for the value type `0`.
 After those steps our function should look like this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-10.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-10.webp"
   width="275"
   height="121"
   figStyle={{
@@ -215,7 +215,7 @@ So from the **ROS** panel pick `Set` block, and add it to function twice (we
 have two inputs in our function).
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-11.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-11.webp"
   width="1365"
   height="729"
 />
@@ -229,7 +229,7 @@ and drop** input fields from the function in the correct places. This is how
 your function should look like at this moment:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-12.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-12.webp"
   width="260"
   height="188"
   figStyle={{
@@ -241,7 +241,7 @@ So we have our message. Now we need to publish it on the `/cmd_vel` topic. To do
 this, we need to add to our function `Publish` block from **ROS** panel.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-13.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-13.webp"
   width="1365"
   height="729"
 />
@@ -250,7 +250,7 @@ Now we need to fill this block. We pick our `cmd_vel` variable, and `/cmd_vel`
 topic from all available topics. In the end our function looks like this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-14.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-14.webp"
   width="273"
   height="230"
   figStyle={{
@@ -268,7 +268,7 @@ To do so, we are going to use `When <key> is pressed` block from **Events**
 panel. We need to pick four of those blocks, as there are four arrow keys.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/scratch/scratch-15.webp"
+  src="/img/robots/leo/integrations/scratch/scratch-15.webp"
   width="1365"
   height="729"
 />
