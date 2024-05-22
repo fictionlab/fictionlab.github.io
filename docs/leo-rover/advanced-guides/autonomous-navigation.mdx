@@ -15,24 +15,11 @@ IMU and LiDAR sensors.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-
-<LinkButton
-  to="/docs/leo-rover/guides/software-update"
-  title="Software update"
-/>
-
-<LinkButton
-  to="/docs/leo-rover/guides/firmware-update"
-  title="Firmware update"
-/>
-
-<LinkButton
-  to="install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
-
-<LinkButton to="ros-development" title="ROS development" />
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/software-update" />
+<LinkButton docId="leo-rover/guides/firmware-update" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 For this purpose, we prepared the
 [leo_navigation](https://github.com/LeoRover/leo_navigation_tutorial) package
@@ -43,7 +30,7 @@ configuration may need to be tweaked to work best in your environment.
 To complete this guide, you will need to, first of all, have the IMU and LiDAR
 sensors integrated with the system:
 
-<LinkButton to="/docs/leo-rover/integrations/legacy/imu" title="Groove IMU" />
+<LinkButton docId="leo-rover/integrations/legacy/grove-imu" />
 
 :::tip
 
@@ -54,18 +41,9 @@ integration tutorial.
 
 and one of these LiDARs
 
-<LinkButton
-  to="/docs/leo-rover/integrations/components/hokuyo-lidar"
-  title="Hokuyo LiDAR"
-/>
-<LinkButton
-  to="/docs/leo-rover/integrations/components/rplidar-a2"
-  title="RPLiDAR A2M8 / A2M12"
-/>
-<LinkButton
-  to="/docs/leo-rover/integrations/components/rplidar-s3"
-  title="RPLiDAR S3"
-/>
+<LinkButton docId="leo-rover/integrations/lidars/hokuyo-ug-04lx-ug01" />
+<LinkButton docId="leo-rover/integrations/lidars/slamtec-rplidar-a2" />
+<LinkButton docId="leo-rover/integrations/lidars/slamtec-rplidar-s3" />
 
 Make sure you are operating on the newest image for the Raspberry Pi and you are
 up-to-date with the packages and have the newest firmware flashed.
@@ -83,7 +61,7 @@ computer, in order to use the software for autonomous navigation.
 You will need to build the `leo_navigation` package first. To do this, start by
 accessing a remote terminal session on Leo Rover by logging via ssh:
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
+<LinkButton docId="leo-rover/guides/ssh" />
 
 Create a catkin workspace:
 
@@ -177,12 +155,10 @@ export ROS_IP="<YOUR_IP>"
 export ROS_MASTER_URI="http://10.0.0.1:11311"
 ```
 
-For more information, visit:
+For more information, visit `Connecting another computer to ROS network` section
+in `ROS Development` tutorial:
 
-<LinkButton
-  to="ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connection another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## Launching the software
 
