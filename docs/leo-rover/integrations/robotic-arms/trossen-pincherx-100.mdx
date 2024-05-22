@@ -13,9 +13,11 @@ keywords:
 description: >
   Extend Leo Rover's capabilities with the 4DOF, 300mm reach PincherX 100 Mobile
   robotic arm. Tutorial for mechanical and software integration.
-
-# image: TODO
+image: /img/robots/leo/integrations/pincherx-100-mobile/pincher-on-leo.webp
 ---
+
+import Powerbox from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
+import ProductPreview from '@site/src/components/ProductPreview';
 
 In this tutorial, we will show you how to configure and remotely control Trossen
 Robotics' PhantomX PincherX 100 mobile connected to Leo Rover.
@@ -33,11 +35,7 @@ good starting point to use robotic arms in your future projects.
 
 To make integration easier we highly recommend to make use of Powerbox addon
 
-<LinkButton
-  to="https://www.leorover.tech/shop/powerbox"
-  title="Powerbox Addon - Leo Rover store"
-  icon="🛒"
-/>
+<Powerbox />
 
 :::
 
@@ -60,27 +58,22 @@ command line.
 
 ## Prerequisites
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-rover-ap"
-  title="Connect to Leo Rover AP"
-/>
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
-
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/guides/connect-to-rover-ap" />
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 ## Referenced products
 
-<LinkButton
-  to="https://www.leorover.tech/shop/phantomx-pincher-robot-arm-with-adapters"
-  title="PincherX 100 Mobile Robot Arm with adapters - Leo Rover store"
-  icon="🛒"
+<ProductPreview
+  shopUrl="https://www.leorover.tech/shop/phantomx-pincher-robot-arm-with-adapters"
+  imageSrc="/img/robots/leo/integrations/pincherx-100-mobile/pincher-on-leo.webp"
+  width={536}
+  height={500}
+  title="PincherX 100 Mobile Robot Arm with adapters"
+  description="The PincherX 100 Robot Arm, with ROS compatibility and instructional demos,
+    enhances Leo Rover's research capabilities, offering 4 degrees of freedom and robust
+    construction for AI applications."
 />
 
 ## List of components
@@ -106,7 +99,7 @@ the rover.
 />
 
 If you want to print it on your own, you can find the SLT file
-[here](/docs/leo-rover/documentation/addon-adapters). After printing, it you'll
+[here](/docs/leo-rover/integrations/addon-adapters). After printing, it you'll
 need to press 4x M3 heat set inserts into the holes shown below.
 
 <ImageZoom
@@ -146,8 +139,8 @@ Connect U2D2 and the power distribution board with the short Dynamixel cable.
 Connect the U2D2 to the rover using an USB cable
 
 The last step is to stick connect the barrel jack cable to the battery power
-supply ([Powerbox addon](https://www.leorover.tech/shop/powerbox) might be
-useful here) and plug into the other end into power distribution board.
+supply ([Powerbox addon](/docs/leo-rover/addons/powerbox) might be useful here)
+and plug into the other end into power distribution board.
 
 With everything connected it should look like this:
 
@@ -274,13 +267,10 @@ and paste these lines somewhere between the `<robot>` tags:
 :::info
 
 To learn more about what the files under /etc/ros are used for and how do they
-correlate with each other, visit the Adding additional functionality to the
-rover section on ROS Development guide:
+correlate with each other, visit the **Adding additional functionality to the
+rover** section on **ROS Development** guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#adding-additional-functionality-to-the-rover"
-  title="ROS development / Adding additional functionality to the rover"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 :::
 
@@ -330,10 +320,7 @@ You also need your computer to be properly configured to communicate with the
 nodes running on the rover. For this, you can visit the **Connecting other
 computer to ROS network** section of the **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 It's also useful to have the `leo_description` package installed on your
 computer for visualization purposes. To install it, type:
@@ -573,4 +560,4 @@ a look at
 ## What next?
 
 If you found this tutorial interesting, make sure to check out other tutorials
-we provide on our [documentation](/docs/leo-rover/getting-started) site.
+we provide on our [Integrations](/docs/category/integrations) site.

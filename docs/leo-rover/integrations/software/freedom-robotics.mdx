@@ -14,8 +14,7 @@ keywords:
 description: >
   Leverage Freedom Robotics' low latency teleoperation, mission triggering, and
   customizable controls to pilot your Leo Rover.
-
-# image: TODO
+image: /img/robots/leo/integrations/freedom-robotics/freedom-piloting-leo.webp
 ---
 
 In this tutorial, we will show you how to integrate your Leo Rover with the
@@ -56,11 +55,8 @@ and gather data from anywhere in the world using Freedom Robotics GUI.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 ## List of components
 
@@ -474,7 +470,7 @@ See more on [this site](https://docs.freedomrobotics.ai/docs/start-control).
 Assemble the IMU module to your Rover and follow the IMU tutorial to enable IMU
 data streaming to the ROS environment.
 
-<LinkButton to="/docs/leo-rover/integrations/legacy/imu" title="Grove IMU" />
+<LinkButton docId="leo-rover/integrations/legacy/grove-imu" />
 
 Now, connect to your device via Freedom Robotics and go to the device
 **Settings** and then go to the **Bandwidth** section.
@@ -515,7 +511,6 @@ Now, in the `Stream` section you can see data from the IMU topics.
 
 Our [site](/docs/leo-rover/getting-started) provides developer resources, where
 You'll be able to check out more tutorials. Some of them (like
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower) and
-[object detection](/docs/leo-rover/integrations/leo-examples/object-detection))
-do not use any additional equipment connected to the rover. Be sure to check
-them out.
+[line follower](/docs/leo-rover/leo-examples/line-follower) and
+[object detection](/docs/leo-rover/leo-examples/object-detection)) do not use
+any additional equipment connected to the rover. Be sure to check them out.

@@ -14,10 +14,10 @@ keywords:
 description: >
   Integrate Fixposition's centimeter-level accurate GPS module with Leo Rover to
   enable unparalleled navigation for research and industry.
-
-# image: TODO
+image: /img/robots/leo/integrations/vision-rtk2/leo-with-vision-rtk2.webp
 ---
 
+import Powerbox from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 This tutorial will guide you through the process of connecting Fixposition
@@ -44,26 +44,17 @@ for research, exploration, and industrial applications.
 
 ## Prerequisites
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-rover-ap"
-  title="Connect to Leo Rover AP"
-/>
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/software-update"
-  title="Software update"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/connect-to-rover-ap" />
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/software-update" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## List of components
 
 - Fixposition Vision-RTK2
 - Power connector
 - Adapter plate (eg. the one we provide
-  [here](/docs/leo-rover/documentation/addon-adapters#fixposition-vision-rtk2-adapter))
+  [here](/docs/leo-rover/integrations/addon-adapters#fixposition-vision-rtk2-adapter))
 
 ## Mechanical integration
 
@@ -87,9 +78,11 @@ electromagnetic interferences (e.g. motors).
 ## Wiring and electronics connection
 
 The only wire needed for the module to work is a power cable. An external power
-distribution module like our [Powerbox](https://www.leorover.tech/shop/powerbox)
-might come in handy in this case. Connecting the power wire straight to the
-rovers battery is theoretically possible, but not advised.
+distribution module like our [Powerbox](/docs/leo-rover/addons/powerbox) might
+come in handy in this case. Connecting the power wire straight to the rovers
+battery is theoretically possible, but not advised.
+
+<Powerbox />
 
 ## Software integration
 

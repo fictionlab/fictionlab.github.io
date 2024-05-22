@@ -13,10 +13,10 @@ keywords:
 description: >
   Detailed tutorial on mounting the WidowX 250 arm, configuring ROS packages,
   and remotely operating the arm from your Leo Rover.
-
-# image: TODO
+image: /img/robots/leo/integrations/widowx-250/leo-with-widowx250.webp
 ---
 
+import Powerbox from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 In this tutorial, we will show you how to integrate and remotely control the
@@ -30,11 +30,7 @@ Rover.
 
 To make integration easier we highly recommend to make use of Powerbox addon
 
-<LinkButton
-  to="https://www.leorover.tech/shop/powerbox"
-  title="Powerbox Addon - Leo Rover store"
-  icon="🛒"
-/>
+<Powerbox />
 
 :::
 
@@ -67,11 +63,8 @@ MoveIt.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## Mechanical integration
 
@@ -82,10 +75,7 @@ to connect the arm to the rover's mounting plate.
 If you have the original support plate, you can get the model for 3D printing
 here (**addons** section):
 
-<LinkButton
-  to="/docs/leo-rover/documentation/addon-adapters#widowx-250-adapter"
-  title="Addon adapters / WidowX 250 adapter"
-/>
+<LinkButton docId="leo-rover/integrations/addon-adapters" />
 
 ## Wiring and electronics connection
 
@@ -97,8 +87,8 @@ Connect U2D2 and the power distribution board with the short Dynamixel cable.
 Connect the U2D2 to the rover using an USB cable
 
 The last step is to stick connect the barrel jack cable to the battery power
-supply ([Powerbox addon](https://www.leorover.tech/shop/powerbox) might be
-useful here) and plug into the other end into power distribution board.
+supply ([Powerbox addon](/docs/leo-rover/addons/powerbox) might be useful here)
+and plug into the other end into power distribution board.
 
 <ImageZoom
   src="/img/robots/leo/integrations/widowx-250/leo-u2d2-graph.webp"
@@ -259,13 +249,10 @@ and paste these lines somewhere between the `<robot>` tags:
 :::info
 
 To learn more about what the files under /etc/ros are used for and how do they
-correlate with each other, visit the Adding additional functionality to the
-rover section on ROS Development guide:
+correlate with each other, visit the **Adding additional functionality to the
+rover** section on **ROS Development** guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#adding-additional-functionality-to-the-rover"
-  title="ROS development / Adding additional functionality to the rover"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 :::
 
@@ -318,10 +305,7 @@ and properly configured to communicate with the nodes running on the rover. For
 this, you can visit **Connecting other computer to ROS network** section of the
 **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 First, install some prerequisites:
 
@@ -598,4 +582,4 @@ file.
 ## What next?
 
 If you found this tutorial interesting, make sure to check out other tutorials
-we provide on our [documentation](/docs/leo-rover/getting-started) site.
+we provide on our [Integrations](/docs/category/integrations) site.

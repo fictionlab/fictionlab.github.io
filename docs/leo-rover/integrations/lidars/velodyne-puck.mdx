@@ -13,9 +13,11 @@ keywords:
 description: >
   Detailed tutorial on setting up the Velodyne Puck LiDAR, a compact and
   lightweight sensor ideal for autonomous vehicles and mobile robotics.
-
-# image: TODO
+image: /img/robots/leo/integrations/velodyne-puck/velodyne-puck-mast.webp
 ---
+
+import CameraMast from '@site/docs/leo-rover/addons/universal-camera-mast/_universal-camera-mast-product.mdx';
+import Powerbox from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 
 This tutorial will guide you through the process of connecting and using
 Velodyne Puck LiDAR sensor on your rover.
@@ -36,19 +38,10 @@ sensor.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Mechanical integration It's common for 3D lidars to be attached some distance
 above the mounting plate of a robot. This procedure allows you to avoid the need
@@ -57,7 +50,10 @@ elements.
 
 The easiest solution for attaching the Velodyne Puck above the mounting plate of
 a Leo Rover would be using our
-[Universal Camera Mast](https://www.leorover.tech/shop/universal-camera-mast).
+[Universal Camera Mast](/docs/leo-rover/addons/universal-camera-mast).
+
+<CameraMast />
+
 However, you can also design a custom eg. like the one shown in the picture
 below.
 
@@ -84,14 +80,14 @@ wire straight through the newly created hole. This solution, combined with the
 use of a cable gland, keeps the MEB box waterproof.
 
 Second common solution involves printing a new cover for the MEB box. Dev cover
-found [here](/docs/leo-rover/documentation/dev-covers-addons), provides a wide
+found [here](/docs/leo-rover/addons/additional-meb-covers), provides a wide
 opening for running wires straight into the MEB. This solution can be extremely
 useful in projects that don't need to be waterproof.
 
 <ImageZoom
-  src="/img/robots/leo/documentation/00188-dev-meb-cover.webp"
-  width="1000"
-  height="750"
+  src="/img/robots/leo/addons/meb-covers/00188-dev-meb-cover.webp"
+  width="1920"
+  height="1080"
   figStyle={{
     width: 600,
   }}
@@ -99,8 +95,10 @@ useful in projects that don't need to be waterproof.
 
 If the camera isn't the only thing connected to the rover you might need to
 provide an external power connection.
-[Powerbox](https://www.leorover.tech/shop/powerbox) might come in handy in such
+[Powerbox](/docs/leo-rover/addons/powerbox) might come in handy in such
 situations.
+
+<Powerbox />
 
 ## Software integration
 
@@ -552,18 +550,12 @@ If you have ROS installed on your computer, you can get a more graphical
 representation of the data with RViz. If you don't have ROS, you can follow this
 guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 Before starting RViz, make sure you completed the **Connecting another computer
 to ROS network** section of **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Now, open RViz by typing `rviz` in the terminal, or, if you have the `leo_viz`
 package installed, type:
@@ -615,7 +607,6 @@ Lidars are commonly used in projects involving
 you might be interested in a tutorial about it.
 
 They are however, not the only way of teaching a Leo Rover how to move on it's
-own. Check out our
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower)
+own. Check out our [line follower](/docs/leo-rover/leo-examples/line-follower)
 tutorial if you want to learn more. You can also check our
-[Knowledge Base](/docs/category/integrations) for more instructions.
+[Integrations page](/docs/category/integrations) for more instructions.

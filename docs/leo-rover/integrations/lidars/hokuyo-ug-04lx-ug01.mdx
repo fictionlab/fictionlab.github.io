@@ -11,10 +11,10 @@ keywords:
 description: >
   Learn how to connect a Hokuyo LiDAR sensor to your Leo Rover for mapping,
   object detection, and SLAM applications.
-
-# image: TODO
+image: /img/robots/leo/integrations/hokuyo-lidar/hokuyo-lidar.webp
 ---
 
+import Product from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 This tutorial will guide you through the process of connecting a LiDAR sensor to
@@ -40,9 +40,6 @@ or safety systems.
 The steps might slightly differ for other LiDAR sensors but should be
 essentially similar.
 
-See more information on the Hokuyo UG-04LX-UG01 device
-[here](https://www.leorover.tech/shop/lidar-hokuyo-urg-04lx-ug01-with-adapter).
-
 ## What to expect?
 
 After completing this tutorial, you should be able to visualize the model and
@@ -60,16 +57,14 @@ data from the sensor like in the video below.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## List of components
 
 - Hokuyo URG-04LX-UG01
-- [3D-printed 04008 Hokuyo URG-04LX adapter](/docs/leo-rover/documentation/addon-adapters#hokuyo-urg-04lx-adapter)
+- 3D-printed 04008 Hokuyo URG-04LX adapter
+  ([available here](/docs/leo-rover/integrations/addon-adapters#hokuyo-urg-04lx-adapter))
 - miniUSB-USB A cable (provided by default with Leo Rover)
 - 4x M5x10 mounting screws
 - 2x M3x10 mounting screws
@@ -87,7 +82,7 @@ We developed 3D printable models of mechanical interfaces that allow you to
 mount the aforementioned sensor to the mounting plate of the rover. Locating the
 sensor the top of the robot provides a vide field of view with not many
 obstacles for the laser beam to get caught on. Get the files from here:
-[Addon Adapters](/docs/leo-rover/documentation/addon-adapters/).
+[Addon Adapters](/docs/leo-rover/integrations/addon-adapters).
 
 - With 2x M3x6 Allen screws connect the sensor to the printed interface plate.
 - Use 4x M5x10 Allen screws to fasten the sensor to the Leo Rover.
@@ -100,7 +95,9 @@ positioned at the top of the rover.
 USB connection provides power to the sensor and allows the data transfer. This
 means that no external power sources are necessary. Some lidars might need
 external power connections, that's when
-[Powerbox](https://www.leorover.tech/shop/powerbox) might come in handy.
+[Powerbox](/docs/leo-rover/addons/powerbox) might come in handy.
+
+<Product />
 
 With everything connected Leo Rover looks like this:
 
@@ -250,18 +247,12 @@ If you have ROS installed on your computer, you can get a more graphical
 representation of the data with RViz. If you don't have ROS, you can follow this
 guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 Before starting RViz, make sure you completed the **Connecting another computer
 to ROS network** section of **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Now, open RViz by typing `rviz` in the terminal, or, if you have the `leo_viz`
 package installed, type:
@@ -309,7 +300,6 @@ Lidars are commonly used in projects involving
 you might be interested in a tutorial about it.
 
 They are however, not the only way of teaching a Leo Rover how to move on it's
-own. Check out our
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower)
+own. Check out our [line follower](/docs/leo-rover/leo-examples/line-follower)
 tutorial if you want to learn more. You can also check our
-[Knowledge Base](/docs/category/integrations) for more instructions.
+[Integrations page](/docs/category/integrations) for more instructions.

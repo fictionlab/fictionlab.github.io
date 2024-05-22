@@ -13,8 +13,7 @@ keywords:
 description: >
   Learn how to connect an Oak-D stereo camera to your Leo Rover for robotic
   vision applications like mapping, object recognition, and 3D scanning.
-
-# image: TODO
+image: /img/robots/leo/integrations/oak-d/oak-d-ucm.webp
 ---
 
 This tutorial will guide you through the process of connecting an Oak-D camera
@@ -35,21 +34,15 @@ about the use of stereo cameras.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 ## List of components
 
 - Oak-D Series Stereo Camera
 - Any mounting solution (eg.
-  [Universal Camera Mast](https://www.leorover.tech/shop/universal-camera-mast))
+  [Universal Camera Mast](/docs/leo-rover/addons/universal-camera-mast))
 - USB-A to USB-C wire
 - (optional) USB-C to DC power supply
 
@@ -57,8 +50,8 @@ about the use of stereo cameras.
 
 There are multiple use cases for stereo cameras. Since we cannot predict them
 all, we cannot design a perfect mount for all of them. That's why we provide a
-[Universal Camera Mast](https://www.leorover.tech/shop/universal-camera-mast)
-that can fit a wide range of projects.
+[Universal Camera Mast](/docs/leo-rover/addons/universal-camera-mast) that can
+fit a wide range of projects.
 
 <ImageZoom
   src="/img/robots/leo/integrations/oak-d/oak-d-ucm.webp"
@@ -98,7 +91,7 @@ useful in projects that don't need to be waterproof.
 
 If the camera isn't the only thing connected to the rover you might need to
 provide an external power connection.
-[Powerbox](https://www.leorover.tech/shop/powerbox) might come in handy in such
+[Powerbox](/docs/leo-rover/addons/powerbox) might come in handy in such
 situations.
 
 ## Software integration
@@ -284,10 +277,7 @@ rqt, and see the robot model with camera attached using rviz.
 Before starting any of the programs, make sure you completed the **Connecting
 another computer to ROS network** of **ROS development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Now you can start `rqt`, and from `plugins` -> `visualization` choose
 `image view` and then choose your topic.
@@ -319,7 +309,6 @@ Stereo cameras are commonly used in projects involving
 you might be interested in a tutorial about it.
 
 They are however, not the only way of teaching a Leo Rover how to move on it's
-own. Check out our
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower)
+own. Check out our [line follower](/docs/leo-rover/leo-examples/line-follower)
 tutorial if you want to learn more. You can also check our
-[Knowledge Base](/docs/category/integrations) for more instructions.
+[Integrations page](/docs/category/integrations) for more instructions.

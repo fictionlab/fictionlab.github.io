@@ -13,10 +13,10 @@ keywords:
 description: >
   Learn how to connect an RPLiDAR S3 sensor to your Leo Rover for 2D mapping and
   more. Detailed tutorial mechanical and software integration.
-
-# image: TODO
+image: /img/robots/leo/integrations/rplidar-a2/rviz-map-lidar.webp
 ---
 
+import Product from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 This tutorial will guide you through the process of connecting a LiDAR sensor to
@@ -43,21 +43,15 @@ and visualize it using RViz. Just like in the image below:
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## List of components
 
 - RPLidar S3
 - RPLidar S3 adapter plate (can be found here:
-  [Addon adapters](/docs/leo-rover/documentation/addon-adapters#rplidar-s3-adapter))
+  [Addon adapters](/docs/leo-rover/integrations/addon-adapters#rplidar-s3-adapter))
 - M5x10 Allen head screw x4
 - M2.5x6 Allen head screw x4
 
@@ -67,7 +61,7 @@ We developed 3D printable models of mechanical interfaces that allow you to
 mount the aforementioned sensor to the mounting plate of the rover. Locating the
 sensor the top of the robot provides a vide field of view with not many
 obstacles for the laser beam to get caught on. Get the files from here:
-[Addon Adapters](/docs/leo-rover/documentation/addon-adapters/).
+[Addon Adapters](/docs/leo-rover/integrations/addon-adapters/).
 
 - With 4 x M2.5x6 Allen screws connect the sensor to the printed interface
   plate.
@@ -102,7 +96,9 @@ positioned at the top of the rover.
 USB connection provides power to the sensor and allows the data transfer. This
 means that no external power sources are necessary. Some lidars might need
 external power connections, that's when
-[Powerbox](https://www.leorover.tech/shop/powerbox) might come in handy.
+[Powerbox](/docs/leo-rover/addons/powerbox) might come in handy.
+
+<Product />
 
 With everything connected you are ready to try out your new sensor.
 
@@ -263,18 +259,12 @@ If you have ROS installed on your computer, you can get a more graphical
 representation of the data with RViz. If you don't have ROS, you can follow this
 guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 Before starting RViz, make sure you completed the **Connecting another computer
 to ROS network** section of **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Now, open RViz by typing `rviz` in the terminal, or, if you have the `leo_viz`
 package installed, type:
@@ -334,7 +324,6 @@ Lidars are commonly used in projects involving
 you might be interested in a tutorial about it.
 
 They are however, not the only way of teaching a Leo Rover how to move on it's
-own. Check out our
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower)
+own. Check out our [line follower](/docs/leo-rover/leo-examples/line-follower)
 tutorial if you want to learn more. You can also check our
-[Knowledge Base](/docs/category/integrations) for more instructions.
+[Integrations page](/docs/category/integrations) for more instructions.

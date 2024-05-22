@@ -10,9 +10,10 @@ keywords:
 description: >
   Explore the steps to gather GPS data from a UBlox GPS module and integrate it
   with your Leo Rover system using the UBlox EVK-M8N GPS module example.
-
-# image: TODO
+image: /img/robots/leo/integrations/ublox-gps/ublox-evk-m8n-shop.webp
 ---
+
+import ProductPreview from '@site/src/components/ProductPreview';
 
 This tutorial will guide you through the process of connecting a UBlox GPS
 module to your Leo Rover.
@@ -45,18 +46,20 @@ get it published on ROS topics.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## Referenced products
 
-<LinkButton
-  to="https://www.leorover.tech/shop/gps-module"
-  title="UBlox EVK-M8N GPS module - Leo Rover store"
-  icon="🛒"
+<ProductPreview
+  shopUrl="https://www.leorover.tech/shop/gps-module"
+  imageSrc="/img/robots/leo/integrations/ublox-gps/ublox-evk-m8n-shop.webp"
+  width={1200}
+  height={802}
+  title="UBlox EVK-M8N GPS module"
+  description="Enhance Leo Rover's capabilities with the UBlox EVK-M8N GPS module.
+    Experience precise navigation and versatile connectivity with multi-GNSS support,
+    ensuring high-performance and reliability."
 />
 
 ## List of components
@@ -256,10 +259,7 @@ sudo apt-get install ros-$ROS_DISTRO-mapviz ros-$ROS_DISTRO-mapviz-plugins ros-$
 Since Mapviz is a program using GUI you may want to connect to the Leo Rover via
 remote desktop. Follow this tutorial if you want to learn how:
 
-<LinkButton
-  to="/docs/leo-rover/guides/remote-desktop"
-  title="Connect via remote desktop"
-/>
+<LinkButton docId="leo-rover/guides/remote-desktop" />
 
 Launch Mapviz with:
 
@@ -306,5 +306,5 @@ tutorial on indoor
 [autonomous navigation](/docs/leo-rover/advanced-guides/autonomous-navigation)
 you might be something you'll be interested in.
 
-You can also check our [Knowledge Base](/docs/category/integrations) for other
-instructions.
+You can also check our [Integrations page](/docs/category/integrations) for
+other instructions.

@@ -8,8 +8,6 @@ keywords:
 description: >
   Detailed tutorial on integrating a generic relay module with your Leo Rover,
   including wiring, firmware updates, and launching a new UI
-
-# image: TODO
 ---
 
 :::warning
@@ -24,11 +22,8 @@ specific firmware, and launch the additional user's interface.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 ## Items needed
 
@@ -96,10 +91,7 @@ git checkout feature/relay
 Now, you need to build the firmware and flash it to the Rover. For instructions
 on how to do it, please follow the Firmware update tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/guides/firmware-update"
-  title="Firmware update"
-/>
+<LinkButton docId="leo-rover/guides/firmware-update" />
 
 Restart the `leo` service to be sure that new topics are registered properly.
 
@@ -119,7 +111,7 @@ git clone https://github.com/LeoRover/leo_ui_sample_relay.git
 In case of launching the additional UI reconfiguration of the nginx service is
 needed. Follow the tutorial below:
 
-<LinkButton to="additional-ui" title="Include an additional UI" />
+<LinkButton docId="leo-rover/integrations/legacy/additional-ui" />
 
 ## Launch the additional UI
 

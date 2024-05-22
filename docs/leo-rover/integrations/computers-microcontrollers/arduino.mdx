@@ -10,10 +10,10 @@ keywords:
 description: >
   Discover the benefits of using Arduino with Leo Rover, including simplified
   hardware projects and faster development.
-
-# image: TODO
+image: /img/robots/leo/integrations/arduino/arduino-on-leo.webp
 ---
 
+import Product from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
@@ -62,15 +62,8 @@ process of future projects a little bit faster.
 
 ## Prerequisites
 
-<LinkButton
-  to="/docs/leo-rover/guides/remote-desktop"
-  title="Connect via remote desktop"
-/>
-
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/remote-desktop" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 ## List of components
 
@@ -80,12 +73,10 @@ process of future projects a little bit faster.
 
 ## Mechanical integration
 
-We have created mechanical interfaces for Arduino DUE, which you can get here:
+We have created mechanical interfaces for **Arduino DUE**, which you can get
+here:
 
-<LinkButton
-  to="/docs/leo-rover/documentation/addon-adapters#arduino-due"
-  title="Addon adapters / Arduino Due"
-/>
+<LinkButton docId="leo-rover/integrations/addon-adapters" />
 
 You'll need to press in ten M3, threaded heat-set inserts into the base part.
 This allows you to use M3x6 Allen screws to hold the Arduino securely. The cover
@@ -103,6 +94,8 @@ connection between the board and the USB port at the top of the rover. However,
 you may want to provide the microcontroller, and the sensors that you are using,
 with external power source. For such cases powerbox addon might be a good
 choice.
+
+<Product />
 
 ## Software integration
 
