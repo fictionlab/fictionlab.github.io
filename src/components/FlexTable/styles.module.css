@@ -1,9 +1,11 @@
 .flexTable {
-  display: 'flex';
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 996px) {
   .flexTable {
     width: 100%;
+    flex-direction: column;
   }
 }
