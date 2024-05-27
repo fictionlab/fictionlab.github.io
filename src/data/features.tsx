@@ -17,7 +17,7 @@ const FEATURES: FeatureItem[] = [
       src: '/img/robots/leo/leo-rover.webp',
       width: 1000,
       height: 1000,
-      hyperlink: '/docs/leo-rover/getting-started',
+      hyperlink: '/docs/leo-rover/overview',
       style: { width: 300, height: 'auto' },
     },
     text: (
