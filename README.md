@@ -1,41 +1,116 @@
-# Website
+# Fictionlab documentation
 
-This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+Fictionlab documentation is built using [Docusaurus 3](https://docusaurus.io/),
+a modern static website generator.
 
-### Installation
+## Links
+
+- [Production link](http://docs.fictionlab.pl)
+- [development (local) link](http://localhost:3000)
+
+## How to start developing
+
+### Installation on local machine
+
+#### Prerequisites
+
+To launch development environment, it is necessary to install following
+prerequisites:
+
+- Code editor ([Visual Studio Code](https://code.visualstudio.com/) is
+  recommended)
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/en/)
+- [Git](https://git-scm.com/)
+- web browser
+
+#### Recommended VS Code extensions
+
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+#### Cloning repository
+
+To clone repository, type in terminal:
 
 ```
-$ yarn
+git clone https://github.com/fictionlab/docs
 ```
 
-### Local Development
+or use VS Code search bar:
 
 ```
-$ yarn start
+> git clone
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+in URL paste url of this repository.
 
-### Build
+By default, `development` branch is selected. To create new branch see
+[Branching section](#branching).
 
-```
-$ yarn build
-```
+#### Launching development environment
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
+After successful clone, open folder in VS Code and in terminal type:
 
 ```
-$ USE_SSH=true yarn deploy
+yarn install
 ```
 
-Not using SSH:
+After successful installation, start development environment by typing:
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+yarn start
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+After few seconds, new browser tab should appear, pointing to
+http://localhost:3000.
+
+From now on (until you close the terminal) changes in files will be reflected in
+the development environment.
+
+## Making updates to documentation
+
+In order to update documentation clone this repository and create dedicated
+branch from development (or any branch). For example this command will create
+new branch called `feature/new-button` from `development`:
+
+```
+git checkout -b feature/new-button development
+```
+
+On newly created branch, modify necessary files and test everything using
+development environment.
+
+<!-- prettier-ignore -->
+> [!IMPORTANT]
+> It is required to test results of edits on both desktop and mobile browsers!
+> 
+> To test mobile layout on PC, use dev development tools included in most popular browsers.
+>
+> To open them press **F12**. Then click **Toggle device emulation** button in top left corner.
+
+<!-- TODO Add information about validation, cspell, prettier -->
+
+When ready, push all modified files to remote branch using `git push` command.
+
+<!-- prettier-ignore -->
+> [!TIP]
+> For more information on using git, see https://www.atlassian.com/git
+
+After all the changes have been made, create Pull request to merge your changes
+into `development` branch.
+
+<!-- prettier-ignore -->
+> [!WARNING]
+> Pull requests to `production` branch from branches other than
+> `development` won't be merged.
+
+### Branching
+
+Right now we have following branching naming convention:
+
+- /feature/description - for changes to wiki code like new React components
+- /content/description - for updating content of the wiki
+- /fix/description - for making fixes
