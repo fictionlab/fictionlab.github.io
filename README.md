@@ -143,8 +143,8 @@ into `development` branch.
 Code must be reviewed by Fictionlab staff. By default users requested for review
 are:
 
-- @krzemien97
-- @bjsowa
+- [@Krzemien97](https://github.com/Krzemien97)
+- [@bjsowa](https://github.com/bjsowa)
 
 <!-- prettier-ignore -->
 > [!WARNING]
