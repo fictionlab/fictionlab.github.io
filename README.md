@@ -81,7 +81,14 @@ git checkout -b feature/new-button development
 ```
 
 On newly created branch, modify necessary files and test everything using
-development environment.
+development environment. We prepared special section of the documentation to
+show how to consistently style and format pages:
+
+> TBD
+
+After making any changes, it is necessary to test how compiled code is shown in
+the browser. To do that, use development environment, that was shown in the
+previous section.
 
 <!-- prettier-ignore -->
 > [!IMPORTANT]
@@ -89,9 +96,40 @@ development environment.
 > 
 > To test mobile layout on PC, use dev development tools included in most popular browsers.
 >
-> To open them press **F12**. Then click **Toggle device emulation** button in top left corner.
+> To open them in any chromium based browser (Chrome, MS Edge, Opera etc.) press **F12**. Then click **Toggle device emulation** button in top left corner.
 
-<!-- TODO Add information about validation, cspell, prettier -->
+As last step, it is required to check spelling and formatting of the code.
+
+To check format of the code, type:
+
+```
+yarn formatcheck
+```
+
+It will only check formatting without making any changes to files. It will show
+a list of files that require formatting changes. You can use that to fix
+formatting manually.
+
+As alternative it is possible to fix formatting automatically by typing:
+
+```
+yarn format
+```
+
+<!-- prettier-ignore -->
+> [!DANGER]
+> Prettier don't have full MDXv3 support and there is some problems with it. See: [docusaurus.io - usage with prettier](https://docusaurus.io/docs/markdown-features/admonitions#usage-with-prettier)
+
+To check spelling inside all MDX files, type:
+
+```
+yarn spellcheck
+```
+
+It will show a list of unrecognized words inside all markdown files. You have to
+fix them manually.
+
+### Pushing changes to remote repo
 
 When ready, push all modified files to remote branch using `git push` command.
 
@@ -102,15 +140,26 @@ When ready, push all modified files to remote branch using `git push` command.
 After all the changes have been made, create Pull request to merge your changes
 into `development` branch.
 
+Code must be reviewed by Fictionlab staff. By default users requested for review
+are:
+
+- @krzemien97
+- @bjsowa
+
 <!-- prettier-ignore -->
 > [!WARNING]
 > Pull requests to `production` branch from branches other than
 > `development` won't be merged.
 
-### Branching
+### Branching naming
 
 Right now we have following branching naming convention:
 
 - /feature/description - for changes to wiki code like new React components
 - /content/description - for updating content of the wiki
 - /fix/description - for making fixes
+
+## Reporting issues with documentation
+
+If you spot any problem with documentation, you can create issue on this
+repository.
