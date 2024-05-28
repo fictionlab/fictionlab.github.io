@@ -121,7 +121,7 @@ yarn format
 ```
 
 <!-- prettier-ignore -->
-> [!DANGER]
+> [!CAUTION]
 > Prettier don't have full MDXv3 support and there is some problems with it. See: [docusaurus.io - usage with prettier](https://docusaurus.io/docs/markdown-features/admonitions#usage-with-prettier)
 
 To check spelling inside all MDX files, type:
