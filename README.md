@@ -86,6 +86,10 @@ show how to consistently style and format pages:
 
 > TBD
 
+<!-- prettier-ignore -->
+> [!TIP]
+> For information what is possible with Docusaurus, check [docusaurus.io](https://docusaurus.io/docs).
+
 After making any changes, it is necessary to test how compiled code is shown in
 the browser. To do that, use development environment, that was shown in the
 previous section.
