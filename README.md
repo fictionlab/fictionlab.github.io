@@ -161,5 +161,7 @@ Right now we have following branching naming convention:
 
 ## Reporting issues with documentation
 
-If you spot any problem with documentation, you can create issue on this
-repository.
+If you spot any problem with documentation, you can create
+[issue](https://github.com/fictionlab/docs/issues) on this repository.
+
+In addition, you can e-mail us at contact@fictionlab.pl.
