@@ -1,28 +1,25 @@
 # Fictionlab documentation
 
-Fictionlab documentation is built using [Docusaurus 3](https://docusaurus.io/),
-a modern static website generator.
+Welcome to the Fictionlab documentation repository. This documentation is built
+using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ## Links
 
 - [Production link](http://docs.fictionlab.pl)
 - [development (local) link](http://localhost:3000)
 
-## How to start developing
+## Getting Started
 
-### Installation on local machine
+### Prerequisites
 
-#### Prerequisites
-
-To launch development environment, it is necessary to install following
-prerequisites:
+Ensure the following tools are installed on your local machine:
 
 - Code editor ([Visual Studio Code](https://code.visualstudio.com/) is
   recommended)
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://classic.yarnpkg.com/en/)
 - [Git](https://git-scm.com/)
-- web browser
+- A web browser
 
 #### Recommended VS Code extensions
 
@@ -31,90 +28,76 @@ prerequisites:
 - [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-#### Cloning repository
+### Cloning repository
 
-To clone repository, type in terminal:
+To clone the repository, execute the following command in your terminal:
 
-```
+```sh
 git clone https://github.com/fictionlab/docs
 ```
 
-or use VS Code search bar:
+Alternatively, use the VS Code command palette:
 
 ```
 > git clone
 ```
 
-in URL paste url of this repository.
+and paste the repository URL.
 
 By default, `development` branch is selected. To create new branch see
 [Branching section](#branching).
 
-#### Launching development environment
+### Launching development environment
 
-After successful clone, open folder in VS Code and in terminal type:
+After cloning the repository, open the folder in VS Code and run:
 
 ```
 yarn install
 ```
 
-After successful installation, start development environment by typing:
+To start the development environment, use:
 
 ```
 yarn start
 ```
 
-After few seconds, new browser tab should appear, pointing to
-http://localhost:3000.
+A new browser tab will open at http://localhost:3000, reflecting any changes
+made to the files.
 
-From now on (until you close the terminal) changes in files will be reflected in
-the development environment.
+## Updating the Documentation
 
-## Making updates to documentation
-
-In order to update documentation clone this repository and create dedicated
-branch from development (or any branch). For example this command will create
-new branch called `feature/new-button` from `development`:
+To update the documentation, clone this repository and create a new branch from
+`development` (or any other branch). For example, to create a branch named
+`feature/new-button` from `development`:
 
 ```
 git checkout -b feature/new-button development
 ```
 
-On newly created branch, modify necessary files and test everything using
-development environment. We prepared special section of the documentation to
-show how to consistently style and format pages:
-
-> TBD
+Make necessary modifications and test everything using the development
+environment. For guidelines on styling and formatting, refer to our
+Documentation style guide. - Work In Progress
 
 <!-- prettier-ignore -->
 > [!TIP]
-> For information what is possible with Docusaurus, check [docusaurus.io](https://docusaurus.io/docs).
+> For more information on Docusaurus, visit [docusaurus.io](https://docusaurus.io/docs).
 
-After making any changes, it is necessary to test how compiled code is shown in
-the browser. To do that, use development environment, that was shown in the
-previous section.
+After making changes, test the compiled code in the browser.
 
 <!-- prettier-ignore -->
 > [!IMPORTANT]
-> It is required to test results of edits on both desktop and mobile browsers!
-> 
-> To test mobile layout on PC, use dev development tools included in most popular browsers.
+> Always test your edits on both desktop and mobile browsers.
 >
-> To open them in any chromium based browser (Chrome, MS Edge, Opera etc.) press **F12**. Then click **Toggle device emulation** button in top left corner.
+>Use developer tools to simulate mobile views (press F12 and select Toggle device emulation in Chrome-based browsers).
 
-As last step, it is required to check spelling and formatting of the code.
-
-To check format of the code, type:
+Finally, check the spelling and formatting:
 
 ```
 yarn formatcheck
 ```
 
-It will only check formatting without making any changes to files. It will show
-a list of files that require formatting changes. You can use that to fix
-formatting manually.
-
-As alternative it is possible to fix formatting automatically by typing:
+This will list files requiring formatting changes, which you can fix manually.
+To fix formatting automatically, use:
 
 ```
 yarn format
@@ -122,50 +105,50 @@ yarn format
 
 <!-- prettier-ignore -->
 > [!CAUTION]
-> Prettier don't have full MDXv3 support and there is some problems with it. See: [docusaurus.io - usage with prettier](https://docusaurus.io/docs/markdown-features/admonitions#usage-with-prettier)
+> Prettier has limited support for MDXv3. For more details, see [docusaurus.io - usage with prettier](https://docusaurus.io/docs/markdown-features/admonitions#usage-with-prettier)
 
-To check spelling inside all MDX files, type:
+To check spelling, run:
 
 ```
 yarn spellcheck
 ```
 
-It will show a list of unrecognized words inside all markdown files. You have to
-fix them manually.
+This will list unrecognized words in markdown files, which you must correct
+manually.
 
-### Pushing changes to remote repo
+### Pushing Changes to the Remote Repository
 
-When ready, push all modified files to remote branch using `git push` command.
+When ready, push your changes using:
+
+```
+git push
+```
 
 <!-- prettier-ignore -->
 > [!TIP]
-> For more information on using git, see https://www.atlassian.com/git
+> For more information on using Git, see [Atlassian Git Tutorial](https://www.atlassian.com/git).
 
-After all the changes have been made, create Pull request to merge your changes
-into `development` branch.
-
-Code must be reviewed by Fictionlab staff. By default users requested for review
-are:
+After pushing changes, create a Pull Request to merge them into the
+`development` branch. Your code will be reviewed by the Fictionlab team. Default
+reviewers are:
 
 - [@Krzemien97](https://github.com/Krzemien97)
 - [@bjsowa](https://github.com/bjsowa)
 
 <!-- prettier-ignore -->
 > [!WARNING]
-> Pull requests to `production` branch from branches other than
-> `development` won't be merged.
+> Pull requests to the `production` branch from any branch other than `development` will not be merged.
 
-### Branching naming
+### Branch Naming Conventions
 
-Right now we have following branching naming convention:
+Follow these naming conventions for branches:
 
-- /feature/description - for changes to wiki code like new React components
-- /content/description - for updating content of the wiki
-- /fix/description - for making fixes
+- /feature/description - for new features, components etc.
+- /content/description - for markdown content updates
+- /fix/description - for fixes
 
-## Reporting issues with documentation
+## Reporting Issues
 
-If you spot any problem with documentation, you can create
-[issue](https://github.com/fictionlab/docs/issues) on this repository.
-
-In addition, you can e-mail us at contact@fictionlab.pl.
+To report documentation issues, create an
+[issue](https://github.com/fictionlab/docs/issues) on this repository or email
+us at contact@fictionlab.pl.
