@@ -1,0 +1,40 @@
+import FlexTable from '@site/src/components/FlexTable';
+import FlexTableItem from '@site/src/components/FlexTableItem';
+
+## FlexTable
+
+`FlexTable` is simple component that renders flex container with designated
+layout. It is not included by default and therefore requires importing.
+
+```jsx
+import FlexTable from '@site/src/components/FlexTable';
+import FlexTableItem from '@site/src/components/FlexTableItem';
+```
+
+By default `FlexTable` is styled to have 2 columns on the desktop and 1 column
+on the mobile devices.
+
+Basic usage:
+
+```jsx
+<FlexTable>
+  <FlexTableItem>Column 1 content</FlexTableItem>
+  <FlexTableItem>Column 2 content</FlexTableItem>
+</FlexTable>
+```
+
+The `FlexTable` component accepts only one argument: `style`. This argument can
+override default CSS styles and for example allow different alignment of the
+items. For CSS options and guidance, refer to the
+[W3Schools CSS tutorial](https://www.w3schools.com/css).
+
+The `FlexTableItem` can also be styled using the `style` argument, allowing for
+different styles for each item or adjusting item width to accommodate more
+columns. Additionally, items have an optional argument `mobileColumns` that can
+be set to `1` or `2`, specifying how many columns will be displayed next to each
+other on mobile devices.
+
+<FlexTable>
+  <FlexTableItem>Column 1 content</FlexTableItem>
+  <FlexTableItem>Column 2 content</FlexTableItem>
+</FlexTable>
