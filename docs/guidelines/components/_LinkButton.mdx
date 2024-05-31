@@ -1,0 +1,87 @@
+## LinkButton
+
+The component facilitates the addition of buttons directing to internal or
+external pages. The `LinkButton` is integrated by default and does not require
+importing.
+
+The usage of this component varies based on whether the page is located within
+current sidebar or not.
+
+### Automatic links
+
+For pages included in the current sidebar (regardless of their depth in the
+structure), it is necessary to specify the `docId` of the selected page. To
+understand how Docusaurus specifies ID of documents, see:
+[Document ID - docusaurus.io](https://docusaurus.io/docs/create-doc#document-id).
+
+#### Example usage
+
+```jsx
+<LinkButton docId="guidelines/guidelines" />
+```
+
+Is rendered:
+
+<LinkButton docId="guidelines/guidelines" />
+
+:::note
+
+Due to Docusaurus limitations, this method can only link to pages within the
+currently selected sidebar (i.e., pages visible on the left). To link to pages
+located beyond this sidebar, please refer to [Manual links](#manual-links).
+
+For instance, this page cannot link to pages in the Leo Rover category.
+
+:::
+
+### Manual links
+
+When employing `LinkButton` to link external pages or pages outside the current
+sidebar, it is essential to provide additional arguments since Docusaurus itself
+cannot retrieve them.
+
+Basic usage:
+
+```jsx
+<LinkButton url="https://leorover.tech" title="Link title" />
+```
+
+#### Arguments
+
+`url="link_url"` \
+The link provided can be either relative (e.g., `/leo-rover/documentation/docusaurus`
+) or absolute ( e.g., `https://leorover.tech` ).
+
+`title="link title"` \
+Title of the link.
+
+`description="description of the link"` \
+Description of the link, put below the title.
+
+`icon="🤖"` \
+An optional custom icon placed alongside the title. When used in manual mode, `LinkButton`
+automatically detects the link type. By default, emojis are:
+
+- `📄` for pages
+- `🗃️` for categories
+- `🔗` for external links
+
+#### Example usage
+
+```jsx
+<LinkButton
+  url="https://leorover.tech"
+  title="Link title"
+  description="Some description."
+  icon="🏠"
+/>
+```
+
+Is rendered:
+
+<LinkButton
+  url="https://leorover.tech"
+  title="Link title"
+  description="Some description."
+  icon="🏠"
+/>
