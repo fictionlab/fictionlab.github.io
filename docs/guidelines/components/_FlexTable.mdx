@@ -23,18 +23,83 @@ Basic usage:
 </FlexTable>
 ```
 
-The `FlexTable` component accepts only one argument: `style`. This argument can
-override default CSS styles and for example allow different alignment of the
-items. For CSS options and guidance, refer to the
-[W3Schools CSS tutorial](https://www.w3schools.com/css).
+### FlexTable arguments
 
-The `FlexTableItem` can also be styled using the `style` argument, allowing for
-different styles for each item or adjusting item width to accommodate more
-columns. Additionally, items have an optional argument `mobileColumns` that can
-be set to `1` or `2`, specifying how many columns will be displayed next to each
-other on mobile devices.
+`style={{ css }}` \
+This argument can override default CSS styles and for example allow different alignment
+of the items. For CSS options and guidance, refer to the [W3Schools CSS tutorial](https://www.w3schools.com/css).
 
-<FlexTable>
-  <FlexTableItem>Column 1 content</FlexTableItem>
-  <FlexTableItem>Column 2 content</FlexTableItem>
+Example:
+
+```jsx
+style={{
+  alignContent: 'center',
+  justifyContent: 'space-evenly',
+  alignItems: 'center'
+}}
+```
+
+### FlexTableItem arguments
+
+`style={{ css }}` \
+The `FlexTableItem` can also be styled using the `style` argument, allowing for different
+styles for each item or adjusting item width to accommodate more columns.
+
+`mobileColumns={1|2}` optional, default `1` \
+Used to specify how many columns will be displayed next to each other on mobile devices.
+
+### FlexTable example
+
+```jsx
+<FlexTable style={{ alignContent: 'center' }}>
+  <FlexTableItem
+    style={{
+      width: '30%',
+    }}
+  >
+    Column 1 content
+  </FlexTableItem>
+  <FlexTableItem
+    style={{
+      textAlign: 'center',
+      width: '30%',
+    }}
+  >
+    Column 2 content
+  </FlexTableItem>
+  <FlexTableItem
+    style={{
+      textAlign: 'right',
+      width: '30%',
+    }}
+  >
+    Column 3 content
+  </FlexTableItem>
+</FlexTable>
+```
+
+Is rendered:
+
+<FlexTable style={{ alignContent: 'center'}}>
+  <FlexTableItem
+    style={{
+      width: '30%'
+    }}>
+    Column 1 content
+
+  </FlexTableItem>
+  <FlexTableItem
+    style={{
+      textAlign: 'center',
+      width: '30%'
+    }}>
+    Column 2 content
+  </FlexTableItem>
+  <FlexTableItem
+    style={{
+      textAlign: 'right',
+      width: '30%'
+    }}>
+    Column 3 content
+  </FlexTableItem>
 </FlexTable>
