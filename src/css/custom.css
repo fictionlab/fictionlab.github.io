@@ -69,3 +69,11 @@ div[class^='announcementBar_'] {
   max-width: 600px;
   margin: auto;
 }
+
+[data-theme='light'] .themedSvg {
+  fill: black;
+}
+
+[data-theme='dark'] .themedSvg {
+  fill: white;
+}

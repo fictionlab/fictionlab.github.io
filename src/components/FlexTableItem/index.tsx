@@ -1,14 +1,21 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export default function FlexTableItem({ children, width = '50%' }) {
+export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
+  mobileColumns?: 1 | 2;
+}
+
+export default function FlexTableItem({
+  children,
+  style,
+  mobileColumns,
+}: DivProps) {
+  console.log(mobileColumns);
+  let className;
+  if (mobileColumns != 2) className = styles.flexTableItem1;
+  else className = styles.flexTableItem2;
   return (
-    <div
-      className={styles.flexTableItem}
-      style={{
-        width: width,
-      }}
-    >
+    <div className={className} style={style}>
       {children}
     </div>
   );

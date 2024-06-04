@@ -45,19 +45,10 @@ and display an image with drawn bounding boxes around the detected objects.
 
 ## Prerequisites
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-rover-ap"
-  title="Connect to Leo Rover AP"
-/>
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/guides/connect-to-rover-ap" />
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 ## List of components
 
@@ -126,7 +117,7 @@ You can also get all needed software from our
 [leo_examples](https://github.com/LeoRover/leo_examples) github repository. You
 need to clone it on the rover in the ros workspace directory (if there's no such
 a directory, then, first go through the
-[ROS Development](/docs/leo-rover/advanced-guides/ros-development) tutorial):
+[ROS Development](/leo-rover/advanced-guides/ros-development) tutorial):
 
 ```bash
 cd ~/ros_ws/src
@@ -244,7 +235,7 @@ In `Dynamic Reconfigure`, choose `object_detector`. You should see something
 like this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/object-detection/object-detection-1.webp"
+  src="/img/robots/leo/integrations/object-detection/object-detection-1.webp"
   alt="rqt setup for object detection with leo rover"
   width="1362"
   height="729"
@@ -262,7 +253,7 @@ be what they really are, boxes around the item, and a text description will
 appear.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/object-detection/object-detection-2.webp"
+  src="/img/robots/leo/integrations/object-detection/object-detection-2.webp"
   alt="bottle and cup with drawn detection rectangles"
   width="1209"
   height="737"

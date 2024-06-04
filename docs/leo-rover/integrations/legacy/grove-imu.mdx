@@ -10,8 +10,6 @@ keywords:
 description: >
   Integrate an IMU module with Leo Rover to add gyroscope, accelerometer and
   magnetometer readings. Modify URDF model and calibrate sensors.
-
-# image: TODO
 ---
 
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
@@ -35,15 +33,9 @@ measurement unit module on your Rover.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/firmware-update"
-  title="Firmware update"
-/>
-<LinkButton
-  to="/docs/leo-rover/guides/software-update"
-  title="Software update"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/firmware-update" />
+<LinkButton docId="leo-rover/guides/software-update" />
 
 <div className="video-container">
   <LiteYouTubeEmbed
@@ -60,7 +52,7 @@ the `MPU-9250` sensors. We recommend the **Grove - IMU 9DOF v2.0** board but
 most modules with this sensor should work.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/groove-imu/groove-imu.webp"
+  src="/img/robots/leo/integrations/groove-imu/groove-imu.webp"
   width="700"
   height="525"
   figStyle={{
@@ -80,7 +72,7 @@ by modifying the
 in `leo_firmware`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/groove-imu/core2-hsense2.webp"
+  src="/img/robots/leo/integrations/groove-imu/core2-hsense2.webp"
   width="791"
   height="791"
   figStyle={{
@@ -92,7 +84,7 @@ Connect the sensor pins according to the
 [CORE2 manual](https://husarion.com/manuals/core2/#hsensor).
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-neo-6m/stm32-idc.webp"
+  src="/img/robots/leo/integrations/ublox-neo-6m/stm32-idc.webp"
   width="439"
   height="321"
   figStyle={{
@@ -110,7 +102,7 @@ Connect the sensor pins according to the
 You can use female jumper cables, or create your own IDC cable, like this one:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/groove-imu/jumper-cable.webp"
+  src="/img/robots/leo/integrations/groove-imu/jumper-cable.webp"
   width="1500"
   height="595"
   figStyle={{
@@ -122,10 +114,7 @@ If you use the Grove IMU, you can 3D print the mounting plate for the MEB cover
 which contains holes for the self-tapping screws (00189_imu part). The files can
 be found here:
 
-<LinkButton
-  to="/docs/leo-rover/documentation/dev-covers-addons"
-  title="Dev-covers for addons"
-/>
+<LinkButton docId="leo-rover/addons/additional-meb-covers" />
 
 ## Integrating the sensor with the system
 
@@ -164,7 +153,7 @@ the board. If they are not, you can check MPU9250 IC orientation and identify
 the axes with this drawing:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/groove-imu/imu-axes.webp"
+  src="/img/robots/leo/integrations/groove-imu/imu-axes.webp"
   width="283"
   height="240"
   figStyle={{
@@ -218,7 +207,7 @@ you mounted the module.
 :::
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/groove-imu/imu-urdf.webp"
+  src="/img/robots/leo/integrations/groove-imu/imu-urdf.webp"
   width="683"
   height="491"
   figStyle={{
@@ -229,10 +218,7 @@ you mounted the module.
 For more information, visit **ROS Development** -> **Adding additional
 functionality to the rover** -> **expanding the URDF model**
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 After modifying the description, restart the nodes to apply the changes:
 

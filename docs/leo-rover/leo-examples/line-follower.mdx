@@ -45,23 +45,11 @@ driving on the designated track:
 
 ## Prerequisites
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-rover-ap"
-  title="Connect to Leo Rover AP"
-/>
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/joystick"
-  title="Steering Leo Rover with a joystick"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/guides/connect-to-rover-ap" />
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/joystick" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 ## List of components
 
@@ -94,7 +82,7 @@ the rover. Try to end up with something like this:
 - color of the lines different from the ground
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-1.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-1.webp"
   alt="image from Leo Rover showing our track"
   width="640"
   height="480"
@@ -167,7 +155,7 @@ You can also get all needed software from our
 [leo_examples](https://github.com/LeoRover/leo_examples) github repository. You
 need to clone it on the rover in the ros workspace directory (if there's no such
 a directory, then, first go through the
-[ROS Development](/docs/leo-rover/advanced-guides/ros-development) tutorial):
+[ROS Development](/leo-rover/advanced-guides/ros-development) tutorial):
 
 ```bash
 cd ~/ros_ws/src
@@ -206,7 +194,7 @@ Our approach for this task was to get the specified color from the image (color
 of the tape), and train the neural network on such a mask.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-2.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-2.webp"
   alt="example color mask from our track"
   width="288"
   height="215"
@@ -253,7 +241,7 @@ In `Dynamic Reconfigure`, choose `color_mask_finder`. You'll see something like
 this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-3.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-3.webp"
   alt="rqt setup for choosing color mask"
   width="1362"
   height="729"
@@ -287,7 +275,7 @@ When you are satisfied with your color mask, you can stop both rqt and the node
 (with **ctrl+c**). Your chosen values will be printed in the terminal.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-4.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-4.webp"
   alt="terminal"
   width="516"
   height="218"
@@ -473,7 +461,7 @@ Then, just click on the **Upload** button, and drag your zip file (you also need
 to provide a name for the dataset).
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-5.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-5.webp"
   alt="kaggle interface"
   width="922"
   height="618"
@@ -490,7 +478,7 @@ Click blue _Add_ button, and the dataset will be added to your notebook.
 Once it's uploaded to the notebook, you should see something like this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-6.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-6.webp"
   width="192"
   height="144"
   figStyle={{
@@ -514,7 +502,7 @@ differ if you've changed the correct variable in the correct section) in the
 output section.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-7.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-7.webp"
   width="293"
   height="143"
   figStyle={{
@@ -527,7 +515,7 @@ rover. You can download the model by clicking the three dots that show up when
 you go with the cursor over the file.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/line-follower/line-follower-8.webp"
+  src="/img/robots/leo/integrations/line-follower/line-follower-8.webp"
   width="286"
   height="137"
   figStyle={{
@@ -537,7 +525,7 @@ you go with the cursor over the file.
 
 Then, just press **Download** and the model will be downloaded. Now, you have to
 place it on the rover, you can follow the instructions from
-[this tutorial](/docs/leo-rover/guides/upload-files-to-rover).
+[this tutorial](/leo-rover/guides/upload-files-to-rover).
 
 :::info
 

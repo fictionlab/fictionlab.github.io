@@ -13,9 +13,11 @@ keywords:
 description: >
   Detailed tutorial on setting up the Velodyne Puck LiDAR, a compact and
   lightweight sensor ideal for autonomous vehicles and mobile robotics.
-
-# image: TODO
+image: /img/robots/leo/integrations/velodyne-puck/velodyne-puck-mast.webp
 ---
+
+import CameraMast from '@site/docs/leo-rover/addons/universal-camera-mast/_universal-camera-mast-product.mdx';
+import Powerbox from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 
 This tutorial will guide you through the process of connecting and using
 Velodyne Puck LiDAR sensor on your rover.
@@ -36,19 +38,10 @@ sensor.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Mechanical integration It's common for 3D lidars to be attached some distance
 above the mounting plate of a robot. This procedure allows you to avoid the need
@@ -57,12 +50,15 @@ elements.
 
 The easiest solution for attaching the Velodyne Puck above the mounting plate of
 a Leo Rover would be using our
-[Universal Camera Mast](https://www.leorover.tech/shop/universal-camera-mast).
+[Universal Camera Mast](/leo-rover/addons/universal-camera-mast).
+
+<CameraMast />
+
 However, you can also design a custom eg. like the one shown in the picture
 below.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/velodyne-puck-mast.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/velodyne-puck-mast.webp"
   width="800"
   height="1200"
   figStyle={{
@@ -84,23 +80,24 @@ wire straight through the newly created hole. This solution, combined with the
 use of a cable gland, keeps the MEB box waterproof.
 
 Second common solution involves printing a new cover for the MEB box. Dev cover
-found [here](/docs/leo-rover/documentation/dev-covers-addons), provides a wide
-opening for running wires straight into the MEB. This solution can be extremely
-useful in projects that don't need to be waterproof.
+found [here](/leo-rover/addons/additional-meb-covers), provides a wide opening
+for running wires straight into the MEB. This solution can be extremely useful
+in projects that don't need to be waterproof.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/documentation/00188-dev-meb-cover.webp"
-  width="1000"
-  height="750"
+  src="/img/robots/leo/addons/meb-covers/00188-dev-meb-cover.webp"
+  width="1920"
+  height="1080"
   figStyle={{
     width: 600,
   }}
 />
 
 If the camera isn't the only thing connected to the rover you might need to
-provide an external power connection.
-[Powerbox](https://www.leorover.tech/shop/powerbox) might come in handy in such
-situations.
+provide an external power connection. [Powerbox](/leo-rover/addons/powerbox)
+might come in handy in such situations.
+
+<Powerbox />
 
 ## Software integration
 
@@ -124,7 +121,7 @@ port on your computer.
 Go to the **Network** tab in settings and enter **Wired** settings.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/network-settings.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/network-settings.webp"
   width="973"
   height="801"
   figStyle={{
@@ -138,7 +135,7 @@ can choose any IP in that network that is not sensor's IP), add a
 `255.255.255.0` Netmask and then click **Apply**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/wired-ip-addresses.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/wired-ip-addresses.webp"
   width="576"
   height="348"
   figStyle={{
@@ -165,7 +162,7 @@ Open your browser and type in the sensor's IP address (`192.168.1.201`). The
 following page should appear:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/vlp-16-user-interface.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/vlp-16-user-interface.webp"
   width="1176"
   height="840"
   figStyle={{
@@ -178,7 +175,7 @@ Address to `10.0.0.1` and click **Set**. In **Network (Sensor)** section change
 **DHCP** to `On` and click **Set**. Finally click **Save Configuration** button.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/vlp-16-user-interface-2.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/vlp-16-user-interface-2.webp"
   width="802"
   height="606"
   figStyle={{
@@ -383,7 +380,7 @@ Enter the configuration site in your web browser by typing sensor's IP.
 In the settings turn **laser** `off` and set **motor RPM** to `0`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/vlp-16-0rpm.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/vlp-16-0rpm.webp"
   width="802"
   height="608"
   figStyle={{
@@ -392,7 +389,7 @@ In the settings turn **laser** `off` and set **motor RPM** to `0`.
 />
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/vlp-16-save-configuration.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/vlp-16-save-configuration.webp"
   width="802"
   height="606"
   figStyle={{
@@ -552,18 +549,12 @@ If you have ROS installed on your computer, you can get a more graphical
 representation of the data with RViz. If you don't have ROS, you can follow this
 guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 Before starting RViz, make sure you completed the **Connecting another computer
 to ROS network** section of **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Now, open RViz by typing `rviz` in the terminal, or, if you have the `leo_viz`
 package installed, type:
@@ -577,7 +568,7 @@ This will start RViz with visualization of the current robot model.
 In Global Options change **Fixed Frame** to `velodyne`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/rviz-velodyne.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/rviz-velodyne.webp"
   width="1198"
   height="840"
   figStyle={{
@@ -589,7 +580,7 @@ On the **Displays** panel click **Add** -> **By topic** and search for the
 `/velodyne_points` topic. Choose the **PointCloud2** display and click **Ok**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/rviz-velodyne-pointcloud.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/rviz-velodyne-pointcloud.webp"
   width="1197"
   height="842"
   figStyle={{
@@ -600,7 +591,7 @@ On the **Displays** panel click **Add** -> **By topic** and search for the
 Visualized pointcloud should look like this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/velodyne-puck/rviz-3d-pointcloud.webp"
+  src="/img/robots/leo/integrations/velodyne-puck/rviz-3d-pointcloud.webp"
   width="1192"
   height="842"
   figStyle={{
@@ -611,11 +602,10 @@ Visualized pointcloud should look like this:
 ## What next?
 
 Lidars are commonly used in projects involving
-[autonomous navigation](/docs/leo-rover/advanced-guides/autonomous-navigation),
-you might be interested in a tutorial about it.
+[autonomous navigation](/leo-rover/advanced-guides/autonomous-navigation), you
+might be interested in a tutorial about it.
 
 They are however, not the only way of teaching a Leo Rover how to move on it's
-own. Check out our
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower)
+own. Check out our [line follower](/leo-rover/leo-examples/line-follower)
 tutorial if you want to learn more. You can also check our
-[Knowledge Base](/docs/category/integrations) for more instructions.
+[Integrations page](/category/integrations) for more instructions.

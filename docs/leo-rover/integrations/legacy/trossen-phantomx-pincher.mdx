@@ -11,8 +11,6 @@ keywords:
 description: >
   Learn how to configure and control the PhantomX Pincher robotic arm with Leo
   Rover using ROS. Detailed setup guide included.
-
-# image: TODO
 ---
 
 :::warning
@@ -21,10 +19,7 @@ PhantomX Pincher has been replaced with PincherX 100 Mobile Robotic Arm.
 Therefore we are no longer supporting this integration. For Integration with
 PincherX 100 mobile, check this tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/integrations/robotic-arms/pincherx-100-mobile"
-  title="PincherX 100 Mobile"
-/>
+<LinkButton docId="leo-rover/integrations/robotic-arms/trossen-pincherx-100" />
 
 This integration is not compatible with Leo Rover v1.8. It is kept on site for
 legacy purposes.
@@ -36,19 +31,13 @@ Robotics' PhantomX Pincher Robot connected to Leo Rover.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/phantomx/phantomx-graph.webp"
+  src="/img/robots/leo/integrations/phantomx/phantomx-graph.webp"
   width="1101"
   height="418"
 />
@@ -64,7 +53,7 @@ baseplate has became thinner, its range allows to grab objects from the ground
 as well as reach the rear and sides of Leo Rover.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/phantomx.webp"
+  src="/img/robots/leo/integrations/phantomx/phantomx.webp"
   width="900"
   height="900"
   figStyle={{
@@ -102,7 +91,7 @@ PhantomX Pincher Robot Arm Assembly Guide -
 [learn.trossenrobotics.com](http://learn.trossenrobotics.com/)
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/leo-with-phantomx.webp"
+  src="/img/robots/leo/integrations/phantomx/leo-with-phantomx.webp"
   width="1600"
   height="1071"
   figStyle={{
@@ -116,7 +105,7 @@ To properly communicate with the Dynamixel servos, you will need to set the
 servo IDs like in the picture below:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/servos-id.webp"
+  src="/img/robots/leo/integrations/phantomx/servos-id.webp"
   width="800"
   height="800"
   figStyle={{
@@ -126,7 +115,7 @@ servo IDs like in the picture below:
 
 To do this, you can follow our guide for the Arbotix controller here:
 
-<LinkButton to="arbotix" title="ArbotiX-M Robocontroller" />
+<LinkButton docId="leo-rover/integrations/legacy/arbotix" />
 
 In there, you will also find how to configure and use the
 [arbotix ROS driver](http://wiki.ros.org/arbotix).
@@ -150,10 +139,7 @@ To use these features, you will need to install these packages on your Leo Rover
 
 Make sure you have ROS installed:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 then type in the terminal:
 
@@ -166,10 +152,7 @@ sudo apt install ros-${ROS_DISTRO}-pincher-arm ros-${ROS_DISTRO}-leo-desktop
 
 Make sure your rover is connected to the Internet:
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 You will only need packages that are required to start the arm driver:
 
@@ -298,10 +281,7 @@ with the nodes running on Leo Rover. To learn how to do this, you can follow
 **Connecting another computer to ROS network** section of **ROS development**
 tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 To visualize the position of the arm in RViz, just type:
 
@@ -310,7 +290,7 @@ roslaunch leo_viz rviz.launch
 ```
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/rviz-phantomx.webp"
+  src="/img/robots/leo/integrations/phantomx/rviz-phantomx.webp"
   width="786"
   height="493"
   figStyle={{
@@ -330,7 +310,7 @@ roslaunch pincher_arm_moveit_config pincher_arm_moveit.launch
   Solutions**,
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/rviz-phantomx-planning.webp"
+  src="/img/robots/leo/integrations/phantomx/rviz-phantomx-planning.webp"
   width="1362"
   height="729"
   figStyle={{
@@ -341,7 +321,7 @@ roslaunch pincher_arm_moveit_config pincher_arm_moveit.launch
 - Move interactive marker to the intended goal position of the end effector
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/rviz-phantomx-goal.webp"
+  src="/img/robots/leo/integrations/phantomx/rviz-phantomx-goal.webp"
   width="1362"
   height="729"
   figStyle={{
@@ -353,7 +333,7 @@ Click on **Plan** to see Motion visualization and then **Execute** or just click
 on **Plan and Execute**
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/rviz-phantomx-plan-execute.webp"
+  src="/img/robots/leo/integrations/phantomx/rviz-phantomx-plan-execute.webp"
   width="1362"
   height="729"
   figStyle={{
@@ -368,7 +348,7 @@ rosrun pincher_arm_moveit_demos pick_place
 ```
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/phantomx/rviz-phantomx-demo.webp"
+  src="/img/robots/leo/integrations/phantomx/rviz-phantomx-demo.webp"
   width="1684"
   height="742"
   figStyle={{

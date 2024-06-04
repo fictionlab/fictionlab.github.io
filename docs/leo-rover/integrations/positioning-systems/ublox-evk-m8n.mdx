@@ -10,9 +10,10 @@ keywords:
 description: >
   Explore the steps to gather GPS data from a UBlox GPS module and integrate it
   with your Leo Rover system using the UBlox EVK-M8N GPS module example.
-
-# image: TODO
+image: /img/robots/leo/integrations/ublox-gps/ublox-evk-m8n-shop.webp
 ---
+
+import ProductPreview from '@site/src/components/ProductPreview';
 
 This tutorial will guide you through the process of connecting a UBlox GPS
 module to your Leo Rover.
@@ -38,25 +39,27 @@ get it published on ROS topics.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/ublox-gps/ech-ublox-gps-node.webp"
+  src="/img/robots/leo/integrations/ublox-gps/ech-ublox-gps-node.webp"
   width="1019"
   height="317"
 />
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## Referenced products
 
-<LinkButton
-  to="https://www.leorover.tech/shop/gps-module"
-  title="UBlox EVK-M8N GPS module - Leo Rover store"
-  icon="🛒"
+<ProductPreview
+  shopUrl="https://www.leorover.tech/shop/gps-module"
+  imageSrc="/img/robots/leo/integrations/ublox-gps/ublox-evk-m8n-shop.webp"
+  width={1200}
+  height={802}
+  title="UBlox EVK-M8N GPS module"
+  description="Enhance Leo Rover's capabilities with the UBlox EVK-M8N GPS module.
+    Experience precise navigation and versatile connectivity with multi-GNSS support,
+    ensuring high-performance and reliability."
 />
 
 ## List of components
@@ -87,7 +90,7 @@ command. It will list all connected usb devices. In the output, you should look
 for something named like **U-Blox AG [u-blox 8]**:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-gps/terminal-lsusb.webp"
+  src="/img/robots/leo/integrations/ublox-gps/terminal-lsusb.webp"
   width="587"
   height="112"
 />
@@ -107,7 +110,7 @@ is registered, and on what port (with this command, you can also get the
 `idVendor` and `idProduct` values).
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-gps/terminal-ttyacm0.webp"
+  src="/img/robots/leo/integrations/ublox-gps/terminal-ttyacm0.webp"
   width="867"
   height="112"
 />
@@ -213,7 +216,7 @@ You should see a lot of data flowing through the topic. Stop the data
 acquisition with **Ctrl+C** and have a look on a usual data frame.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-gps/ech-ublox-gps-node.webp"
+  src="/img/robots/leo/integrations/ublox-gps/ech-ublox-gps-node.webp"
   width="1019"
   height="317"
 />
@@ -238,7 +241,7 @@ math and show you the distance between your real location and where the GPS
 module thinks it is.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-gps/google-maps.webp"
+  src="/img/robots/leo/integrations/ublox-gps/google-maps.webp"
   width="1127"
   height="570"
 />
@@ -256,10 +259,7 @@ sudo apt-get install ros-$ROS_DISTRO-mapviz ros-$ROS_DISTRO-mapviz-plugins ros-$
 Since Mapviz is a program using GUI you may want to connect to the Leo Rover via
 remote desktop. Follow this tutorial if you want to learn how:
 
-<LinkButton
-  to="/docs/leo-rover/guides/remote-desktop"
-  title="Connect via remote desktop"
-/>
+<LinkButton docId="leo-rover/guides/remote-desktop" />
 
 Launch Mapviz with:
 
@@ -274,7 +274,7 @@ available option) and the topic of **navsat** to the topic your GPS module is
 publishing data to (for us it's `/ublox_gps_node/fix`).
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-gps/mapviz-navsat.webp"
+  src="/img/robots/leo/integrations/ublox-gps/mapviz-navsat.webp"
   width="330"
   height="903"
   figStyle={{
@@ -293,7 +293,7 @@ From now on, a dot will appear on the map every time your GPS module publishes
 data at the topic you chose.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-gps/mapviz-map-view.webp"
+  src="/img/robots/leo/integrations/ublox-gps/mapviz-map-view.webp"
   width="924"
   height="614"
 />
@@ -303,8 +303,8 @@ data at the topic you chose.
 GPS modules are commonly used in projects involving outside autonomous
 navigation. As of right now, we have no tutorials on such a thing, however, our
 tutorial on indoor
-[autonomous navigation](/docs/leo-rover/advanced-guides/autonomous-navigation)
-you might be something you'll be interested in.
+[autonomous navigation](/leo-rover/advanced-guides/autonomous-navigation) you
+might be something you'll be interested in.
 
-You can also check our [Knowledge Base](/docs/category/integrations) for other
+You can also check our [Integrations page](/category/integrations) for other
 instructions.

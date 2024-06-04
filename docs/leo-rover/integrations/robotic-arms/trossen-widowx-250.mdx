@@ -13,10 +13,10 @@ keywords:
 description: >
   Detailed tutorial on mounting the WidowX 250 arm, configuring ROS packages,
   and remotely operating the arm from your Leo Rover.
-
-# image: TODO
+image: /img/robots/leo/integrations/widowx-250/leo-with-widowx250.webp
 ---
 
+import Powerbox from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 In this tutorial, we will show you how to integrate and remotely control the
@@ -30,11 +30,7 @@ Rover.
 
 To make integration easier we highly recommend to make use of Powerbox addon
 
-<LinkButton
-  to="https://www.leorover.tech/shop/powerbox"
-  title="Powerbox Addon - Leo Rover store"
-  icon="🛒"
-/>
+<Powerbox />
 
 :::
 
@@ -46,7 +42,7 @@ MoveIt.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/widowx-250/leo-with-widowx250.webp"
+  src="/img/robots/leo/integrations/widowx-250/leo-with-widowx250.webp"
   alt="WidowX 250 mounted on Leo Rover"
   width="1200"
   height="900"
@@ -67,11 +63,8 @@ MoveIt.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## Mechanical integration
 
@@ -82,10 +75,7 @@ to connect the arm to the rover's mounting plate.
 If you have the original support plate, you can get the model for 3D printing
 here (**addons** section):
 
-<LinkButton
-  to="/docs/leo-rover/documentation/addon-adapters#widowx-250-adapter"
-  title="Addon adapters / WidowX 250 adapter"
-/>
+<LinkButton docId="leo-rover/integrations/addon-adapters" />
 
 ## Wiring and electronics connection
 
@@ -97,11 +87,11 @@ Connect U2D2 and the power distribution board with the short Dynamixel cable.
 Connect the U2D2 to the rover using an USB cable
 
 The last step is to stick connect the barrel jack cable to the battery power
-supply ([Powerbox addon](https://www.leorover.tech/shop/powerbox) might be
-useful here) and plug into the other end into power distribution board.
+supply ([Powerbox addon](/leo-rover/addons/powerbox) might be useful here) and
+plug into the other end into power distribution board.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/widowx-250/leo-u2d2-graph.webp"
+  src="/img/robots/leo/integrations/widowx-250/leo-u2d2-graph.webp"
   alt="Graph showing connections between Leo Rover and U2D2 board"
   width="2000"
   height="532"
@@ -259,13 +249,10 @@ and paste these lines somewhere between the `<robot>` tags:
 :::info
 
 To learn more about what the files under /etc/ros are used for and how do they
-correlate with each other, visit the Adding additional functionality to the
-rover section on ROS Development guide:
+correlate with each other, visit the **Adding additional functionality to the
+rover** section on **ROS Development** guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#adding-additional-functionality-to-the-rover"
-  title="ROS development / Adding additional functionality to the rover"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 :::
 
@@ -310,7 +297,7 @@ repository contains some packages that will let you control the arm in different
 ways. To use them on your computer, you will need to have ROS installed:
 
 <LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
+  to="/leo-rover/advanced-guides/install-ros-on-your-computer"
   title="Install ROS on your computer"
 />
 
@@ -318,10 +305,7 @@ and properly configured to communicate with the nodes running on the rover. For
 this, you can visit **Connecting other computer to ROS network** section of the
 **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 First, install some prerequisites:
 
@@ -388,7 +372,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 - Choose `base_link` as the **Fixed Frame**
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/rviz/rviz-base-link.webp"
+  src="/img/robots/leo/guides/rviz/rviz-base-link.webp"
   alt="Set fixed frame to base_link in Rviz"
   width="1365"
   height="728"
@@ -397,7 +381,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 - On the **Displays** panel, click on **Add** and choose **RobotModel**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/rviz/rviz-add-robot-model.webp"
+  src="/img/robots/leo/guides/rviz/rviz-add-robot-model.webp"
   alt="Add RobotModel to Display"
   width="1364"
   height="728"
@@ -406,7 +390,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 - For the **Robot Description** parameter, choose `robot_description`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/rviz-robot-description.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/rviz-robot-description.webp"
   alt="Changing robot description in Rviz"
   width="1362"
   height="729"
@@ -416,7 +400,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
   parameter choose `wx250/robot_description`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/widowx-250/rviz-robot-description-wx250.webp"
+  src="/img/robots/leo/integrations/widowx-250/rviz-robot-description-wx250.webp"
   alt="Adding WidowX 250 to Leo Rover model in Rviz"
   width="1300"
   height="696"
@@ -425,7 +409,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 The effect should look similar to this:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/widowx-250/rviz-leo-with-wx250.webp"
+  src="/img/robots/leo/integrations/widowx-250/rviz-leo-with-wx250.webp"
   alt="Leo Rover with WidowX 250 arm in Rviz"
   width="976"
   height="628"
@@ -451,7 +435,7 @@ roslaunch interbotix_moveit interbotix_moveit.launch robot_name:=wx250 rviz_fram
 The MoveIt GUI should appear:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-ui.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-ui.webp"
   alt="User interface of MoveIt"
   width="1300"
   height="791"
@@ -463,7 +447,7 @@ State** (to operate with the gripper, change the **Planning Group** to
 `interbotix_gripper`)
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-motion-planning.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-motion-planning.webp"
   alt="Motion Planning tab of MoveIt"
   width="1300"
   height="696"
@@ -473,7 +457,7 @@ There are some predefined poses which you can choose for the **Goal State**,
 such as `home`, `sleep` or `upright`.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-goal-state.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-goal-state.webp"
   alt="Setting Goal States in MoveIt"
   width="1300"
   height="696"
@@ -484,7 +468,7 @@ To set the pose manually, navigate to the **Displays panel** ->
 should now be able to manually set the end-effector pose for the goal state.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-displays.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-displays.webp"
   alt="Setting custom goal states in MoveIt"
   width="1300"
   height="696"
@@ -495,7 +479,7 @@ When the goal state is set, click on the **Plan** button to plan the trajectory
 the trajectory to the driver.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-plan.webp"
+  src="/img/robots/leo/integrations/pincherx-100-mobile/moveit-plan.webp"
   alt="Planning and executing goal states in MoveIt"
   width="1300"
   height="696"
@@ -598,4 +582,4 @@ file.
 ## What next?
 
 If you found this tutorial interesting, make sure to check out other tutorials
-we provide on our [documentation](/docs/leo-rover/getting-started) site.
+we provide on our [Integrations](/category/integrations) site.

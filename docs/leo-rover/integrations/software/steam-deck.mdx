@@ -14,8 +14,7 @@ description: >
   Unleash the potential of your Leo Rover with the Steam Deck. Learn how to
   install Ubuntu, ROS, and additional packages to create a versatile control
   setup for your rover.
-
-# image: TODO
+image: /img/robots/leo/integrations/steam-deck/steam-deck-leo.webp
 ---
 
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
@@ -37,21 +36,15 @@ applied it to our use case as an example.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/steam-deck/steam-deck-leo.webp"
+  src="/img/robots/leo/integrations/steam-deck/steam-deck-leo.webp"
   width="1600"
   height="1172"
 />
 
 ## Prerequisites
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-rover-ap"
-  title="Connect to Leo Rover AP"
-/>
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/connect-to-rover-ap" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 ## List of components
 
@@ -115,8 +108,8 @@ The examples described in this section were done for a rover configuration which
 has integrated lidar and realsense camera. You can follow those guides to get
 the same rover setup:
 
-<LinkButton to="intel-realsense-camera" title="Intel RealSense camera" />
-<LinkButton to="rplidar-a2" title="RPLiDAR A2M8 / A2M12" />
+<LinkButton docId="leo-rover/integrations/cameras/intel-realsense" />
+<LinkButton docId="leo-rover/integrations/lidars/slamtec-rplidar-a2" />
 
 Also for the examples to work, you have to connect your SteamDeck to the rover's
 access point.

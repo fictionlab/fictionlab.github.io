@@ -16,19 +16,10 @@ broken integrations etc.
 
 ## Prerequisites
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-rover-ap"
-  title="Connect to Leo Rover AP"
-/>
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/software-update"
-  title="Software update"
-/>
-<LinkButton
-  to="/docs/leo-rover/guides/firmware-update"
-  title="Firmware update"
-/>
+<LinkButton docId="leo-rover/guides/connect-to-rover-ap" />
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/software-update" />
+<LinkButton docId="leo-rover/guides/firmware-update" />
 
 ## How to use
 
@@ -38,26 +29,20 @@ Download either the `lite` or `full` version and flash the image onto the SD
 card:
 
 <LinkButton
-  to="/docs/leo-rover/guides/software-update#flashing-a-new-raspberry-pi-image"
+  to="/leo-rover/guides/software-update#flashing-a-new-raspberry-pi-image"
   title="Flashing a new Raspberry Pi image"
 />
 
 After starting the robot, connect to the Rover AP and login to Raspberry Pi via
 SSH:
 
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-rover-ap"
-  title="Connect to Leo Rover AP"
-/>
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
+<LinkButton docId="leo-rover/guides/connect-to-rover-ap" />
+<LinkButton docId="leo-rover/guides/ssh" />
 
 The ROS 2 version requires different firmware for the motor controller. To
 firmware update process looks almost exactly the same as it was before:
 
-<LinkButton
-  to="/docs/leo-rover/guides/firmware-update"
-  title="Firmware update"
-/>
+<LinkButton docId="leo-rover/guides/firmware-update" />
 
 The only difference is that to invoke the update script, you need to type:
 
@@ -156,9 +141,9 @@ The new firmware allows changing parameters at runtime via, for example,
 
 ### Not compatible software integrations
 
-If you used any of our [integrations](/docs/category/integrations) guides, you
-will have to adapt the software integration parts yourself. In some cases, it
-won't be possible due to missing ROS 2 packages.
+If you used any of our [integrations](/category/integrations) guides, you will
+have to adapt the software integration parts yourself. In some cases, it won't
+be possible due to missing ROS 2 packages.
 
 ### Problems with multi-robot setups
 

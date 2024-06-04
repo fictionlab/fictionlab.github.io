@@ -13,8 +13,7 @@ keywords:
 description: >
   Learn how to use the ar_track_alvar ROS package to detect AR tags with your
   Leo Rover and visualize them in RViz.
-
-# image: TODO
+image: /img/robots/leo/integrations/artag-tracking-alvar/leo-artag-erc.webp
 ---
 
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
@@ -31,7 +30,7 @@ we will relay all the processing to the Raspberry Pi.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/artag-tracking-alvar/leo-artag-erc.webp"
+  src="/img/robots/leo/integrations/artag-tracking-alvar/leo-artag-erc.webp"
   alt="Leo Rover and ARTags at ERC"
   width="1500"
   height="635"
@@ -56,17 +55,14 @@ use the output in your custom nodes.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 ## Software integration
 
 Start by logging in into your rover via SSH:
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
+<LinkButton docId="leo-rover/guides/ssh" />
 
 Create a workspace in your home directory if you don't have one yet:
 
@@ -190,7 +186,7 @@ Now to visualize detected AR Tags, you just need to:
 - set Fixed Frame to `base_link`
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/rviz/rviz-base-link.webp"
+  src="/img/robots/leo/guides/rviz/rviz-base-link.webp"
   alt="Setting base_link in RViz"
   width="1365"
   height="728"
@@ -199,14 +195,14 @@ Now to visualize detected AR Tags, you just need to:
 - Click **Add -> Marker** and set **Marker Topic** to `visualization_marker`
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/artag-tracking-alvar/rviz-display-type-marker.webp"
+  src="/img/robots/leo/integrations/artag-tracking-alvar/rviz-display-type-marker.webp"
   alt="Adding Marker topic to visualization marker in RViz"
   width="1365"
   height="729"
 />
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/artag-tracking-alvar/rviz-marker-topic.webp"
+  src="/img/robots/leo/integrations/artag-tracking-alvar/rviz-marker-topic.webp"
   alt="Changing marker topic to /visualization marker in RViz"
   width="1363"
   height="730"
@@ -215,7 +211,7 @@ Now to visualize detected AR Tags, you just need to:
 - (optionally) **Click Add -> RobotModel** to visualize the Rover
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/rviz/rviz-add-robot-model.webp"
+  src="/img/robots/leo/guides/rviz/rviz-add-robot-model.webp"
   alt="Adding Robot model in RViz"
   width="1364"
   height="728"
@@ -226,14 +222,14 @@ Now to visualize detected AR Tags, you just need to:
   stream
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/artag-tracking-alvar/rviz-display-type-image.webp"
+  src="/img/robots/leo/integrations/artag-tracking-alvar/rviz-display-type-image.webp"
   alt="Adding new display type to RViz - image"
   width="1365"
   height="728"
 />
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/artag-tracking-alvar/rviz-transport-hint.webp"
+  src="/img/robots/leo/integrations/artag-tracking-alvar/rviz-transport-hint.webp"
   alt="Setting new image display type to compressed camera feed"
   width="1365"
   height="728"
@@ -242,10 +238,9 @@ Now to visualize detected AR Tags, you just need to:
 ## What next?
 
 With this tutorial completed you may be wondering what to do next. Our pick
-would be the
-[ARTag follower](/docs/leo-rover/integrations/leo-examples/follow-artag).
-However, you can check out other examples from leo_examples repository (like
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower) and
-[object detection](/docs/leo-rover/integrations/leo-examples/object-detection)).
-You can also check out other integrations from our
-[site](/docs/category/integrations).
+would be the [ARTag follower](/leo-rover/leo-examples/follow-artag). However,
+you can check out other examples from leo_examples repository (like
+[line follower](/leo-rover/leo-examples/line-follower) and
+[object detection](/leo-rover/leo-examples/object-detection)). You can also
+check out other integrations from our
+[Integrations site](/category/integrations).

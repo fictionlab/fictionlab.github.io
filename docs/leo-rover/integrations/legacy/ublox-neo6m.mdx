@@ -9,8 +9,6 @@ keywords:
 description: >
   Detailed tutorial on connecting a U-blox NEO-6m GPS module to the Leo Rover
   Core2ROS driver and configuring it for NMEA data output
-
-# image: TODO
 ---
 
 :::warning
@@ -20,10 +18,7 @@ Therefore we are no longer supporting this integration.
 
 If you are looking for GPS module for Leo Rover v1.8 check this tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/integrations/components/ublox-gps"
-  title="UBlox EVK-M8N GPS module"
-/>
+<LinkButton docId="leo-rover/integrations/positioning-systems/ublox-evk-m8n" />
 
 This integration is not compatible with Leo Rover v1.8. It is kept on site for
 legacy purposes.
@@ -35,11 +30,8 @@ functionalities.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/firmware-update"
-  title="Firmware update"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/firmware-update" />
 
 The first step is to choose an appropriate GPS module. Before you make a
 decision, make sure your GPS sensor can communicate via a serial interface and
@@ -59,11 +51,15 @@ U-blox NEO-6m GPS module
 - Cold / Warm start: 27 seconds / 1 second
 - Internal antenna and u.FL connector for additional external antenna
 
-More info:\
-[UART GPS NEO-6M UART GPS Module, NEO-6M onboard, curved/horizontal pin-header](https://www.waveshare.com/uart-gps-neo-6m.htm)
+More info:
+
+<LinkButton
+  url="https://www.waveshare.com/uart-gps-neo-6m.htm"
+  title="UART GPS NEO-6M UART GPS Module, NEO-6M onboard, curved/horizontal pin-header"
+/>
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-neo-6m/ublox-neo-6m.webp"
+  src="/img/robots/leo/integrations/ublox-neo-6m/ublox-neo-6m.webp"
   width="800"
   height="800"
   figStyle={{
@@ -76,7 +72,7 @@ More info:\
 To connect the GPS module to the Core2ROS driver, use the hSense port 3.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-neo-6m/core2-hsense.webp"
+  src="/img/robots/leo/integrations/ublox-neo-6m/core2-hsense.webp"
   width="791"
   height="791"
   figStyle={{
@@ -89,7 +85,7 @@ connect GPS module to the controller is to use IDC connector and four jumper
 cables.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-neo-6m/stm32-idc.webp"
+  src="/img/robots/leo/integrations/ublox-neo-6m/stm32-idc.webp"
   width="439"
   height="321"
   figStyle={{
@@ -107,7 +103,7 @@ cables.
 | 6          | GND      |
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-neo-6m/gps-connected.webp"
+  src="/img/robots/leo/integrations/ublox-neo-6m/gps-connected.webp"
   width="1500"
   height="1000"
   figStyle={{
@@ -125,10 +121,7 @@ satellites.
 First you need to route the module cables out of the main electronics box (MEB).
 The easiest way is to use one of Dev-Covers that we prepared for such projects.
 
-<LinkButton
-  to="/docs/leo-rover/documentation/dev-covers-addons"
-  title="Dev-covers for addons"
-/>
+<LinkButton docId="leo-rover/addons/additional-meb-covers" />
 
 :::note
 
@@ -142,10 +135,7 @@ creative sourcing or designing your own.
 Make sure your rover is up-to-date. GPS functionality was added to the default
 firmware in the v1.0.0 release.
 
-<LinkButton
-  to="/docs/leo-rover/guides/firmware-update"
-  title="Firmware update"
-/>
+<LinkButton docId="leo-rover/guides/firmware-update" />
 
 ### Enable GPS
 
@@ -185,7 +175,7 @@ There will be coordinate data occurring only if GPS found its position.
 Check if the coordinates obtained are correct in Google Maps.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/ublox-neo-6m/google-maps.webp"
+  src="/img/robots/leo/integrations/ublox-neo-6m/google-maps.webp"
   width="1791"
   height="919"
 />

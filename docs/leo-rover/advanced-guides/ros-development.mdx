@@ -27,11 +27,8 @@ with stock Leo Rover.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  title="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 ## Introspecting ROS network with command line tools
 
@@ -58,9 +55,9 @@ rosnode list
 ```
 
 You should see most of all the nodes described in the
-[first section](/docs/leo-rover/documentation/specification#software-structure)
-of this tutorial. Among them, the rosserial server node (called `/serial_node`
-in this case) "bridges" communication with the CORE2 board, so any topics it
+[first section](/leo-rover/documentation/specification#software-structure) of
+this tutorial. Among them, the rosserial server node (called `/serial_node` in
+this case) "bridges" communication with the CORE2 board, so any topics it
 publishes or subscribes are created and used in the firmware.
 
 Let's get more information about this node:
@@ -404,7 +401,7 @@ Now, when you restart the nodes, a new URDF model should be uploaded to the
 Parameter Server and you should be able to view the new model in RViz.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/ros-development/sensor-rviz.webp"
+  src="/img/robots/leo/guides/ros-development/sensor-rviz.webp"
   alt="RViz window showing added sensor to the model"
   width="769"
   height="591"
@@ -418,7 +415,7 @@ exact position of the `base_link` origin is defined as the center of this
 mounting hole on the upper plane of the mounting plate:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/guides/ros-development/base-link.webp"
+  src="/img/robots/leo/guides/ros-development/base-link.webp"
   alt="Base link location shown inside RViz"
   width="1105"
   height="737"
@@ -432,11 +429,8 @@ measuring tools.
 
 For more examples, you can look at these tutorials:
 
-<LinkButton
-  to="/docs/leo-rover/integrations/components/hokuyo-lidar"
-  title="Hokuyo LiDAR"
-/>
-<LinkButton to="/docs/leo-rover/integrations/legacy/imu" title="Grove IMU" />
+<LinkButton docId="leo-rover/integrations/lidars/hokuyo-ug-04lx-ug01" />
+<LinkButton docId="leo-rover/integrations/legacy/grove-imu" />
 
 ## Building additional ROS packages
 
@@ -572,17 +566,14 @@ host machine.
 
 To install ROS on your computer, you can follow this tutorial:
 
-<LinkButton
-  to="install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 In this section, we will assume you run Ubuntu 18.04 with ROS Melodic.
 
 First, connect your computer to the same network your rover is connected to. It
 can be either the Rover's Access Point (`LeoRover-XXXX` by default) or an
 external router (if you followed
-[Connect to the Internet tutorial](/docs/leo-rover/guides/connect-to-network)).
+[Connect to the Internet tutorial](/leo-rover/guides/connect-to-network)).
 
 To properly communicate over the ROS network, your computer needs to be able to
 resolve the master.localnet hostname. Open a terminal on your computer and type:
@@ -658,15 +649,6 @@ plugins.
 
 Below, are some examples possible to do on the stock Leo Rover:
 
-<LinkButton
-  to="/docs/leo-rover/integrations/leo-examples/follow-artag"
-  title="Follow ARTag"
-/>
-<LinkButton
-  to="/docs/leo-rover/integrations/leo-examples/line-follower"
-  title="Line follower"
-/>
-<LinkButton
-  to="/docs/leo-rover/integrations/leo-examples/object-detection"
-  title="Object detection"
-/>
+<LinkButton docId="leo-rover/leo-examples/follow-artag" />
+<LinkButton docId="leo-rover/leo-examples/line-follower" />
+<LinkButton docId="leo-rover/leo-examples/object-detection" />

@@ -12,10 +12,11 @@ keywords:
 description: >
   Learn how to connect an RPLiDAR A2M8/A2M12 sensor to your Leo Rover for 2D
   mapping and more. Detailed tutorial mechanical and software integration.
-
-# image: TODO
+image: /img/robots/leo/integrations/rplidar-a2/rplidar-a2.webp
 ---
 
+import Product from '@site/docs/leo-rover/addons/powerbox/_powerbox-product.mdx';
+import ProductPreview from '@site/src/components/ProductPreview';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 This tutorial will guide you through the process of connecting a LiDAR sensor to
@@ -30,7 +31,7 @@ or safety systems.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/rplidar-a2/rplidar-a2.webp"
+  src="/img/robots/leo/integrations/rplidar-a2/rplidar-a2.webp"
   width="536"
   height="500"
   figStyle={{
@@ -44,36 +45,35 @@ After finishing the tutorial you should be able to both gather the lidar data
 and visualize it using RViz. Just like in the image below:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/rplidar-a2/rviz-map-lidar.webp"
+  src="/img/robots/leo/integrations/rplidar-a2/rviz-map-lidar.webp"
   width="935"
   height="578"
 />
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development"
-  title="ROS development"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 ## Referenced products
 
-<LinkButton
-  to="https://www.leorover.tech/shop/rplidar-a2"
-  title="RPLidar A2 M12 - Leo Rover store"
-  icon="🛒"
+<ProductPreview
+  shopUrl="https://www.leorover.tech/shop/rplidar-a2"
+  imageSrc="/img/robots/leo/integrations/rplidar-a2/rplidar-a2.webp"
+  width={536}
+  height={500}
+  title="RPLidar A2 M12"
+  description="Enhance the Leo rover with the RPLIDAR A2, providing smooth,
+    accurate 360-degree scans. High-speed sampling and detailed point cloud data
+    improve mapping, localization, and environmental modeling."
 />
 
 ## List of components
 
 - RPLidar A2
 - RPLidar A2 adapter plate (can be found here:
-  [Addon adapters](/docs/leo-rover/documentation/addon-adapters#rplidar-a2-adapter))
+  [Addon adapters](/leo-rover/integrations/addon-adapters#rplidar-a2-adapter))
 - M5x10 Allen head screw x4
 - M3x6 Allen head screw x4
 
@@ -83,7 +83,7 @@ We developed 3D printable models of mechanical interfaces that allow you to
 mount the aforementioned sensor to the mounting plate of the rover. Locating the
 sensor the top of the robot provides a vide field of view with not many
 obstacles for the laser beam to get caught on. Get the files from here:
-[Addon Adapters](/docs/leo-rover/documentation/addon-adapters/).
+[Addon Adapters](/leo-rover/integrations/addon-adapters).
 
 - With 4 x M3x6 Allen screws connect the sensor to the printed interface plate.
 - Use 4 x M5x10 Allen screws to fasten the sensor to the Leo Rover.
@@ -96,7 +96,7 @@ lidars field of view if it sticks up too much. try to hide it in the empty space
 inside Leo Rovers back frame. Just like on the photo below:
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/rplidar-a2/leo-with-rplidar-a2.webp"
+  src="/img/robots/leo/integrations/rplidar-a2/leo-with-rplidar-a2.webp"
   width="935"
   height="578"
   figStyle={{
@@ -116,8 +116,10 @@ positioned at the top of the rover.
 
 USB connection provides power to the sensor and allows the data transfer. This
 means that no external power sources are necessary. Some lidars might need
-external power connections, that's when
-[Powerbox](https://www.leorover.tech/shop/powerbox) might come in handy.
+external power connections, that's when [Powerbox](/leo-rover/addons/powerbox)
+might come in handy.
+
+<Product />
 
 With everything connected you are ready to try out your new sensor.
 
@@ -262,18 +264,12 @@ If you have ROS installed on your computer, you can get a more graphical
 representation of the data with RViz. If you don't have ROS, you can follow this
 guide:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 Before starting RViz, make sure you completed the **Connecting another computer
 to ROS network** section of **ROS Development** tutorial:
 
-<LinkButton
-  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
-  title="ROS development / Connecting another computer to ROS network"
-/>
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
 Now, open RViz by typing `rviz` in the terminal, or, if you have the `leo_viz`
 package installed, type:
@@ -288,7 +284,7 @@ On the Displays panel click **Add** -> **By topic** and search for the `/scan`
 topic. Choose the **LaserScan** display and click **Ok**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/hokuyo-lidar/rviz-laser-scan.webp"
+  src="/img/robots/leo/integrations/hokuyo-lidar/rviz-laser-scan.webp"
   width="1362"
   height="727"
 />
@@ -300,7 +296,7 @@ To put the points into the camera image, you can also add the **Camera**
 display.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/hokuyo-lidar/rviz-add-camera.webp"
+  src="/img/robots/leo/integrations/hokuyo-lidar/rviz-add-camera.webp"
   width="1364"
   height="730"
 />
@@ -309,7 +305,7 @@ Be sure to check `compressed` as the Transport Hint and `/camera/image_raw` as
 the Image Topic.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/hokuyo-lidar/rviz-camera-topic.webp"
+  src="/img/robots/leo/integrations/hokuyo-lidar/rviz-camera-topic.webp"
   width="1365"
   height="729"
 />
@@ -329,11 +325,10 @@ Here's an example end result:
 ## What next?
 
 Lidars are commonly used in projects involving
-[autonomous navigation](/docs/leo-rover/advanced-guides/autonomous-navigation),
-you might be interested in a tutorial about it.
+[autonomous navigation](/leo-rover/advanced-guides/autonomous-navigation), you
+might be interested in a tutorial about it.
 
 They are however, not the only way of teaching a Leo Rover how to move on it's
-own. Check out our
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower)
+own. Check out our [line follower](/leo-rover/leo-examples/line-follower)
 tutorial if you want to learn more. You can also check our
-[Knowledge Base](/docs/category/integrations) for more instructions.
+[Integrations page](/category/integrations) for more instructions.
