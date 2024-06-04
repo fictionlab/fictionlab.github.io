@@ -45,7 +45,7 @@ Alternatively, use the VS Code command palette:
 and paste the repository URL.
 
 By default, `development` branch is selected. To create new branch see
-[Branching section](#branching).
+[Updating the Documentation](#updating-the-documentation).
 
 ### Launching development environment
 
