@@ -17,7 +17,7 @@ const FEATURES: FeatureItem[] = [
       src: '/img/robots/leo/leo-rover.webp',
       width: 1000,
       height: 1000,
-      hyperlink: '/docs/leo-rover/overview',
+      hyperlink: 'leo-rover/overview',
       style: { width: 300, height: 'auto' },
     },
     text: (
@@ -33,7 +33,7 @@ const FEATURES: FeatureItem[] = [
       src: '/img/robots/rapha/rapha-rover.webp',
       width: 1000,
       height: 1000,
-      hyperlink: '/docs/rapha-rover/specification',
+      hyperlink: 'rapha-rover/specification',
       style: { width: 300, height: 'auto' },
     },
     text: (
