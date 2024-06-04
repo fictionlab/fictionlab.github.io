@@ -18,10 +18,7 @@ function HomepageHeader() {
           <Heading as="h1">{siteConfig.title}</Heading>
           <Heading as="h3">{siteConfig.tagline}</Heading>
           <div className={styles.indexCtas}>
-            <Link
-              className="button button--primary"
-              to="/docs/leo-rover/getting-started"
-            >
+            <Link className="button button--primary" to="leo-rover/overview">
               Get Started
             </Link>
           </div>

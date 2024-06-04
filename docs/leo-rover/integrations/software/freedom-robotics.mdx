@@ -1,14 +1,21 @@
 ---
 title: Freedom Robotics
 sidebar_label: Freedom Robotics
-sidebar_position: 2
+keywords:
+  - freedom robotics
+  - teleoperation
+  - control
+  - robot
+  - interface
+  - leo
+  - integration
+  - example
+  - software
 description: >
   Leverage Freedom Robotics' low latency teleoperation, mission triggering, and
   customizable controls to pilot your Leo Rover.
+image: /img/robots/leo/integrations/freedom-robotics/freedom-piloting-leo.webp
 ---
-
-import LinkButton from '@site/src/components/LinkButton';
-import ImageZoom from '@site/src/components/ImageZoom';
 
 In this tutorial, we will show you how to integrate your Leo Rover with the
 Freedom Robotics platform.
@@ -40,7 +47,7 @@ and gather data from anywhere in the world using Freedom Robotics GUI.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-piloting-leo.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-piloting-leo.webp"
   alt="Driving Leo Rover via Freedom robotics"
   width="800"
   height="374"
@@ -48,11 +55,8 @@ and gather data from anywhere in the world using Freedom Robotics GUI.
 
 ## Prerequisites
 
-<LinkButton to="/docs/leo-rover/guides/ssh" description="Connect via SSH" />
-<LinkButton
-  to="/docs/leo-rover/guides/connect-to-network"
-  description="Connect to a local network and the Internet"
-/>
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
 
 ## List of components
 
@@ -63,10 +67,7 @@ and gather data from anywhere in the world using Freedom Robotics GUI.
 
 ### Create an account on the Freedom Robotics website
 
-<LinkButton
-  to="http://app.freedomrobotics.ai/"
-  description="Freedom Robotics app"
-/>
+<LinkButton to="http://app.freedomrobotics.ai/" title="Freedom Robotics app" />
 
 You can choose either free trial, paid plan or use any dedicated discount code.
 
@@ -92,7 +93,7 @@ Start by clicking the **Add Device** button, located in the bottom left corner
 of the screen.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-1.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-1.webp"
   width="1364"
   height="729"
 />
@@ -102,7 +103,7 @@ installation with some base settings. We will choose the **Custom Create**
 option.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-2.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-2.webp"
   width="1365"
   height="728"
 />
@@ -116,7 +117,7 @@ sure that some things will get installed. To do so, click the **Advanced
 Settings** button.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-3.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-3.webp"
   width="1363"
   height="729"
 />
@@ -125,7 +126,7 @@ There, look for `REMOTE SSH` and `WEB RTC` settings and make sure both are
 checked.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-4.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-4.webp"
   width="1363"
   height="727"
 />
@@ -134,7 +135,7 @@ You can also see if there is `install_elements=webrtc` fragment in the generated
 command.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-5.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-5.webp"
   width="1365"
   height="727"
 />
@@ -177,7 +178,7 @@ Now, the **PROCEED** button should be active (if you didn't notice, it was
 inactive before the installation). Click it.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-6.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-6.webp"
   width="1365"
   height="727"
 />
@@ -187,7 +188,7 @@ will continue with `LeoRover`. Enter your robot's name and click the **PROCEED**
 button.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-7.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-7.webp"
   width="1365"
   height="727"
 />
@@ -202,7 +203,7 @@ the robot's name, you can choose anything you want. We will continue with
 `LeoRobot`. To continue, press **PROCEED**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-8.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-8.webp"
   width="1365"
   height="727"
 />
@@ -214,7 +215,7 @@ choose from already existing groups (if you have added any before), or **Create
 New Group**. We will go with the second option and create a `LeoRovers` group.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-9.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-9.webp"
   width="1365"
   height="727"
 />
@@ -248,7 +249,7 @@ Robotics UI joystick.
 We will choose the DEFAULT option and continue by clicking PROCEED.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-10.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-10.webp"
   width="1365"
   height="727"
 />
@@ -258,7 +259,7 @@ tutorial, the customization is not possible and you can choose only the
 **DEFAULT** option.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-11.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-11.webp"
   width="1365"
   height="727"
 />
@@ -268,7 +269,7 @@ that will be visible in the Freedom Robotics; therefore, we click **Go To
 Device**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-12.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-12.webp"
   width="1365"
   height="727"
 />
@@ -279,7 +280,7 @@ from any topics from the robot. After the configuration, the robot will be
 visible as active. So now, from the robot's menu, we go to **Settings**.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-13.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-13.webp"
   width="1365"
   height="727"
 />
@@ -290,7 +291,7 @@ earlier (name, type group, etc.) or even delete the device from the account.
 We want to customize topics, so we will go to the **Bandwidth** section.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-14.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-14.webp"
   width="1365"
   height="727"
 />
@@ -319,7 +320,7 @@ You add the topic to the Bandwidth by clicking **Add** in the `Included Topics`
 section.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-15.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-15.webp"
   width="1365"
   height="727"
 />
@@ -329,7 +330,7 @@ sending messages from this topic to the Freedom Robotics platform, from the
 drop-down list.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-16.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-16.webp"
   width="1365"
   height="727"
 />
@@ -346,7 +347,7 @@ about bandwidth tuning
 This is how our `Included Topics` look in the end.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-17.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-17.webp"
   width="1365"
   height="727"
 />
@@ -361,7 +362,7 @@ will send to much to the platform it may end in lower performance and quality.
 Now, if you go to the main menu, you will see that your device is active.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-18.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-18.webp"
   width="1365"
   height="727"
 />
@@ -371,7 +372,7 @@ Now, if you go to the main menu, you will see that your device is active.
 When you are in the robots settings, go to the **PILOT** section.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-19.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-19.webp"
   width="1365"
   height="727"
 />
@@ -381,7 +382,7 @@ Now, modify `/cmd_vel` `MAX ANGULAR VELOCITY` to 60deg/s and
 lists. Those values are closer to the real speeds the rover can go.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-20.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-20.webp"
   width="1365"
   height="727"
 />
@@ -397,7 +398,7 @@ Start by logging into your
 Then, in the overview panel, click the **ACTIVE** devices.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-21.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-21.webp"
   width="1365"
   height="727"
 />
@@ -406,7 +407,7 @@ Now, you will see all the active devices. Choose a device that you want to
 connect to, and on the panel on the right click the **GO TO DEVICE** button.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-22.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-22.webp"
   width="1365"
   height="727"
 />
@@ -427,7 +428,7 @@ To learn more visit
 When connected to the device, go to the **Pilot** mode.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-23.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-23.webp"
   width="1365"
   height="727"
 />
@@ -439,7 +440,7 @@ person can take over the control.
 Click **Take Over** in the upper section of the video stream.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-24.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-24.webp"
   width="1365"
   height="727"
 />
@@ -448,7 +449,7 @@ Wait a couple of seconds until the streaming method is changed from `JPEG`
 stream to `WebRTC` (you'll see that the notice in the image center changes).
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-25.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-25.webp"
   width="1365"
   height="727"
 />
@@ -469,22 +470,19 @@ See more on [this site](https://docs.freedomrobotics.ai/docs/start-control).
 Assemble the IMU module to your Rover and follow the IMU tutorial to enable IMU
 data streaming to the ROS environment.
 
-<LinkButton
-  to="/docs/leo-rover/integrations/legacy/imu"
-  description="Grove IMU"
-/>
+<LinkButton docId="leo-rover/integrations/legacy/grove-imu" />
 
 Now, connect to your device via Freedom Robotics and go to the device
 **Settings** and then go to the **Bandwidth** section.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-26.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-26.webp"
   width="1365"
   height="727"
 />
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-27.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-27.webp"
   width="1365"
   height="727"
 />
@@ -494,7 +492,7 @@ Now, add a new topic to `Included Topics`.
 Include `/imu*` topic - this will include all the topics from the imu sensor.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-28.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-28.webp"
   width="1365"
   height="727"
 />
@@ -502,7 +500,7 @@ Include `/imu*` topic - this will include all the topics from the imu sensor.
 Now, in the `Stream` section you can see data from the IMU topics.
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/integrations/freedom-robotics/freedom-29.webp"
+  src="/img/robots/leo/integrations/freedom-robotics/freedom-29.webp"
   width="1365"
   height="727"
 />
@@ -511,9 +509,8 @@ Now, in the `Stream` section you can see data from the IMU topics.
 
 ## What next?
 
-Our [site](/docs/leo-rover/getting-started) provides developer resources, where
-You'll be able to check out more tutorials. Some of them (like
-[line follower](/docs/leo-rover/integrations/leo-examples/line-follower) and
-[object detection](/docs/leo-rover/integrations/leo-examples/object-detection))
-do not use any additional equipment connected to the rover. Be sure to check
-them out.
+Our [site](/leo-rover/overview) provides developer resources, where You'll be
+able to check out more tutorials. Some of them (like
+[line follower](/leo-rover/leo-examples/line-follower) and
+[object detection](/leo-rover/leo-examples/object-detection)) do not use any
+additional equipment connected to the rover. Be sure to check them out.

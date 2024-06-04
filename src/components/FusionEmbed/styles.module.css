@@ -1,0 +1,79 @@
+:root {
+  --imgFadetime: 1s;
+}
+
+.embedContainer {
+  max-width: 100%;
+  width: 800px;
+  aspect-ratio: 16/10;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+html[data-theme='light'] .image {
+  background-color: white;
+}
+
+.image {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--ifm-global-radius);
+  cursor: pointer;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition:
+    border var(--ifm-transition-fast) ease,
+    opacity var(--imgFadetime) ease;
+  background-color: var(--ifm-background-color);
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: var(--image-border-radius);
+  box-sizing: content-box;
+  opacity: 0;
+  transition: opacity var(--imgFadetime) ease;
+}
+
+.text {
+  position: absolute;
+  width: max-content;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+  transition:
+    top var(--ifm-transition-fast) ease,
+    opacity var(--imgFadetime) ease;
+}
+
+.a:hover .text {
+  top: 94%;
+}
+
+.a:hover .image {
+  border-color: var(--ifm-color-primary);
+}
+
+.imageHidden {
+  opacity: 0;
+  position: absolute;
+}
+
+.iframeVisible {
+  opacity: 1;
+}

@@ -1,13 +1,13 @@
 ---
 title: Downloads
 sidebar_label: Downloads
-sidebar_position: 2
+sidebar_position: 3
 description: >
   Download resources for the Leo Rover including LeoOS, firmware, CAD models and
   more.
 ---
 
-import LinkButton from '@site/src/components/LinkButton';
+import FusionEmbed from '@site/src/components/FusionEmbed';
 
 ### LeoOS software
 
@@ -15,50 +15,40 @@ SD card image for the Rover's RaspberryPi
 
 <LinkButton
   to="https://github.com/LeoRover/LeoOS/releases"
-  description="LeoRover/LeoOS"
+  title="LeoRover/LeoOS"
+  description="LeoOS is a Debian-based Operating System distribution for the
+    single-board computer running inside Leo Rover (currently Raspberry Pi 4B)."
 />
 
 ### Core2-ROS controller firmware
 
 <LinkButton
   to="https://github.com/LeoRover/leo_firmware/releases"
-  description="leo_firmware"
+  title="leo_firmware"
+  description="The firmware for the Husarion CORE2 board running inside Leo Rover."
 />
 
 ### LeoCore controller firmware
 
 <LinkButton
   to="https://github.com/LeoRover/leocore_firmware/tags"
-  description="leocore_firmware"
+  title="leocore_firmware"
+  description="The firmware for the LeoCore controller running inside Leo Rover."
 />
 
 ### Leo Rover 3D CAD model
 
-<iframe
-  src="https://kellideas.autodesk360.com/shares/public/SH512d4QTec90decfa6e0b1bf29fda603dd6?mode=embed"
-  width="800"
-  height="600"
-  allowFullScreen={true}
-  style={{
-    margin: 'auto',
-    maxWidth: '80%',
-    height: 'auto',
-    aspectRatio: '8/6',
-    display: 'block',
-  }}
-  title="Leo Rover 3D model"
-></iframe>
-
-#### Preview and download here:
-
-<LinkButton
-  to="https://a360.co/3Jyjx6S"
-  description="Leo Rover v1.8 CAD model"
+<FusionEmbed
+  url="https://kellideas.autodesk360.com/shares/public/SH512d4QTec90decfa6e0b1bf29fda603dd6"
+  embedTitle="Leo Rover 3D model"
+  img="/img/robots/leo/leo-1.8-cad.webp"
+  img_width={1920}
+  img_height={1080}
 />
 
 ### 3D-printing files
 
 <LinkButton
   to="https://drive.google.com/drive/folders/1ZAOhle9J6y5SHTUPdQa2_9U6BG9jH6XE?usp=drive_link"
-  description="Leo Rover CAD files"
+  title="Leo Rover CAD files - Google Drive"
 />

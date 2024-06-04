@@ -1,0 +1,10 @@
+{
+  "label": "Computing devices",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Computers & Microcontrollers integrations",
+    "type": "generated-index"
+  }
+}

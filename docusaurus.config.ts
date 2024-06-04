@@ -38,6 +38,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/fictionlab/docs/edit/development/',
           remarkPlugins: [remarkMath],

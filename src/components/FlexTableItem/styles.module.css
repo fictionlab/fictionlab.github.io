@@ -1,9 +1,14 @@
-.flexTableItem {
+.flexTableItem1,
+.flexTableItem2 {
   float: left;
+  width: 50%;
 }
 
 @media screen and (max-width: 996px) {
-  .flexTableItem {
+  .flexTableItem1 {
     width: 100% !important;
+  }
+  .flexTableItem2 {
+    width: 50% !important;
   }
 }

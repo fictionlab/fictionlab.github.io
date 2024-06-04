@@ -1,13 +1,11 @@
 ---
 title: Leo Rover wheels
 sidebar_label: Leo Rover wheels
-sidebar_position: 3
+sidebar_position: 4
 description: >
   Detailed specifications for the Leo Rover, including dimensions, speed,
   payload capacity, and more. Ideal for developers and enthusiasts.
 ---
-
-import ImageZoom from '@site/src/components/ImageZoom';
 
 ## Wheel motors
 
@@ -19,7 +17,7 @@ access the motors specifications.
 
 <ImageZoom
   loading="eager"
-  src="/img/docs_images/leo-rover/documentation/leo-buhler.webp"
+  src="/img/robots/leo/documentation/leo-buhler.webp"
   alt="Buhler motor of Leo Rover 1.8"
   width="1200"
   height="801"
@@ -28,9 +26,15 @@ access the motors specifications.
   }}
 />
 
-[1.61.077.411 motor specification](http://www.mobot.pl/download/1_61_077_4xx_en.pdf)
+<LinkButton
+  url="http://www.mobot.pl/download/1_61_077_4xx_en.pdf"
+  title="1.61.077.411 motor specification - mobot.pl"
+/>
 
-CAD model
+<LinkButton
+  url="http://www.buehler-motor.pl/download/1_61_077_xxx_1.stp"
+  title="1.61.077.411 motor CAD model - buehler-motor.pl"
+/>
 
 ### Pololu Romi 12 CPR magnetic encoders
 
@@ -50,9 +54,15 @@ Connection:
 Mind that the encoder magnets are modified to fit Bühler Motors shaft. Internal
 hole is redrilled to 3 mm (instead of 1.5 mm).
 
-[Drawings](https://docs.google.com/viewerng/viewer?url=https://www.pololu.com/file/0J1210/romi-encoder-dimension-diagram.pdf)
-\
-[CAD models - Romi 12 CPR encoder](https://www.pololu.com/product/3542/resources)
+<LinkButton
+  url="https://www.pololu.com/file/0J1210/romi-encoder-dimension-diagram.pdf"
+  title="Romi 12 CPR encoder drawings - pololu.com"
+/>
+
+<LinkButton
+  url="https://www.pololu.com/product/3542/resources"
+  title="Romi 12 CPR encoder CAD model - pololu.com"
+/>
 
 ### Wheel tires
 
@@ -64,7 +74,7 @@ Tire specifications:
 - Typically described as for 1/10 scale Monster Truck RC vehicles
 
 <ImageZoom
-  src="/img/docs_images/leo-rover/documentation/leo-tire.webp"
+  src="/img/robots/leo/documentation/leo-tire.webp"
   alt="Buhler motor of Leo Rover 1.8"
   width="600"
   height="401"

@@ -1,6 +1,10 @@
 {
-    "label": "Robotic arms",
-    "position": 3,
-    "collapsible": true,
-    "collapsed": true
+  "label": "Robotic arms",
+  "position": 5,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Robotic arms integrations",
+    "type": "generated-index"
+  }
 }

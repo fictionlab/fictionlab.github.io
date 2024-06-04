@@ -3,5 +3,8 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": "."
+  },
+  "mdx": {
+    "plugins": ["remark-math", "rehype-katex"]
   }
 }

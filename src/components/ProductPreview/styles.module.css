@@ -1,0 +1,91 @@
+.ButtonContainer {
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all var(--ifm-transition-fast) ease;
+  transition-property: border, box-shadow;
+  width: 100%;
+  height: auto;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  text-decoration: none;
+}
+
+.ButtonContainer:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
+  text-decoration: none;
+}
+
+.ButtonContainer:hover .Arrow {
+  border-color: var(--ifm-color-primary);
+}
+
+.ButtonContainer:hover .ImageContainer {
+  border-color: var(--ifm-color-primary);
+}
+
+.ImageContainer {
+  display: flex;
+  padding-right: 0.7rem;
+  width: 350px;
+  height: auto;
+  margin: 0;
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  transition: all var(--ifm-transition-fast) ease;
+  transition-property: border, box-shadow;
+}
+
+.Image {
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--image-border-radius);
+}
+
+.TextContainer {
+  width: auto;
+  align-self: normal;
+  padding: 0 0 0 0.7rem;
+  margin-right: auto;
+}
+
+.Title {
+  font-size: x-large;
+}
+
+.Price {
+  font-size: large;
+  color: var(--docsearch-text-color);
+}
+
+.Description {
+  font-size: small;
+  padding-top: 0.7rem;
+  color: var(--docsearch-text-color);
+}
+
+@media screen and (max-width: 996px) {
+  .ButtonContainer {
+    flex-direction: column;
+  }
+  .ImageContainer {
+    width: 100%;
+    padding: 0 0 0.7rem 0;
+    border-right: 0px;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  }
+  .Image {
+    width: auto;
+    max-height: 250px;
+  }
+  .TextContainer {
+    padding: 0.7rem 0 0 0;
+  }
+}
