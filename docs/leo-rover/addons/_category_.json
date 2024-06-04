@@ -1,10 +1,10 @@
 {
-  "label": "Integrations",
-  "position": 6,
+  "label": "Addons",
+  "position": 5,
   "collapsible": true,
   "collapsed": true,
   "link": {
-    "title": "Integrations overview",
+    "title": "Addon overview",
     "type": "generated-index"
   }
 }

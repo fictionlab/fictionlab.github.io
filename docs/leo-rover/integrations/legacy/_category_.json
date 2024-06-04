@@ -1,6 +1,10 @@
 {
-    "label": "Legacy (pre Leo 1.8)",
-    "position": 5,
-    "collapsible": true,
-    "collapsed": true
+  "label": "Legacy (pre Leo 1.8)",
+  "position": 99,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "title": "Legacy integrations",
+    "type": "generated-index"
+  }
 }

@@ -1,0 +1,601 @@
+---
+title: Trossen Robotics WidowX 250
+sidebar_label: WidowX 250
+keywords:
+  - robotic arm
+  - payload
+  - servo
+  - dynamixel
+  - widow
+  - leo
+  - integration
+  - example
+description: >
+  Detailed tutorial on mounting the WidowX 250 arm, configuring ROS packages,
+  and remotely operating the arm from your Leo Rover.
+
+# image: TODO
+---
+
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+
+In this tutorial, we will show you how to integrate and remotely control the
+Trossen Robotics' WidowX 250 robotic arm.
+
+With 6 degrees of freedom and reach of 650mm WidowX 250 robotic arm is the
+biggest, and the most capable, robot arm we have ever tried to stick onto a Leo
+Rover.
+
+:::tip
+
+To make integration easier we highly recommend to make use of Powerbox addon
+
+<LinkButton
+  to="https://www.leorover.tech/shop/powerbox"
+  title="Powerbox Addon - Leo Rover store"
+  icon="🛒"
+/>
+
+:::
+
+## What to expect?
+
+After finishing the tutorial you'll be able to control the arm with a joystick
+and Python API, visualize the arms model and plan its moving trajectory with ROS
+MoveIt.
+
+<ImageZoom
+  loading="eager"
+  src="/img/docs_images/leo-rover/integrations/widowx-250/leo-with-widowx250.webp"
+  alt="WidowX 250 mounted on Leo Rover"
+  width="1200"
+  height="900"
+  figStyle={{
+    width: 600,
+  }}
+/>
+
+<div className="video-container">
+  <LiteYouTubeEmbed
+    id="SP4WlP3YPl4"
+    params="autoplay=0&autohide=1&showinfo=0&rel=0"
+    poster="hqdefault"
+    title="Leo Rover Unboxing and Getting Started"
+    webp
+  />
+</div>
+
+## Prerequisites
+
+<LinkButton to="/docs/leo-rover/guides/ssh" title="Connect via SSH" />
+<LinkButton
+  to="/docs/leo-rover/advanced-guides/ros-development"
+  title="ROS development"
+/>
+
+## Mechanical integration
+
+The mounting of the arm is particularly easy. If you have bought the arm with
+the modified support plate designed for our robot, you can use screws and nuts
+to connect the arm to the rover's mounting plate.
+
+If you have the original support plate, you can get the model for 3D printing
+here (**addons** section):
+
+<LinkButton
+  to="/docs/leo-rover/documentation/addon-adapters#widowx-250-adapter"
+  title="Addon adapters / WidowX 250 adapter"
+/>
+
+## Wiring and electronics connection
+
+Stick the Dynamixel cable coming out of the base of the arm into the power
+distribution board.
+
+Connect U2D2 and the power distribution board with the short Dynamixel cable.
+
+Connect the U2D2 to the rover using an USB cable
+
+The last step is to stick connect the barrel jack cable to the battery power
+supply ([Powerbox addon](https://www.leorover.tech/shop/powerbox) might be
+useful here) and plug into the other end into power distribution board.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/widowx-250/leo-u2d2-graph.webp"
+  alt="Graph showing connections between Leo Rover and U2D2 board"
+  width="2000"
+  height="532"
+/>
+
+## Software integration
+
+### Integrating the arm with the system
+
+:::info
+
+There is a couple of files that will need to be modified on the Rover's system.
+We will show you how to do this using `nano` - a command line text editor, but
+if you have your own preferable method of editing files, feel free to use it.
+
+:::
+
+We need to make sure the U2D2 device is available at a fixed path on rover's
+system. To do this, you can add a rule to `udev`. Open a new `.rules` file with
+`nano`:
+
+```bash
+sudo nano /etc/udev/rules.d/u2d2.rules
+```
+
+and paste the following rule:
+
+```bash
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", ENV{ID_MM_DEVICE_IGNORE}="1", ATTR{device/latency_timer}="1", SYMLINK+="ttyDXL"
+```
+
+To save the file, type **Ctrl+O** and **Enter** to confirm. Type **Ctrl+X** to
+exit nano.
+
+For the rule to take effect, reboot the system or just type:
+
+```bash
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+
+The device should now be available under `/dev/ttyDXL` path. You can check it by
+typing:
+
+```bash
+ls -l /dev/ttyDXL
+```
+
+To integrate the arm, you will need to build some additional ROS packages. Start
+by creating a local catkin workspace, if you don't have one yet:
+
+```bash
+mkdir -p ~/ros_ws/src
+cd ~/ros_wscatkin
+config --extend /opt/ros/${ROS_DISTRO}
+```
+
+The package sources for the arm are available on Github at the
+[interbotix_ros_arms](https://github.com/Interbotix/interbotix_ros_arms)
+repository. Clone the repository to your source space:
+
+```bash
+cd ~/ros_ws/src
+git clone https://github.com/Interbotix/interbotix_ros_arms.git
+```
+
+On the rover, you will only need the driver node for the arm (`interbotix_sdk`
+package) and the URDF description (`interbotix_descriptions` package). To speed
+up the building process, remove the unwanted packages:
+
+```bash
+mv interbotix_ros_arms/interbotix_descriptions ./
+mv interbotix_ros_arms/interbotix_sdk ./
+rm -rf interbotix_ros_arms
+```
+
+Now, use `rosdep` to install any dependent packages:
+
+```bash
+cd ~/ros_ws
+rosdep update
+rosdep install --from-paths src -iry
+```
+
+and build the workspace:
+
+```bash
+catkin build -j 1
+```
+
+Once the packages have been built, you can edit the environmental setup file to
+point to your result space. Open the file in `nano`:
+
+```bash
+sudo nano /etc/ros/setup.bash
+```
+
+Comment out the first line by adding `#` sign and add the source command for
+your workspace. The first 2 lines should look essentially like this:
+
+```bash
+# source /opt/ros/melodic/setup.bash
+source /home/pi/ros_ws/devel/setup.bash
+```
+
+Now, to add the arm's driver to the rover's launch file, open the `robot.launch`
+file:
+
+```bash
+sudo nano /etc/ros/robot.launch
+```
+
+and paste these lines somewhere between the `<launch>` tags:
+
+```xml
+<include file="$(find interbotix_sdk)/launch/arm_run.launch">
+	<arg name="port"                        value="/dev/ttyDXL"/>
+	<arg name="robot_name"                  value="wx250"/>
+	<arg name="use_default_rviz"            value="false"/>
+	<arg name="use_world_frame"             value="false"/>
+	<arg name="use_moveit"                  value="true"/>
+	<arg name="arm_operating_mode"          value="position"/>
+	<arg name="arm_profile_velocity"        value="131"/>
+	<arg name="arm_profile_acceleration"    value="15"/>
+	<arg name="gripper_operating_mode"      value="position"/>
+	<arg name="use_time_based_profile"      value="false"/>
+</include>
+```
+
+:::info
+
+You can learn more about the driver's parameters and functionalities at the
+[interbotix_sdk README page](https://github.com/Interbotix/interbotix_ros_arms/tree/master/interbotix_sdk).
+
+:::
+
+You can also edit the robot's URDF file to connect the arm's base link to the
+rover's model. To do this, open the `robot.urdf.xacro` file:
+
+```bash
+sudo nano /etc/ros/urdf/robot.urdf.xacro
+```
+
+and paste these lines somewhere between the `<robot>` tags:
+
+```xml
+<link name="wx250/base_link"/>
+
+<joint name="arm_joint" type="fixed">
+  <origin xyz="0.043 0 -0.001"/>
+  <parent link="base_link"/>
+  <child link="wx250/base_link"/>
+</joint>
+```
+
+:::info
+
+To learn more about what the files under /etc/ros are used for and how do they
+correlate with each other, visit the Adding additional functionality to the
+rover section on ROS Development guide:
+
+<LinkButton
+  to="/docs/leo-rover/advanced-guides/ros-development#adding-additional-functionality-to-the-rover"
+  title="ROS development / Adding additional functionality to the rover"
+/>
+
+:::
+
+That's it! On the next boot, the arm driver node will start together with all
+the other nodes. You can manually restart the running nodes by typing:
+
+```bash
+sudo systemctl restart leo
+```
+
+## Examples
+
+### Controlling the arm
+
+Now that you have the driver running, you should see the new ROS topics and
+services under the `/wx250` namespace. For a full description of the ROS API,
+visit the
+[interbotix_sdk README page](https://github.com/Interbotix/interbotix_ros_arms/tree/master/interbotix_sdk).
+You can test some of the features with the `rostopic` and `rosservice`
+command-line tools:
+
+Retrieve the information about the arm:
+
+```bash
+rosservice call /wx250/get_robot_info
+```
+
+Publish position command to the elbow joint:
+
+```bash
+rostopic pub /wx250/single_joint/command interbotix_sdk/SingleCommand "{joint_name: elbow, cmd: -0.5}"
+```
+
+Turn off the torque on all joints:
+
+```bash
+rosservice call /wx250/torque_joints_off
+```
+
+The [interbotix_ros_arms](https://github.com/Interbotix/interbotix_ros_arms)
+repository contains some packages that will let you control the arm in different
+ways. To use them on your computer, you will need to have ROS installed:
+
+<LinkButton
+  to="/docs/leo-rover/advanced-guides/install-ros-on-your-computer"
+  title="Install ROS on your computer"
+/>
+
+and properly configured to communicate with the nodes running on the rover. For
+this, you can visit **Connecting other computer to ROS network** section of the
+**ROS Development** tutorial:
+
+<LinkButton
+  to="/docs/leo-rover/advanced-guides/ros-development#connecting-another-computer-to-ros-network"
+  title="ROS development / Connecting another computer to ROS network"
+/>
+
+First, install some prerequisites:
+
+```bash
+sudo apt install python-catkin-tools
+sudo -H pip install modern_robotics
+```
+
+:::note
+
+The `modern_robotics` python package is required to run the joystick control
+example.
+
+:::
+
+and create a catkin workspace:
+
+```bash
+mkdir -p ~/ros_ws/src
+cd ~/ros_ws
+catkin config --extend /opt/ros/${ROS_DISTRO}
+```
+
+Clone the `interbotix_ros_arms` and `leo_description` repositories into the
+source space:
+
+```bash
+cd ~/ros_ws/src
+git clone https://github.com/Interbotix/interbotix_ros_arms.git -b melodic
+git clone https://github.com/LeoRover/leo_description.git
+```
+
+Install dependencies using the `rosdep` tool:
+
+```bash
+cd ~/ros_ws
+rosdep update
+rosdep install --from-paths src -iy
+```
+
+and build the workspace:
+
+```bash
+catkin build
+```
+
+Now, `source` the devel space to make the new packages visible in your shell
+environment:
+
+```bash
+source ~/ros_ws/devel/setup.bash
+```
+
+:::info
+
+You will have to do this at every terminal session you want to use the packages
+on, so it is convenient to add this line to the `~/.bashrc` file.
+
+:::
+
+### Visualizing the model
+
+- Open RViz by typing `rviz` in the terminal.
+- Choose `base_link` as the **Fixed Frame**
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/guides/rviz/rviz-base-link.webp"
+  alt="Set fixed frame to base_link in Rviz"
+  width="1365"
+  height="728"
+/>
+
+- On the **Displays** panel, click on **Add** and choose **RobotModel**.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/guides/rviz/rviz-add-robot-model.webp"
+  alt="Add RobotModel to Display"
+  width="1364"
+  height="728"
+/>
+
+- For the **Robot Description** parameter, choose `robot_description`.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/rviz-robot-description.webp"
+  alt="Changing robot description in Rviz"
+  width="1362"
+  height="729"
+/>
+
+- Add another **RobotModel** display, but for the **Robot Description**
+  parameter choose `wx250/robot_description`.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/widowx-250/rviz-robot-description-wx250.webp"
+  alt="Adding WidowX 250 to Leo Rover model in Rviz"
+  width="1300"
+  height="696"
+/>
+
+The effect should look similar to this:
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/widowx-250/rviz-leo-with-wx250.webp"
+  alt="Leo Rover with WidowX 250 arm in Rviz"
+  width="976"
+  height="628"
+/>
+
+### Planning the trajectory with MoveIt
+
+MoveIt motion planning framework will allow us to plan and execute a
+collision-free trajectory to the destination pose of the end-effector. To use
+it, first make sure you have the `use_moveit` parameter for the arm driver set
+to `true`:
+
+```xml title="/etc/ros/robot.launch"
+<arg name="use_moveit" value="true"/>
+```
+
+On your computer, type:
+
+```bash
+roslaunch interbotix_moveit interbotix_moveit.launch robot_name:=wx250 rviz_frame:=wx250/base_link
+```
+
+The MoveIt GUI should appear:
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-ui.webp"
+  alt="User interface of MoveIt"
+  width="1300"
+  height="791"
+/>
+
+On the **MotionPlanning** panel, click on the **Planning** tab, choose
+`interbotix_arm` for the **Planning Group** and `<current>` for the **Start
+State** (to operate with the gripper, change the **Planning Group** to
+`interbotix_gripper`)
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-motion-planning.webp"
+  alt="Motion Planning tab of MoveIt"
+  width="1300"
+  height="696"
+/>
+
+There are some predefined poses which you can choose for the **Goal State**,
+such as `home`, `sleep` or `upright`.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-goal-state.webp"
+  alt="Setting Goal States in MoveIt"
+  width="1300"
+  height="696"
+/>
+
+To set the pose manually, navigate to the **Displays panel** ->
+**MotionPlanning** -> **Planning Request** and check `Query Goal State`. You
+should now be able to manually set the end-effector pose for the goal state.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-displays.webp"
+  alt="Setting custom goal states in MoveIt"
+  width="1300"
+  height="696"
+/>
+
+When the goal state is set, click on the **Plan** button to plan the trajectory
+(the simulated trajectory visualization should appear) and **Execute** to send
+the trajectory to the driver.
+
+<ImageZoom
+  src="/img/docs_images/leo-rover/integrations/pincherx-100-mobile/moveit-plan.webp"
+  alt="Planning and executing goal states in MoveIt"
+  width="1300"
+  height="696"
+/>
+
+If you want to use the MoveIt capabilities in a Python script or a C++ program,
+please look at the
+[interbotix_moveit_interface](https://github.com/Interbotix/interbotix_ros_toolboxes/tree/main/interbotix_common_toolbox/interbotix_moveit_interface)
+example.
+
+### Using joystick to control the arm
+
+The `interbotix_joy_control` example package provides the capability to control
+the movement of the arm (utilizing inverse kinematics) with a PS3, PS4 or an
+Xbox 360 joystick.
+
+To use the package with the arm connected to your rover:
+
+- Change the parameters for the driver node. The joy control node uses the `pwm`
+  mode for the gripper and is more suited to work with the Time-Based-Profile.
+  Here are the settings that work well:
+
+```xml title="/etc/ros/robot.launch"
+<arg name="arm_operating_mode"          value="position"/>
+<arg name="arm_profile_velocity"        value="200"/>
+<arg name="arm_profile_acceleration"    value="200"/>
+<arg name="gripper_operating_mode"      value="pwm"/>
+<arg name="use_time_based_profile"      value="true"/>
+```
+
+- Connect the joystick to your computer. .
+- Start the joy_control.launch file:
+
+```bash
+roslaunch interbotix_joy_control joy_control.launch robot_name:=wx250 controller:=ps3 arm_run:=false
+```
+
+- Change controller to either `ps3`, `ps4` or `xbox360` depending on the
+  joystick you have connected.
+
+:::info
+
+You can find the instructions on the package's
+[README file](https://github.com/Interbotix/interbotix_ros_arms/blob/master/interbotix_examples/interbotix_joy_control/README.md)
+page.
+
+:::
+
+### Using the Python API
+
+Aside from the driver, the `interbotix_sdk` package also provides a Python API
+for manipulating the arm. It is designed to mainly work with the `position` mode
+for the arm, `pwm` mode for the gripper and the Time-Based-Profile. For a start,
+you can set the same parameters for the driver as in the previous example.
+
+There are some example scripts that demonstrate the use of the API at the
+`interbotix_examples/python_demos` directory.
+
+```bash
+cd ~/ros_ws/src/interbotix_ros_arms/interbotix_examples/python_demos
+```
+
+The `bartender.py` demo performs some pick, pour and place operations. To run
+it, first open the file in a text editor and search for this line:
+
+```python
+arm = InterbotixRobot(robot_name="wx250s", mrd=mrd)
+```
+
+Change wx250s to wx250 and then type on the terminal:
+
+```bash
+python bartender.py
+```
+
+:::warning
+
+Make sure that you are not running any other script that takes control of the
+arm simultaneously (e.g. the joy control node).
+
+:::
+
+If everything went right, you should see the arm in action.
+
+You can check the other files in the directory for more examples. To view the
+available functions in the API and their documentation, take a look at the
+[robot_manipulation.py](https://github.com/Interbotix/interbotix_ros_arms/blob/master/interbotix_sdk/src/interbotix_sdk/robot_manipulation.py)
+file.
+
+<div className="video-container">
+  <LiteYouTubeEmbed
+    id="XedSRNmOrFY"
+    params="autoplay=0&autohide=1&showinfo=0&rel=0"
+    poster="hqdefault"
+    title="Leo Rover Unboxing and Getting Started"
+    webp
+  />
+</div>
+
+## What next?
+
+If you found this tutorial interesting, make sure to check out other tutorials
+we provide on our [documentation](/docs/leo-rover/getting-started) site.

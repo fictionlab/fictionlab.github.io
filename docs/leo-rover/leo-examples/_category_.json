@@ -1,0 +1,10 @@
+{
+  "label": "Leo Examples",
+  "position": 4,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about software examples that you can run on the stock Leo Rover."
+  }
+}

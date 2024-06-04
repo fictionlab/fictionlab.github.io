@@ -1,10 +1,10 @@
 {
-  "label": "Integrations",
-  "position": 6,
+  "label": "Lidars",
+  "position": 3,
   "collapsible": true,
   "collapsed": true,
   "link": {
-    "title": "Integrations overview",
+    "title": "Lidars integrations",
     "type": "generated-index"
   }
 }
