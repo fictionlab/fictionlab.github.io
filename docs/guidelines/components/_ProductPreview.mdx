@@ -1,0 +1,91 @@
+import ProductPreview from '@site/src/components/ProductPreview';
+
+## ProductPreview
+
+`ProductPreview` is a component designed to display visually appealing links to
+https://shop.leorover.tech. It is useful for linking addons that assist in
+integrating desired sensors, linking products on their specification pages, and
+more.
+
+`ProductPreview` is not imported by default, thereby requires importing.
+
+```jsx
+import ProductPreview from '@site/src/components/ProductPreview';
+```
+
+Basic usage:
+
+```jsx
+<ProductPreview
+  shopUrl="https://www.leorover.tech/shop/leo-rover-developer-kit-2"
+  imageSrc="/img/robots/leo/leo-rover-shop.webp"
+  width={2000}
+  height={1333}
+  title="Leo Rover Developer Kit v. 1.8"
+  description="In this construction kit, the small Leo Rover mobile robot contains
+    all, from A to Z. The Leo Rover Developer Kit allows you to assemble the robot's
+    essential components."
+/>
+```
+
+### ProductPreview arguments
+
+`shopUrl="link_to_product_page"` required \
+Link to product page on [leorover.tech](https://leorover.tech)
+
+`loading="lazy" | "eager"` optional, default `lazy` \
+Define if product image should be lazy loaded or not. Image should be eager loaded
+if it is in the user's initial viewport (visible during page loading). Otherwise
+it should be lazy loaded.
+
+`imageSrc="image_path"` required \
+An image displayed as a preview of the product. It should be the same image used
+as the main image on the product page.
+
+`alt="alternative text"` required \
+Alternative text shown if product image cannot be displayed.
+
+`width={number}` required \
+`height={number}` required \
+Real dimensions of the product image.
+
+`title="product title"` required \
+Title of the product. It should follow convention - "Product Name | Leo Rover shop"
+
+`price={number}` optional \
+Product price in **EUR**.
+
+`description="product description"` optional \
+Description of the product.
+
+### ProductPreview example
+
+```jsx
+<ProductPreview
+  shopUrl="https://www.leorover.tech/shop/leo-rover-developer-kit-2"
+  loading="eager"
+  imageSrc="/img/robots/leo/leo-rover-shop.webp"
+  width={2000}
+  height={1333}
+  title="Leo Rover Developer Kit v. 1.8 | Leo Rover shop"
+  price={4799}
+  description="In this construction kit, the small Leo Rover mobile robot contains
+    all, from A to Z. The Leo Rover Developer Kit allows you to assemble the robot's
+    essential components."
+/>
+```
+
+Is rendered:
+
+<ProductPreview
+  shopUrl="https://www.leorover.tech/shop/leo-rover-developer-kit-2"
+  loading="eager"
+  imageSrc="/img/robots/leo/leo-rover-shop.webp"
+  width={2000}
+  height={1333}
+  title="Leo Rover Developer Kit v. 1.8 | Leo Rover shop"
+  price={4799}
+  description="In this construction kit, the small Leo Rover mobile robot contains
+    all, from A to Z. The Leo Rover Developer Kit allows you to assemble the robot's
+    essential components."
+/>
