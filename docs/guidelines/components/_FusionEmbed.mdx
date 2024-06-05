@@ -34,7 +34,44 @@ Define if overlay image should be lazy loaded or not. CAD model image should be 
 loaded if it is in the user's initial viewport (visible during page loading). Otherwise
 it should be lazy loaded.
 
+`img="image_path"` optional, by default cube is displayed \
+Image that is displayed as background if user did not clicked to load 3D model. It
+is hidden when model is loaded. It is recommended to set it as preview - to show
+which model will be show after loading.
+
+`alt="alternative text"` required if `img` is set \
+Alternative text shown if image cannot be displayed.
+
+`img_width={number}` required if `img` is set \
+`img_height={number}` required if `img` is set \
+Real dimensions of the image in pixels.
+
+:::note
+
+Right now it is not possible to style this component using CSS.
+
+:::
+
+### FusionEmbed example
+
+```jsx
 <FusionEmbed
   url="https://kellideas.autodesk360.com/shares/public/SH512d4QTec90decfa6e0b1bf29fda603dd6"
   embedTitle="Leo Rover 3D model"
+  img="/img/robots/leo/leo-1.8-cad.webp"
+  alt="Isometric Leo Rover 3D model view"
+  img_width={1920}
+  img_height={1080}
+/>
+```
+
+Is rendered:
+
+<FusionEmbed
+  url="https://kellideas.autodesk360.com/shares/public/SH512d4QTec90decfa6e0b1bf29fda603dd6"
+  embedTitle="Leo Rover 3D model"
+  img="/img/robots/leo/leo-1.8-cad.webp"
+  alt="Isometric Leo Rover 3D model view"
+  img_width={1920}
+  img_height={1080}
 />
