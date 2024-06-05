@@ -1,9 +1,89 @@
 ---
-title: Formatting styles
-sidebar_label: Formatting styles
+title: Formatting
+sidebar_label: Formatting
 sidebar_position: 2
 unlisted: true
 description:
   This page outlines the defined styles to be used consistently across all
   documentation pages.
 ---
+
+Fictionlab documentation is written in `MDXv3` format. It is an markdown with
+possibility to insert HTML and React components.
+
+To see whats possible with markdown, see this guide:
+
+<LinkButton url="https://commonmark.org/help/" title="Markdown reference" />
+
+## General rules
+
+When it comes to general documentation writing rules it is best to **look
+around**. Match the style you see used in the rest of the project. If something
+is inconsistent or you have doubts, feel free to report it via
+[github issues](https://github.com/fictionlab/docs/issues),
+[e-mail](contact@fictionlab.pl) or any other means.
+
+Here are some tips to help you write nice document:
+
+- When it comes to images, use only
+  [ImageZoom](/guidelines/components#imagezoom) or
+  [ThemedImageZoom](/guidelines/components#themedimagezoom) components.
+- If you have trouble with style, spelling etc., **ChatGPT** can be great ally.
+
+<details>
+  <summary>Example ChatGPT prompt</summary>
+
+> You are an experienced technical copywriter with extensive expertise in
+> creating documentation for large robotics companies. Your goal is to ensure
+> that your texts are clear, precise, specific, and written in professional
+> technical language. Rewrite the following text to enhance clarity,
+> specificity, and suitability for use in technical documentation. Ensure that
+> all technical terms are used correctly, and that the text follows a logical
+> structure suitable for engineers and technical professionals.
+>
+> [text to rewrite]
+
+</details>
+
+- For tutorials that have multiple possible paths, for example different
+  commands for Linux and Windows systems, use
+  [Tabs](https://docusaurus.io/docs/markdown-features/tabs). Different use case
+  is for different hardware versions of a rover.
+- When it comes to file naming avoid using underscores (`_`), use dashes (`-`)
+  instead.
+
+### Images
+
+- When it comes to images, use only
+  [ImageZoom](/guidelines/components#imagezoom) or
+  [ThemedImageZoom](/guidelines/components#themedimagezoom) components.
+- Do not use underscores `_` in names, use dashes instead `-`.
+- Name images descriptively, avoid names like `323d2324.webp`.
+  - When there are multiple images in a document (such as a manual), you can
+    keep the same name and add numbering to them. For example:
+    `battery-10.webp`.
+- All images should be stored in `/docs/static/img` directory.
+- All images should be converted into `webp` format. It is more modern, thus
+  more space efficient. Default quality should be `80` with `lossy` setting.
+
+## Formatting styles
+
+|                         Type | Style | Example                                                                                    |
+| ---------------------------: | :---: | :----------------------------------------------------------------------------------------- |
+|  click/press command (image) | bold  | click **yes** to proceed                                                                   |
+|  choose from options (image) | code  | Choose `Xorg` session                                                                      |
+|                 type (image) | code  | type `pi` for the username                                                                 |
+| mention of external software | link  | The LeoOS uses [NetworkManager](https://en.wikipedia.org/wiki/NetworkManager) to manage... |
+|              tool name (ssh) | code  | look up the message description using `rosmsg` tool:                                       |
+|                  directories | bold  | files inside **/home/pi** directory                                                        |
+|                     versions | code  | We recommend the `full` version.                                                           |
+|                   file names | code  | Modify the `hostapd.conf` configuration                                                    |
+|                  field names | code  | Modify the `ssid` and `wpa_passphrase` fields.                                             |
+|                    shortcuts | bold  | Type **Ctrl+O** and **Enter** to save                                                      |
+|                   ROS topics | code  | ... see the `/battery` topic.                                                              |
+|                service names | code  | or by stopping the `leo` service:                                                          |
+|                    variables | code  | make sure the `START_ROSCORE` variable is set to `true` on the main rover                  |
+
+```
+
+```
