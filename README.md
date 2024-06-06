@@ -76,7 +76,8 @@ git checkout -b feature/new-button development
 
 Make necessary modifications and test everything using the development
 environment. For guidelines on styling and formatting, refer to our
-Documentation style guide. - Work In Progress
+Documentation style guide -
+[Documentation guidelines](https://docs.fictionlab.pl/guidelines).
 
 <!-- prettier-ignore -->
 > [!TIP]
