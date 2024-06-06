@@ -53,6 +53,61 @@ Here are some tips to help you write nice document:
 - When it comes to file naming avoid using underscores (`_`), use dashes (`-`)
   instead.
 
+### Front matter
+
+> Front matter is used to add metadata to your Markdown file. All content
+> plugins have their own front matter schema, and use the front matter to enrich
+> the default metadata inferred from the content or other configuration.
+>
+> [docusaurus.io](https://docusaurus.io/docs/markdown-features#front-matter)
+
+All documents included in Fictionlab documentation are required to have
+following Front matter fields:
+
+```yml
+---
+title: # title of the document
+sidebar_label: # title of the document on the sidebar
+keywords: # few keywords that describe the document, recommended 4-5
+description: # text description about document content, up to 160 characters
+image: # path to image that is shown when embedding link on social media, in Google etc.
+---
+```
+
+The following fields are associated with the document's Search Engine
+Optimization (SEO) parameters.
+
+In addition it is possible to set additional fields:
+
+`id: document_ID` \
+Used to set custom ID of the document. By default it is taken from the file name.
+
+`sidebar_position: number` \
+This parameter is used to set a custom order for the documents within categories.
+By default, the documents are arranged alphabetically.
+
+:::note
+
+All documents within a particular category must have this parameter set to
+ensure correct ordering.
+
+:::
+
+`slug: document_slug` \
+Used to set custom URL slug of the article. By default file name is used.
+
+:::warning
+
+This parameter defines only the final segment of the slug. The preceding
+segments are derived from the file structure.
+
+:::
+
+There are additional possible fields, but the ones mentioned above are typically
+sufficient for setting the document's metadata correctly. For a complete list of
+possible fields, refer to the
+[Markdown front matter documentation on docusaurus.io](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matte).
+
 ### Images
 
 - When it comes to images, use only
@@ -84,7 +139,3 @@ Here are some tips to help you write nice document:
 |                   ROS topics | code  | ... see the `/battery` topic.                                                              |
 |                service names | code  | or by stopping the `leo` service:                                                          |
 |                    variables | code  | make sure the `START_ROSCORE` variable is set to `true` on the main rover                  |
-
-```
-
-```
