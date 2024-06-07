@@ -147,6 +147,7 @@ Follow these naming conventions for branches:
 - `/feature/description` - for new features, components etc.
 - `/content/description` - for markdown content updates
 - `/fix/description` - for fixes
+- `/chore/description` - for dependency updates
 
 ## Reporting Issues
 
