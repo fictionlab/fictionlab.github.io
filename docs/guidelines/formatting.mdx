@@ -80,11 +80,19 @@ Optimization (SEO) parameters.
 In addition it is possible to set additional fields:
 
 `id: document_ID` \
-Used to set custom ID of the document. By default it is taken from the file name.
+Used to set custom ID of the document. By default it is taken from the file
+name.
+
+:::warning
+
+This parameter defines only the final segment of the ID. The preceding segments
+are derived from the file structure.
+
+:::
 
 `sidebar_position: number` \
-This parameter is used to set a custom order for the documents within categories.
-By default, the documents are arranged alphabetically.
+This parameter is used to set a custom order for the documents within
+categories. By default, the documents are arranged alphabetically.
 
 :::note
 
@@ -96,12 +104,15 @@ ensure correct ordering.
 `slug: document_slug` \
 Used to set custom URL slug of the article. By default file name is used.
 
-:::warning
+:::note
 
-This parameter defines only the final segment of the slug. The preceding
-segments are derived from the file structure.
+The slug can be set as either relative (`page-slug`) or absolute (`/page-slug`).
+Relative slugs will have preceding segments derived from the file structure,
+while absolute slugs will be served directly at the page root.
 
 :::
+
+---
 
 There are additional possible fields, but the ones mentioned above are typically
 sufficient for setting the document's metadata correctly. For a complete list of
