@@ -1,6 +1,9 @@
 ---
 title: Addon specification template
 sidebar_label: Addon specification template
+description:
+  Template of Addon specification, includes prerequisites,  required imports,
+  structure and content to fill.
 unlisted: true # remove on addon page
 ---
 
@@ -43,20 +46,51 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
 import FusionEmbed from '@site/src/components/FusionEmbed';
 ```
 
-`addon render`
+`Addon render, isometric view - ImageZoom`
 
-`addon description - About 400 characters`
+`Addon description - About 400 characters`
 
 ## Referenced product
 
-`imported product page`
+`Product Preview - imported _addon_name-product.mdx`
 
 ## Main parameters
 
-{/* TODO table */}
+| Parameter             | Value |
+| :-------------------- | :---: |
+| Dimensions ( LxWxH )  |       |
+| Weight                |       |
+| Materials             |       |
+| Protection index      |       |
+| Operating temperature |       |
+| Operating voltage     |       |
 
-`table with parameters`
+`Remove any non-applicable parameters and add any other parameters that are relevant.`
 
 ## Dimensions
 
-`technical drawing with dimensions - themed!`
+`Technical drawing with main dimensions, without border - ThemedImageZoom`
+
+### CAD model
+
+`Fusion CAD model preview, with set image before loading - FusionEmbed`
+
+3D CAD model in neutral format is also available on our Google Drive:
+
+`Link to public Google Drive folder with STEP/STL files`
+
+```md title="Additional information - REMOVE THIS"
+Any other information relevant to the particular addon should be included as
+replacement of this codeblock.
+
+It includes sections for example:
+
+- safety procedures
+- diagrams
+- software information
+- user interface
+- charging procedures
+- payload
+
+etc.
+```
