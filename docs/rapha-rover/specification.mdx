@@ -135,7 +135,7 @@ note that the beta version is currently limited to indoor use only).
 ### Rover dimensions
 
 <ThemedImageZoom
-  alt="Main dimensions "
+  alt="Main dimensions of Rapha Rover"
   sources={{
     light: useBaseUrl(
       '/img/robots/rapha/specification/rapha-dimensions-light.webp',
@@ -161,3 +161,273 @@ note that the beta version is currently limited to indoor use only).
 |           LED strip |    4     | 108 RGBW Individually addressable LEDs. <br /> 3535 form factor; 144/m, 23W/m. <br /> They serve as the rovers status indicator, but can be programmed for any custom behavior e.g. to work as a flashlight.                                                                                                                                                                                                    |
 
 ### Block diagram
+
+<ThemedImageZoom
+  alt="Hardware diagram of Rapha Rover"
+  sources={{
+    light: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-hardware-diagram-light.webp',
+    ),
+    dark: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-hardware-diagram-dark.webp',
+    ),
+  }}
+  width="2000"
+  height="1629"
+/>
+
+### RaphaCore controller
+
+RaphaCore serves as the primary control board for Rapha Rover, featuring a
+robust STM32H5 series microcontroller. The board leverages FreeRTOS to
+efficiently handle various low-level tasks integral to the functioning of Rapha
+Rover. These tasks include:
+
+- Drivetrain control
+- Power system management
+- LED control
+- IMU operation
+- Odometry tracking
+
+<ThemedImageZoom
+  alt="External connections of RaphaCore"
+  sources={{
+    light: useBaseUrl(
+      '/img/robots/rapha/specification/raphaCore-diagram-light.webp',
+    ),
+    dark: useBaseUrl(
+      '/img/robots/rapha/specification/raphaCore-diagram-dark.webp',
+    ),
+  }}
+  width="2000"
+  height="1375"
+/>
+
+### Drivetrain
+
+The standard configuration of the Rapha Rover features a drivetrain comprising
+two fixed wheels at the front and two rotary wheels at the rear. This design
+enhances the mobility of the Rover, enabling it to execute precise maneuvers
+such as:
+
+- turning in place ( around middle point between frontal wheels)
+- turning around specific frontal wheel
+- turning around a curve
+
+This versatile drivetrain configuration optimizes the Rover's navigational
+capabilities, ensuring adaptability in various operational scenarios.
+
+#### Motors
+
+The Rapha Rover is equipped with 6 DirectDriveTech M0601C-111 direct-drive BLDC
+motors, serving both the drive and turn functions. These motors enable the rover
+to attain a speed of approximately 1.8 m/s when equipped with standard diameter
+tires. Each motor is outfitted with an integrated incremental encoder with a
+resolution of 12 bits.
+
+To mitigate potential operational challenges, a mechanical bumper restricts the
+turn angle of each steering wheel to 180°. This bumper not only acts as a limit
+for wheel rotation but also serves to establish the wheel's position when the
+rover is restarted, ensuring consistent and reliable performance.
+
+#### Wheels
+
+As standard, Rapha Rover comes with rubber tires with a diameter of about 170
+mm. Whole drive assembly has following characteristics:
+
+|                        Parameter |           Value           |
+| -------------------------------: | :-----------------------: |
+| Tire size (diameter x thickness) |    ~ 170 mm x ~ 80 mm     |
+|                   Tire lock type |         Beadlock          |
+|                      Tire insert | hard foam (non pneumatic) |
+|               Wheel rim diameter |          120 mm           |
+
+### Battery & charging
+
+Rapha Rover boasts an advanced battery management system, a feature enabling the
+simultaneous utilization of two battery packs. This innovative system empowers
+the rover to seamlessly operate for approximately four continuous hours under
+decent conditions (e.g. relatively flat terrain). The dual-battery configuration
+enhances the overall endurance and sustained performance of the rover.
+
+A notable feature of the design is the ability to detach the battery packs
+without requiring a power-off cycle. By connecting the charger to the rear slot
+of the Rover, users can safely remove both batteries. This functionality
+streamlines the process of swift and efficient battery replacements, resulting
+in minimal downtime during operations. The seamless swapping of battery packs
+not only extends the operational range of the rover but also mitigates the
+necessity for frequent service stops, thereby elevating the overall efficiency
+and productivity of the robotic platform.
+
+Each battery pack has following characteristics:
+
+|            Parameter |                  Value                   |
+| -------------------: | :--------------------------------------: |
+|              Voltage |             22.2 V (nominal)             |
+|         Battery type |                  Li-Ion                  |
+|             Capacity |        4 Ah (96 Wh - flight safe)        |
+|    Battery pack type |                   6S1P                   |
+| Maximum output power |                  ~650 W                  |
+|       Safety systems | Overcurrent, Reverse polarity protection |
+
+#### Battery charging
+
+By default Rapha Rover comes with 2A 25,2V Li-Ion charger. It can charge 1
+battery pack in about 2,5 hours.
+
+Rapha Rover has 2 options for charging batteries:
+
+- Outside the Rover, by plugging battery into charger
+- Inside the Rover, by plugging charger directly into rear charging slot of the
+  Rover
+
+The charger is outfitted with an LED status indicator designed to provide
+information about the charging status of the battery. A green LED signifies that
+the battery has reached full charge, while a red LED indicates that the battery
+is currently in the charging process.
+
+:::note
+
+When charging the batteries with the Rover powered on, the LED indicator will
+not transition to green during the charging cycle. This is due to the fact that
+the charger will be used to sustain the operational state of the rover after the
+charging process.
+
+:::
+
+### Payload specification
+
+Rapha Rover is designed to be used with custom payloads. Main mounting plate is
+located at the top of the rover and has following characteristics:
+
+|                                  Parameter |                                                  Value                                                   |
+| -----------------------------------------: | :------------------------------------------------------------------------------------------------------: |
+|                           Payload capacity |                                                  ~10 kg                                                  |
+|                          Hole grid spacing |                                              25 mm x 25 mm                                               |
+|                   Mounting hole dimensions | 5.4 mm, compatible with: <br /> M5 screws <br/> CLS-M4-1 press-in nuts [example](https://mou.sr/3VyUg39) |
+| Main mounting plate dimensions (L x W x D) |                                         330 mm x 198 mm x 2 mm\*                                         |
+
+\* - actual maximum payload length is lower due to Lidar mounted at the front of
+the plate and buttons at the rear.
+
+<ThemedImageZoom
+  alt="Rapha Rover's mounting plate dimensions"
+  sources={{
+    light: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-top-cover-dimensions-light.webp',
+    ),
+    dark: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-top-cover-dimensions-dark.webp',
+    ),
+  }}
+  width="1500"
+  height="2000"
+/>
+
+Apart from the mounting plate, it is possible to mount payloads directly to
+v-slot extrusions of the Rapha Rover.
+
+#### Rover's external ports
+
+Rapha Rover has a special rear compartment provided as easy access to connect
+many payloads. As default provided are following interfaces:
+
+| Interface  |                        Notes                         |
+| :--------: | :--------------------------------------------------: |
+| USB type A | USB 3.2 Gen 2x1 (10 Gb/s), connected to UPBoard 7000 |
+| USB type C | USB 3.2 Gen 2x1 (10 Gb/s), connected to UPBoard 7000 |
+|   RJ-45    |   10/100/1000 Mbps, connected to Teltonika RUTX10    |
+
+In addition, the rear compartment also includes a power panel with 3 sections,
+each with different voltage levels. Each section can be individually controlled
+by RaphaCore. Voltages available on power panel are:
+
+|    Voltage    |  Max power  |                                                                               Connector                                                                               |
+| :-----------: | :---------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|      5 V      | 2 A (10 W)  |  Phoenix Contact MC 1,5/ 2-ST-3,5 <br /> [example](https://www.tme.eu/en/details/mc1.5_2-st-3.5/pluggable-terminal-blocks/phoenix-contact/mc-1-5-2-st-3-5-1840366/)   |
+|     12 V      | 2 A (24 W)  | Phoenix Contact MC 1,5/ 2-ST-3,81 <br /> [example](https://www.tme.eu/en/details/mc1.5_2-st-3.81/pluggable-terminal-blocks/phoenix-contact/mc-1-5-2-st-3-81-1803578/) |
+| BAT (20-25 V) | 5 A (120 W) |       Phoenix Contact MSTB 2,5/ 2-ST-5,08 <br /> [example](https://www.tme.eu/en/details/mstb2.5_2-st-5.08/pluggable-terminal-blocks/phoenix-contact/1757019/)        |
+
+<ThemedImageZoom
+  alt="Rapha Rover's rear compartment overview"
+  sources={{
+    light: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-rear-compartment-light.webp',
+    ),
+    dark: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-rear-compartment-dark.webp',
+    ),
+  }}
+  width="2000"
+  height="1825"
+/>
+
+To ensure weather-tightness while accommodating additional payloads, the Rapha
+Rover is equipped with specialized cable seals. To insert additional cables, it
+is necessary to dismantle the entire panel by loosening two thumb screws. Once
+the panel is disassembled, individual seals can be removed from the frame,
+allowing for the insertion of new cables.
+
+Rapha Rover comes with different seals, labeled as QT [Z]/[X] or QT [X], where Z
+indicates the number of holes in the seal and X indicates the diameter of the
+cable in millimeters.
+
+<ThemedImageZoom
+  alt="Rapha Rover's payload cable seals"
+  sources={{
+    light: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-cable-seals-light.webp',
+    ),
+    dark: useBaseUrl(
+      '/img/robots/rapha/specification/rapha-cable-seals-dark.webp',
+    ),
+  }}
+  width="2000"
+  height="2000"
+  figStyle={{
+    width: 500,
+  }}
+/>
+
+#### Additional mounting plates
+
+Beyond the primary mounting plate, the Rapha Rover offers the capability for
+integration with supplementary mounting plates as needed. These additional
+plates are colloquially known as "sandwich plates" due to their placement above
+the main mounting plate. This design ensures that a payload affixed to the Rover
+does not impede the Lidar's line of sight.
+
+To install these additional mounting plates, begin by removing the bolts
+securing the main mounting plate. Subsequently, affix the M5 x 25 standoffs
+(provided with the Rover), in place of the removed bolts. Following this step,
+place the mounting plate onto the standoffs and secure it in position by
+fastening it with the screws that were initially holding the main mounting plate
+in place.
+
+:::tip
+
+Holes on additional mounting plates exactly match ones located on the main
+mounting plate.
+
+:::
+
+| Parameter                                                 |                                                   Value                                                   |
+| :-------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------: |
+| Additional mounting plate dimensions (L x W x D)          |                                         300.8 mm x 230 mm x 2 mm                                          |
+| Additional extended mounting plate dimensions (L x W x D) |                                         350.8 mm x 380 mm x 2 mm                                          |
+| Hole grid spacing                                         |                                               25 mm x 25 mm                                               |
+| Mounting hole dimensions                                  | 5.4 mm, compatible with: <br /> M5 screws <br /> CLS-M4-1 press-in nuts [example](https://mou.sr/3VyUg39) |
+
+<ThemedImageZoom
+  alt="Rapha Rover's additional mounting plates dimensions"
+  sources={{
+    light: useBaseUrl(
+      '/img/robots/rapha/specification/mounting-plates-dimensions-light.webp',
+    ),
+    dark: useBaseUrl(
+      '/img/robots/rapha/specification/mounting-plates-dimensions-dark.webp',
+    ),
+  }}
+  width="2000"
+  height="1137"
+/>
