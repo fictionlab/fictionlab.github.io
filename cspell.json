@@ -32,6 +32,7 @@
         "devel",
         "Dynamixel",
         "EEPROM",
+        "eProsima",
         "Fiberlogy",
         "Fictionlab",
         "Fixposition",
@@ -148,6 +149,7 @@
         "widowx",
         "wlan",
         "Xorg",
+        "XRCE",
         "XRDP"
     ],
     "ignoreWords": [
