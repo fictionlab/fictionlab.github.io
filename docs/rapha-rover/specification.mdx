@@ -577,8 +577,16 @@ There are two important software components which don't run as native ROS nodes:
   height="856"
 />
 
-This set of core ROS nodes provide basic functionality of the robot. Figure 9
-shows the flow of data between the nodes.
+Different robot applications will require running different sets of additional
+nodes on top of the core ones. For example, consider a situation where we want
+to autonomously drive to predefined coordinates in an unknown terrain. Typical
+solution can be simplified to 2 nodes:
+
+- SLAM (Simultaneous localization and mapping) node - generates a 2D terrain map
+  and localizes the robot within it.
+- Autonomous Navigation node - Retrieves navigation goals and outputs drive
+  commands for the controller. Uses 2D terrain map to plan an optimized path and
+  data from LiDAR and stereo camera to detect dynamic obstacles.
 
 <ThemedImageZoom
   alt="ROS computation graph of an example autonomous navigation software"
@@ -593,6 +601,9 @@ shows the flow of data between the nodes.
   width="2000"
   height="634"
 />
+
+These nodes can be configured to start alongside the core ones, extending the
+robot with autonomous navigation capabilities.
 
 ### ROS API
 
