@@ -128,6 +128,7 @@ note that the beta version is currently limited to indoor use only).
   figStyle={{
     width: 800,
   }}
+  caption="Rapha Rover overview"
 />
 
 ## Hardware specification
@@ -146,6 +147,7 @@ note that the beta version is currently limited to indoor use only).
   }}
   width="2000"
   height="2600"
+  caption="Rapha Rover dimensions"
 />
 
 ### Components
@@ -174,6 +176,7 @@ note that the beta version is currently limited to indoor use only).
   }}
   width="2000"
   height="1629"
+  caption="Block diagram of Rapha Rovers hardware"
 />
 
 ### RaphaCore controller
@@ -201,6 +204,7 @@ Rover. These tasks include:
   }}
   width="2000"
   height="1375"
+  caption="RaphaCore PCB connectors"
 />
 
 ### Drivetrain
@@ -322,6 +326,10 @@ the plate and buttons at the rear.
   }}
   width="1500"
   height="2000"
+  figStyle={{
+    width: 600,
+  }}
+  caption="Main mounting plate dimensions"
 />
 
 Apart from the mounting plate, it is possible to mount payloads directly to
@@ -360,6 +368,7 @@ by RaphaCore. Voltages available on power panel are:
   }}
   width="2000"
   height="1825"
+  caption="Rear compartment overview"
 />
 
 To ensure weather-tightness while accommodating additional payloads, the Rapha
@@ -387,6 +396,7 @@ cable in millimeters.
   figStyle={{
     width: 500,
   }}
+  caption="Payload cable seal"
 />
 
 #### Additional mounting plates
@@ -430,6 +440,7 @@ mounting plate.
   }}
   width="2000"
   height="1137"
+  caption="Additional mounting plates dimensions"
 />
 
 ## Software specification
@@ -485,6 +496,7 @@ There are two important software components which don't run as native ROS nodes:
   }}
   width="2000"
   height="819"
+  caption="Overview of the software components"
 />
 
 ### ROS nodes
@@ -575,6 +587,7 @@ There are two important software components which don't run as native ROS nodes:
   }}
   width="2000"
   height="856"
+  caption="Simplified graph of core ROS nodes running on Rapha Rover"
 />
 
 Different robot applications will require running different sets of additional
@@ -600,6 +613,7 @@ solution can be simplified to 2 nodes:
   }}
   width="2000"
   height="634"
+  caption="ROS computation graph of an example autonomous navigation software"
 />
 
 These nodes can be configured to start alongside the core ones, extending the
