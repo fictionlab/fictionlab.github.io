@@ -65,8 +65,8 @@ serial number on top of your sensor. Alternatively you can scan the QR code that
 you can find on your device to get information about the serial number.
 
 To ensure that the device has been connected successfully you can enter Ouster
-sensor dashboard. To do so open your browser of choice and go to address:
-**`os-sensor_serial_number.local`**
+sensor dashboard. To do so open your browser of choice on a computer connected
+to rover's WiFi and go to address: **`os-sensor_serial_number.local`**
 
 <ImageZoom
   src="/img/robots/leo/integrations/ouster-os0/ouster_web_interface.webp"
@@ -80,7 +80,7 @@ sensor dashboard. To do so open your browser of choice and go to address:
 :::info
 
 For more information about the sensor web interface visit
-[Ouster Docs](https://static.ouster.dev/sensor-docs/image_route1/image_route2/connecting/connecting-to-sensors.html#sensor-web-interface)
+[Ouster Docs](https://static.ouster.dev/sensor-docs/image_route1/image_route2/connecting/connecting-to-sensors.html#sensor-web-interface).
 
 :::
 
@@ -147,7 +147,7 @@ git clone --recurse-submodules https://github.com/ouster-lidar/ouster-ros.git
 ```
 
 Next to compile the driver you need to source the ROS environment into the
-active terminal. Replace `<ros-distro>` with your ROS version e.g. `noetic`
+active terminal. Replace `<ros-distro>` with your ROS version e.g. `noetic`.
 
 ```bash
 source /opt/ros/<ros-distro>/setup.bash
@@ -156,6 +156,7 @@ source /opt/ros/<ros-distro>/setup.bash
 You can now build your workspace.
 
 ```bash
+cd ~/catkin_ws
 catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release -- -j1 -l1
 ```
 
@@ -182,10 +183,19 @@ sensor's serial number.
 roslaunch ouster_ros driver.launch sensor_hostname:=os-xxxxxxxxxxxx viz:=false
 ```
 
+:::warning
+
+If you get an error while launching the node, make sure that the hostname has
+been properly set. To do that you can try: `ping os-xxxxxxxxxxxx`. If you get a
+`Name or service not known` error, try unplugging the sensor ethernet cable and
+plugging it back in.
+
+:::
+
 :::info
 
-For more information on ouster driver head to its
-[GitHub page](https://github.com/ouster-lidar/ouster-ros)
+For more information on ouster driver and parameter details head to this
+[GitHub page](https://github.com/ouster-lidar/ouster-ros).
 
 :::
 
@@ -304,10 +314,17 @@ Open `/etc/ros/robot.launch` and add below line inside `<launch> `tag. Remember
 to enter your device's serial number in `sensor_hostname` value field.
 
 ```xml
-<include file="$(find ouster_ros)/launch/driver.launch>
+<include file="$(find ouster_ros)/launch/driver.launch">
   <arg name="sensor_hostname" value="os-xxxxxxxxxxxx" />
   <arg name="viz" value="false" />
 </include>
+```
+
+Next, open `/etc/ros/setup.bash` and below `source /opt/ros/noetic/setup.bash`
+add:
+
+```bash
+source /home/pi/catkin_ws/devel/setup.bash
 ```
 
 Now you can reboot the robot or restart the leo service
