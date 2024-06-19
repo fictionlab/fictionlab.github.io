@@ -23,6 +23,10 @@ Ensure the following tools are installed on your local machine:
 
 #### Recommended VS Code extensions
 
+<!-- prettier-ignore -->
+> [!TIP]
+> When opening this project in VS Code, you should be prompted to install the recommended extensions. If not, you can install them from the list below.
+
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
