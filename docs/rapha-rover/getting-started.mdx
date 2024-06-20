@@ -12,6 +12,9 @@ description: >
 image: /img/robots/rapha/rapha-rover.webp
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
+
 :::note
 
 Rapha Rover is still in beta and not available for sale at this time.
@@ -69,6 +72,29 @@ during insertion and removal. A properly inserted battery should be fully nested
 within the slot.
 
 To verify proper battery insertion, refer to the image below:
+
+<ThemedImageZoom
+  alt="Rapha's battery removed and inserted"
+  sources={{
+    light: useBaseUrl(
+      '/img/robots/rapha/getting-started/battery-insertion-light.webp',
+    ),
+    dark: useBaseUrl(
+      '/img/robots/rapha/getting-started/battery-insertion-dark.webp',
+    ),
+  }}
+  width="1500"
+  height="777"
+  figStyle={{
+    width: 800,
+  }}
+  caption="Rapha's battery outside (left) and inside (right) the slot"
+/>
+
+To verify proper battery insertion, press the power button once. If the
+batteries have remaining charge, the LEDs on the sides of the device will
+illuminate to display the current battery charge level. The charge level is
+indicated by an LED bar that shows the percentage of battery capacity remaining.
 
 ## How to turn on the rover
 
