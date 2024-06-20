@@ -14,6 +14,8 @@ image: /img/robots/rapha/rapha-rover.webp
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
+import FlexTable from '@site/src/components/FlexTable';
+import FlexTableItem from '@site/src/components/FlexTableItem';
 
 :::note
 
@@ -130,6 +132,79 @@ LED strips.
 ### Connecting via SSH
 
 ## Battery charging
+
+By default Rapha Rover comes with 2A 25,2V Li-Ion charger. It can charge 1
+battery pack in about 2,5 hours. Rapha Rover has 2 options for charging
+batteries:
+
+- Outside the rover, by plugging battery into charger
+- Inside the rover, by plugging charger directly into rear charging slot of the
+  rover
+
+<FlexTable
+  style={{
+    justifyContent: 'space-around',
+  }}
+>
+  <FlexTableItem
+    style={{
+      width: '40%',
+    }}
+  >
+    <ThemedImageZoom
+      alt="Rapha Rover battery dock with battery pack hovering above it"
+      sources={{
+        light: useBaseUrl(
+          '/img/robots/rapha/getting-started/charger-out-light.webp',
+        ),
+        dark: useBaseUrl(
+          '/img/robots/rapha/getting-started/charger-out-dark.webp',
+        ),
+      }}
+      width="1440"
+      height="1080"
+      figStyle={{
+        width: 400,
+      }}
+    />
+  </FlexTableItem>
+  <FlexTableItem
+    style={{
+      width: '40%',
+    }}
+  >
+    <ThemedImageZoom
+      alt="Rapha Rover battery dock with battery pack inside it"
+      sources={{
+        light: useBaseUrl(
+          '/img/robots/rapha/getting-started/charger-in-light.webp',
+        ),
+        dark: useBaseUrl(
+          '/img/robots/rapha/getting-started/charger-in-dark.webp',
+        ),
+      }}
+      width="1440"
+      height="1080"
+      figStyle={{
+        width: 400,
+      }}
+    />
+  </FlexTableItem>
+</FlexTable>
+
+The charger (not the dock) is outfitted with an LED status indicator designed to
+provide information about the charging status of the battery. A green LED
+signifies that the battery has reached full charge, while a red LED indicates
+that the battery is currently in the charging process.
+
+:::note
+
+When charging the batteries with the rover powered on, the LED indicator will
+not transition to green during the charging cycle. This is due to the fact that
+the charger will be used to sustain the operational state of the rover after the
+charging process.
+
+:::
 
 ## Connecting rover to the internet
 
