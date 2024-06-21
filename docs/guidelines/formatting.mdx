@@ -167,3 +167,20 @@ content.
 |                   ROS topics | code  | ... see the `/battery` topic.                                                              |
 |                service names | code  | or by stopping the `leo` service:                                                          |
 |                    variables | code  | make sure the `START_ROSCORE` variable is set to `true` on the main rover                  |
+
+## Other
+
+### Empty sections
+
+If document is scheduled to be published before full completion. Do not leave
+empty sections. It can be can be mistaken as an oversight.
+
+To mark unfinished section add `TODO` mdx comment and _Work in progress_ text
+for the users.
+
+{/* prettier-ignore */}
+```jsx
+{ /* TODO */ }
+
+_Work in progress_
+```
