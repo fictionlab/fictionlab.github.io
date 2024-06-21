@@ -211,7 +211,7 @@ sensor in `/etc/ros/urdf` directory.
     <joint name="ouster_mount_joint" type="fixed">
       <parent link="base_link"/>
       <child link="ouster_base_link"/>
-      <origin xyz="0 0 0"/> <!--TODO change after mechanical integration-->
+      <origin xyz="0.0705 0 0"/>
     </joint>
 
     <link name="ouster_base_link" />
@@ -219,13 +219,13 @@ sensor in `/etc/ros/urdf` directory.
     <joint name="ouster_base_to_baseplate" type="fixed">
       <parent link="ouster_base_link"/>
       <child link="ouster_baseplate" />
-      <origin xyz="0 0 0.008"/>
+      <origin xyz="0 0 0.0045"/>
     </joint>
 
     <link name="ouster_baseplate">
       <visual>
         <geometry>
-          <box size="0.112 0.112 0.016" />
+          <box size="0.087 0.095 0.009" />
         </geometry>
         <material name="silver">
           <color rgba="0.5 0.5 0.5 1.0" />
@@ -233,7 +233,7 @@ sensor in `/etc/ros/urdf` directory.
       </visual>
       <collision>
         <geometry>
-          <box size="0.112 0.112 0.016" />
+          <box size="0.087 0.095 0.009" />
         </geometry>
       </collision>
     </link>
@@ -275,9 +275,7 @@ sensor in `/etc/ros/urdf` directory.
       <child link="os_imu" />
       <origin xyz="0.006253 -0.011775 0.007645" rpy="0 0 0" />
     </joint>
-    <gazebo reference="os_imu">
-    </gazebo>
-
+    
     <joint name="os_lidar_link_joint" type="fixed">
       <parent link="os_sensor" />
       <child link="os_lidar" />
