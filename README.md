@@ -103,7 +103,7 @@ Documentation style guide -
 > [!TIP]
 > For more information on Docusaurus, visit [docusaurus.io](https://docusaurus.io/docs).
 
-### Testing of implemented changes
+### Testing implemented changes
 
 After making changes, test the compiled code in the browser.
 
