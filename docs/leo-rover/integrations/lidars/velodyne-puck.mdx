@@ -24,7 +24,7 @@ Velodyne Puck LiDAR sensor on your rover.
 
 Light Detection and Ranging devices, or Lidars for short, are mechanisms used
 for mapping the environment, object detection, tracking the speed of vehicles
-and in a vide range of other applications. The VLP-16 has a range of 100 m, and
+and in a wide range of other applications. The VLP-16 has a range of 100 m, and
 the sensor's low power consumption (~8 W), light weight (830 g), compact
 footprint (~Ø103 mm x 72 mm), and dual return capability make it ideal not only
 for autonomous vehicles but also robotics and mobile terrestrial 3D mapping
@@ -43,10 +43,11 @@ sensor.
 <LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 <LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
-Mechanical integration It's common for 3D lidars to be attached some distance
-above the mounting plate of a robot. This procedure allows you to avoid the need
-to filter data related to the reflection of the laser beam from the robot's
-elements.
+## Mechanical integration
+
+It's common for 3D lidars to be attached some distance above the mounting plate
+of a robot. This procedure allows you to avoid the need to filter data related
+to the reflection of the laser beam from the robot's elements.
 
 The easiest solution for attaching the Velodyne Puck above the mounting plate of
 a Leo Rover would be using our
@@ -280,8 +281,8 @@ catkin build --make-args -j2
 ### Adding Velodyne puck to URDF
 
 Your robot should be aware of where the scanner is located and what space it
-occupies. You can ensure it does that by creating a URDF model of the sensor in
-`/etc/ros/urdf` directory.
+occupies. You can ensure it does that by creating an URDF model file of the
+sensor in `/etc/ros/urdf` directory.
 
 ```xml title="/etc/ros/urdf/laser.urdf.xacro"
 <?xml version="1.0"?>
@@ -323,7 +324,7 @@ occupies. You can ensure it does that by creating a URDF model of the sensor in
 </robot>
 ```
 
-And including it in the description that is uploaded at boot.
+And including it in the description file that is uploaded at boot.
 
 ```xml title="/etc/ros/urdf/robot.urdf.xacro"
 <xacro:include filename="/etc/ros/urdf/laser.urdf.xacro"/>
