@@ -68,7 +68,23 @@ yarn start
 A new browser tab will open at http://localhost:3000, reflecting any changes
 made to the files.
 
-## Updating the Documentation
+## Editing the documentation
+
+### Creating documents
+
+To create an entirely new page, create a new `.mdx` file in the desired folder
+within the repository. Docusaurus maps the file structure relative to the
+`/docs` folder into web URLs.
+
+For example: `/docs/leo-rover/specification.mdx` is translated to
+`https://docs.fictionlab.pl/leo-rover/specification`.
+
+<!-- prettier-ignore -->
+> [!TIP]
+> To avoid including the document name in the URL (e.g., creating a `leo-rover` page), name the document the same as the parent folder.
+> Alternatively, you can name it `index.mdx`. For more information see: [Doc URLs - Docusaurus.io](https://docusaurus.io/docs/create-doc#doc-urls).
+
+### Editing documents
 
 To update the documentation, clone this repository and create a new branch from
 `development` (or any other branch). For example, to create a branch named
