@@ -128,7 +128,15 @@ yarn format
 
 <!-- prettier-ignore -->
 > [!CAUTION]
-> Prettier has limited support for MDXv3. For more details, see [docusaurus.io - usage with prettier](https://docusaurus.io/docs/markdown-features/admonitions#usage-with-prettier)
+> Prettier has limited support for MDXv3. Automatic formatting can sometimes create unexpected results.
+>
+> For more details, see [docusaurus.io - usage with prettier](https://docusaurus.io/docs/markdown-features/admonitions#usage-with-prettier)
+
+If using
+[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+extension, you can also use Prettier to only format current document. To do
+this, in VS Code use **Shift+Alt+F** shortcut or type `> Format document` into
+search bar.
 
 To check spelling, run:
 
