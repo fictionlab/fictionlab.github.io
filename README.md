@@ -103,13 +103,15 @@ Documentation style guide -
 > [!TIP]
 > For more information on Docusaurus, visit [docusaurus.io](https://docusaurus.io/docs).
 
+### Testing of implemented changes
+
 After making changes, test the compiled code in the browser.
 
 <!-- prettier-ignore -->
 > [!IMPORTANT]
 > Always test your edits on both desktop and mobile browsers.
 >
->Use developer tools to simulate mobile views (press F12 and select Toggle device emulation in Chrome-based browsers).
+> Use developer tools to simulate mobile views (press F12 and select Toggle device emulation in Chrome-based browsers).
 
 Finally, check the spelling and formatting:
 
@@ -136,6 +138,20 @@ yarn spellcheck
 
 This will list unrecognized words in markdown files, which you must correct
 manually.
+
+<!-- prettier-ignore -->
+> [!TIP]
+> If you use the [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+> extension in VS Code, documents will be spell-checked in real-time. Any unrecognized words will be displayed in the PROBLEMS tab of VS Code.
+
+Sometimes, CSpell will mistakenly mark correct words as unknown, including
+custom names like ROS topics and variables. To remove this error, add the word
+to the CSpell configuration. Right-click the word and select **Spelling** >
+**Add words to the CSpell configuration**. This can be done either in the editor
+or in the **PROBLEMS** tab of VS Code.
+
+In the editor, you can use the VS Code shortcut **Ctrl+.** to bring up the
+**Quick Fix** menu, which provides the same options as mentioned above.
 
 ### Pushing Changes to the Remote Repository
 
