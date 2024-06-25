@@ -16,6 +16,7 @@ image: /img/robots/rapha/rapha-rover.webp
 toc_max_heading_level: 4
 ---
 
+import styles from './styles.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
 
@@ -627,11 +628,168 @@ _Work in progress_
 
 {/* TODO */}
 
+#### LED strip
+
+Messages can be divided into 3 types:
+
+- general,
+- full LED strip control,
+- single LED panel control.
+
+##### general
+
+```bash title="LedColor.msg - represents the color of an LED."
+# The intensity of each color (255 = 100%)
+uint8 red
+uint8 green
+uint8 blue
+uint8 white
+```
+
+```bash title="LedState.msg - represents the state of a single LED."
+# The duration (in ms) the state should be active
+uint16 duration
+
+# The priority of the state. The state with the highest priority is displayed
+# The value of -1 resets the user state of the LED
+int8 priority
+
+# The color of the LED
+rapha_interfaces/LedColor color
+```
+
+##### Full LED strip control
+
+```bash title="LesStripState.msg - represents the state of the whole led strip."
+uint8 LED_STRIP_SIZE=129
+rapha_interfaces/LedState[129] state
+```
+
+##### Single LED panel control
+
+```bash title="LedPanel.msg - enumeration of  robot's LEDs panels."
+uint8 FRONT=0
+uint8 BACK=1
+uint8 LEFT=2
+uint8 RIGHT=3
+
+uint8 data
+```
+
+```bash title="LedPanelState.msg - represents the state of the whole LED panel."
+rapha_interfaces/LedPanel panel
+rapha_interfaces/LedState[36] state
+```
+
 ### Firmware
 
 {/* TODO */}
 
 _Work in progress_
+
+#### LED controller
+
+The built-in LED controller manages the LED states of the robot by processing
+user-defined states and animations, integrating them with ongoing animations,
+and updating the LEDs accordingly.
+
+Users can control the LED strip by specifying colors, duration, and priority of
+specific LEDs. This allows for in-depth control, enabling users to determine
+which LED states are the most important. Critical states, such as errors, are
+displayed over less important uses, like illuminating the surroundings.
+
+The robot features four LED panels that combine to form one long LED strip. LEDs
+can be controlled either as a full strip or as specific panels, providing
+flexibility for different use cases:
+
+- **Full Strip Control**: Ideal for animations that span the entire perimeter of
+  the robot, such as police lights.
+- **Panel-Specific Control**: Useful for targeted functions, such as using all
+  front LEDs as a flashlight or using side LEDs to indicate battery levels.
+
+#### Robot status Indicators descriptions
+
+##### Normal states
+
+{/* prettier-ignore */}
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>LED</th>
+      <th style={{ textAlign: 'center' }}>LED description</th>
+      <th style={{ textAlign: 'left' }}>State description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.flashWhite}/></td>
+      <td style={{ textAlign: 'center' }}>White, flashing</td>
+      <td style={{ textAlign: 'left' }}>Robot booting up*</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.breathWhite}/></td>
+      <td style={{ textAlign: 'center' }}>White, breathing</td>
+      <td style={{ textAlign: 'left' }}>Idle, rover on, motors relaxed*</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.white}/></td>
+      <td style={{ textAlign: 'center' }}>White, constant</td>
+      <td style={{ textAlign: 'left' }}>Rover on, motors relaxed*</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.breathBlue}/></td>
+      <td style={{ textAlign: 'center' }}>Blue, breathing</td>
+      <td style={{ textAlign: 'left' }}>Turning wheels not calibrated*</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.blue}/></td>
+      <td style={{ textAlign: 'center' }}>Blue, constant</td>
+      <td style={{ textAlign: 'left' }}>Turning wheels calibration</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.yellow}/></td>
+      <td style={{ textAlign: 'center' }}>Yellow, constant</td>
+      <td style={{ textAlign: 'left' }}>Maintenance mode</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.green}/></td>
+      <td style={{ textAlign: 'center' }}>Green, constant - side panels</td>
+      <td style={{ textAlign: 'left' }}>Battery charge indicator</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.breathGreen}/></td>
+      <td style={{ textAlign: 'center' }}>Green, breathing - side panels</td>
+      <td style={{ textAlign: 'left' }}>Battery charging indicator, turns solid when fully charged*</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Fault states
+
+{/* prettier-ignore */}
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>LED</th>
+      <th style={{ textAlign: 'center' }}>LED description</th>
+      <th style={{ textAlign: 'left' }}>State description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.flashRed}/></td>
+      <td style={{ textAlign: 'center' }}>Red, flashing</td>
+      <td style={{ textAlign: 'left' }}>Rover error detected*</td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: 'center' }} className={styles.LEDcell}><span className={styles.circle} id={styles.flashRed3}/></td>
+      <td style={{ textAlign: 'center' }}>Red, 3 fast flashes</td>
+      <td style={{ textAlign: 'left' }}>Multiple errors detected*</td>
+    </tr>
+  </tbody>
+</table>
+
+\* - not implemented currently
 
 ### Web User Interface
 
