@@ -49,33 +49,28 @@ function HomepageHeader() {
   );
 }
 
-function Feature({
-  feature,
-  className,
-}: {
-  feature: FeatureItem;
-  className?: string;
-}) {
+function Feature({ feature }: { feature: FeatureItem; className?: string }) {
   const { withBaseUrl } = useBaseUrlUtils();
 
   return (
-    <div className={clsx('col', className)}>
-      <a href={feature.image.hyperlink}>
-        <img
-          className={styles.featureImage}
-          alt={feature.name}
-          width={Math.floor(feature.image.width)}
-          height={feature.image.height}
-          src={withBaseUrl(feature.image.src)}
-          loading="eager"
-          style={feature.image.style}
-        />
-      </a>
+    <a
+      href={feature.image.hyperlink}
+      className={clsx('col', styles.featureContainer)}
+    >
+      <img
+        className={styles.featureImage}
+        alt={feature.name}
+        width={Math.floor(feature.image.width)}
+        height={feature.image.height}
+        src={withBaseUrl(feature.image.src)}
+        loading="eager"
+        style={feature.image.style}
+      />
       <Heading as="h3" className={clsx(styles.featureHeading)}>
         {feature.name}
       </Heading>
       <p className="padding-horiz--md"> {feature.text} </p>
-    </div>
+    </a>
   );
 }
 
@@ -85,7 +80,10 @@ function FeaturesContainer() {
 
   return (
     <div className="container text--center">
-      <div className="row margin-top--lg margin-bottom--lg">
+      <Heading as="h1" style={{ textAlign: 'left', paddingTop: '2rem' }}>
+        Learn more about the rovers:
+      </Heading>
+      <div className="row margin-bottom--lg">
         {firstRow.map((feature, idx) => (
           <Feature feature={feature} key={idx} />
         ))}
