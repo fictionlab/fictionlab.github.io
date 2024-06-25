@@ -131,7 +131,37 @@ LED strips.
 
 ### Connecting via SSH
 
-{/* TODO */}
+:::note
+
+The following names and passwords are intended solely for beta users.
+Configuration settings will be updated for production-ready rovers.
+
+:::
+
+To connect to Rapha Rover's computer via SSH, you must first establish a
+connection with the on-board Wi-Fi network. The default credentials are as
+follows:
+
+- **SSID:** `RaphaRoverX` / `X` is the number of the rover
+- **Password:** `password`
+
+Once connected to the network, you can access the on-board devices using the
+following IP addresses and default credentials:
+
+- **Router (RUTX10) :** `10.0.0.1`
+- **On-board computer (UpBoard 7000):** `10.0.0.2`
+- **Controller (RaphaCore):** `10.0.0.3`
+
+To connect to the UpBoard via SSH, use your preferred SSH client and the
+provided credentials above.
+
+- **user:** `Rapha`
+- **password:** `Rapha`
+
+To connect with router, go to `10.0.0.1` and login using credentials below:
+
+- **user:** `admin`
+- **password:** `RaphaRover2024`
 
 ## Battery charging
 
