@@ -17,7 +17,7 @@ Ensure the following tools are installed on your local machine:
 - Code editor ([Visual Studio Code](https://code.visualstudio.com/) is
   recommended)
 - [Node.js](https://nodejs.org/en/)
-- [Yarn](https://classic.yarnpkg.com/en/)
+- [Yarn 1.22.22 (Classic)](https://classic.yarnpkg.com/en/)
 - [Git](https://git-scm.com/)
 - A web browser
 
