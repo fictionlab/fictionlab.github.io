@@ -1,0 +1,187 @@
+---
+title: Formatting
+sidebar_label: Formatting
+sidebar_position: 2
+unlisted: true
+description:
+  This page outlines the defined styles to be used consistently across all
+  documentation pages.
+---
+
+Fictionlab documentation is written in `MDXv3` format. It is an markdown with
+possibility to insert HTML and React components.
+
+To see whats possible with markdown, see this guide:
+
+<LinkButton url="https://commonmark.org/help/" title="Markdown reference" />
+
+## General rules
+
+When it comes to general documentation writing rules it is best to **look
+around**. Match the style you see used in the rest of the project. If something
+is inconsistent or you have doubts, feel free to report it via
+[github issues](https://github.com/fictionlab/docs/issues),
+[e-mail](mailto:contact@fictionlab.pl) or any other means.
+
+Here are some tips to help you write nice document:
+
+- When it comes to images, use only
+  [ImageZoom](/guidelines/components#imagezoom) or
+  [ThemedImageZoom](/guidelines/components#themedimagezoom) components.
+- If you have trouble with style, spelling etc., **ChatGPT** can be great ally.
+
+<details>
+  <summary>Example ChatGPT prompt</summary>
+
+> You are an experienced technical copywriter with extensive expertise in
+> creating documentation for large robotics companies. Your goal is to ensure
+> that your texts are clear, precise, specific, and written in professional
+> technical language. Rewrite the text below to enhance clarity, specificity,
+> and suitability for use in technical documentation. Ensure that all technical
+> terms are used correctly, and that the text follows a logical structure
+> suitable for engineers and technical professionals.
+>
+> Text: \
+> [text to rewrite]
+
+</details>
+
+- For tutorials that have multiple possible paths, for example different
+  commands for Linux and Windows systems, use
+  [Tabs](https://docusaurus.io/docs/markdown-features/tabs). Different use case
+  is for different hardware versions of a rover.
+- When it comes to file naming avoid using underscores (`_`), use dashes (`-`)
+  instead.
+- Use only lowercase letters in file names.
+
+### Front matter
+
+> Front matter is used to add metadata to your Markdown file. All content
+> plugins have their own front matter schema, and use the front matter to enrich
+> the default metadata inferred from the content or other configuration.
+>
+> [docusaurus.io](https://docusaurus.io/docs/markdown-features#front-matter)
+
+All documents included in Fictionlab documentation are required to have
+following Front matter fields:
+
+```yml
+---
+title: # title of the document
+sidebar_label: # title of the document on the sidebar
+keywords: # few keywords that describe the document, recommended 4-5
+description: # text description about document content, up to 160 characters
+image: # path to image that is shown when embedding link on social media, in Google etc.
+---
+```
+
+The following fields are associated with the document's Search Engine
+Optimization (SEO) parameters.
+
+In addition it is possible to set additional fields:
+
+`id: document_ID` \
+Used to set custom ID of the document. By default it is taken from the file
+name.
+
+:::warning
+
+This parameter defines only the final segment of the ID. The preceding segments
+are derived from the file structure.
+
+:::
+
+`sidebar_position: number` \
+This parameter is used to set a custom order for the documents within
+categories. By default, the documents are arranged alphabetically.
+
+:::note
+
+All documents within a particular category must have this parameter set to
+ensure correct ordering.
+
+:::
+
+`slug: document_slug` \
+Used to set custom URL slug of the article. By default file name is used.
+
+:::note
+
+The slug can be set as either relative (`page-slug`) or absolute (`/page-slug`).
+Relative slugs will have preceding segments derived from the file structure,
+while absolute slugs will be served directly at the page root.
+
+:::
+
+---
+
+There are additional possible fields, but the ones mentioned above are typically
+sufficient for setting the document's metadata correctly. For a complete list of
+possible fields, refer to the
+[Markdown front matter documentation on docusaurus.io](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matte).
+
+### Images
+
+- When it comes to images, use only
+  [ImageZoom](/guidelines/components#imagezoom) or
+  [ThemedImageZoom](/guidelines/components#themedimagezoom) components.
+- Do not use underscores `_` in names, use dashes instead `-`.
+- Name images descriptively, avoid names like `323d2324.webp`.
+  - When there are multiple images in a document (such as a manual), you can
+    keep the same name and add numbering to them. For example:
+    `battery-10.webp`.
+- All images should be stored in `/docs/static/img` directory.
+- All images should be converted into `webp` format. It is more modern, thus
+  more space efficient. Default quality should be `80` with `lossy` setting. For
+  image conversion, you can use tools such as
+  [Paint.net](https://www.getpaint.net/) or
+  [ImageMagick](https://imagemagick.org/index.php).
+
+#### Themed images
+
+In addition, images with different versions for light and dark mode should
+include the `-light` or `-dark` suffix in their filenames. For example,
+`leo-rover-render-light.webp`.
+
+- The `-light` suffix indicates that the image is intended for use in light
+  mode. For example, such images should feature **black text**.
+- The `-dark` suffix indicates that the image is intended for use in dark mode.
+  For example, such images should feature **white text**.
+
+Themed images should have the same dimensions and should represent the same
+content.
+
+## Formatting styles
+
+|                         Type | Style | Example                                                                                    |
+| ---------------------------: | :---: | :----------------------------------------------------------------------------------------- |
+|  click/press command (image) | bold  | click **yes** to proceed                                                                   |
+|  choose from options (image) | code  | Choose `Xorg` session                                                                      |
+|                 type (image) | code  | type `pi` for the username                                                                 |
+| mention of external software | link  | The LeoOS uses [NetworkManager](https://en.wikipedia.org/wiki/NetworkManager) to manage... |
+|              tool name (ssh) | code  | look up the message description using `rosmsg` tool:                                       |
+|                  directories | bold  | files inside **/home/pi** directory                                                        |
+|                     versions | code  | We recommend the `full` version.                                                           |
+|                   file names | code  | Modify the `hostapd.conf` configuration                                                    |
+|                  field names | code  | Modify the `ssid` and `wpa_passphrase` fields.                                             |
+|                    shortcuts | bold  | Type **Ctrl+O** and **Enter** to save                                                      |
+|                   ROS topics | code  | ... see the `/battery` topic.                                                              |
+|                service names | code  | or by stopping the `leo` service:                                                          |
+|                    variables | code  | make sure the `START_ROSCORE` variable is set to `true` on the main rover                  |
+
+## Other
+
+### Empty sections
+
+If document is scheduled to be published before full completion. Do not leave
+empty sections. It can be mistaken as an oversight.
+
+To mark unfinished section add `TODO` mdx comment and _Work in progress_ text
+for the users.
+
+{/* prettier-ignore */}
+```jsx
+{ /* TODO */ }
+
+_Work in progress_
+```

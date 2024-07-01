@@ -1,0 +1,10 @@
+{
+  "label": "Templates",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "All .mdx templates files can be found in /docs/guidelines/templates directory."
+  }
+}
