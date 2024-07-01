@@ -12,31 +12,71 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
 import FlexTable from '@site/src/components/FlexTable';
 import FlexTableItem from '@site/src/components/FlexTableItem';
 
-### Assembly time
+### Assembly time ≈ 20 min per wheel
 
-20 min per wheel / 80 min total
-
-### Tools needed
-
-<h1 style={{ color: 'red' }}>
-  Wstawić tutaj rysunek toolboxa z zaznaczonymi narzędziami{' '}
-</h1>
-
-- 2.5mm hex key (metric)
-- 3mm hex key (metric)
-- lithium grease
-- Loctite glue (anaerobic, low-strength)
-
-<ImageZoom
-  src="/img/robots/leo/manuals/wheels/wheel-assembly-2.webp"
-  alt="Opened box containing parts used to assemble Leo Rover wheels"
-  width="1000"
-  height="667"
+<ThemedImageZoom
+  alt="Needed tools"
+  sources={{
+    light: useBaseUrl('/img/robots/leo/manuals/tools-V2/tools-wheel-black.webp'),
+    dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/tools-wheel-white.webp'),
+  }}
+  width="1480"
+  height="2200"
+  figStyle={{
+    width: 600,
+  }}
 />
 
-<h1 style={{ color: 'red' }}>
-  Trzeba podmienić fote na odpowiedni rysunek pianki z opakowania{' '}
-</h1>
+<FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
+  
+  <FlexTableItem
+    style={{
+      width: '40%'
+    }}
+    mobileColumns={2}>
+      <ThemedImageZoom
+            loading="eager"
+            alt="Grease"
+            sources={{
+              light: useBaseUrl('/img/robots/leo/manuals/tools-V2/loctite-black.webp'),
+              dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/loctite-white.webp'),
+            }}
+            width="2300"
+            height="2400"
+          />
+  </FlexTableItem>
+   
+  <FlexTableItem
+    style={{
+      width: '40%'
+    }}
+    mobileColumns={2}>
+      <ThemedImageZoom
+            loading="eager"
+            alt="loctite"
+            sources={{
+              light: useBaseUrl('/img/robots/leo/manuals/tools-V2/grease-black.webp'),
+              dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/grease-white.webp'),
+            }}
+            width="2300"
+            height="2400"
+          />
+
+  </FlexTableItem>
+</FlexTable>
+
+<ThemedImageZoom
+  alt="Layer 2"
+  sources={{
+    light: useBaseUrl('/img/robots/leo/manuals/tools-V2/layer-2-black.webp'),
+    dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/layer-2-white.webp'),
+  }}
+  width="1480"
+  height="2200"
+  figStyle={{
+    width: 600,
+  }}
+/>
 
 ## Step 1
 
