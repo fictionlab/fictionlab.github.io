@@ -623,7 +623,9 @@ robot with autonomous navigation capabilities.
 ### ROS API
 
 :::warning
+
 The ROS API in the beta version is subject to changes.
+
 :::
 
 #### Subscribed topics
@@ -638,8 +640,8 @@ The ROS API in the beta version is subject to changes.
 
 - `controller/imu` ([sensor_msgs/msg/Imu])
 - `controller/odom` ([nav_msgs/msg/Odometry])
-- `controller/steering_mode` ([rapha_interfaces/msg/SteeringMode])
-    transient local qos
+- `controller/steering_mode` ([rapha_interfaces/msg/SteeringMode]) transient
+  local qos
 - `controller/diagnostics/imu` ([rapha_interfaces/msg/ImuDiagnostics])
   - IMU temperature,
 - `controller/diagnostics/motors` ([rapha_interfaces/msg/MotorDiagnostics])
@@ -688,7 +690,8 @@ uint8 ACKERMANN=0
 uint8 TURN_IN_PLACE=1
 
 uint8 data
-```
+
+````
 </a>
 
 ##### rapha_interfaces/msg/BatteryMode
@@ -697,7 +700,8 @@ uint8 data
 ```bash title="Represents the target or actual battery power mode."
 bool charging
 bool draining
-```
+````
+
 </a>
 
 ##### rapha_interfaces/msg/BatteryState
@@ -708,14 +712,18 @@ bool draining
 float64 voltage
 
 # Estimated state of charge in percents
+
 float64 state_of_charge
 
 # The target battery mode
+
 rapha_interfaces/BatteryMode target_mode
 
 # The actual battery mode
+
 rapha_interfaces/BatteryMode current_mode
-```
+
+````
 </a>
 
 ##### rapha_interfaces/msg/PowerSystemState
@@ -740,19 +748,15 @@ float64 power
 
 # The energy consumed in watt-hours since the robot was powered on
 float64 energy
-```
+````
+
 </a>
 
 ##### rapha_interfaces/msg/LedColor
 
 <a id="msg-led-color">
-```bash title="Represents the color of an LED."
-# The intensity of each color (255 = 100%)
-uint8 red
-uint8 green
-uint8 blue
-uint8 white
-```
+  ```bash title="Represents the color of an LED." # The intensity of each color
+  (255 = 100%) uint8 red uint8 green uint8 blue uint8 white ```
 </a>
 
 ##### rapha_interfaces/msg/LedPanel
@@ -765,7 +769,8 @@ uint8 LEFT=2
 uint8 RIGHT=3
 
 uint8 data
-```
+
+````
 </a>
 
 ##### rapha_interfaces/msg/LedState
@@ -781,25 +786,22 @@ int8 priority
 
 # The color of the LED
 rapha_interfaces/LedColor color
-```
+````
+
 </a>
 
 ##### rapha_interfaces/msg/LedPanelState
 
 <a id="msg-led-panel-state">
-```bash title="Represents the state of the whole LED panel."
-rapha_interfaces/LedPanel panel
-rapha_interfaces/LedState[36] state
-```
+  ```bash title="Represents the state of the whole LED panel."
+  rapha_interfaces/LedPanel panel rapha_interfaces/LedState[36] state ```
 </a>
 
 ##### rapha_interfaces/msg/LedStripState
 
 <a id="msg-led-strip-state">
-```bash title="Represents the state of the whole LED strip."
-uint8 LED_STRIP_SIZE=129
-rapha_interfaces/LedState[129] state
-```
+  ```bash title="Represents the state of the whole LED strip." uint8
+  LED_STRIP_SIZE=129 rapha_interfaces/LedState[129] state ```
 </a>
 
 ##### rapha_interfaces/msg/Led
@@ -810,11 +812,14 @@ rapha_interfaces/LedState[129] state
 rapha_interfaces/LedPanel panel
 
 # The id of the LED on the panel
+
 uint8 id
 
-# 
+#
+
 rapha_interfaces/LedState state
-```
+
+````
 </a>
 
 ##### rapha_interfaces/msg/MotorDiagnostics
@@ -851,9 +856,9 @@ uint8[6] fault_mask_active
 
 # Mask of all fault that occured since the robot was powered on
 uint8[6] fault_mask_occured
-```
-</a>
+````
 
+</a>
 
 ##### rapha_interfaces/msg/ImuDiagnostics
 
@@ -862,13 +867,14 @@ uint8[6] fault_mask_occured
 std_msgs/Header header
 
 # The current temperature of the sensor in degrees Celcius
+
 float64 temperature
 
 # The current gyroscope biases
-float64 gyro_bias_x
-float64 gyro_bias_y
-float64 gyro_bias_z
-```
+
+float64 gyro_bias_x float64 gyro_bias_y float64 gyro_bias_z
+
+````
 </a>
 
 #### Custom service types
@@ -883,19 +889,15 @@ rapha_interfaces/SteeringMode steering_mode
 ---
 bool success
 string status_message
-```
+````
+
 </a>
 
 ##### rapha_interfaces/srv/SetBatteryModes
 
 <a id="srv-set-battery-modes">
-```bash
-rapha_interfaces/BatteryMode bat1_mode
-rapha_interfaces/BatteryMode bat2_mode
----
-bool success
-string status_message
-```
+  ```bash rapha_interfaces/BatteryMode bat1_mode rapha_interfaces/BatteryMode
+  bat2_mode --- bool success string status_message ```
 </a>
 
 ##### rapha_interfaces/srv/SetLeds
@@ -909,16 +911,21 @@ string status_message
 ```
 </a>
 
-
-[ackermann_msgs/msg/AckermannDrive]: https://github.com/ros-drivers/ackermann_msgs/blob/ros2/msg/AckermannDrive.msg
-[geometry_msgs/msg/Twist]: https://docs.ros2.org/latest/api/geometry_msgs/msg/Twist.html
-[nav_msgs/msg/Odometry]: https://docs.ros2.org/latest/api/nav_msgs/msg/Odometry.html
-[rcl_interfaces/msg/Log]: https://docs.ros2.org/latest/api/rcl_interfaces/msg/Log.html
-[sensor_msgs/msg/JointState]: https://docs.ros2.org/latest/api/sensor_msgs/msg/JointState.html
+[ackermann_msgs/msg/AckermannDrive]:
+  https://github.com/ros-drivers/ackermann_msgs/blob/ros2/msg/AckermannDrive.msg
+[geometry_msgs/msg/Twist]:
+  https://docs.ros2.org/latest/api/geometry_msgs/msg/Twist.html
+[nav_msgs/msg/Odometry]:
+  https://docs.ros2.org/latest/api/nav_msgs/msg/Odometry.html
+[rcl_interfaces/msg/Log]:
+  https://docs.ros2.org/latest/api/rcl_interfaces/msg/Log.html
+[sensor_msgs/msg/JointState]:
+  https://docs.ros2.org/latest/api/sensor_msgs/msg/JointState.html
 [sensor_msgs/msg/Imu]: https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html
-[std_srvs/srv/Trigger]: https://docs.ros2.org/latest/api/std_srvs/srv/Trigger.html
-[tf2_msgs/msg/TFMessage]: https://docs.ros2.org/latest/api/tf2_msgs/msg/TFMessage.html
-
+[std_srvs/srv/Trigger]:
+  https://docs.ros2.org/latest/api/std_srvs/srv/Trigger.html
+[tf2_msgs/msg/TFMessage]:
+  https://docs.ros2.org/latest/api/tf2_msgs/msg/TFMessage.html
 [rapha_interfaces/msg/BatteryMode]: #msg-battery-mode
 [rapha_interfaces/msg/BatteryState]: #msg-battery-state
 [rapha_interfaces/msg/ImuDiagnostics]: #msg-imu-diagnostics
@@ -931,7 +938,6 @@ string status_message
 [rapha_interfaces/msg/MotorDiagnostics]: #msg-motor-diagnostics
 [rapha_interfaces/msg/PowerSystemState]: #msg-power-system-state
 [rapha_interfaces/msg/SteeringMode]: #msg-steering-mode
-
 [rapha_interfaces/srv/SetBatteryModes]: #srv-set-battery-modes
 [rapha_interfaces/srv/SetLeds]: #srv-set-leds
 [rapha_interfaces/srv/SetSteeringMode]: #srv-set-steering-mode
