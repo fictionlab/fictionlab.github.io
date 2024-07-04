@@ -15,23 +15,73 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
 import FlexTable from '@site/src/components/FlexTable';
 import FlexTableItem from '@site/src/components/FlexTableItem';
 
-<h1 style={{ color: 'red' }}> Rysunek pianki z częściami </h1>
+### Assembly time ≈ 60 minutes
 
-### Assembly time
+<ThemedImageZoom
+  alt="Needed tools"
+  sources={{
+    light: useBaseUrl('/img/robots/leo/manuals/tools-V2/tools-meb-black.webp'),
+    dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/tools-meb-white.webp'),
+  }}
+  width="1480"
+  height="2200"
+  figStyle={{
+    width: 600,
+  }}
+/>
 
-60 minutes
+<FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
+  
+  <FlexTableItem
+    style={{
+      width: '40%'
+    }}
+    mobileColumns={2}>
+      <ThemedImageZoom
+            loading="eager"
+            alt="vaseline"
+            sources={{
+              light: useBaseUrl('/img/robots/leo/manuals/tools-V2/vaseline-black.webp'),
+              dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/vaseline-white.webp'),
+            }}
+            width="2300"
+            height="2400"
+          />
+  </FlexTableItem>
 
-### Tools needed
+{' '}
+<FlexTableItem
+  style={{
+    textAlign: 'center',
+    width: '40%',
+  }}
+  mobileColumns={2}
+>
+  <ThemedImageZoom
+    loading="eager"
+    alt="loctite"
+    sources={{
+      light: useBaseUrl('/img/robots/leo/manuals/tools-V2/loctite-black.webp'),
+      dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/loctite-white.webp'),
+    }}
+    width="2300"
+    height="2400"
+  />
+</FlexTableItem>
+</FlexTable>
 
-- T5 torx screwdriver
-- 3mm hex-head key
-- vaseline
-- 8mm flat hex-head wrench
-
-- external computer with a SD card slot
-- microSD-SD adapter
-- 4mm hex-head key
-
+  <ThemedImageZoom
+  alt="Layer 3"
+  sources={{
+    light: useBaseUrl('/img/robots/leo/manuals/tools-V2/layer-3-black.webp'),
+    dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/layer-3-white.webp'),
+  }}
+  width="1480"
+  height="2200"
+  figStyle={{
+    width: 600,
+  }}
+/>
 ---
 ## Step 0
 
@@ -125,8 +175,6 @@ Follow tutorial below to burn software image to the microSD card:
 
   </FlexTableItem>
 </FlexTable>
-
-<h1 style={{ color: 'red' }}> Burn the OS image into SD card </h1>
 
 <ThemedImageZoom
   alt="Step 1 - 1"
