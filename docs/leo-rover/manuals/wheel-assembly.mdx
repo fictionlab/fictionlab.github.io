@@ -184,6 +184,10 @@ import FlexTableItem from '@site/src/components/FlexTableItem';
   }}
 />
 
+:::note
+Slide the <span className="myClass" style={{color : "#bf7b2c",}} > motor  </span> <span className="myClass" style={{color : "#609ebe",}} > mount  </span> forward until it touches the base of the bearing before tightening.
+:::
+
 ---
 ## Step 2
 
@@ -254,9 +258,9 @@ import FlexTableItem from '@site/src/components/FlexTableItem';
   }}
 />
 
-<h1 style={{ color: 'red' }}>
-  Do not tighten, leave 3-5mm gap. {' '}
-</h1>
+:::note
+Do not tighten. Leave a 3mm gap between the <span className="myClass" style={{color : "#bf7b2c",}} > screws </span> and motor mount.
+:::
 
 ---
 ## Step 3
@@ -281,23 +285,49 @@ import FlexTableItem from '@site/src/components/FlexTableItem';
 
 </FlexTable>
 
-<ThemedImageZoom
-  alt="Step 3 - 1"
-  sources={{
-    light: useBaseUrl('/img/robots/leo/manuals/wheel-V2/9-black.webp'),
-    dark: useBaseUrl('/img/robots/leo/manuals/wheel-V2/9-white.webp'),
-  }}
-  width="1480"
-  height="2200"
-  figStyle={{
-    width: 600,
-  }}
-/>
+<FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
+  
+  <FlexTableItem
+    style={{
+      width: '50%'
+    }}
+    mobileColumns={1}>
+      <ThemedImageZoom
+            loading="eager"
+            alt="Step 3 - 1"
+            sources={{
+              light: useBaseUrl('/img/robots/leo/manuals/wheel-V2/9-black.webp'),
+              dark: useBaseUrl('/img/robots/leo/manuals/wheel-V2/9-white.webp'),
+            }}
+            width="2300"
+            height="2400"
+          />
+  </FlexTableItem>
 
-<h1 style={{ color: 'red' }}>
-  {' '}
-  put a shit ton of lithium grease into the groove between the motor and gasket{' '}
-</h1>
+{' '}
+<FlexTableItem
+  style={{
+    width: '50%',
+  }}
+  mobileColumns={1}
+>
+  <ThemedImageZoom
+    loading="eager"
+    alt="Step 3-2"
+    sources={{
+      light: useBaseUrl('/img/robots/leo/manuals/wheels/wheel-assembly-19.webp'),
+      dark: useBaseUrl('/img/robots/leo/manuals/wheels/wheel-assembly-19.webp'),
+    }}
+    width="2300"
+    height="2400"
+  />
+</FlexTableItem>
+
+</FlexTable>
+
+:::note
+Press a decent amount of lithium grease between the shaft <span className="myClass" style={{color : "#bf7b2c",}} > seal </span> and the motor housing.
+:::
 
 ---
 ## Step 4
@@ -390,14 +420,10 @@ import FlexTableItem from '@site/src/components/FlexTableItem';
     width: 600,
   }}
 />
-<h1 style={{ color: 'red' }}>
-  {' '}
-  Apply a drop of loctite onto the set screw before tightening
-</h1>
-<h1 style={{ color: 'red' }}>
-  {' '}
-  Make sure to align the set screw with the flat part of motor shaft{' '}
-</h1>
+:::note
+Align the hole in <span className="myClass" style={{color : "#609ebe",}} > shaft adapter </span> with the flat part of motor shaft.\
+Put a drop of loctite onto the <span className="myClass" style={{color : "#bf7b2c",}} > set screw </span> before tightening.
+:::
 
 <ThemedImageZoom
   alt="4-2"
@@ -481,10 +507,9 @@ import FlexTableItem from '@site/src/components/FlexTableItem';
   }}
 />
 
-<h1 style={{ color: 'red' }}>
-  {' '}
-  Make sure that the full length of tire's brim sits in the groove{' '}
-</h1>
+:::warning
+  Make sure that the full length of tire's brim sits in the groove {' '}
+:::
 
 ---
 ## Step 6
@@ -592,8 +617,8 @@ import FlexTableItem from '@site/src/components/FlexTableItem';
     width: 600,
   }}
 />
+---
 
-<h1 style={{ color: 'red' }}>
-  {' '}
-  Good job! Now repeat the same steps 3 more times.{' '}
+<h1>
+  That's it! Repeat the steps until you have 4 wheels.
 </h1>
