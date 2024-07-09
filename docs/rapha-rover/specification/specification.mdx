@@ -630,53 +630,99 @@ The ROS API in the beta version is subject to changes.
 
 #### Subscribed topics
 
-- `controller/cmd_ackermann` ([ackermann_msgs/msg/AckermannDrive]) ?
-- `controller/cmd_vel` ([geometry_msgs/msg/Twist])
-- `controller/cmd_turn_in_place` ?
+- `controller/cmd_ackermann` ([ackermann_msgs/msg/AckermannDrive])
+
+  Steers the robot when operating in the Ackermann steering mode.
+
+- `controller/cmd_turn_in_place` (?) **Not implemented yet**
+
+  Steers the robot when operating in the Turn-In-Place steering mode. 
+
+- `controller/cmd_vel` ([geometry_msgs/msg/Twist]) **Not implemented yet**
+
+  Steers the robot using `Twist` commands. More standardized way to control the robot. \
+  Useful for some navigation stacks. Not recommended for manual teleoperation.
+
 - `controller/led_strip_state` ([rapha_interfaces/msg/LedStripState])
+
+  Sets a new user state for all the LEDs in the LED strip.
+
 - `controller/led_panel_state` ([rapha_interfaces/msg/LedPanelState])
+
+  Sets a new user state for all the LEDs in the specified LED panel.
 
 #### Published Topics
 
 - `controller/imu` ([sensor_msgs/msg/Imu])
+
+  Current gyroscope and accelerometer readings from the onboard IMU.
+
 - `controller/odom` ([nav_msgs/msg/Odometry])
-- `controller/steering_mode` ([rapha_interfaces/msg/SteeringMode]) transient
-  local qos
+  
+  Odometry calculated from wheel encoders and the onboard IMU. 
+
+- `controller/steering_mode` ([rapha_interfaces/msg/SteeringMode])
+
+  Current steering mode. Published whenever the mode changes. \
+  Uses transient local durability to deliver last message to joining subscriptions.
+
 - `controller/diagnostics/imu` ([rapha_interfaces/msg/ImuDiagnostics])
-  - IMU temperature,
+
+  Diagnostic information about the IMU module. \
+  Includes module temperature and calibration data.
+
 - `controller/diagnostics/motors` ([rapha_interfaces/msg/MotorDiagnostics])
-  - motor temperatures,
-  - motor power (current?),
-  - motor energy,
-  - motor faults,
+
+  Diagnostic information about the motors. \
+  Includes motor temperatures, power consumption and fault data.
+
 - `controller/power_system_state` ([rapha_interfaces/msg/PowerSystemState])
-  - is charger connected?
-  - are batteries connected?
-  - battery states
-    - voltage [V]
-    - state_of_charge [%]
-    - target and current mode
-      - is charging?
-      - is drained?
-  - output power [W]
-  - consumed energy [Wh]
+
+  Current information about the power system.
+
 - `joint_states` ([sensor_msgs/msg/JointState])
+
+  Current state of the robot joints.
+
 - `/rosout` ([rcl_interfaces/msg/Log]) ?
-- `/tf` ([tf2_msgs/msg/TFMessage])
+
+  Logs from all the running ROS nodes.
+
+- `/tf`, `/tf_static` ([tf2_msgs/msg/TFMessage])
+
+  Relationships between TF frames in the ROS network. \
+  These topics are used by the [tf2 library](https://docs.ros.org/en/jazzy/Concepts/Intermediate/About-Tf2.html). 
+  
 
 #### Services
 
 - `controller/clear_leds` ([std_srvs/srv/Trigger])
+
+  Resets user states for all LEDs in the LED strip.
+
 - `controller/set_leds` ([rapha_interfaces/srv/SetLeds])
+
+  Set user state for specified LEDs.
+
 - `controller/calibrate_servos` ([std_srvs/srv/Trigger])
+
+  Trigger servo calibration procedure.
+
 - `controller/reset_odom` ([std_srvs/srv/Trigger])
+
+  Reset odometry position.
+
 - `controller/reset_motor_diagnostics` ([std_srvs/srv/Trigger])
+
+  Reset motor faults and calculated consumed energy. 
+
 - `controller/set_battery_modes` ([rapha_interfaces/srv/SetBatteryModes])
-  - bat1 charging, bat2 charging
-  - bat1 draining, bat2 draining
+
+  Set target battery modes. 
+
 - `controller/set_steering_mode` ([rapha_interfaces/srv/SetSteeringMode])
-  - Ackermann
-  - Turn in-place
+
+  Set the current steering mode.
 
 #### Custom message types
 
@@ -790,11 +836,13 @@ uint8 data
 <a id="msg-led-state">
 
 ```bash title="Represents the state of a single LED."
-# The duration (in ms) the state should be active
+# The duration (in ms) the state should be active.
+# Setting it to 0 will make the state active indefinitely.
 uint16 duration
 
-# The priority of the state. The state with the highest priority is displayed
-# The value of -1 resets the user state of the LED
+# The priority of the state.
+# If the value is equal to 0 or is lower than the priority of the current user LED, the state is ignored.
+# The value of -1 resets the user state of the LED.
 int8 priority
 
 # The color of the LED
@@ -834,11 +882,9 @@ rapha_interfaces/LedState[129] state
 rapha_interfaces/LedPanel panel
 
 # The id of the LED on the panel
-
 uint8 id
 
 #
-
 rapha_interfaces/LedState state
 ```
 
@@ -891,12 +937,12 @@ uint8[6] fault_mask_occured
 std_msgs/Header header
 
 # The current temperature of the sensor in degrees Celcius
-
 float64 temperature
 
 # The current gyroscope biases
-
-float64 gyro_bias_x float64 gyro_bias_y float64 gyro_bias_z
+float64 gyro_bias_x
+float64 gyro_bias_y
+float64 gyro_bias_z
 ```
 
 </a>
@@ -975,6 +1021,8 @@ string status_message
 [rapha_interfaces/srv/SetBatteryModes]: #srv-set-battery-modes
 [rapha_interfaces/srv/SetLeds]: #srv-set-leds
 [rapha_interfaces/srv/SetSteeringMode]: #srv-set-steering-mode
+
+[tf2\ library](https://docs.ros.org/en/jazzy/Concepts/Intermediate/About-Tf2.html#tf2)
 
 ### Firmware
 
