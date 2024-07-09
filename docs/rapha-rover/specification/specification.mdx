@@ -685,28 +685,31 @@ The ROS API in the beta version is subject to changes.
 ##### rapha_interfaces/msg/SteeringMode
 
 <a id="msg-steering-mode">
+
 ```bash title="Represents the steering mode used by the drivetrain controller."
 uint8 ACKERMANN=0
 uint8 TURN_IN_PLACE=1
 
 uint8 data
+```
 
-````
 </a>
 
 ##### rapha_interfaces/msg/BatteryMode
 
 <a id="msg-battery-mode">
+
 ```bash title="Represents the target or actual battery power mode."
 bool charging
 bool draining
-````
+```
 
 </a>
 
 ##### rapha_interfaces/msg/BatteryState
 
 <a id="msg-battery-state">
+
 ```bash title="Represents the state of a single battery."
 # The current voltage in volts
 float64 voltage
@@ -722,13 +725,14 @@ rapha_interfaces/BatteryMode target_mode
 # The actual battery mode
 
 rapha_interfaces/BatteryMode current_mode
+```
 
-````
 </a>
 
 ##### rapha_interfaces/msg/PowerSystemState
 
 <a id="msg-power-system-state">
+
 ```bash title="Represents the state of the Power System."
 std_msgs/Header header
 
@@ -748,20 +752,28 @@ float64 power
 
 # The energy consumed in watt-hours since the robot was powered on
 float64 energy
-````
+```
 
 </a>
 
 ##### rapha_interfaces/msg/LedColor
 
 <a id="msg-led-color">
-  ```bash title="Represents the color of an LED." # The intensity of each color
-  (255 = 100%) uint8 red uint8 green uint8 blue uint8 white ```
+
+```bash title="Represents the color of an LED."
+# The intensity of each color (255 = 100%)
+uint8 red
+uint8 green
+uint8 blue
+uint8 white
+```
+
 </a>
 
 ##### rapha_interfaces/msg/LedPanel
 
 <a id="msg-led-panel">
+
 ```bash title="Enumeration of robot's LED panels."
 uint8 FRONT=0
 uint8 BACK=1
@@ -769,13 +781,14 @@ uint8 LEFT=2
 uint8 RIGHT=3
 
 uint8 data
+```
 
-````
 </a>
 
 ##### rapha_interfaces/msg/LedState
 
 <a id="msg-led-state">
+
 ```bash title="Represents the state of a single LED."
 # The duration (in ms) the state should be active
 uint16 duration
@@ -786,29 +799,38 @@ int8 priority
 
 # The color of the LED
 rapha_interfaces/LedColor color
-````
+```
 
 </a>
 
 ##### rapha_interfaces/msg/LedPanelState
 
 <a id="msg-led-panel-state">
-  ```bash title="Represents the state of the whole LED panel."
-  rapha_interfaces/LedPanel panel rapha_interfaces/LedState[36] state ```
+
+```bash title="Represents the state of the whole LED panel."
+rapha_interfaces/LedPanel panel
+rapha_interfaces/LedState[36] state
+```
+
 </a>
 
 ##### rapha_interfaces/msg/LedStripState
 
 <a id="msg-led-strip-state">
-  ```bash title="Represents the state of the whole LED strip." uint8
-  LED_STRIP_SIZE=129 rapha_interfaces/LedState[129] state ```
+
+```bash title="Represents the state of the whole LED strip."
+uint8 LED_STRIP_SIZE=129
+rapha_interfaces/LedState[129] state
+```
+
 </a>
 
 ##### rapha_interfaces/msg/Led
 
 <a id="msg-led">
+
 ```bash title="Represents the position and the state of the LED."
-# 
+#
 rapha_interfaces/LedPanel panel
 
 # The id of the LED on the panel
@@ -818,13 +840,14 @@ uint8 id
 #
 
 rapha_interfaces/LedState state
+```
 
-````
 </a>
 
 ##### rapha_interfaces/msg/MotorDiagnostics
 
 <a id="msg-motor-diagnostics">
+
 ```bash title="Diagnostic information about motors controlled by RaphaCore."
 # The order of the motors is:
 #   - rear left wheel
@@ -856,13 +879,14 @@ uint8[6] fault_mask_active
 
 # Mask of all fault that occured since the robot was powered on
 uint8[6] fault_mask_occured
-````
+```
 
 </a>
 
 ##### rapha_interfaces/msg/ImuDiagnostics
 
 <a id="msg-imu-diagnostics">
+
 ```bash title="Diagnostic information about IMU sensor running on RaphaCore."
 std_msgs/Header header
 
@@ -873,8 +897,8 @@ float64 temperature
 # The current gyroscope biases
 
 float64 gyro_bias_x float64 gyro_bias_y float64 gyro_bias_z
+```
 
-````
 </a>
 
 #### Custom service types
@@ -884,31 +908,41 @@ float64 gyro_bias_x float64 gyro_bias_y float64 gyro_bias_z
 ##### rapha_interfaces/srv/SetSteeringMode
 
 <a id="srv-set-steering-mode">
+
 ```bash
 rapha_interfaces/SteeringMode steering_mode
 ---
 bool success
 string status_message
-````
+```
 
 </a>
 
 ##### rapha_interfaces/srv/SetBatteryModes
 
 <a id="srv-set-battery-modes">
-  ```bash rapha_interfaces/BatteryMode bat1_mode rapha_interfaces/BatteryMode
-  bat2_mode --- bool success string status_message ```
+
+```bash
+rapha_interfaces/BatteryMode bat1_mode
+rapha_interfaces/BatteryMode bat2_mode
+---
+bool success
+string status_message
+```
+
 </a>
 
 ##### rapha_interfaces/srv/SetLeds
 
 <a id="srv-set-leds">
+
 ```bash
 rapha_interfaces/Led[<=129] leds
 ---
 bool success
 string status_message
 ```
+
 </a>
 
 [ackermann_msgs/msg/AckermannDrive]:
