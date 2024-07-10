@@ -29,9 +29,18 @@ The ROS API in the beta version is subject to changes.
 
   Sets a new user state for all the LEDs in the LED strip.
 
-- `controller/led_panel_state` ([rapha_interfaces/msg/LedPanelState])
+- `controller/led_panel_state` ([rapha_interfaces/msg/LedPanelState]) **Not
+  implemented yet**
 
   Sets a new user state for all the LEDs in the specified LED panel.
+
+- `system/shutdown` ([std_msgs/msg/Empty])
+
+  Performs system shutdown.
+
+- `system/reboot` ([std_msgs/msg/Empty])
+
+  Performs system reboot.
 
 ## Published Topics
 
@@ -43,7 +52,8 @@ The ROS API in the beta version is subject to changes.
 
   Odometry calculated from wheel encoders and the onboard IMU.
 
-- `controller/steering_mode` ([rapha_interfaces/msg/SteeringMode])
+- `controller/steering_mode` ([rapha_interfaces/msg/SteeringMode]) **Not
+  implemented yet**
 
   Current steering mode. Published whenever the mode changes. \
   Uses transient local durability to deliver last message to joining
@@ -63,11 +73,73 @@ The ROS API in the beta version is subject to changes.
 
   Current information about the power system.
 
+- `oak/imu/data` ([sensor_msgs/msg/Imu])
+
+  Current gyroscope and accelerometer readings from the Oak IMU.
+
+- `oak/left/camera_info` ([sensor_msgs/msg/CameraInfo])
+
+  Calibration data for the left Oak camera.
+
+- `oak/left/image_raw` ([sensor_msgs/msg/Image])
+
+  Raw images from the left Oak camera.
+
+- `oak/rgb/camera_info` ([sensor_msgs/msg/CameraInfo])
+
+  Calibration data for the center (RGB) Oak camera.
+
+- `oak/rgb/image_raw` ([sensor_msgs/msg/Image])
+
+  Raw images from the center (RGB) Oak camera.
+
+- `oak/right/camera_info` ([sensor_msgs/msg/CameraInfo])
+
+  Calibration data for the right Oak camera.
+
+- `oak/right/image_raw` ([sensor_msgs/msg/Image])
+
+  Raw images from the right Oak camera.
+
+- `oak/stereo/camera_info` ([sensor_msgs/msg/CameraInfo])
+
+  Calibration data for **TODO**
+
+- `oak/stereo/image_raw` ([sensor_msgs/msg/Image])
+
+  Depth images calculated from the stereo pair (left and right Oak cameras).
+
+- `oak/points` ([sensor_msgs/msg/PointCloud2])
+
+  Point cloud data converted from the depth images.
+
+- `rplidar/scan` ([sensor_msgs/msg/LaserScan])
+
+  Raw laser scans from the onboard 2D LIDAR.
+
+- `rplidar/scan_filtered` ([sensor_msgs/msg/LaserScan]) **Not implemented yet**
+
+  Laser scans from the onboard 2D LIDAR with points lying on the robots
+  footprint filtered out.
+
 - `joint_states` ([sensor_msgs/msg/JointState])
 
   Current state of the robot joints.
 
-- `/rosout` ([rcl_interfaces/msg/Log]) ?
+- `robot_description` ([std_msgs/msg/String])
+
+  The URDF description of the robot.
+
+- `/diagnostics` ([diagnostic_msgs/msg/DiagnosticArray])
+
+  Diagnostic information from various ROS nodes.
+
+- `/parameter_events` ([rcl_interfaces/msg/ParameterEvent])
+
+  Parameter events (additions, changes or deletions) from all the running ROS
+  nodes.
+
+- `/rosout` ([rcl_interfaces/msg/Log])
 
   Logs from all the running ROS nodes.
 
@@ -106,6 +178,16 @@ The ROS API in the beta version is subject to changes.
 - `controller/set_steering_mode` ([rapha_interfaces/srv/SetSteeringMode])
 
   Set the current steering mode.
+
+## Parameters
+
+### controller
+
+### robot_state_publisher
+
+### oak
+
+### rplidar
 
 ## Custom message types
 
@@ -376,15 +458,29 @@ string status_message
 
 [ackermann_msgs/msg/AckermannDrive]:
   https://github.com/ros-drivers/ackermann_msgs/blob/ros2/msg/AckermannDrive.msg
+[diagnostic_msgs/msg/DiagnosticArray]:
+  https://docs.ros2.org/latest/api/diagnostic_msgs/msg/DiagnosticArray.html
 [geometry_msgs/msg/Twist]:
   https://docs.ros2.org/latest/api/geometry_msgs/msg/Twist.html
 [nav_msgs/msg/Odometry]:
   https://docs.ros2.org/latest/api/nav_msgs/msg/Odometry.html
 [rcl_interfaces/msg/Log]:
   https://docs.ros2.org/latest/api/rcl_interfaces/msg/Log.html
+[rcl_interfaces/msg/ParameterEvent]:
+  https://docs.ros2.org/latest/api/rcl_interfaces/msg/ParameterEvent.html
+[sensor_msgs/msg/CameraInfo]:
+  https://docs.ros2.org/latest/api/sensor_msgs/msg/CameraInfo.html
+[sensor_msgs/msg/Image]:
+  https://docs.ros2.org/latest/api/sensor_msgs/msg/Image.html
+[sensor_msgs/msg/Imu]: https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html
 [sensor_msgs/msg/JointState]:
   https://docs.ros2.org/latest/api/sensor_msgs/msg/JointState.html
-[sensor_msgs/msg/Imu]: https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html
+[sensor_msgs/msg/LaserScan]:
+  https://docs.ros2.org/latest/api/sensor_msgs/msg/LaserScan.html
+[sensor_msgs/msg/PointCloud2]:
+  https://docs.ros2.org/latest/api/sensor_msgs/msg/PointCloud2.html
+[std_msgs/msg/Empty]: https://docs.ros2.org/latest/api/std_msgs/msg/Empty.html
+[std_msgs/msg/String]: https://docs.ros2.org/latest/api/std_msgs/msg/String.html
 [std_srvs/srv/Trigger]:
   https://docs.ros2.org/latest/api/std_srvs/srv/Trigger.html
 [tf2_msgs/msg/TFMessage]:
