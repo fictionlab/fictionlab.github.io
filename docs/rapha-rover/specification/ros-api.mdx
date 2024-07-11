@@ -44,14 +44,6 @@ The ROS API in the beta version is subject to changes.
 
   Sets a new user state for all the LEDs in the specified LED panel.
 
-- `system/shutdown` ([std_msgs/msg/Empty])
-
-  Performs system shutdown.
-
-- `system/reboot` ([std_msgs/msg/Empty])
-
-  Performs system reboot.
-
 ## Published Topics
 
 - `controller/imu` ([sensor_msgs/msg/Imu])
@@ -189,6 +181,14 @@ The ROS API in the beta version is subject to changes.
 - `controller/set_steering_mode` ([rapha_interfaces/srv/SetSteeringMode])
 
   Set the current steering mode.
+
+- `system/shutdown` ([std_srvs/srv/Trigger])
+
+  Perform onboard computer's system shutdown.
+
+- `system/reboot` ([std_srvs/srv/Trigger])
+
+  Perform onboard computer's system reboot.
 
 ## Parameters
 
@@ -526,7 +526,6 @@ string status_message
   https://docs.ros2.org/latest/api/sensor_msgs/msg/LaserScan.html
 [sensor_msgs/msg/PointCloud2]:
   https://docs.ros2.org/latest/api/sensor_msgs/msg/PointCloud2.html
-[std_msgs/msg/Empty]: https://docs.ros2.org/latest/api/std_msgs/msg/Empty.html
 [std_msgs/msg/String]: https://docs.ros2.org/latest/api/std_msgs/msg/String.html
 [std_srvs/srv/Trigger]:
   https://docs.ros2.org/latest/api/std_srvs/srv/Trigger.html
