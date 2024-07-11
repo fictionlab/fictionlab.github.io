@@ -122,7 +122,7 @@ The ROS API in the beta version is subject to changes.
 
 - `rplidar/scan_filtered` ([sensor_msgs/msg/LaserScan]) **Not implemented yet**
 
-  Laser scans from the onboard 2D LIDAR with points lying on the robots
+  Laser scans from the onboard 2D LIDAR with points lying on the robot's
   footprint filtered out.
 
 - `joint_states` ([sensor_msgs/msg/JointState])
@@ -232,7 +232,7 @@ The ROS API in the beta version is subject to changes.
 - `drivetrain.wheel_disable_timeout` (type: `float`, default: `10.0`)
 
   The duration from last received target, after which the controller will
-  disable to motors. Set to 0 to disable. $[s]$
+  disable all motors. Set to 0 to disable. $[s]$
 
 - `drivetrain.servo_left_position_offset` (type: `float`, default: `0.0`)
 
