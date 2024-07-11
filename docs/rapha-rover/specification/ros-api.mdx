@@ -195,56 +195,57 @@ The ROS API in the beta version is subject to changes.
 
 - `drivetrain.wheel_base` (type: `float`, default: `0.378`)
 
-  Distance between front and rear wheels. [m]
+  Distance between front and rear wheels. $[m]$
 
 - `drivetrain.track_width` (type: `float`, default: `0.384`)
 
-  Distance between left and right wheels. [m]
+  Distance between left and right wheels. $[m]$
 
 - `drivetrain.wheel_radius` (type: `float`, default: `0.08`)
 
-  Radius of the wheel. [m]
+  Radius of the wheel. $[m]$
 
 - `drivetrain.max_wheel_angular_velocity` (type: `float`, default: `19.0`)
 
-  Maximum allowable wheel angular velocity. [rad/s]
+  Maximum allowable wheel angular velocity. $[\frac{rad}{s}]$
 
 - `drivetrain.change_mode_acceleration` (type: `float`, default: `2.0`)
 
-  Acceleration to use when changing steering mode. [m/s^2, rad/s^2]
+  Acceleration to use when changing steering mode.
+  $[\frac{m}{s^2}, \frac{rad}{s^2}]$
 
 - `drivetrain.change_mode_steering_angle_velocity` (type: `float`, default:
   `4.0`)
 
-  Steering angle velocity to use when changing steering mode. [rad/s]
+  Steering angle velocity to use when changing steering mode. $[\frac{rad}{s}]$
 
 - `drivetrain.max_steering_angle` (type: `float`, default: `1.08`)
 
-  Maximum steering angle used in ackermann mode. [rad]
+  Maximum steering angle used in ackermann mode. $[rad]$
 
 - `drivetrain.input_timeout` (type: `float`, default: `0.5`)
 
   The duration from last received target, after which the controller will stop
-  the robot. Set to 0 to disable. [s]
+  the robot. Set to 0 to disable. $[s]$
 
 - `drivetrain.wheel_disable_timeout` (type: `float`, default: `10.0`)
 
   The duration from last received target, after which the controller will
-  disable to motors. Set to 0 to disable. [s]
+  disable to motors. Set to 0 to disable. $[s]$
 
 - `drivetrain.servo_left_position_offset` (type: `float`, default: `0.0`)
 
-  Offset added to the left servo position. [rad]
+  Offset added to the left servo position. $[rad]$
 
 - `drivetrain.servo_right_position_offset` (type: `float`, default: `0.0`)
 
-  Offset added to the right servo position. [rad]
+  Offset added to the right servo position. $[rad]$
 
 - `drivetrain.servo_calibration_power_threshold` (type: `float`, default:
   `20.0`)
 
   The minimal motor power after which we assume the servo is pressing against
-  the bumper during calibration procedure. [W]
+  the bumper during calibration procedure. $[W]$
 
 - `drivetrain.servo.acceleration_divider` (type: `int`, default: `10`)
 
@@ -252,7 +253,7 @@ The ROS API in the beta version is subject to changes.
 
 - `drivetrain.servo.position_loop_speed` (type: `float`, default: `5.0`)
 
-  Position loop speed value passed to servos motors. [rad/s]
+  Position loop speed value passed to servos motors. $[\frac{rad}{s}]$
 
 - `drivetrain.wheel.acceleration_divider` (type: `int`, default: `2`)
 
