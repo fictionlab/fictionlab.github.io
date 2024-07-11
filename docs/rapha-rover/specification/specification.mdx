@@ -620,67 +620,6 @@ solution can be simplified to 2 nodes:
 These nodes can be configured to start alongside the core ones, extending the
 robot with autonomous navigation capabilities.
 
-### ROS API
-
-The ROS API in the beta version is subject to changes.
-
-_Work in progress_
-
-{/* TODO */}
-
-#### LED strip
-
-Messages can be divided into 3 types:
-
-- general,
-- full LED strip control,
-- single LED panel control.
-
-##### general
-
-```bash title="LedColor.msg - represents the color of an LED."
-# The intensity of each color (255 = 100%)
-uint8 red
-uint8 green
-uint8 blue
-uint8 white
-```
-
-```bash title="LedState.msg - represents the state of a single LED."
-# The duration (in ms) the state should be active
-uint16 duration
-
-# The priority of the state. The state with the highest priority is displayed
-# The value of -1 resets the user state of the LED
-int8 priority
-
-# The color of the LED
-rapha_interfaces/LedColor color
-```
-
-##### Full LED strip control
-
-```bash title="LesStripState.msg - represents the state of the whole led strip."
-uint8 LED_STRIP_SIZE=129
-rapha_interfaces/LedState[129] state
-```
-
-##### Single LED panel control
-
-```bash title="LedPanel.msg - enumeration of  robot's LEDs panels."
-uint8 FRONT=0
-uint8 BACK=1
-uint8 LEFT=2
-uint8 RIGHT=3
-
-uint8 data
-```
-
-```bash title="LedPanelState.msg - represents the state of the whole LED panel."
-rapha_interfaces/LedPanel panel
-rapha_interfaces/LedState[36] state
-```
-
 ### Firmware
 
 {/* TODO */}
