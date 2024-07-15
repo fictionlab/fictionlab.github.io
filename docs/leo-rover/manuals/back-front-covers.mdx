@@ -17,7 +17,9 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
 <ThemedImageZoom
   alt="Needed tools"
   sources={{
-    light: useBaseUrl('/img/robots/leo/manuals/tools-V2/tools-addon-black.webp'),
+    light: useBaseUrl(
+      '/img/robots/leo/manuals/tools-V2/tools-addon-black.webp',
+    ),
     dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/tools-addon-white.webp'),
   }}
   width="1480"
@@ -37,12 +39,14 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
     width="2300"
     height="2400"
 
-  figStyle={{
+figStyle={{
     width: 400,
-  }}
-  />
+  }} />
+
 ---
+
 ## Front Cover:
+
 ### Step 1
 
 <FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
@@ -65,6 +69,7 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
   </FlexTableItem>
 
 {' '}
+
 <FlexTableItem
   style={{
     textAlign: 'center',
@@ -148,7 +153,10 @@ import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
 />
 
 :::note
-Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **screws** </span>. Leave them loosely attached to allow for assembly in further steps.
+
+Do not tighten the <span style={{color : "#bf7b2c",}} > **screws** </span>.
+Leave them loosely attached to allow for assembly in further steps.
+
 :::
 
 <ThemedImageZoom
@@ -165,7 +173,9 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
 />
 
 ---
+
 ## Battery Quarter:
+
 ### Step 1
 
 <FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
@@ -188,6 +198,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
   </FlexTableItem>
 
 {' '}
+
 <FlexTableItem
   style={{
     textAlign: 'center',
@@ -285,6 +296,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
 />
 
 ---
+
 ### Step 2
 
 <FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
@@ -307,6 +319,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
   </FlexTableItem>
 
 {' '}
+
 <FlexTableItem
   style={{
     textAlign: 'center',
@@ -372,7 +385,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
   }}
 />
 
-###  Step 3
+### Step 3
 
 <FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
   
@@ -437,7 +450,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
   }}
 />
 
-###  Step 4
+### Step 4
 
 <FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
   
@@ -458,39 +471,44 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
           />
   </FlexTableItem>
 
-  <FlexTableItem
-    style={{
-      textAlign: 'center',
-      width: '40%'
-    }}mobileColumns={2}>
-      <ThemedImageZoom
-            loading="eager"
-            alt="Battery"
-            sources={{
-              light: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-2-black.webp'),
-              dark: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-2-white.webp'),
-            }}
-            width="2300"
-            height="2400"
-            caption="Battery and foam"
-          />
-  </FlexTableItem>
-    <FlexTableItem
-    style={{
-      textAlign: 'center',
-      width: '40%'
-    }}mobileColumns={2}>
-      <ThemedImageZoom
-            loading="eager"
-            alt="Step 2 assembly"
-            sources={{
-              light: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-3-black.webp'),
-              dark: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-3-white.webp'),
-            }}
-            width="2300"
-            height="2400"
-          />
-  </FlexTableItem>
+{' '}
+<FlexTableItem
+  style={{
+    textAlign: 'center',
+    width: '40%',
+  }}
+  mobileColumns={2}
+>
+  <ThemedImageZoom
+    loading="eager"
+    alt="Battery"
+    sources={{
+      light: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-2-black.webp'),
+      dark: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-2-white.webp'),
+    }}
+    width="2300"
+    height="2400"
+    caption="Battery and foam"
+  />
+</FlexTableItem>
+<FlexTableItem
+  style={{
+    textAlign: 'center',
+    width: '40%',
+  }}
+  mobileColumns={2}
+>
+  <ThemedImageZoom
+    loading="eager"
+    alt="Step 2 assembly"
+    sources={{
+      light: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-3-black.webp'),
+      dark: useBaseUrl('/img/robots/leo/manuals/battery-V2/4-3-white.webp'),
+    }}
+    width="2300"
+    height="2400"
+  />
+</FlexTableItem>
 
       <FlexTableItem
     style={{
@@ -508,6 +526,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
             height="2400"
             caption="4x M4x16 allen screw"
           />
+
   </FlexTableItem>
 </FlexTable>
 
@@ -550,7 +569,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
   }}
 />
 
-###  Step 5
+### Step 5
 
 <FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
   
@@ -642,7 +661,9 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
 />
 
 ---
+
 ## Addon Quarter:
+
 ### Step 1
 
 <FlexTable style={{ alignContent: 'center', justifyContent: 'space-evenly'}}>
@@ -665,6 +686,7 @@ Do not tighten the <span className="myClass" style={{color : "#bf7b2c",}} > **sc
   </FlexTableItem>
 
 {' '}
+
 <FlexTableItem
   style={{
     textAlign: 'center',
