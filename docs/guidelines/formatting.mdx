@@ -65,15 +65,27 @@ Here are some tips to help you write nice document:
 All documents included in Fictionlab documentation are required to have
 following Front matter fields:
 
+{/* prettier-ignore */}
 ```yml
 ---
 title: # title of the document
 sidebar_label: # title of the document on the sidebar
 keywords: # few keywords that describe the document, recommended 4-5
-description: # text description about document content, up to 160 characters
+description: >- # text description about document content, up to 160 characters, SEE warning below
 image: # path to image that is shown when embedding link on social media, in Google etc.
 ---
 ```
+
+:::warning
+
+Prettier automatically wraps text with more than 80 characters in one line. \
+When using multiline strings in YAML, it is recommended to use `>-` scalars.
+Otherwise it won't be possible to use special characters like colons `:`. If
+description is shorter than 80 characters, it is safe to remove `>-` scalar.
+
+More information: [YAML multiline strings](https://yaml-multiline.info/)
+
+:::
 
 The following fields are associated with the document's Search Engine
 Optimization (SEO) parameters.
