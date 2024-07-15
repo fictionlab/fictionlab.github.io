@@ -155,7 +155,7 @@ aligned**</span>.
   
   <FlexTableItem
     style={{
-      width: '40%'
+      width: '40%',
     }}
     mobileColumns={2}>
       <ThemedImageZoom
@@ -175,26 +175,19 @@ aligned**</span>.
 <FlexTableItem
   style={{
     textAlign: 'center',
+    alignContent: 'center',
     width: '40%',
   }}
   mobileColumns={2}
 >
-  <ThemedImageZoom
-    loading="eager"
-    alt="4x M4 square nut"
-    sources={{
-      light: useBaseUrl('/img/robots/leo/manuals/tools-V2/bad.webp'),
-      dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/bad.webp'),
-    }}
-    width="2300"
-    height="2400"
-  />
+
+  <span style={{color : "red", fontSize : "700%", lineHeight: '70%'}} > **NOT <br /> OK**</span>
 </FlexTableItem>
 
     <FlexTableItem
     style={{
       textAlign: 'center',
-      width: '40%'
+      width: '40%',
     }}mobileColumns={2}>
       <ThemedImageZoom
             loading="eager"
@@ -212,18 +205,10 @@ aligned**</span>.
    <FlexTableItem
     style={{
       textAlign: 'center',
-      width: '40%'
+      alignContent: 'center',
+      width: '40%',
     }}mobileColumns={2}>
-      <ThemedImageZoom
-            loading="eager"
-            alt="4x M4x10 screw"
-            sources={{
-              light: useBaseUrl('/img/robots/leo/manuals/tools-V2/Good.webp'),
-              dark: useBaseUrl('/img/robots/leo/manuals/tools-V2/Good.webp'),
-            }}
-            width="2300"
-            height="2400"
-          />
+      <span style={{color : "green", fontSize : "700%"}} >**OK**</span>
   </FlexTableItem>
 </FlexTable>
 
@@ -237,4 +222,4 @@ These nuts should be hand-tightened only, as excessive force can damage the seal
 
 Be careful not to crush the wires during assembly.
 
-## :::
+:::
