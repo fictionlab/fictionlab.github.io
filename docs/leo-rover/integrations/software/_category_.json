@@ -4,7 +4,8 @@
   "collapsible": true,
   "collapsed": true,
   "link": {
+    "type": "generated-index",
     "title": "Software integrations",
-    "type": "generated-index"
+    "slug": "leo-rover/integrations/software"
   }
 }
