@@ -225,15 +225,11 @@ const config: Config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        fromExtensions: ['html', 'htm'],
         redirects: [
+          // old slug redirects
           {
             from: '/docs/leo-rover/guides/remote-desktop',
             to: '/leo-rover/guides/remote-desktop',
-          },
-          {
-            from: '/docs/category/assembly-manuals',
-            to: '/category/assembly-manuals',
           },
           {
             from: '/docs/leo-rover/manuals/wheels-to-meb',
@@ -250,6 +246,71 @@ const config: Config = {
           {
             from: '/docs/leo-rover/documentation/known-issues',
             to: '/leo-rover/documentation/known-issues',
+          },
+          // category redirects
+          {
+            from: '/category/rover-documentation',
+            to: '/leo-rover/documentation',
+          },
+          {
+            from: '/docs/category/assembly-manuals',
+            to: '/leo-rover/manuals',
+          },
+          {
+            from: '/category/assembly-manuals',
+            to: '/leo-rover/manuals',
+          },
+          {
+            from: '/category/leo-examples',
+            to: '/leo-rover/leo-examples',
+          },
+          {
+            from: '/category/addons',
+            to: '/leo-rover/addons',
+          },
+          {
+            from: '/category/integrations',
+            to: '/leo-rover/integrations',
+          },
+          {
+            from: '/category/computing-devices',
+            to: '/leo-rover/integrations/computing-devices',
+          },
+          {
+            from: '/category/lidars',
+            to: '/leo-rover/integrations/lidars',
+          },
+          {
+            from: '/category/positioning-systems',
+            to: '/leo-rover/integrations/positioning-systems',
+          },
+          {
+            from: '/category/positioning-systems',
+            to: '/leo-rover/integrations/positioning-systems',
+          },
+          {
+            from: '/category/robotic-arms',
+            to: '/leo-rover/integrations/robotic-arms',
+          },
+          {
+            from: '/category/software',
+            to: '/leo-rover/integrations/software',
+          },
+          {
+            from: '/category/legacy-pre-leo-18',
+            to: '/leo-rover/integrations/legacy',
+          },
+          {
+            from: '/category/guides',
+            to: '/leo-rover/guides',
+          },
+          {
+            from: '/category/advanced-guides',
+            to: '/leo-rover/advanced-guides',
+          },
+          {
+            from: '/category/archive',
+            to: '/leo-rover/archive',
           },
         ],
       } satisfies ClientRedirectsOptions,
