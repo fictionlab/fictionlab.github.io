@@ -3,6 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import type { Options as ClientRedirectsOptions } from '@docusaurus/plugin-client-redirects';
 
 const config: Config = {
   title: 'Fictionlab Documentation',
@@ -220,6 +221,40 @@ const config: Config = {
       isCloseable: true,
     },
   } satisfies Preset.ThemeConfig,
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        fromExtensions: ['html', 'htm'],
+        redirects: [
+          {
+            from: '/docs/leo-rover/guides/remote-desktop',
+            to: '/leo-rover/guides/remote-desktop',
+          },
+          {
+            from: '/docs/category/assembly-manuals',
+            to: '/category/assembly-manuals',
+          },
+          {
+            from: '/docs/leo-rover/manuals/wheels-to-meb',
+            to: '/leo-rover/manuals/wheels-to-meb',
+          },
+          {
+            from: '/docs/leo-rover/documentation/specification',
+            to: '/leo-rover/documentation/specification',
+          },
+          {
+            from: '/docs/leo-rover/getting-started',
+            to: '/leo-rover/documentation/getting-started',
+          },
+          {
+            from: '/docs/leo-rover/documentation/known-issues',
+            to: '/leo-rover/documentation/known-issues',
+          },
+        ],
+      } satisfies ClientRedirectsOptions,
+    ],
+  ],
 };
 
 export default config;

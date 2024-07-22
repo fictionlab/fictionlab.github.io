@@ -10,7 +10,6 @@ export default function FlexTableItem({
   style,
   mobileColumns,
 }: DivProps) {
-  console.log(mobileColumns);
   let className;
   if (mobileColumns != 2) className = styles.flexTableItem1;
   else className = styles.flexTableItem2;

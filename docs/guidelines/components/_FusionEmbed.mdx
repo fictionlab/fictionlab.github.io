@@ -1,0 +1,78 @@
+import FusionEmbed from '@site/src/components/FusionEmbed';
+
+## FusionEmbed
+
+`FusionEmbed` is a component designed to embed Autodesk Fusion CAD models into
+the page. It loads the CAD model only after the user requests it by clicking a
+link, thereby improving page load speed.
+
+It is not loaded by default, therefore it requires importing:
+
+```jsx
+import FusionEmbed from '@site/src/components/FusionEmbed';
+```
+
+Basic usage:
+
+```jsx
+<FusionEmbed
+  url="https://kellideas.autodesk360.com/shares/public/SH512d4QTec90decfa6e0b1bf29fda603dd6" \\ link to CAD model
+  embedTitle="Leo Rover 3D model" \\ iframe name
+/>
+```
+
+### FusionEmbed arguments
+
+`url="cad_model_url"` \
+Link to Fusion CAD model. It has to be in `kellideas.autodesk360.com` domain.
+
+`embedTitle="cad model description"` \
+Embedded CAD model description. Used mostly by browser bots (SEO).
+
+`loading="lazy" | "eager"` optional, default `lazy` \
+Define if overlay image should be lazy loaded or not. CAD model image should be
+eager loaded if it is in the user's initial viewport (visible during page
+loading). Otherwise it should be lazy loaded.
+
+`img="image_path"` optional, by default cube is displayed \
+
+An image displayed as the background if the user has not clicked to load the 3D
+model. It is hidden when the model is loaded. It is recommended to set this
+image as a preview to indicate which model will be shown after loading.
+
+`alt="alternative text"` required if `img` is set \
+Alternative text shown if image cannot be displayed.
+
+`img_width={number}` required if `img` is set \
+`img_height={number}` required if `img` is set \
+Real dimensions of the image in pixels.
+
+:::note
+
+Right now it is not possible to style this component using CSS.
+
+:::
+
+### FusionEmbed example
+
+```jsx
+<FusionEmbed
+  url="https://kellideas.autodesk360.com/shares/public/SH512d4QTec90decfa6e0b1bf29fda603dd6"
+  embedTitle="Leo Rover 3D model"
+  img="/img/robots/leo/leo-1.8-cad.webp"
+  alt="Isometric Leo Rover 3D model view"
+  img_width={1920}
+  img_height={1080}
+/>
+```
+
+Is rendered:
+
+<FusionEmbed
+  url="https://kellideas.autodesk360.com/shares/public/SH512d4QTec90decfa6e0b1bf29fda603dd6"
+  embedTitle="Leo Rover 3D model"
+  img="/img/robots/leo/leo-1.8-cad.webp"
+  alt="Isometric Leo Rover 3D model view"
+  img_width={1920}
+  img_height={1080}
+/>

@@ -12,7 +12,7 @@ keywords:
   - leo
   - rover
   - tutorial
-description: >
+description: >-
   Discover a step-by-step guide on setting up a line follower example for the
   stock Leo Rover, including creating a track and installing TensorFlow Lite.
 
@@ -218,7 +218,7 @@ with master being on the rover:
 cd <path_to_your_ros_workspace>
 source devel/setup.bash
 export ROS_IP=<your_ip_address_in_the_rovers_network>
-export ROS_MASTER_URI=http://master.localnet:11311
+export ROS_MASTER_URI=http://master.lan:11311
 ```
 
 Now, with the `color_mask` node running on the rover, run rqt on your computer
@@ -423,9 +423,9 @@ rosrun leo_example_line_follower prepare_data.py -t train_dir1 train_dir2 -v val
 
 Unlike roslaunch, rosrun commands run in your current working directory, so for
 example: \
-If you run the node in /home/pi/test directory and provide names for the -t and -v
-flags as train and valid, then the node will look for /home/pi/test/train and /home/pi/test/valid
-directories.
+If you run the node in /home/pi/test directory and provide names for the -t and
+-v flags as train and valid, then the node will look for /home/pi/test/train and
+/home/pi/test/valid directories.
 
 :::
 
