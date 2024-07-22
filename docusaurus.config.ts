@@ -236,10 +236,6 @@ const config: Config = {
             to: '/category/assembly-manuals',
           },
           {
-            from: '/docs/leo-rover/manuals/wheels-to-meb',
-            to: '/leo-rover/manuals/wheels-to-meb',
-          },
-          {
             from: '/docs/leo-rover/documentation/specification',
             to: '/leo-rover/documentation/specification',
           },
