@@ -1,0 +1,96 @@
+---
+title: Addon specification template
+sidebar_label: Addon specification template
+description: >-
+  Template of Addon specification, includes prerequisites,  required imports,
+  structure and content to fill.
+unlisted: true
+---
+
+{/* Don't copy this */}
+
+## Prerequisites and information
+
+1. Create folder with addon name in corresponding rover folder
+2. Inside newly created folder
+   - Create new [ProductPreview](/guidelines/components#productpreview) partial
+     markdown file. Name should look like this `_addon-name-product.mdx`
+   - Create new `.mdx` file **named the same as folder**
+3. When copying and filling this template, remove all comments
+   (`{/* comment example  */}` ).
+4. When copying directly from `.mdx` file, remove all code blocks (only fencing,
+   leave content).
+5. Inline code indicates that this fragment needs to be replaced with other
+   content, such as a React component, description, etc.
+
+## Template
+
+{/* Copy below this */}
+
+```yml title="Required front matter"
+---
+title:
+sidebar_label:
+sidebar_position: 1 # addon should have its own folder
+keywords: # 4-5
+  -
+description: # max 160 characters
+image:
+---
+```
+
+```jsx title="Required imports"
+import Product from './_addon_name-product.mdx'; // use product file that you created as prerequisite
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
+import FusionEmbed from '@site/src/components/FusionEmbed';
+```
+
+`Addon render, isometric view - ImageZoom`
+
+`Addon description - About 400 characters`
+
+## Referenced product
+
+`Product Preview - imported _addon_name-product.mdx`
+
+## Main parameters
+
+| Parameter             | Value |
+| :-------------------- | :---: |
+| Dimensions ( LxWxH )  |       |
+| Weight                |       |
+| Materials             |       |
+| Protection index      |       |
+| Operating temperature |       |
+| Operating voltage     |       |
+
+`Remove any non-applicable parameters and add any other parameters that are relevant.`
+
+## Dimensions
+
+`Technical drawing with main dimensions, without border - ThemedImageZoom`
+
+### CAD model
+
+`Fusion CAD model preview, with set image before loading - FusionEmbed`
+
+3D CAD model in neutral format is also available on our Google Drive:
+
+`Link to public Google Drive folder with STEP/STL files`
+
+```md title="Additional information - REMOVE THIS"
+Any other information relevant to the particular addon should be included as
+replacement of this codeblock.
+
+It includes sections for example:
+
+- safety procedures
+- diagrams
+- software information
+- user interface
+- charging procedures
+- payload
+
+etc.
+```

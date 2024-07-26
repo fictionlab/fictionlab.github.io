@@ -1,0 +1,75 @@
+## ImageZoom
+
+Component for adding photos. `ImageZoom` is included by default and does not
+require importing.
+
+Basic usage:
+
+```jsx
+<ImageZoom
+  src="/img/robots/leo/leo-rover.webp" // image path
+  alt="Leo Rover 1.8" // alternative text (if image cannot be displayed)
+  width="1000" // real image width
+  height="1000" // real image height
+/>
+```
+
+### Optional arguments
+
+`loading="lazy|eager"` \
+By default, lazy loading is applied to all images. While beneficial for
+non-visible images during page loading, it may not be suitable for visible ones.
+To disable lazy loading for specific images, add the `loading="eager"` attribute
+before the `src` attribute.
+
+`figStyle={{ css }}` \
+This attribute is utilized for custom styling of the figure that contains the
+image. It enables adjustments such as resizing the rendered width of the image.
+For CSS options and guidance, refer to the
+[W3Schools CSS tutorial](https://www.w3schools.com/css).
+
+Example:
+
+```jsx
+  figStyle={{
+    width: 400, // height is automatically adjusted
+  }}
+```
+
+`allowZoom={true|false}` \
+Determines whether the image is zoomable or not. Defaults to true.
+
+`caption="description of the image"` \
+Specifies the caption positioned below the image.
+
+### ImageZoom example
+
+```jsx
+<ImageZoom
+  loading="eager"
+  src="/img/robots/leo/leo-rover.webp"
+  alt="Leo Rover 1.8"
+  width="1000"
+  height="1000"
+  figStyle={{
+    width: 400,
+  }}
+  allowZoom={false}
+  caption="Leo Rover render"
+/>
+```
+
+Is rendered:
+
+<ImageZoom
+  loading="eager"
+  src="/img/robots/leo/leo-rover.webp"
+  alt="Leo Rover 1.8"
+  width="1000"
+  height="1000"
+  figStyle={{
+    width: 400,
+  }}
+  allowZoom={false}
+  caption="Leo Rover render"
+/>

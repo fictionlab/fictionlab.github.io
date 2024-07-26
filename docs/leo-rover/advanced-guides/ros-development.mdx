@@ -2,7 +2,7 @@
 title: ROS Development
 sidebar_label: ROS Development
 sidebar_position: 2
-description: >
+description: >-
   Detailed guide on ROS development for Leo Rover, covering topics like adding
   additional functionalities, building ROS packages and more.
 ---
@@ -576,10 +576,10 @@ external router (if you followed
 [Connect to the Internet tutorial](/leo-rover/guides/connect-to-network)).
 
 To properly communicate over the ROS network, your computer needs to be able to
-resolve the master.localnet hostname. Open a terminal on your computer and type:
+resolve the master.lan hostname. Open a terminal on your computer and type:
 
 ```bash
-getent hosts master.localnet
+getent hosts master.lan
 ```
 
 If you don't see any output, that means you cannot resolve the hostname.
@@ -590,7 +590,7 @@ through external router, add this line to the `/etc/hosts` file on your
 computer:
 
 ```bash
-10.0.0.1 master.localnet
+10.0.0.1 master.lan
 ```
 
 :::warning
@@ -601,7 +601,7 @@ of the Rover on your local network.
 :::
 
 If everything works, you should be able to ping the rover by it's hostname. To
-check it, type: `ping master.localnet`.
+check it, type: `ping master.lan`.
 
 Now, to be connected in ROS network, you need to set some environment variables.
 Start by sourcing the result space you are using:
@@ -613,7 +613,7 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 Specify the address of the master node:
 
 ```bash
-export ROS_MASTER_URI=http://master.localnet:11311
+export ROS_MASTER_URI=http://master.lan:11311
 ```
 
 And your IP on the network:
