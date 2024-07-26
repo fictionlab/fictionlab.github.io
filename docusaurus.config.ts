@@ -247,6 +247,34 @@ const config: Config = {
             from: '/docs/leo-rover/documentation/known-issues',
             to: '/leo-rover/documentation/known-issues',
           },
+          {
+            from: '/leo-rover/manuals/tools',
+            to: '/leo-rover/manuals/setup',
+          },
+          {
+            from: '/leo-rover/manuals/battery',
+            to: '/leo-rover/manuals/back-front-covers',
+          },
+          {
+            from: '/leo-rover/manuals/additional-quarter-and-front-cover',
+            to: '/leo-rover/manuals/back-front-covers',
+          },
+          {
+            from: '/leo-rover/manuals/meb-to-frame',
+            to: '/leo-rover/manuals/combining-subassemblies',
+          },
+          {
+            from: '/leo-rover/manuals/wheels-to-meb',
+            to: '/leo-rover/manuals/combining-subassemblies',
+          },
+          {
+            from: '/leo-rover/manuals/software',
+            to: '/leo-rover/manuals/boot-and-firmware',
+          },
+          {
+            from: '/leo-rover/manuals/final-touches',
+            to: '/leo-rover/manuals/combining-subassemblies',
+          },
         ],
       } satisfies ClientRedirectsOptions,
     ],
