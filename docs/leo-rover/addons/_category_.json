@@ -4,7 +4,8 @@
   "collapsible": true,
   "collapsed": true,
   "link": {
-    "title": "Addon overview",
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Leo Rover addons",
+    "slug": "leo-rover/addons"
   }
 }
