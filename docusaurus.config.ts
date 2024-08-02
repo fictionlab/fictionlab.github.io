@@ -274,6 +274,7 @@ const config: Config = {
           {
             from: '/leo-rover/manuals/final-touches',
             to: '/leo-rover/manuals/combining-subassemblies',
+          },
           // category redirects
           {
             from: '/category/rover-documentation',
