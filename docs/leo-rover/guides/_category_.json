@@ -1,9 +1,11 @@
 {
-    "label": "Guides",
-    "position": 7,
-    "collapsible": true,
-    "collapsed": true,
-    "link": {
-        "type": "generated-index"
-      }
+  "label": "Guides",
+  "position": 7,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Basic guides for Leo Rover",
+    "slug": "leo-rover/guides"
+  }
 }

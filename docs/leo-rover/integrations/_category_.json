@@ -4,7 +4,8 @@
   "collapsible": true,
   "collapsed": true,
   "link": {
-    "title": "Integrations overview",
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Leo Rover integrations",
+    "slug": "leo-rover/integrations"
   }
 }

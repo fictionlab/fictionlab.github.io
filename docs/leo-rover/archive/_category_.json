@@ -1,9 +1,11 @@
 {
-    "label": "Archive",
-    "position": 99,
-    "collapsible": true,
-    "collapsed": true,
-    "link": {
-        "type": "generated-index"
-      }
+  "label": "Archives",
+  "position": 99,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Leo Rover archives",
+    "slug": "leo-rover/archive"
+  }
 }
