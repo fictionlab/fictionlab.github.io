@@ -107,8 +107,10 @@ sudo apt-get update && sudo apt -y upgrade
 Make sure that your ROS is sourced:
 
 ```bash
-source /opt/ros/${ROS_DISTRO}/setup.bash
+source /opt/ros/<your_ros_distro>/setup.bash
 ```
+
+Replace `<your_ros_distro>` with installed ROS distribution (e.g. `noetic`).
 
 Install the essential packages:
 
@@ -262,7 +264,8 @@ command-line tools:
 Publish position command to the elbow joint:
 
 ```bash
-rostopic pub /wx250s/commands/joint_single interbotix_xs_msgs/JointSingleCommand "name: 'elbow' cmd: -0.5"
+rostopic pub /wx250s/commands/joint_single interbotix_xs_msgs/JointSingleCommand "name: 'elbow'
+cmd: -0.5"
 ```
 
 :::warning
@@ -380,7 +383,7 @@ The `interbotix_xsarm_joy` package provides the capability to control the
 movement of the arm (utilizing inverse kinematics) with a PS3, PS4 or an Xbox
 joystick.
 
-To launch the joy controller (using a ps4 gamepad), type:
+To launch the joy controller on your pc (using a ps4 gamepad), type:
 
 ```bash
 roslaunch interbotix_xsarm_joy xsarm_joy.launch robot_model:=wx250s launch_driver:=false controller:=ps4
@@ -403,7 +406,7 @@ MoveIt motion planning framework will allow us to plan and execute a
 collision-free trajectory to the destination pose of the end-effector. In order
 to use it the arm driver node must be using ros_control, therefore the driver
 launch file definition must be changed accordingly. To do this open robot launch
-file:
+file on the rover:
 
 ```bash
 sudo nano /etc/ros/robot.launch
@@ -427,12 +430,16 @@ to:
       <arg name="use_world_frame"             value="false"/>
       <arg name="use_rviz"                    value="false"/>
       <arg name="dof"                         value="6"/>
-      <arg name="use_actual"                  value="true">
+      <arg name="use_actual"                  value="true"/>
 </include>
 ```
 
 This will make the driver launch alongside with MoveIt and ros_control on
-startup.
+startup. To launch the driver either restart the rover or type:
+
+```bash
+sudo systemctl restart leo
+```
 
 :::tip
 
@@ -453,7 +460,7 @@ to issues.
 To command MoveIt, you can launch rviz from your computer (not the rover):
 
 ```bash
-roslaunch interbotix_xsarm_moveit moveit_rviz.launch rviz_frame:=wx250s/base_link
+ROS_NAMESPACE=wx250s roslaunch interbotix_xsarm_moveit moveit_rviz.launch config:=true rviz_frame:=wx250s/base_link
 ```
 
 The MoveIt GUI should appear:
