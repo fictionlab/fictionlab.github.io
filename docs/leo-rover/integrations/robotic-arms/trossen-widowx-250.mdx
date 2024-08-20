@@ -22,6 +22,15 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 In this tutorial, we will show you how to integrate and remotely control the
 Trossen Robotics' WidowX 250 robotic arm.
 
+:::info
+
+This tutorial shows how to integrate the WidowX 250 6 DOF version with Leo
+Rover. If you have the 5 DOF version, the integration process stays mostly the
+same. The difference is the robot model name - for 5 DOF version it is `wx250`
+instead of `wx250s`. So make sure to adjust all of the steps accordingly.
+
+:::
+
 With 6 degrees of freedom and reach of 650mm WidowX 250 robotic arm is the
 biggest, and the most capable, robot arm we have ever tried to stick onto a Leo
 Rover.
@@ -109,73 +118,82 @@ if you have your own preferable method of editing files, feel free to use it.
 
 :::
 
-We need to make sure the U2D2 device is available at a fixed path on rover's
-system. To do this, you can add a rule to `udev`. Open a new `.rules` file with
-`nano`:
+:::info
+
+There is a way to install all of the software using a
+[script prepared by a manufacturer](https://docs.trossenrobotics.com/interbotix_xsarms_docs/ros_interface/ros1/software_setup.html#raspberry-pi-4b-arm64-architecture).
+This script streamlines the installation process, however a lot of non-essential
+packages are installed with it and if you want to minimize the amount of disk
+space required we recommend following the steps below.
+
+:::
+
+Make sure that your rover is connected to internet. If not follow the guide
+below.
+
+<LinkButton docId="leo-rover/guides/connect-to-network" />
+
+Update the system to ensure that the newest versions of the packages and
+repositories are used:
 
 ```bash
-sudo nano /etc/udev/rules.d/u2d2.rules
+sudo apt-get update && sudo apt -y upgrade
 ```
 
-and paste the following rule:
+Make sure that your ROS is sourced:
 
 ```bash
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", ENV{ID_MM_DEVICE_IGNORE}="1", ATTR{device/latency_timer}="1", SYMLINK+="ttyDXL"
+source /opt/ros/<your_ros_distro>/setup.bash
 ```
 
-To save the file, type **Ctrl+O** and **Enter** to confirm. Type **Ctrl+X** to
-exit nano.
+Replace `<your_ros_distro>` with installed ROS distribution (e.g. `noetic`).
 
-For the rule to take effect, reboot the system or just type:
+Install the essential packages:
 
 ```bash
+sudo apt-get install -yq curl git
+sudo apt-get install -yq python3-pip
+python3 -m pip install modern_robotics
+sudo apt-get install -yq python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+```
+
+Create a ROS workspace and clone the repositories:
+
+```bash
+mkdir -p /home/pi/interbotix_ws/src
+cd /home/pi/interbotix_ws/src
+git clone -b ${ROS_DISTRO} https://github.com/Interbotix/interbotix_ros_core.git
+git clone -b ${ROS_DISTRO} https://github.com/Interbotix/interbotix_ros_manipulators.git
+git clone -b ${ROS_DISTRO} https://github.com/Interbotix/interbotix_ros_toolboxes.git
+```
+
+By default Interbotix packages contain a CATKIN_IGNORE file which prevents them
+from being built. To build the packages for WidowX250, remove the following
+CATKIN_IGNORE files:
+
+```bash
+rm interbotix_ros_core/interbotix_ros_xseries/CATKIN_IGNORE interbotix_ros_manipulators/interbotix_ros_xsarms/CATKIN_IGNORE interbotix_ros_toolboxes/interbotix_rpi_toolbox/CATKIN_IGNORE interbotix_ros_toolboxes/interbotix_xs_toolbox/CATKIN_IGNORE interbotix_ros_toolboxes/interbotix_common_toolbox/interbotix_moveit_interface/CATKIN_IGNORE
+```
+
+We need to make sure the device is available at a fixed path on rover's system.
+To do this, you can copy a provided file that will add a rule to `udev`:
+
+```bash
+cd interbotix_ros_core/interbotix_ros_xseries/interbotix_xs_sdk
+sudo cp 99-interbotix-udev.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
-The device should now be available under `/dev/ttyDXL` path. You can check it by
-typing:
+Install ROS dependencies using `rosdep`:
 
 ```bash
-ls -l /dev/ttyDXL
-```
-
-To integrate the arm, you will need to build some additional ROS packages. Start
-by creating a local catkin workspace, if you don't have one yet:
-
-```bash
-mkdir -p ~/ros_ws/src
-cd ~/ros_wscatkin
-config --extend /opt/ros/${ROS_DISTRO}
-```
-
-The package sources for the arm are available on Github at the
-[interbotix_ros_arms](https://github.com/Interbotix/interbotix_ros_arms)
-repository. Clone the repository to your source space:
-
-```bash
-cd ~/ros_ws/src
-git clone https://github.com/Interbotix/interbotix_ros_arms.git
-```
-
-On the rover, you will only need the driver node for the arm (`interbotix_sdk`
-package) and the URDF description (`interbotix_descriptions` package). To speed
-up the building process, remove the unwanted packages:
-
-```bash
-mv interbotix_ros_arms/interbotix_descriptions ./
-mv interbotix_ros_arms/interbotix_sdk ./
-rm -rf interbotix_ros_arms
-```
-
-Now, use `rosdep` to install any dependent packages:
-
-```bash
-cd ~/ros_ws
+sudo rosdep init
 rosdep update
-rosdep install --from-paths src -iry
+cd /home/pi/interbotix_ws
+rosdep install --from-paths src --ignore-src -r -y
 ```
 
-and build the workspace:
+After the dependencies are installed, build the workspace:
 
 ```bash
 catkin build -j 1
@@ -188,16 +206,14 @@ point to your result space. Open the file in `nano`:
 sudo nano /etc/ros/setup.bash
 ```
 
-Comment out the first line by adding `#` sign and add the source command for
-your workspace. The first 2 lines should look essentially like this:
+Add below line to this file:
 
 ```bash
-# source /opt/ros/melodic/setup.bash
-source /home/pi/ros_ws/devel/setup.bash
+source /home/pi/interbotix_ws/devel/setup.bash
 ```
 
-Now, to add the arm's driver to the rover's launch file, open the `robot.launch`
-file:
+Now, to add the configured arm's driver to the rover's launch file, open the
+`robot.launch` file:
 
 ```bash
 sudo nano /etc/ros/robot.launch
@@ -206,24 +222,20 @@ sudo nano /etc/ros/robot.launch
 and paste these lines somewhere between the `<launch>` tags:
 
 ```xml
-<include file="$(find interbotix_sdk)/launch/arm_run.launch">
-	<arg name="port"                        value="/dev/ttyDXL"/>
-	<arg name="robot_name"                  value="wx250"/>
-	<arg name="use_default_rviz"            value="false"/>
-	<arg name="use_world_frame"             value="false"/>
-	<arg name="use_moveit"                  value="true"/>
-	<arg name="arm_operating_mode"          value="position"/>
-	<arg name="arm_profile_velocity"        value="131"/>
-	<arg name="arm_profile_acceleration"    value="15"/>
-	<arg name="gripper_operating_mode"      value="position"/>
-	<arg name="use_time_based_profile"      value="false"/>
+<include file="$(find interbotix_xsarm_control)/launch/xsarm_control.launch">
+      <arg name="robot_model"                 value="wx250s"/>
+      <arg name="use_world_frame"             value="false"/>
+      <arg name="use_rviz"                    value="false"/>
 </include>
 ```
+
+This will start the arm driver node with the specified parameters on rover
+startup.
 
 :::info
 
 You can learn more about the driver's parameters and functionalities at the
-[interbotix_sdk README page](https://github.com/Interbotix/interbotix_ros_arms/tree/master/interbotix_sdk).
+[interbotix_xsarm_control documentation](https://docs.trossenrobotics.com/interbotix_xsarms_docs/ros1_packages/arm_control.html).
 
 :::
 
@@ -237,14 +249,17 @@ sudo nano /etc/ros/urdf/robot.urdf.xacro
 and paste these lines somewhere between the `<robot>` tags:
 
 ```xml
-<link name="wx250/base_link"/>
+<link name="wx250s/base_link"/>
 
 <joint name="arm_joint" type="fixed">
   <origin xyz="0.043 0 -0.001"/>
   <parent link="base_link"/>
-  <child link="wx250/base_link"/>
+  <child link="wx250s/base_link"/>
 </joint>
 ```
+
+Make sure that the origin coordinates are set correctly to match the arm's
+position on the rover.
 
 :::info
 
@@ -263,38 +278,58 @@ the other nodes. You can manually restart the running nodes by typing:
 sudo systemctl restart leo
 ```
 
+:::warning
+
+If power to the arm is cut (e.g. when the rover is turned off) all of the arm's
+motors will be torqued off. This means that the arm will collapse, so manually
+hold the arm or place it in a secure position before turning off the rover.
+
+:::
+
 ## Examples
 
 ### Controlling the arm
 
 Now that you have the driver running, you should see the new ROS topics and
-services under the `/wx250` namespace. For a full description of the ROS API,
+services under the `/wx250s` namespace. For a full description of the ROS API,
 visit the
-[interbotix_sdk README page](https://github.com/Interbotix/interbotix_ros_arms/tree/master/interbotix_sdk).
+[manufacturer documentation](https://docs.trossenrobotics.com/interbotix_xsarms_docs/ros_interface/ros1.html).
 You can test some of the features with the `rostopic` and `rosservice`
 command-line tools:
-
-Retrieve the information about the arm:
-
-```bash
-rosservice call /wx250/get_robot_info
-```
 
 Publish position command to the elbow joint:
 
 ```bash
-rostopic pub /wx250/single_joint/command interbotix_sdk/SingleCommand "{joint_name: elbow, cmd: -0.5}"
+rostopic pub /wx250s/commands/joint_single interbotix_xs_msgs/JointSingleCommand "name: 'elbow'
+cmd: -0.5"
 ```
+
+:::warning
+
+Be careful while commanding the arm to move. Be ready to stop publishing the
+movement command if the arm moves in an unexpected way.
+
+:::
 
 Turn off the torque on all joints:
 
 ```bash
-rosservice call /wx250/torque_joints_off
+rosservice call /wx250s/torque_enable "{cmd_type: 'group', name: 'all', enable: false}"
 ```
 
-The [interbotix_ros_arms](https://github.com/Interbotix/interbotix_ros_arms)
-repository contains some packages that will let you control the arm in different
-ways. To use them on your computer, you will need to have ROS installed:
+Turn the torque back on:
+
+```bash
+rosservice call /wx250s/torque_enable "{cmd_type: 'group', name: 'all', enable: true}"
+```
+
+All of the examples below require Interbotix ROS packages to be installed on
+your computer. To do that you can either repeat the steps from the previous
+section on your pc or use a
+[script provided by the manufacturer](https://docs.trossenrobotics.com/interbotix_xsarms_docs/ros_interface/ros1/software_setup.html#amd64-architecture).
+Here the script is recommended.
+
+Make sure that ROS in installed on your computer:
 
 <LinkButton
   to="/leo-rover/advanced-guides/install-ros-on-your-computer"
@@ -307,56 +342,11 @@ this, you can visit **Connecting other computer to ROS network** section of the
 
 <LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
-First, install some prerequisites:
+After the installation `source` the devel space to make the new packages visible
+in your shell environment:
 
 ```bash
-sudo apt install python-catkin-tools
-sudo -H pip install modern_robotics
-```
-
-:::note
-
-The `modern_robotics` python package is required to run the joystick control
-example.
-
-:::
-
-and create a catkin workspace:
-
-```bash
-mkdir -p ~/ros_ws/src
-cd ~/ros_ws
-catkin config --extend /opt/ros/${ROS_DISTRO}
-```
-
-Clone the `interbotix_ros_arms` and `leo_description` repositories into the
-source space:
-
-```bash
-cd ~/ros_ws/src
-git clone https://github.com/Interbotix/interbotix_ros_arms.git -b melodic
-git clone https://github.com/LeoRover/leo_description.git
-```
-
-Install dependencies using the `rosdep` tool:
-
-```bash
-cd ~/ros_ws
-rosdep update
-rosdep install --from-paths src -iy
-```
-
-and build the workspace:
-
-```bash
-catkin build
-```
-
-Now, `source` the devel space to make the new packages visible in your shell
-environment:
-
-```bash
-source ~/ros_ws/devel/setup.bash
+source ~/interbotix_ws/devel/setup.bash
 ```
 
 :::info
@@ -397,7 +387,7 @@ on, so it is convenient to add this line to the `~/.bashrc` file.
 />
 
 - Add another **RobotModel** display, but for the **Robot Description**
-  parameter choose `wx250/robot_description`.
+  parameter choose `wx250s/robot_description`.
 
 <ImageZoom
   src="/img/robots/leo/integrations/widowx-250/rviz-robot-description-wx250.webp"
@@ -415,21 +405,99 @@ The effect should look similar to this:
   height="628"
 />
 
+:::tip
+
+If the arm is not properly aligned with the rover you can go back to
+`/etc/ros/urdf/robot.urdf.xacro` file and adjust the `origin` coordinates of the
+`arm_joint`.
+
+:::
+
+### Using joystick to control the arm
+
+The `interbotix_xsarm_joy` package provides the capability to control the
+movement of the arm (utilizing inverse kinematics) with a PS3, PS4 or an Xbox
+joystick.
+
+To launch the joy controller on your pc (using a ps4 gamepad), type:
+
+```bash
+roslaunch interbotix_xsarm_joy xsarm_joy.launch robot_model:=wx250s launch_driver:=false controller:=ps4
+```
+
+If you are using a different controller, change the `controller` parameter to
+`ps3` or `xbox360`. `xbox360` setting will also work with the Xbox One
+controller.
+
+:::info
+
+You can find the button mappings on the
+[joystick_control docs page](https://docs.trossenrobotics.com/interbotix_xsarms_docs/ros1_packages/joystick_control.html).
+
+:::
+
 ### Planning the trajectory with MoveIt
 
 MoveIt motion planning framework will allow us to plan and execute a
-collision-free trajectory to the destination pose of the end-effector. To use
-it, first make sure you have the `use_moveit` parameter for the arm driver set
-to `true`:
-
-```xml title="/etc/ros/robot.launch"
-<arg name="use_moveit" value="true"/>
-```
-
-On your computer, type:
+collision-free trajectory to the destination pose of the end-effector. In order
+to use it the arm driver node must be using ros_control, therefore the driver
+launch file definition must be changed accordingly. To do this open robot launch
+file on the rover:
 
 ```bash
-roslaunch interbotix_moveit interbotix_moveit.launch robot_name:=wx250 rviz_frame:=wx250/base_link
+sudo nano /etc/ros/robot.launch
+```
+
+and change the lines added during installation (between the `<launch>` tags):
+
+```xml
+<include file="$(find interbotix_xsarm_control)/launch/xsarm_control.launch">
+      <arg name="robot_model"                 value="wx250s"/>
+      <arg name="use_world_frame"             value="false"/>
+      <arg name="use_rviz"                    value="false"/>
+</include>
+```
+
+to:
+
+```xml
+<include file="$(find interbotix_xsarm_moveit)/launch/xsarm_moveit.launch">
+      <arg name="robot_model"                 value="wx250s"/>
+      <arg name="use_world_frame"             value="false"/>
+      <arg name="use_rviz"                    value="false"/>
+      <arg name="dof"                         value="6"/>
+      <arg name="use_actual"                  value="true"/>
+</include>
+```
+
+If you are using a 5 DOF version of the arm, change the `dof` parameter to `5`.
+This will make the driver launch alongside with MoveIt and ros_control on
+startup. To launch the driver either restart the rover or type:
+
+```bash
+sudo systemctl restart leo
+```
+
+:::tip
+
+If you want to try launching MoveIt driver from cli on the rover, you can use
+the command below:
+
+```bash
+roslaunch interbotix_xsarm_moveit xsarm_moveit.launch robot_model:=wx250s use_world_frame:=false use_moveit_rviz:=false dof:=6 use_actual:=true
+```
+
+Just remember to remove (or comment) the arm driver include from autostart (in
+`/etc/ros/robot.launch`) and restart leo service (`sudo systemctl restart leo`),
+as without doing so two instances of the driver will be launched which may lead
+to issues.
+
+:::
+
+To command MoveIt, you can launch rviz from your computer (not the rover):
+
+```bash
+ROS_NAMESPACE=wx250s roslaunch interbotix_xsarm_moveit moveit_rviz.launch config:=true rviz_frame:=wx250s/base_link
 ```
 
 The MoveIt GUI should appear:
@@ -489,95 +557,6 @@ If you want to use the MoveIt capabilities in a Python script or a C++ program,
 please look at the
 [interbotix_moveit_interface](https://github.com/Interbotix/interbotix_ros_toolboxes/tree/main/interbotix_common_toolbox/interbotix_moveit_interface)
 example.
-
-### Using joystick to control the arm
-
-The `interbotix_joy_control` example package provides the capability to control
-the movement of the arm (utilizing inverse kinematics) with a PS3, PS4 or an
-Xbox 360 joystick.
-
-To use the package with the arm connected to your rover:
-
-- Change the parameters for the driver node. The joy control node uses the `pwm`
-  mode for the gripper and is more suited to work with the Time-Based-Profile.
-  Here are the settings that work well:
-
-```xml title="/etc/ros/robot.launch"
-<arg name="arm_operating_mode"          value="position"/>
-<arg name="arm_profile_velocity"        value="200"/>
-<arg name="arm_profile_acceleration"    value="200"/>
-<arg name="gripper_operating_mode"      value="pwm"/>
-<arg name="use_time_based_profile"      value="true"/>
-```
-
-- Connect the joystick to your computer. .
-- Start the joy_control.launch file:
-
-```bash
-roslaunch interbotix_joy_control joy_control.launch robot_name:=wx250 controller:=ps3 arm_run:=false
-```
-
-- Change controller to either `ps3`, `ps4` or `xbox360` depending on the
-  joystick you have connected.
-
-:::info
-
-You can find the instructions on the package's
-[README file](https://github.com/Interbotix/interbotix_ros_arms/blob/master/interbotix_examples/interbotix_joy_control/README.md)
-page.
-
-:::
-
-### Using the Python API
-
-Aside from the driver, the `interbotix_sdk` package also provides a Python API
-for manipulating the arm. It is designed to mainly work with the `position` mode
-for the arm, `pwm` mode for the gripper and the Time-Based-Profile. For a start,
-you can set the same parameters for the driver as in the previous example.
-
-There are some example scripts that demonstrate the use of the API at the
-`interbotix_examples/python_demos` directory.
-
-```bash
-cd ~/ros_ws/src/interbotix_ros_arms/interbotix_examples/python_demos
-```
-
-The `bartender.py` demo performs some pick, pour and place operations. To run
-it, first open the file in a text editor and search for this line:
-
-```python
-arm = InterbotixRobot(robot_name="wx250s", mrd=mrd)
-```
-
-Change wx250s to wx250 and then type on the terminal:
-
-```bash
-python bartender.py
-```
-
-:::warning
-
-Make sure that you are not running any other script that takes control of the
-arm simultaneously (e.g. the joy control node).
-
-:::
-
-If everything went right, you should see the arm in action.
-
-You can check the other files in the directory for more examples. To view the
-available functions in the API and their documentation, take a look at the
-[robot_manipulation.py](https://github.com/Interbotix/interbotix_ros_arms/blob/master/interbotix_sdk/src/interbotix_sdk/robot_manipulation.py)
-file.
-
-<div className="video-container">
-  <LiteYouTubeEmbed
-    id="XedSRNmOrFY"
-    params="autoplay=0&autohide=1&showinfo=0&rel=0"
-    poster="hqdefault"
-    title="Leo Rover Unboxing and Getting Started"
-    webp
-  />
-</div>
 
 ## What next?
 
