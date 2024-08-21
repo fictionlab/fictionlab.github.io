@@ -281,10 +281,6 @@ const config: Config = {
             to: '/leo-rover/documentation',
           },
           {
-            from: '/docs/category/assembly-manuals',
-            to: '/leo-rover/manuals',
-          },
-          {
             from: '/category/assembly-manuals',
             to: '/leo-rover/manuals',
           },
@@ -307,10 +303,6 @@ const config: Config = {
           {
             from: '/category/lidars',
             to: '/leo-rover/integrations/lidars',
-          },
-          {
-            from: '/category/positioning-systems',
-            to: '/leo-rover/integrations/positioning-systems',
           },
           {
             from: '/category/positioning-systems',
