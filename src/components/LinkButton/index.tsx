@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import isInternalUrl from '@docusaurus/isInternalUrl';
-import { useDocsSidebar, useDocById } from '@docusaurus/theme-common/internal';
+import { useDocsSidebar, useDocById } from '@docusaurus/plugin-content-docs/client';
 import type {
   PropSidebar,
   PropSidebarItemLink,
