@@ -123,6 +123,7 @@
         "roscpp",
         "rosdep",
         "rosdistro",
+        "rosinstall",
         "roslaunch",
         "roslibjs",
         "rosmsg",
@@ -166,9 +167,11 @@
         "WEIPU",
         "widowx",
         "wlan",
+        "wstool",
         "Xorg",
         "XRCE",
         "XRDP",
+        "xseries",
         "zoomable"
     ],
     "ignoreWords": [
