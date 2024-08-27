@@ -128,7 +128,7 @@ space required we recommend following the steps below.
 
 :::
 
-Make sure that your rover is connected to internet. If not follow the guide
+Make sure that your rover is connected to internet. If not, follow the guide
 below.
 
 <LinkButton docId="leo-rover/guides/connect-to-network" />
@@ -282,8 +282,11 @@ sudo systemctl restart leo
 :::warning
 
 If power to the arm is cut (e.g. when the rover is turned off) all of the arm's
-motors will be torqued off. This means that the arm will collapse, so manually
-hold the arm or place it in a secure position before turning off the rover.
+motors will be switched off. This means that the arm will collapse
+uncontrollably.
+
+To prevent it hold the arm manually or place it in a secure position before
+turning off the rover.
 
 :::
 
@@ -310,6 +313,9 @@ cmd: -0.5"
 Be careful while commanding individual arm joints. The driver doesn't prevent
 self-collisions in this mode of operation.
 
+Be ready to stop publishing the movement command if the arm moves in an
+unexpected way.
+
 :::
 
 Turn off the torque on all joints:
@@ -332,10 +338,7 @@ Here the script is recommended.
 
 Make sure that ROS in installed on your computer:
 
-<LinkButton
-  to="/leo-rover/advanced-guides/install-ros-on-your-computer"
-  title="Install ROS on your computer"
-/>
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
 
 and properly configured to communicate with the nodes running on the rover. For
 this, you can visit **Connecting other computer to ROS network** section of the
@@ -414,13 +417,13 @@ If the arm is not properly aligned with the rover you can go back to
 
 :::
 
-### Using joystick to control the arm
+### Using gamepad with joystick to control the arm
 
 The `interbotix_xsarm_joy` package provides the capability to control the
 movement of the arm (utilizing inverse kinematics) with a PS3, PS4 or an Xbox
-joystick.
+gamepad.
 
-To launch the joy controller on your pc (using a ps4 gamepad), type:
+To launch the joy controller on your pc (using a PS4 gamepad), type:
 
 ```bash
 roslaunch interbotix_xsarm_joy xsarm_joy.launch robot_model:=wx250s launch_driver:=false controller:=ps4
@@ -441,7 +444,7 @@ You can find the button mappings on the
 
 MoveIt motion planning framework will allow us to plan and execute a
 collision-free trajectory to the destination pose of the end-effector. In order
-to use it the arm driver node must be using ros_control, therefore the driver
+to use it the arm driver node must be using `ros_control`, therefore the driver
 launch file definition must be changed accordingly. To do this open robot launch
 file on the rover:
 
@@ -472,7 +475,7 @@ to:
 ```
 
 If you are using a 5 DOF version of the arm, change the `dof` parameter to `5`.
-This will make the driver launch alongside with MoveIt and ros_control on
+This will make the driver launch alongside with MoveIt and `ros_control` on
 startup. To launch the driver either restart the rover or type:
 
 ```bash
@@ -489,9 +492,9 @@ roslaunch interbotix_xsarm_moveit xsarm_moveit.launch robot_model:=wx250s use_wo
 ```
 
 Just remember to remove (or comment) the arm driver include from autostart (in
-`/etc/ros/robot.launch`) and restart leo service (`sudo systemctl restart leo`),
-as without doing so two instances of the driver will be launched which may lead
-to issues.
+`/etc/ros/robot.launch`) and restart `leo` service
+(`sudo systemctl restart leo`), as without doing so two instances of the driver
+will be launched which may lead to issues.
 
 :::
 
