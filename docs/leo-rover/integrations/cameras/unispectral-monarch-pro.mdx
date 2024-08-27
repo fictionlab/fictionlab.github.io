@@ -12,19 +12,21 @@ keywords:
 description: >-
   Learn how to connect a Monarch Pro multispectral camera to your Leo Rover for
   multispectral imaging.
-image:
+
+# image: TODO
 ---
 
 This tutorial will guide you through the process of connecting a Monarch Pro
 camera to your Leo Rover.
 
-The Monarch Pro is the ultimate camera for advanced imaging, offering detailed
-material analysis through hyperspectral imaging capabilities. It combines
-high-resolution spectral data capture with real-time processing to provide
-comprehensive insights beyond the visible spectrum. It can be used for material
-identification, crop health monitoring, and industrial inspection. With its
-ability to capture and analyze a wide range of wavelengths, the Monarch Pro
-enables precise analysis and decision-making across multiple industries.
+The [Monarch Pro](https://unispectral.com/monarch-pro/) is the ultimate camera
+for advanced imaging, offering detailed material analysis through hyperspectral
+imaging capabilities. It combines high-resolution spectral data capture with
+real-time processing to provide comprehensive insights beyond the visible
+spectrum. It can be used for material identification, crop health monitoring,
+and industrial inspection. With its ability to capture and analyze a wide range
+of wavelengths, the Monarch Pro enables precise analysis and decision-making
+across multiple industries.
 
 ## What to expect?
 
@@ -42,7 +44,7 @@ about the use of multispectral camera.
 
 - Monarch Pro Multispectral Camera
 - Any mounting solution
-- USB-A to USB-C wire
+- USB-A to USB-C cable
 
 ## Software integration
 
@@ -72,7 +74,7 @@ you need to source `/opt/ros/<your distro>/setup.bash`
 
 :::
 
-Now to install the package you just have to type:
+Now to install the package, you just have to type:
 
 ```bash
 catkin build
@@ -85,16 +87,16 @@ If the building process was successful, you are ready to run the wrapper.
 ### Running the node
 
 Running the installed software is really easy as we have prepared launch file
-for it. To run it, enter your ROS workspace and type
+for it. To run it, enter your ROS workspace and type:
 
 ```bash
 source devel/setup.bash
 roslaunch monarch_ros wrapper.launch
 ```
 
-The node provides a ROS service which called saves a spectral cube into images
-to specified directory. To trigger the image save you need to run in other
-terminal (with your ROS workspace sourced)
+The node provides a ROS service, which saves a spectral cube into images to
+specified directory. To trigger the image save you need to run in other terminal
+(with your ROS workspace sourced):
 
 ```bash
 rosservice call /monarch_pro_wrapper/save_images
@@ -105,7 +107,7 @@ the data is stored. Each call to the service results in creation of a separate
 directory named like `cube_<date>` inside the parent directory, which contains
 the saved files. By default the parent directory is set to your home directory.
 To change it you can either change the argument inside the `wrapper.launch`
-file, or you can set its value during launchig the program - for example:
+file, or you can set its value during launching the program - for example:
 
 ```bash
 roslaunch monarch_ros wrapper.launch data_path:="/<your>/<desired>/<path>"
@@ -113,10 +115,10 @@ roslaunch monarch_ros wrapper.launch data_path:="/<your>/<desired>/<path>"
 
 ### Configuring the node
 
-In the downloaded repository there is a config file with camera parameters. The
+In the downloaded repository, there is a config file with camera parameters. The
 parameters are loaded to the node automatically during the launch process. You
 can change the provided camera parameters to your desired values (available
-settings are `gain` and `exsposure fps`). To load them to the program and your
+settings are `gain` and `exposure fps`). To load them into the program and your
 camera, you need to restart the node.
 
 If you have ROS installed on your computer, you can also change the camera image
