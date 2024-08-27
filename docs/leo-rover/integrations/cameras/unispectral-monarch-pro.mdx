@@ -41,12 +41,8 @@ about the use of multispectral camera.
 ## List of components
 
 - Monarch Pro Multispectral Camera
-- Any mounting solution (eg. {/* TODO */})
+- Any mounting solution
 - USB-A to USB-C wire
-
-## Mechanical integration
-
-{/* TODO */}
 
 ## Software integration
 
@@ -82,72 +78,7 @@ Now to install the package you just have to type:
 catkin build
 ```
 
-### Adding camera model
-
-Your robot should be aware of where the sensor is located and what space it
-occupies. You can ensure it does that by creating a URDF model of the sensor.
-
-```xml title="/etc/ros/urdf/monarch.urdf.xacro"
-<?xml version="1.0"?>
-<robot>
-
-  <link name="monarch_link">
-    <visual>
-      <origin xyz="0 0 0.003"/>
-      <geometry>
-        <box size="0.079 0.086 0.006"/>
-      </geometry>
-      <material name="support">
-        <color rgba="0.5 0.5 0.5 1.0"/>
-      </material>
-    </visual>
-    <visual>
-      <origin xyz="0 0 0.023"/>
-      <geometry>
-        <cylinder radius="0.038" length="0.04"/>
-      </geometry>
-      <material name="lidar">
-        <color rgba="1.0 0.0 0.0 0.7"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0.003"/>
-      <geometry>
-        <box size="0.079 0.086 0.006"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0 0 0.023"/>
-      <geometry>
-        <cylinder radius="0.038" length="0.04"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="monarch_joint" type="fixed">
-    <origin xyz="0.0775 0 0"/>
-    <parent link="base_link"/>
-    <child link="monarch_link"/>
-  </joint>
-
-  <link name="monarch_frame"/>
-
-  <joint name="monarch_joint" type="fixed">
-    <origin xyz="0 0 0.0368" rpy="0 0 ${pi}"/>
-    <parent link="monarch_link"/>
-    <child link="monarch_frame"/>
-  </joint>
-
-</robot>
-```
-
-And including it in the description that is uploaded at boot.
-
-```xml title="/etc/ros/urdf/robot.urdf.xacro"
-<xacro:include filename="/etc/ros/urdf/monarch.urdf.xacro"/>
-```
-
-Now you are ready to run the wrapper.
+If the building process was successful, you are ready to run the wrapper.
 
 ## Examples
 
@@ -185,7 +116,7 @@ roslaunch monarch_ros wrapper.launch data_path:="/<your>/<desired>/<path>"
 In the downloaded repository there is a config file with camera parameters. The
 parameters are loaded to the node automatically during the launch process. You
 can change the provided camera parameters to your desired values (available
-settings are _gain_ and _esposure fps_). To load them to the program and your
+settings are `gain` and `exsposure fps`). To load them to the program and your
 camera, you need to restart the node.
 
 If you have ROS installed on your computer, you can also change the camera image
