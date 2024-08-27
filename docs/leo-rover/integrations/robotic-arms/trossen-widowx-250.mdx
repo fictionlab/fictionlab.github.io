@@ -82,7 +82,7 @@ the modified support plate designed for our robot, you can use screws and nuts
 to connect the arm to the rover's mounting plate.
 
 If you have the original support plate, you can get the model for 3D printing
-here (**addons** section):
+here:
 
 <LinkButton docId="leo-rover/integrations/addon-adapters" />
 
@@ -203,12 +203,13 @@ Once the packages have been built, you can edit the environmental setup file to
 point to your result space. Open the file in `nano`:
 
 ```bash
-sudo nano /etc/ros/setup.bash
+nano /etc/ros/setup.bash
 ```
-
-Add below line to this file:
+Comment out the first line by adding `#` sign and add the source command for
+your workspace. The first 2 lines should look essentially like this:
 
 ```bash
+#source /opt/ros/noetic/setup.bash
 source /home/pi/interbotix_ws/devel/setup.bash
 ```
 
@@ -216,7 +217,7 @@ Now, to add the configured arm's driver to the rover's launch file, open the
 `robot.launch` file:
 
 ```bash
-sudo nano /etc/ros/robot.launch
+nano /etc/ros/robot.launch
 ```
 
 and paste these lines somewhere between the `<launch>` tags:
@@ -243,7 +244,7 @@ You can also edit the robot's URDF file to connect the arm's base link to the
 rover's model. To do this, open the `robot.urdf.xacro` file:
 
 ```bash
-sudo nano /etc/ros/urdf/robot.urdf.xacro
+nano /etc/ros/urdf/robot.urdf.xacro
 ```
 
 and paste these lines somewhere between the `<robot>` tags:
@@ -306,8 +307,8 @@ cmd: -0.5"
 
 :::warning
 
-Be careful while commanding the arm to move. Be ready to stop publishing the
-movement command if the arm moves in an unexpected way.
+Be careful while commanding individual arm joints. The driver doesn't prevent
+self-collisions in this mode of operation.
 
 :::
 
@@ -445,7 +446,7 @@ launch file definition must be changed accordingly. To do this open robot launch
 file on the rover:
 
 ```bash
-sudo nano /etc/ros/robot.launch
+nano /etc/ros/robot.launch
 ```
 
 and change the lines added during installation (between the `<launch>` tags):
