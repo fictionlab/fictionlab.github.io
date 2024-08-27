@@ -1,0 +1,207 @@
+---
+title: Unispectral Monarch Pro
+sidebar_label: Unispectral Monarch Pro
+keywords:
+  - unispectral
+  - monarch
+  - multispectral
+  - camera
+  - integration
+  - leo
+  - example
+description: >-
+  Learn how to connect a Monarch Pro multispectral camera to your Leo Rover for
+  multispectral imaging.
+image:
+---
+
+This tutorial will guide you through the process of connecting a Monarch Pro
+camera to your Leo Rover.
+
+The Monarch Pro is the ultimate camera for advanced imaging, offering detailed
+material analysis through hyperspectral imaging capabilities. It combines
+high-resolution spectral data capture with real-time processing to provide
+comprehensive insights beyond the visible spectrum. It can be used for material
+identification, crop health monitoring, and industrial inspection. With its
+ability to capture and analyze a wide range of wavelengths, the Monarch Pro
+enables precise analysis and decision-making across multiple industries.
+
+## What to expect?
+
+After completing this tutorial, you will have successfully connected a Monarch
+Pro stereo camera to the Leo Rover in ROS, and you will possess basic knowledge
+about the use of multispectral camera.
+
+## Prerequisites
+
+<LinkButton docId="leo-rover/guides/ssh" />
+<LinkButton docId="leo-rover/guides/connect-to-network" />
+<LinkButton docId="leo-rover/advanced-guides/install-ros-on-your-computer" />
+
+## List of components
+
+- Monarch Pro Multispectral Camera
+- Any mounting solution (eg. {/* TODO */})
+- USB-A to USB-C wire
+
+## Mechanical integration
+
+{/* TODO */}
+
+## Software integration
+
+We have prepared special ROS wrapper for the unispectral's Monarch Pro camera.
+
+### Installing the packages
+
+First you have to download it into `src` directory of your ROS workspace:
+
+```bash
+cd <path_to_your_ros_workspace>/src
+git clone https://github.com/fictionlab/ros_monarch_pro.git
+```
+
+Having the source code, we need have installed all the required dependencies so
+the package will be installed successfully. To install the dependencies type:
+
+```bash
+source devel/setup.bash
+rosdep install --from-paths src -iry
+```
+
+:::note
+
+If this is your first package in the ROS workspace, or you haven't built it yet
+you need to source `/opt/ros/<your distro>/setup.bash`
+
+:::
+
+Now to install the package you just have to type:
+
+```bash
+catkin build
+```
+
+### Adding camera model
+
+Your robot should be aware of where the sensor is located and what space it
+occupies. You can ensure it does that by creating a URDF model of the sensor.
+
+```xml title="/etc/ros/urdf/monarch.urdf.xacro"
+<?xml version="1.0"?>
+<robot>
+
+  <link name="monarch_link">
+    <visual>
+      <origin xyz="0 0 0.003"/>
+      <geometry>
+        <box size="0.079 0.086 0.006"/>
+      </geometry>
+      <material name="support">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.023"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.04"/>
+      </geometry>
+      <material name="lidar">
+        <color rgba="1.0 0.0 0.0 0.7"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.003"/>
+      <geometry>
+        <box size="0.079 0.086 0.006"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 0.023"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="monarch_joint" type="fixed">
+    <origin xyz="0.0775 0 0"/>
+    <parent link="base_link"/>
+    <child link="monarch_link"/>
+  </joint>
+
+  <link name="monarch_frame"/>
+
+  <joint name="monarch_joint" type="fixed">
+    <origin xyz="0 0 0.0368" rpy="0 0 ${pi}"/>
+    <parent link="monarch_link"/>
+    <child link="monarch_frame"/>
+  </joint>
+
+</robot>
+```
+
+And including it in the description that is uploaded at boot.
+
+```xml title="/etc/ros/urdf/robot.urdf.xacro"
+<xacro:include filename="/etc/ros/urdf/monarch.urdf.xacro"/>
+```
+
+Now you are ready to run the wrapper.
+
+## Examples
+
+### Running the node
+
+Running the installed software is really easy as we have prepared launch file
+for it. To run it, enter your ROS workspace and type
+
+```bash
+source devel/setup.bash
+roslaunch monarch_ros wrapper.launch
+```
+
+The node provides a ROS service which called saves a spectral cube into images
+to specified directory. To trigger the image save you need to run in other
+terminal (with your ROS workspace sourced)
+
+```bash
+rosservice call /monarch_pro_wrapper/save_images
+```
+
+If the save was successful you will receive the path to parent directory, where
+the data is stored. Each call to the service results in creation of a separate
+directory named like `cube_<date>` inside the parent directory, which contains
+the saved files. By default the parent directory is set to your home directory.
+To change it you can either change the argument inside the `wrapper.launch`
+file, or you can set its value during launchig the program - for example:
+
+```bash
+roslaunch monarch_ros wrapper.launch data_path:="/<your>/<desired>/<path>"
+```
+
+### Configuring the node
+
+In the downloaded repository there is a config file with camera parameters. The
+parameters are loaded to the node automatically during the launch process. You
+can change the provided camera parameters to your desired values (available
+settings are _gain_ and _esposure fps_). To load them to the program and your
+camera, you need to restart the node.
+
+If you have ROS installed on your computer, you can also change the camera image
+with rqt plugin - dynamic reconfigure - which doesn't require node restart.
+
+Before starting any of the programs, make sure you completed the **Connecting
+another computer to ROS network** of **ROS development** tutorial:
+
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
+
+Now you can start `rqt`, and from `plugins` -> `configuration` choose
+`dynamic reconfigure` and then choose the `monarch_pro_wrapper` node. On the
+right side of the screen you will see the mentioned parameters - you can use the
+sliders and boxes next to them to change the values of the parameters.
+
+## What next?
+
+You can check our [Integrations page](/leo-rover/integrations) for more
+instructions.
