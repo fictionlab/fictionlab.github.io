@@ -6,7 +6,7 @@ keywords:
   - rover
   - getting started
 sidebar_position: 1
-description: >
+description: >-
   Get started with Rapha Rover: setup guide on contents, powering on, charging,
   internet connection, and SSH access for a seamless start with your new rover.
 image: /img/robots/rapha/rapha-rover.webp
@@ -139,29 +139,37 @@ Configuration settings will be updated for production-ready rovers.
 :::
 
 To connect to Rapha Rover's computer via SSH, you must first establish a
-connection with the on-board Wi-Fi network. The default credentials are as
-follows:
+connection with the on-board Wi-Fi network. The default credentials for the
+access points are as follows:
 
-- **SSID:** `RaphaRoverX` / `X` is the number of the rover
-- **Password:** `password`
+- **SSID 2.4 GHz:** `Rapha-XXXX-2G`
+- **SSID 5 GHz:** `Rapha-XXXX-5G`
+- **Password:** `fictionlab`
+
+:::note
+
+`XXXX` is the rover's serial number
+
+:::
 
 Once connected to the network, you can access the on-board devices using the
 following IP addresses and default credentials:
 
-- **Router (RUTX10) :** `10.0.0.1`
-- **On-board computer (UpBoard 7000):** `10.0.0.2`
-- **Controller (RaphaCore):** `10.0.0.3`
+- **Router (RUTX10) :** `10.10.0.1`
+- **Controller (RaphaCore):** `10.10.0.2`
+- **On-board computer (UpBoard 7000):** `10.10.0.3`
 
 To connect to the UpBoard via SSH, use your preferred SSH client and the
-provided credentials above.
+following credentials:
 
-- **user:** `Rapha`
-- **password:** `Rapha`
+- **user:** `rapha`
+- **password:** `rapha`
 
-To connect with router, go to `10.0.0.1` and login using credentials below:
+To connect with the router, go to http://10.10.0.1 and login using credentials
+below:
 
 - **user:** `admin`
-- **password:** `RaphaRover2024`
+- **password:** `Fictionlab1`
 
 ## Battery charging
 

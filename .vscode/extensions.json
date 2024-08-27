@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker",
+    "eamodio.gitlens",
+    "unifiedjs.vscode-mdx",
+    "esbenp.prettier-vscode"
+  ]
+}

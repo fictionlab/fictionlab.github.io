@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
+
+## ThemedImageZoom
+
+Modified `ImageZoom` component that provides the capability to alter images
+based on the theme of the site. It is not included by default and therefore
+requires importing.
+
+```jsx
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImageZoom from '@site/src/components/ThemedImageZoom';
+```
+
+Basic usage:
+
+```jsx
+<ThemedImageZoom
+  sources={{
+    light: useBaseUrl('/img/robots/leo/leo-half-contour-light.webp'), // image for light theme
+    dark: useBaseUrl('/img/robots/leo/leo-half-contour-dark.webp'), // image for dark theme
+  }}
+  alt="Leo rover 1.8 half contour image" // alternative text for both images
+  width="2300" // real width of the images
+  height="2400" // real height of the images
+/>
+```
+
+It accepts the same optional arguments as `ImageZoom`. Refer to
+[ImageZoom optional arguments](#optional-arguments). These arguments apply to
+both light and dark mode images.
+
+:::note
+
+Both images used in the `ThemedImageZoom` should have the same size and present
+the same content, with appearance adjusted for the selected theme.
+
+:::
+
+### ThemedImageZoom example
+
+```jsx
+<ThemedImageZoom
+  sources={{
+    light: useBaseUrl('/img/robots/leo/leo-half-contour-light.webp'),
+    dark: useBaseUrl('/img/robots/leo/leo-half-contour-dark.webp'),
+  }}
+  alt="Leo rover 1.8 half contour image"
+  width="2300"
+  height="2400"
+  caption="Leo Rover contour image"
+  figStyle={{
+    width: 300,
+  }}
+/>
+```
+
+Is rendered (use mode switcher on the navbar):
+
+<ThemedImageZoom
+  sources={{
+    light: useBaseUrl('/img/robots/leo/leo-half-contour-light.webp'),
+    dark: useBaseUrl('/img/robots/leo/leo-half-contour-dark.webp'),
+  }}
+  alt="Leo rover 1.8 half contour image"
+  width="2300"
+  height="2400"
+  caption="Leo Rover contour image"
+  figStyle={{
+    width: 300,
+  }}
+/>

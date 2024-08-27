@@ -4,7 +4,8 @@
   "collapsible": true,
   "collapsed": true,
   "link": {
-    "title": "Computers & Microcontrollers integrations",
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Computing devices",
+    "slug": "leo-rover/integrations/computing-devices"
   }
 }

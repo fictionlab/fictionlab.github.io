@@ -1,9 +1,11 @@
 {
-    "label": "Rover Documentation",
-    "position": 2,
-    "collapsible": true,
-    "collapsed": false,
-    "link": {
-        "type": "generated-index"
-      }
+  "label": "Documentation",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Leo Rover documentation",
+    "slug": "/leo-rover/documentation"
+  }
 }
