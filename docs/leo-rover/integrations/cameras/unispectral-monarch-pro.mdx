@@ -41,7 +41,7 @@ across multiple industries.
 
 After completing this tutorial, you will have successfully connected a Monarch
 Pro stereo camera to the Leo Rover in ROS, and you will possess basic knowledge
-about the use of multispectral camera.
+about the use of the multispectral camera.
 
 ## Prerequisites
 
@@ -61,6 +61,23 @@ We have prepared special ROS wrapper for the unispectral's Monarch Pro camera.
 
 ### Installing the packages
 
+:::note
+
+We are going to install the software on the rover, as the wrapper to work
+properly needs the cable connection with the camera. Therefore start with
+getting onto the rover with `ssh`. If you don't know how to do it, please follow
+this guide first:
+
+<LinkButton docId="leo-rover/guides/ssh" />
+
+Also for the installation you need to have local ROS workspace on the rover. If
+you don't have one, follow the **Building additional ROS packages** part of
+**ROS Development** tutorial:
+
+<LinkButton docId="leo-rover/advanced-guides/ros-development" />
+
+:::note
+
 First you have to download it into `src` directory of your ROS workspace:
 
 ```bash
@@ -68,11 +85,12 @@ cd <path_to_your_ros_workspace>/src
 git clone https://github.com/fictionlab/ros_monarch_pro.git
 ```
 
-Having the source code, we need have installed all the required dependencies so
-the package will be installed successfully. To install the dependencies type:
+Having the source code, we need to install all of the required dependencies so
+the package can be built successfully. To install the dependencies, type:
 
 ```bash
-source devel/setup.bash
+sudo apt update
+rosdep update
 rosdep install --from-paths src -iry
 ```
 
@@ -130,11 +148,11 @@ can change the provided camera parameters to your desired values (available
 settings are `gain` and `exposure fps`). To load them into the program and your
 camera, you need to restart the node.
 
-If you have ROS installed on your computer, you can also change the camera image
-with rqt plugin - dynamic reconfigure - which doesn't require node restart.
+If you have ROS installed on your computer, you can also change the camera
+wrapper parameters in runtime using the rqt dynamic reconfigure plugin.
 
 Before starting any of the programs, make sure you completed the **Connecting
-another computer to ROS network** of **ROS development** tutorial:
+another computer to ROS network** of **ROS Development** tutorial:
 
 <LinkButton docId="leo-rover/advanced-guides/ros-development" />
 
